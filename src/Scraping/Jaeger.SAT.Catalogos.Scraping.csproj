@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstracts\OriginResource.cs" />
     <Compile Include="Entities\ConstantOrigin.cs" />
     <Compile Include="DumpOrigins.cs" />
     <Compile Include="Entities\Review.cs" />

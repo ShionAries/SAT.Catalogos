@@ -13,15 +13,15 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
         }
 
         public UrlResponse Headers(string url) {
-            var response = this.obtainResponse("HEAD", url);
+            var response = this.ObtainResponse("HEAD", url);
             return this.CreateUrlResponseFromResponse(response, url);
         }
 
         public UrlResponse Get(string url, string destinacion) {
-            var response = this.obtainResponse("GET", url);
+            var response = this.ObtainResponse("GET", url);
             if (response.StatusCode == HttpStatusCode.OK && !string.IsNullOrEmpty(destinacion)) {
-                using (FileStream destination1 = new FileStream(destinacion, FileMode.Create, FileAccess.Write))
-                    response.GetResponseStream().CopyTo((Stream)destination1);
+                if (this.PutFileContent(response, destinacion) == false)
+                    Console.WriteLine("Sin archivo");
             }
 
             return this.CreateUrlResponseFromResponse(response, destinacion);
@@ -33,15 +33,12 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             return urlResponse;
         }
 
-        private HttpWebResponse obtainResponse(string method, string url) {
-            //Console.WriteLine("Esperando 10 seg.");
-            //System.Threading.Thread.Sleep(10000);
+        private HttpWebResponse ObtainResponse(string method, string url) {
             Console.WriteLine("Iniciando request: " + url);
             HttpWebRequest webRequest;
             HttpWebResponse response;
             webRequest = this.RequestDefault(url);
             webRequest.Method = method;
-            //webRequest.ContentType = "application/x-www-form-urlencoded; charset=utf-8";
             webRequest.Headers.Add(HttpRequestHeader.Cookie, this.sessionCookie);
             try {
                 response = (HttpWebResponse)webRequest.GetResponse();
@@ -69,6 +66,17 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             webRequest.Headers.Set("Upgrade-Insecure-Requests", "1");
             webRequest.Headers.Set(HttpRequestHeader.Te, "Trailers");
             return webRequest;
+        }
+
+        private bool PutFileContent(HttpWebResponse response, string destinacion) {
+            try {
+                using (FileStream fileStream = new FileStream(destinacion, FileMode.Create, FileAccess.Write))
+                    response.GetResponseStream().CopyTo((Stream)fileStream);
+            } catch (Exception ex) {
+                Console.WriteLine(ex.Message); 
+                return false;
+            }
+            return true;
         }
     }
 }

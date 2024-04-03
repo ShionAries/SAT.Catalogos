@@ -1,4 +1,4 @@
-* ***
+*** **********************************************************************
    Listado de contribuyentes
    (Artículo 69 del Código Fiscal de la Federación)
    Información actualizada al 19 de Enero de 2024.
@@ -6,6 +6,7 @@
  
 Artículo 69, último párrafo del CFF
 El Servicio de Administración Tributaria publicará en su página de Internet el nombre, denominación o razón social y clave del registro federal de contribuyentes de aquéllos que se ubiquen en alguno de los supuestos a los que se refiere el párrafo anterior. Los contribuyentes que estuvieran inconformes con la publicación de sus datos, podrán llevar a cabo el procedimiento de aclaración que el Servicio de Administración Tributaria determine mediante reglas de carácter general, en el cual podrán aportar las pruebas que a su derecho convenga. La autoridad fiscal deberá resolver el procedimiento en un plazo de tres días, contados a partir del día siguiente al que se reciba la solicitud correspondiente y, en caso de aclararse dicha situación, el Servicio de Administración Tributaria procederá a eliminar la información publicada que corresponda.
+********************************************************************** ***
  
 Archivos disponibles:
 Documento técnico y normativo
@@ -46,4 +47,3 @@ http://omawww.sat.gob.mx/cifras_sat/Documents/No%20localizados.csv
 Sentencias
 http://omawww.sat.gob.mx/cifras_sat/Documents/Sentencias.csv
 
-$H3r4.790417000

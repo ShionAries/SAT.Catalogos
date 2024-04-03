@@ -1,9 +1,5 @@
 ﻿namespace Jaeger.SAT.Catalogos.Scraping.Entities {
     public class ReviewStatus {
-        //protected internal string status;
-        //public const string UP_TO_DATE = "UP-TO-DATE";
-        //public const string NOT_FOUND = "NOT-FOUND";
-        //public const string NOT_UPDATED = "NOT-UPDATED";
         protected internal StatusEnum _Status;
 
         public enum StatusEnum {
@@ -16,34 +12,31 @@
             this._Status = status;
         }
 
-        //public ReviewStatus(string status) { }
-
-        public ReviewStatus uptodate() {
+        public ReviewStatus Uptodate() {
             this._Status = StatusEnum.UpToDate;
             return this;
         }
 
-        public ReviewStatus notFound() {
+        public ReviewStatus NotFound() {
             this._Status = StatusEnum.NotFound;
             return this;
         }
 
-        public ReviewStatus notUpdated() {
+        public ReviewStatus NotUpdated() {
             this._Status = StatusEnum.NotUpdated;
             return this;
         }
 
-        public bool isUptodate() {
+        public bool IsUptodate() {
             return this._Status == StatusEnum.UpToDate;
         }
 
-        public bool isNotFound() {
+        public bool IsNotFound() {
             return this._Status == StatusEnum.NotFound;
         }
 
-        public bool isNotUpdated() {
+        public bool IsNotUpdated() {
             return this._Status == StatusEnum.NotUpdated;
         }
-
     }
 }

@@ -15,16 +15,16 @@ namespace Jaeger.SAT.Catalogos.Scraping {
         }
 
         public void Run() {
-            this.Origins = OriginsIO.DeSerialize();// new DumpOrigins().Origins;
+            this.Origins = new DumpOrigins().Origins;
             this.resourcesGateway = new WebResourcesGateway();
             var reviewers = new Reviewers().CreateWithDefaultReviewers(this.resourcesGateway);
             var reviews = reviewers.Review(Origins);
-            var notFoundReviews = reviews.Where(it => it.Status.isNotFound()).ToList();
-            var notUpdatedReviews = reviews.Where(it => it.Status.isNotUpdated()).ToList();
-            var upToDateReviews = reviews.Where(it => it.Status.isUptodate()).ToList();
+            var notFoundReviews = reviews.Where(it => it.Status.IsNotFound()).ToList();
+            var notUpdatedReviews = reviews.Where(it => it.Status.IsNotUpdated()).ToList();
+            var upToDateReviews = reviews.Where(it => it.Status.IsUptodate()).ToList();
 
             foreach (var item in upToDateReviews) {
-                Console.WriteLine(string.Format("El origen {0} desde {1} para {2}s está actualizado", item.Origin.Name, item.Origin.DownloadUrl, item.Origin.DestinationFilename));
+                Console.WriteLine(string.Format("El origen {0} desde {1} para {2} está actualizado", item.Origin.Name, item.Origin.DownloadUrl, item.Origin.DestinationFilename));
             }
 
             foreach (var item in notUpdatedReviews) {

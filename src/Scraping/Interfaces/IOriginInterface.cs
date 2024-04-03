@@ -28,7 +28,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Interfaces {
         /// </summary>
         string DownloadUrl { get; set; }
         IOriginInterface WithDownloadUrl(string downloadUrl);
-        IOriginInterface withLastModified(DateTime? lastModified);
+        IOriginInterface WithLastModified(DateTime? lastModified);
         bool HasLastVersion();
         bool HasDownloadUrl();
     }

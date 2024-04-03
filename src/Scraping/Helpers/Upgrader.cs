@@ -13,19 +13,19 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             this.destinationPath = destinationPath;
         }
 
-        protected string buildPath(string filename) {
+        protected string BuildPath(string filename) {
             return System.IO.Path.Combine(destinationPath, filename);
         }
 
         public IOriginInterface upgradeReview(Review review) {
             var origin = review.Origin;
-            var destination = this.buildPath(origin.DestinationFilename);
-            if (!review.Status.isNotUpdated()) {
+            var destination = this.BuildPath(origin.DestinationFilename);
+            if (!review.Status.IsNotUpdated()) {
                 return origin;
             }
             Console.WriteLine($"Actualizando {origin.Name} desde {origin.DownloadUrl} en {destination}");
             var urlResponse = this.gateway.Get(origin.DownloadUrl, destination);
-            return origin.withLastModified(urlResponse.LastModified);
+            return origin.WithLastModified(urlResponse.LastModified);
         }
 
         public List<IOriginInterface> upgradeReviews(List<Review> reviews) {
