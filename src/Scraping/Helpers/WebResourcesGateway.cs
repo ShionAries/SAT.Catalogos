@@ -43,9 +43,8 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             try {
                 response = (HttpWebResponse)webRequest.GetResponse();
             } catch (WebException we) {
-                var resp = we.Response as HttpWebResponse;
                 Console.WriteLine(we.Message);
-                if (resp == null) {
+                if (!(we.Response is HttpWebResponse resp)) {
                     throw;
                 }
                 return resp;
@@ -55,7 +54,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
         }
 
         private HttpWebRequest RequestDefault(string url) {
-            HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(url);
+            HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(new Uri(url));
             webRequest.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
             webRequest.AllowAutoRedirect = true;
             webRequest.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko/20100101 Firefox/67.0";

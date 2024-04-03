@@ -19,6 +19,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
         /// <summary>
         /// obtener o establecer URL de descarga del archivo
         /// </summary>
+        [DataMember]
         public override string DownloadUrl { get; set; }
 
         #region metodos publicos

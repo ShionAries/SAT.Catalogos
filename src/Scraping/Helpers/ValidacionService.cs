@@ -34,7 +34,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
         public static bool RFC(string pRFC) {
             if (pRFC == null)
                 return false;
-            return !Regex.IsMatch(pRFC, "^[a-zA-Z&ñÑ]{3,4}(([0-9]{2})([0][13456789]|[1][012])([0][1-9]|[12][\\d]|[3][0])|([0-9]{2})([0][13578]|[1][02])([0][1-9]|[12][\\d]|[3][01])|([02468][048]|[13579][26])([0][2])([0][1-9]|[12][\\d])|([0-9]{2})([0][2])([0][1-9]|[1][\\d]|[2][0-8]))(\\w{2}[A|a|0-9]{1})$") ? false : true;
+            return Regex.IsMatch(pRFC, "^[a-zA-Z&ñÑ]{3,4}(([0-9]{2})([0][13456789]|[1][012])([0][1-9]|[12][\\d]|[3][0])|([0-9]{2})([0][13578]|[1][02])([0][1-9]|[12][\\d]|[3][01])|([02468][048]|[13579][26])([0][2])([0][1-9]|[12][\\d])|([0-9]{2})([0][2])([0][1-9]|[1][\\d]|[2][0-8]))(\\w{2}[A|a|0-9]{1})$");
         }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
         public static bool CURP(string pCURP) {
             if (pCURP == null)
                 return false;
-            return new Regex("^[A-Z][A,E,I,O,U,X][A-Z]{2}[0-9]{2}[0-1][0-9][0-3][0-9][M,H][A-Z]{2}[B,C,D,F,G,H,J,K,L,M,N,Ñ,P,Q,R,S,T,V,W,X,Y,Z]{3}[0-9,A-Z][0-9]", RegexOptions.IgnoreCase).Match(pCURP).Captures.Count != 0 ? true : false;
+            return new Regex("^[A-Z][A,E,I,O,U,X][A-Z]{2}[0-9]{2}[0-1][0-9][0-3][0-9][M,H][A-Z]{2}[B,C,D,F,G,H,J,K,L,M,N,Ñ,P,Q,R,S,T,V,W,X,Y,Z]{3}[0-9,A-Z][0-9]", RegexOptions.IgnoreCase).Match(pCURP).Captures.Count != 0;
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
         /// <returns>verdadero si coincide con la expresion regular</returns>
         public static bool UUID(string pUUID) {
             if (pUUID != null) {
-                return !Regex.IsMatch(pUUID, "[a-f0-9A-F]{8}-[a-f0-9A-F]{4}-[a-f0-9A-F]{4}-[a-f0-9A-F]{4}-[a-f0-9A-F]{12}") ? false : true;
+                return Regex.IsMatch(pUUID, "[a-f0-9A-F]{8}-[a-f0-9A-F]{4}-[a-f0-9A-F]{4}-[a-f0-9A-F]{4}-[a-f0-9A-F]{12}");
             }
             return false;
         }
@@ -81,7 +81,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
         /// <returns>verdadero si conincide con la expresion regular</returns>
         public static bool CodigoPostal(string pCodigoPostal) {
             if (pCodigoPostal != null)
-                return !Regex.IsMatch(pCodigoPostal, "^[0-9]{5,5}([-]?[0-9]{4,4})?$") ? false : true;
+                return Regex.IsMatch(pCodigoPostal, "^[0-9]{5,5}([-]?[0-9]{4,4})?$");
             return false;
         }
 

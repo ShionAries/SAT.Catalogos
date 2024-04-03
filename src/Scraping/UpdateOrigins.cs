@@ -8,14 +8,22 @@ namespace Jaeger.SAT.Catalogos.Scraping {
     public class UpdateOrigins {
         private List<IOriginInterface> Origins = new List<IOriginInterface>();
         private WebResourcesGateway resourcesGateway;
-        private string getWorkingFolder;
+        protected internal string getWorkingFolder;
 
-        public UpdateOrigins() {
-            this.getWorkingFolder = @"C:\Jaeger\Jaeger.Temporal";
+        public UpdateOrigins(string workingFolder = @"C:\Jaeger\Jaeger.Temporal") {
+            this.getWorkingFolder = workingFolder;
         }
 
         public void Run() {
-            this.Origins = new DumpOrigins().Origins;
+            // cargar datos de los origenes
+            this.Origins = new OriginsIO().DeSerialize();
+
+            // si es nulo entonces cargamos los datos por default
+            if (this.Origins == null) {
+                Console.WriteLine("Cargando origenes del local");
+                this.Origins = new DumpOrigins().Origins;
+            }
+
             this.resourcesGateway = new WebResourcesGateway();
             var reviewers = new Reviewers().CreateWithDefaultReviewers(this.resourcesGateway);
             var reviews = reviewers.Review(Origins);
@@ -48,8 +56,8 @@ namespace Jaeger.SAT.Catalogos.Scraping {
             }
 
             var upgrader = new Upgrader(this.resourcesGateway, this.getWorkingFolder);
-            var recentOrigins = upgrader.upgradeReviews(reviews);
-            OriginsIO.Serialize(recentOrigins);
+            var recentOrigins = upgrader.UpgradeReviews(reviews);
+            new OriginsIO().Serialize(recentOrigins);
         }
     }
 }

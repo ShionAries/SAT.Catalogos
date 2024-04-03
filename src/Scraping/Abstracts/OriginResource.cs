@@ -35,6 +35,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Abstracts {
         /// <summary>
         /// obtener o establecer URL de descarga del archivo
         /// </summary>
+        [DataMember]
         public abstract string DownloadUrl {  get; set; }
 
         /// <summary>
@@ -43,8 +44,10 @@ namespace Jaeger.SAT.Catalogos.Scraping.Abstracts {
         [DataMember]
         public string DestinationFilename { get; set; }
 
+        [DataMember]
         public string LinkText { get; set; }
 
+        [DataMember]
         public int LinkPosition { get; set; }
         #endregion
     }

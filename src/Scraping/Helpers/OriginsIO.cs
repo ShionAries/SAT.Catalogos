@@ -6,12 +6,15 @@ using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 using Jaeger.SAT.Catalogos.Scraping.Entities;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
-    public static class OriginsIO {
-        private static DataContractSerializer _DataSource;
+    public class OriginsIO {
+        private DataContractSerializer _DataSource;
+        protected string filePath = @"origins.xml";
 
-        public static string filePath = @"D:\bitbucket\github\SAT.Catalogos\tester\Tester\bin\Debug\origins.xml";
+        public OriginsIO(string workingFolder = @"C:\Jaeger\Jaeger.Temporal") {
+            this.filePath = Path.Combine(workingFolder, filePath);
+        }
 
-        public static void Serialize(List<IOriginInterface> TheIAnimals) {
+        public void Serialize(List<IOriginInterface> TheIAnimals) {
             // see note below
             _DataSource = new DataContractSerializer(typeof(List<IOriginInterface>), new List<Type> { typeof(ConstantOrigin), typeof(ScrapingOrigin) });
 
@@ -20,7 +23,8 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             }
         }
 
-        public static List<IOriginInterface> DeSerialize() {
+        public List<IOriginInterface> DeSerialize() {
+            if (!File.Exists(filePath)) { return null; }
             _DataSource = new DataContractSerializer(typeof(List<IOriginInterface>), new List<Type> { typeof(ConstantOrigin), typeof(ScrapingOrigin) });
 
             List<IOriginInterface> myOrigins;

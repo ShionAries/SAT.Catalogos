@@ -6,8 +6,8 @@ using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
     internal class Upgrader {
         public const string DEFAULT_ORIGINS_FILENAME = "origins.xml";
-        private IResourcesGatewayInterface gateway;
-        private string destinationPath;
+        private readonly IResourcesGatewayInterface gateway;
+        private readonly string destinationPath;
         public Upgrader(IResourcesGatewayInterface gateway, string destinationPath) {
             this.gateway = gateway;
             this.destinationPath = destinationPath;
@@ -17,7 +17,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             return System.IO.Path.Combine(destinationPath, filename);
         }
 
-        public IOriginInterface upgradeReview(Review review) {
+        public IOriginInterface UpgradeReview(Review review) {
             var origin = review.Origin;
             var destination = this.BuildPath(origin.DestinationFilename);
             if (!review.Status.IsNotUpdated()) {
@@ -28,10 +28,10 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             return origin.WithLastModified(urlResponse.LastModified);
         }
 
-        public List<IOriginInterface> upgradeReviews(List<Review> reviews) {
+        public List<IOriginInterface> UpgradeReviews(List<Review> reviews) {
             var origins = new List<IOriginInterface>();
             foreach (Review review in reviews) {
-                origins.Add(upgradeReview(review));
+                origins.Add(UpgradeReview(review));
             }
             return origins;
         }

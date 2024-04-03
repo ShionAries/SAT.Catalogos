@@ -54,7 +54,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
         }
 
         public string ResolveHtmlToLink(UrlResponse response, string linkText, int linkPosition) {
-            return ScrapingReviewerLinkExtractor.fromUrlResponse(response, linkText);
+            return ScrapingReviewerLinkExtractor.FromUrlResponse(response, linkText, linkPosition);
         }
     }
 }
