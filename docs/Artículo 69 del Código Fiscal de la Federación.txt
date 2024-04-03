@@ -1,0 +1,49 @@
+* ***
+   Listado de contribuyentes
+   (Artículo 69 del Código Fiscal de la Federación)
+   Información actualizada al 19 de Enero de 2024.
+   http://omawww.sat.gob.mx/cifras_sat/Paginas/datos/vinculo.html?page=ListCompleta69.html
+ 
+Artículo 69, último párrafo del CFF
+El Servicio de Administración Tributaria publicará en su página de Internet el nombre, denominación o razón social y clave del registro federal de contribuyentes de aquéllos que se ubiquen en alguno de los supuestos a los que se refiere el párrafo anterior. Los contribuyentes que estuvieran inconformes con la publicación de sus datos, podrán llevar a cabo el procedimiento de aclaración que el Servicio de Administración Tributaria determine mediante reglas de carácter general, en el cual podrán aportar las pruebas que a su derecho convenga. La autoridad fiscal deberá resolver el procedimiento en un plazo de tres días, contados a partir del día siguiente al que se reciba la solicitud correspondiente y, en caso de aclararse dicha situación, el Servicio de Administración Tributaria procederá a eliminar la información publicada que corresponda.
+ 
+Archivos disponibles:
+Documento técnico y normativo
+ 
+Cancelados
+http://omawww.sat.gob.mx/cifras_sat/Documents/Cancelados.csv
+
+Reducción de multas (Artículo 74 del Código Fiscal de la Federación)
+http://omawww.sat.gob.mx/cifras_sat/Documents/ReduccionArt74CFF.csv
+ 
+Condonados de concurso mercantil (Artículo 146B del Código Fiscal de la Federación)
+http://omawww.sat.gob.mx/cifras_sat/Documents/Condonadosart146BCFF.csv
+ 
+Reducción de recargos (Artículo 21 del Código Fiscal de la Federación)
+http://omawww.sat.gob.mx/cifras_sat/Documents/Condonadosart21CFF.csv
+
+Condonados por decreto (Del 22 de enero y 26 de marzo de 2015)
+http://omawww.sat.gob.mx/cifras_sat/Documents/CondonadosporDecreto.csv
+ 
+Condonados del 01 de enero de 2007 al 04 de mayo de 2015
+http://omawww.sat.gob.mx/cifras_sat/Documents/Condonados_07_15.csv
+ 
+Cancelados Artículo 146A del 01 de enero de 2007 al 04 de mayo de 2015
+http://omawww.sat.gob.mx/cifras_sat/Documents/Cancelados_07_15.csv
+ 
+Retorno de inversiones
+http://omawww.sat.gob.mx/cifras_sat/Documents/Retornoinversiones.csv
+ 
+Exigibles
+http://omawww.sat.gob.mx/cifras_sat/Documents/Exigibles.csv
+ 
+Firmes
+http://omawww.sat.gob.mx/cifras_sat/Documents/Firmes.csv
+ 
+No localizados
+http://omawww.sat.gob.mx/cifras_sat/Documents/No%20localizados.csv
+ 
+Sentencias
+http://omawww.sat.gob.mx/cifras_sat/Documents/Sentencias.csv
+
+$H3r4.790417000
