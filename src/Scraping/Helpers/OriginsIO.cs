@@ -1,39 +1,45 @@
-﻿using System;
+﻿using System.Text;
 using System.IO;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 using Jaeger.SAT.Catalogos.Scraping.Entities;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
     public class OriginsIO {
-        private DataContractSerializer _DataSource;
         protected string filePath = @"origins.xml";
+        protected OriginsTranslator translator;
 
         public OriginsIO(string workingFolder = @"C:\Jaeger\Jaeger.Temporal") {
             this.filePath = Path.Combine(workingFolder, filePath);
+            this.translator = new OriginsTranslator();
         }
 
-        public void Serialize(List<IOriginInterface> TheIAnimals) {
-            // see note below
-            _DataSource = new DataContractSerializer(typeof(List<IOriginInterface>), new List<Type> { typeof(ConstantOrigin), typeof(ScrapingOrigin) });
-
-            using (FileStream fs = new FileStream(filePath, FileMode.Create)) {
-                _DataSource.WriteObject(fs, TheIAnimals);
-            }
+        public List<IOriginInterface> ReadFile(string filePath = "") {
+            if (string.IsNullOrEmpty(filePath))
+                filePath = this.filePath;
+            return this.translator.OriginFromLayout(this.OriginsFromString(filePath).Origins);
         }
 
-        public List<IOriginInterface> DeSerialize() {
-            if (!File.Exists(filePath)) { return null; }
-            _DataSource = new DataContractSerializer(typeof(List<IOriginInterface>), new List<Type> { typeof(ConstantOrigin), typeof(ScrapingOrigin) });
+        private LayoutOrigins OriginsFromString(string filePath = "") {
+            Encoding utf8WithoutBom = new UTF8Encoding(false);
+            return this.ReadOrigin(File.ReadAllText(filePath, utf8WithoutBom));
+        }
 
-            List<IOriginInterface> myOrigins;
+        private LayoutOrigins ReadOrigin(string content) {
+            return XmlSerializerService.DeserializeObject<LayoutOrigins>(content);
+        }
 
-            using (FileStream fs = new FileStream(filePath, FileMode.Open)) {
-                myOrigins = (List<IOriginInterface>)_DataSource.ReadObject(fs);
-            }
+        public void WriteFile(List<IOriginInterface> origins) {
+            Encoding utf8WithoutBom = new UTF8Encoding(false);
+            File.WriteAllText(filePath, this.OriginsToString(origins), utf8WithoutBom);
+        }
 
-            return myOrigins;
+        private string OriginsToString(List<IOriginInterface> origins) {
+            var layout = new LayoutOrigins {
+                Origins = new OriginsTranslator().OriginToLayout(origins)
+            };
+
+            return XmlSerializerService.SerializeObject(layout);
         }
     }
 }

@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Runtime.Serialization;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Entities {
-    [DataContract]
     public class ScrapingOrigin : Abstracts.OriginResource, IOriginInterface {
 
         public ScrapingOrigin(string name, string toScrapUrl, string destinationFilename, string linkText, DateTime? lastVersion = null, string downloadUrl = "", int linkPosition = 0) {
@@ -19,7 +17,6 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
         /// <summary>
         /// obtener o establecer URL de descarga del archivo
         /// </summary>
-        [DataMember]
         public override string DownloadUrl { get; set; }
 
         #region metodos publicos

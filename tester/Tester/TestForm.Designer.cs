@@ -57,7 +57,8 @@
             this.Controls.Add(this.End);
             this.Controls.Add(this.Start);
             this.Name = "TestForm";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Catálogos SAT";
             this.Load += new System.EventHandler(this.TestForm_Load);
             this.ResumeLayout(false);
 

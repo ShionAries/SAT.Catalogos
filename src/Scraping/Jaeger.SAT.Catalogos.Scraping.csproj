@@ -36,7 +36,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,12 +47,15 @@
     <Compile Include="Abstracts\OriginResource.cs" />
     <Compile Include="Entities\ConstantOrigin.cs" />
     <Compile Include="DumpOrigins.cs" />
+    <Compile Include="Entities\LayoutOrigin.cs" />
+    <Compile Include="Entities\LayoutOrigins.cs" />
     <Compile Include="Entities\Review.cs" />
     <Compile Include="Entities\ReviewStatus.cs" />
     <Compile Include="Entities\UrlResponse.cs" />
     <Compile Include="Helpers\ConstantReviewer.cs" />
     <Compile Include="Helpers\HtmlToDiccionary.cs" />
     <Compile Include="Helpers\OriginsIO.cs" />
+    <Compile Include="Helpers\OriginsTranslator.cs" />
     <Compile Include="Helpers\Reviewers.cs" />
     <Compile Include="Helpers\ScrapingReviewer.cs" />
     <Compile Include="Helpers\ScrapingReviewerLinkExtractor.cs" />

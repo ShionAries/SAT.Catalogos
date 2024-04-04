@@ -1,3 +1,4 @@
+*** Dominio
 Jaeger.SAT.Catalogos
 Jaeger.SAT.Catalogos.Abstracts
 Jaeger.SAT.Catalogos.Interfaces
@@ -18,3 +19,12 @@ Jaeger.SAT.Catalogos.Complemento
 Jaeger.SAT.Catalogos.Complemento.Nomina
 Jaeger.SAT.Catalogos.Complemento.Pagos
 Jaeger.SAT.Catalogos.CFDR
+
+IUrlResponse.WithResponse(HttpResponse);
+IUrlResponse.Build();
+
+Gateway.Url(url).Get().Execute();
+Gateway.Url(url).Header().Execute();
+Gateway.Url(url).Method(Get).Execute();
+Upgrade.Reviews(array[]).Execute();
+UpgradeOrigins.Default().Create().Execute();

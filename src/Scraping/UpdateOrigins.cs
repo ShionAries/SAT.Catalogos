@@ -16,8 +16,7 @@ namespace Jaeger.SAT.Catalogos.Scraping {
 
         public void Run() {
             // cargar datos de los origenes
-            this.Origins = new OriginsIO().DeSerialize();
-
+            this.Origins = new OriginsIO().ReadFile();
             // si es nulo entonces cargamos los datos por default
             if (this.Origins == null) {
                 Console.WriteLine("Cargando origenes del local");
@@ -57,7 +56,7 @@ namespace Jaeger.SAT.Catalogos.Scraping {
 
             var upgrader = new Upgrader(this.resourcesGateway, this.getWorkingFolder);
             var recentOrigins = upgrader.UpgradeReviews(reviews);
-            new OriginsIO().Serialize(recentOrigins);
+            new OriginsIO().WriteFile(recentOrigins);
         }
     }
 }

@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Runtime.Serialization;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Entities {
-    [DataContract]
     public class ConstantOrigin : Abstracts.OriginResource, IOriginInterface {
 
         public ConstantOrigin(string name, string url, DateTime? lastVersion = null, string destinationFilename = "") : base() {
@@ -27,7 +25,6 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
         /// <summary>
         /// obtener o establecer URL de descarga del archivo
         /// </summary>
-        [DataMember]
         public override string DownloadUrl {
             get { return this.Url; }
             set { this.Url = value; }

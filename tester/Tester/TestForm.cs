@@ -16,7 +16,7 @@ namespace Tester {
         }
 
         private void WorkerMethod(object sender, WaitWindowEventArgs e) {
-            e.Window.Message = "Actualizando orignes";
+            e.Window.Message = "Actualizando origenes";
             var service = new Jaeger.SAT.Catalogos.Scraping.UpdateOrigins();
             service.Run();
         }
