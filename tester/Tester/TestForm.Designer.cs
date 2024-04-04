@@ -25,6 +25,7 @@
         private void InitializeComponent() {
             this.Start = new System.Windows.Forms.Button();
             this.End = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // Start
@@ -49,11 +50,23 @@
             this.End.UseVisualStyleBackColor = true;
             this.End.Click += new System.EventHandler(this.End_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(12, 55);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(421, 169);
+            this.textBox1.TabIndex = 2;
+            // 
             // TestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(445, 265);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.End);
             this.Controls.Add(this.Start);
             this.Name = "TestForm";
@@ -61,6 +74,7 @@
             this.Text = "Catálogos SAT";
             this.Load += new System.EventHandler(this.TestForm_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -68,6 +82,7 @@
 
         private System.Windows.Forms.Button Start;
         private System.Windows.Forms.Button End;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

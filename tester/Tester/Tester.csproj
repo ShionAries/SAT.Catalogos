@@ -90,6 +90,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\src\Catalogos\Jaeger.SAT.Catalogos.csproj">
+      <Project>{994f8861-7561-4751-a647-6dba45de2676}</Project>
+      <Name>Jaeger.SAT.Catalogos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\src\Scraping\Jaeger.SAT.Catalogos.Scraping.csproj">
       <Project>{1c5665be-5b75-4529-8dc9-3b869007b3d4}</Project>
       <Name>Jaeger.SAT.Catalogos.Scraping</Name>

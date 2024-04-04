@@ -39,6 +39,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Abstracts {
 
         public string LinkText { get; set; }
 
+        [System.Xml.Serialization.XmlIgnore]
         public int LinkPosition { get; set; }
         #endregion
     }

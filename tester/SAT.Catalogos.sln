@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tester", "Tester\Tester.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jaeger.SAT.Catalogos.Scraping", "..\src\Scraping\Jaeger.SAT.Catalogos.Scraping.csproj", "{1C5665BE-5B75-4529-8DC9-3B869007B3D4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jaeger.SAT.Catalogos", "..\src\Catalogos\Jaeger.SAT.Catalogos.csproj", "{994F8861-7561-4751-A647-6DBA45DE2676}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1C5665BE-5B75-4529-8DC9-3B869007B3D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C5665BE-5B75-4529-8DC9-3B869007B3D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C5665BE-5B75-4529-8DC9-3B869007B3D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{994F8861-7561-4751-A647-6DBA45DE2676}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{994F8861-7561-4751-A647-6DBA45DE2676}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{994F8861-7561-4751-A647-6DBA45DE2676}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{994F8861-7561-4751-A647-6DBA45DE2676}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

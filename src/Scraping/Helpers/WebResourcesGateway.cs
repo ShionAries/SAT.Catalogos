@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Net;
+using System.Web;
 using Jaeger.SAT.Catalogos.Scraping.Entities;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
@@ -54,7 +55,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
         }
 
         private HttpWebRequest RequestDefault(string url) {
-            HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(new Uri(url));
+            HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(HttpUtility.UrlDecode(url));
             webRequest.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
             webRequest.AllowAutoRedirect = true;
             webRequest.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko/20100101 Firefox/67.0";

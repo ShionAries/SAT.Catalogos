@@ -3,6 +3,7 @@ using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Entities {
     public class ConstantOrigin : Abstracts.OriginResource, IOriginInterface {
+        public ConstantOrigin() : base() { }
 
         public ConstantOrigin(string name, string url, DateTime? lastVersion = null, string destinationFilename = "") : base() {
             Name = name;

@@ -21,8 +21,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             var response = new List<Review>();
             foreach (var item in origins) {
                 var reviewer = this.FindReviewerByOrigin(item);
-                var d0 = reviewer.Review(item);
-                response.Add(d0);
+                response.Add(reviewer.Review(item));
             }
             return response;
         }

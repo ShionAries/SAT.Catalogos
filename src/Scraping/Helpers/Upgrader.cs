@@ -5,9 +5,9 @@ using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
     internal class Upgrader {
-        public const string DEFAULT_ORIGINS_FILENAME = "origins.xml";
         private readonly IResourcesGatewayInterface gateway;
         private readonly string destinationPath;
+
         public Upgrader(IResourcesGatewayInterface gateway, string destinationPath) {
             this.gateway = gateway;
             this.destinationPath = destinationPath;

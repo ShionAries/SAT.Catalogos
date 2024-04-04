@@ -4,6 +4,8 @@ using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 namespace Jaeger.SAT.Catalogos.Scraping.Entities {
     public class ScrapingOrigin : Abstracts.OriginResource, IOriginInterface {
 
+        public ScrapingOrigin() : base() { }
+
         public ScrapingOrigin(string name, string toScrapUrl, string destinationFilename, string linkText, DateTime? lastVersion = null, string downloadUrl = "", int linkPosition = 0) {
             Name = name;
             Url = toScrapUrl;

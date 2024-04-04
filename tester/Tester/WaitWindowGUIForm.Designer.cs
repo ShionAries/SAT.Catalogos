@@ -30,16 +30,17 @@
             // 
             // Marque
             // 
-            this.Marque.Location = new System.Drawing.Point(-1, 39);
+            this.Marque.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Marque.Location = new System.Drawing.Point(0, 25);
             this.Marque.Name = "Marque";
-            this.Marque.Size = new System.Drawing.Size(288, 17);
+            this.Marque.Size = new System.Drawing.Size(286, 31);
             this.Marque.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.Marque.TabIndex = 0;
             // 
             // MessageLabel
             // 
             this.MessageLabel.AutoSize = true;
-            this.MessageLabel.Location = new System.Drawing.Point(12, 9);
+            this.MessageLabel.Location = new System.Drawing.Point(5, 6);
             this.MessageLabel.Name = "MessageLabel";
             this.MessageLabel.Size = new System.Drawing.Size(74, 13);
             this.MessageLabel.TabIndex = 1;

@@ -5,13 +5,24 @@ using Jaeger.SAT.Catalogos.Scraping.Helpers;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Scraping {
+    //custom delegate
+    public delegate void DelEventHandler();
+
     public class UpdateOrigins {
         private List<IOriginInterface> Origins = new List<IOriginInterface>();
-        private WebResourcesGateway resourcesGateway;
+        private IResourcesGatewayInterface resourcesGateway;
         protected internal string getWorkingFolder;
+
+        public event EventHandler<string> NotificationEvent;
+        public void OnNotificationEvent(string e) {
+            if (this.NotificationEvent != null) {
+                this.NotificationEvent(this, e);
+            }
+        }
 
         public UpdateOrigins(string workingFolder = @"C:\Jaeger\Jaeger.Temporal") {
             this.getWorkingFolder = workingFolder;
+         
         }
 
         public void Run() {
@@ -31,27 +42,27 @@ namespace Jaeger.SAT.Catalogos.Scraping {
             var upToDateReviews = reviews.Where(it => it.Status.IsUptodate()).ToList();
 
             foreach (var item in upToDateReviews) {
-                Console.WriteLine(string.Format("El origen {0} desde {1} para {2} está actualizado", item.Origin.Name, item.Origin.DownloadUrl, item.Origin.DestinationFilename));
+                this.OnNotificationEvent(string.Format("El origen {0} desde {1} para {2} está actualizado", item.Origin.Name, item.Origin.DownloadUrl, item.Origin.DestinationFilename));
             }
 
             foreach (var item in notUpdatedReviews) {
                 if (!item.Origin.HasLastVersion()) {
-                    Console.WriteLine(string.Format("El origen {0} desde {1} para {2} no existe, se descargará", item.Origin.Name, item.Origin.DownloadUrl, item.Origin.DestinationFilename));
+                    this.OnNotificationEvent(string.Format("El origen {0} desde {1} para {2} no existe, se descargará", item.Origin.Name, item.Origin.DownloadUrl, item.Origin.DestinationFilename));
                 } else {
-                    Console.WriteLine(string.Format("El origen {0} desde {1} para {2} está desactualizado, la nueva versión tiene fecha {3}", item.Origin.Name, item.Origin.DownloadUrl, item.Origin.DestinationFilename, item.Origin.LastVersion));
+                    this.OnNotificationEvent(string.Format("El origen {0} desde {1} para {2} está desactualizado, la nueva versión tiene fecha {3}", item.Origin.Name, item.Origin.DownloadUrl, item.Origin.DestinationFilename, item.Origin.LastVersion));
                 }
             }
 
             foreach (var item in notFoundReviews) {
-                Console.WriteLine(string.Format("El origen {0} para {1} no fue encontrado", item.Origin.Name, item.Origin.DestinationFilename));
+                this.OnNotificationEvent(string.Format("El origen {0} para {1} no fue encontrado", item.Origin.Name, item.Origin.DestinationFilename));
             }
 
             if (notFoundReviews.Count > 0) {
-                Console.WriteLine($"No se encontraron {notFoundReviews.Count} orígenes");
+                this.OnNotificationEvent($"No se encontraron {notFoundReviews.Count} orígenes");
             }
 
             if (upToDateReviews.Count>0) {
-                Console.WriteLine("No existen orígenes para actualizar");
+               this.OnNotificationEvent("No existen orígenes para actualizar");
             }
 
             var upgrader = new Upgrader(this.resourcesGateway, this.getWorkingFolder);

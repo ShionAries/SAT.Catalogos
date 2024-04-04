@@ -50,22 +50,12 @@ namespace Jaeger.SAT.Catalogos.Scraping {
                 new ConstantOrigin("CCP 2.0 - Carta Porte 2.0", $"{common}/CatalogosCartaPorte20.xls"),
                 new ConstantOrigin("CCP 3.0 - Carta Porte 3.0", $"{common}/CatalogosCartaPorte30.xls"),
                 new ConstantOrigin(
-                    "No localizados",
-                    "http://omawww.sat.gob.mx/cifras_sat/Documents/No%20localizados.csv"
-                    ),
-                new ConstantOrigin("Cancelados 69B",
-                    "http://omawww.sat.gob.mx/cifras_sat/Documents/Cancelados.csv"
-                    ),
-                new ConstantOrigin("Cancelados Artículo 146A del 01 de enero de 2007 al 04 de mayo de 2015",
-                    "http://omawww.sat.gob.mx/cifras_sat/Documents/Cancelados_07_15.csv"
+                    "Artículo 69 No localizados",
+                    "http://omawww.sat.gob.mx/cifras_sat/Documents/No localizados.csv"
                     ),
                 new ConstantOrigin(
-                    "Firmes",
-                    "http://omawww.sat.gob.mx/cifras_sat/Documents/Firmes.csv"
-                    ),
-                new ConstantOrigin(
-                    "Sentencias",
-                    "http://omawww.sat.gob.mx/cifras_sat/Documents/Sentencias.csv"
+                    "Artículo 69-B Listado Completo",
+                    "http://omawww.sat.gob.mx/cifras_sat/Documents/Listado_Completo_69-B.csv"
                     )
             };
         }

@@ -37,25 +37,8 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
                 Console.WriteLine(ex.Message);
                 return default(T);
             }
-
         }
-
-        public static T XmlDeserializarStringXml<T>(string sXml) {
-            T t;
-            try {
-                XmlSerializer xmlSerializer = new XmlSerializer(typeof(T));
-                byte[] bytes = Encoding.UTF8.GetBytes(sXml);
-                XmlTextReader xmlTextReader = new XmlTextReader(new MemoryStream(bytes));
-                T t1 = (T)xmlSerializer.Deserialize(xmlTextReader);
-                xmlTextReader.Close();
-                t = t1;
-            } catch (Exception ex) {
-                Console.WriteLine(string.Concat("HelperXmlSerializer: XmlDeserializarStringXml: ", ex.Message));
-                t = default(T);
-            }
-            return t;
-        }
-
+        
         public static byte[] StringToUtf8ByteArray(string pXmlString) {
             return (new UTF8Encoding(false)).GetBytes(pXmlString);
         }

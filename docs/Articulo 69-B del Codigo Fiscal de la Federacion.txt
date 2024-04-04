@@ -1,0 +1,27 @@
+
+Listado de contribuyentes
+
+(Artículo 69-B del Código Fiscal de la Federación)
+http://omawww.sat.gob.mx/cifras_sat/Paginas/datos/vinculo.html?page=ListCompleta69B.html
+ 
+Artículo 69-B, primer y segundo párrafo del CFF
+Cuando la autoridad fiscal detecte que un contribuyente ha estado emitiendo comprobantes sin contar con los activos, personal, infraestructura o capacidad material, directa o indirectamente, para prestar los servicios o producir, comercializar o entregar los bienes que amparan tales comprobantes, o bien, que dichos contribuyentes se encuentren no localizados, se presumirá la inexistencia de las operaciones amparadas en tales comprobantes.
+
+En este supuesto, procederá a notificar a los contribuyentes que se encuentren en dicha situación a través de su buzón tributario, de la página de internet del Servicio de Administración Tributaria, así como mediante publicación en el Diario Oficial de la Federación, con el objeto de que aquellos contribuyentes puedan manifestar ante la autoridad fiscal lo que a su derecho convenga y aportar la documentación e información que consideren pertinentes para desvirtuar los hechos que llevaron a la autoridad a notificarlos. Para ello, los contribuyentes interesados contarán con un plazo de quince días contados a partir de la última de las notificaciones que se hayan efectuado.
+
+Archivos disponibles:
+
+Listado Completo 
+http://omawww.sat.gob.mx/cifras_sat/Documents/Listado_Completo_69-B.csv
+
+Definitivos
+http://omawww.sat.gob.mx/cifras_sat/Documents/Definitivos.csv
+
+Desvirtuados
+http://omawww.sat.gob.mx/cifras_sat/Documents/Desvirtuados.csv
+
+Presuntos
+http://omawww.sat.gob.mx/cifras_sat/Documents/Presuntos.csv
+
+Sentencias favorables
+http://omawww.sat.gob.mx/cifras_sat/Documents/SentenciasFavorables.csv
