@@ -7,8 +7,8 @@
     <ProjectGuid>{994F8861-7561-4751-A647-6DBA45DE2676}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Jaeger.SAT.CFDI.Catalogos</RootNamespace>
-    <AssemblyName>Jaeger.SAT.CFDI.Catalogos</AssemblyName>
+    <RootNamespace>Jaeger.SAT.Catalogos</RootNamespace>
+    <AssemblyName>Jaeger.SAT.Catalogos</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,8 +31,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\..\tester\packages\ExcelDataReader.3.6.0\lib\net45\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\..\tester\packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
+    </Reference>
+    <Reference Include="MiniExcel, Version=1.31.3.0, Culture=neutral, PublicKeyToken=e7310002a53eac39, processorArchitecture=MSIL">
+      <HintPath>..\..\tester\packages\MiniExcel.1.31.3\lib\net45\MiniExcel.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,12 +51,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstractions\Catalogo.cs" />
-    <Compile Include="Interfaces\ICatalogo.cs" />
-    <Compile Include="ScrapingOrigin.cs" />
-    <Compile Include="Interfaces\IOriginInterface.cs" />
+    <Compile Include="AbstractCollection.cs" />
+    <Compile Include="AbstractCsvInjector.cs" />
+    <Compile Include="Converts\XlsToCsvFolderConverter.cs" />
+    <Compile Include="Converts\XlsToXlsxConverter.cs" />
+    <Compile Include="Converts\XlsxToCsvFolderConverter.cs" />
+    <Compile Include="CsvFile.cs" />
+    <Compile Include="Database\DataTableGateway.cs" />
+    <Compile Include="Database\Repository.cs" />
+    <Compile Include="IInjectorInterface.cs" />
+    <Compile Include="Importers\AbstractXlsImporter.cs" />
+    <Compile Include="Importers\Articulo69B\ListadoCompleto.cs" />
+    <Compile Include="Importers\Articulo69\Firmes.cs" />
+    <Compile Include="Importers\Cfdi40Catalogs.cs" />
+    <Compile Include="Importers\Cfdi40\FormasDePago.cs" />
+    <Compile Include="Importers\IImporterInterface.cs" />
+    <Compile Include="Importers\SourcesImporter.cs" />
+    <Compile Include="Injectors.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UpdateDatabase.cs" />
+    <Compile Include="XlsToXlsxConverter.cs" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

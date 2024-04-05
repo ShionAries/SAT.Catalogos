@@ -28,3 +28,6 @@ Gateway.Url(url).Header().Execute();
 Gateway.Url(url).Method(Get).Execute();
 Upgrade.Reviews(array[]).Execute();
 UpgradeOrigins.Default().Create().Execute();
+
+Catalogos().SourceImports(files[]).Execute();
+Catalogos().imports();
