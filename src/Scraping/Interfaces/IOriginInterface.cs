@@ -21,15 +21,27 @@ namespace Jaeger.SAT.Catalogos.Scraping.Interfaces {
         /// obtener o establecer nombre del archivo de descarga
         /// </summary>
         string DestinationFilename { get; set; }
+        
         string LinkText { get; set; }
+        
         int LinkPosition { get; set; }
+        
         /// <summary>
         /// obtener o establecer URL de descarga del archivo
         /// </summary>
         string DownloadUrl { get; set; }
+
+        /// <summary>
+        /// obtener o establecer si el origen es actualizable
+        /// </summary>
+        bool AllowUpdate { get; set; }
+
         IOriginInterface WithDownloadUrl(string downloadUrl);
+        
         IOriginInterface WithLastModified(DateTime? lastModified);
+        
         bool HasLastVersion();
+        
         bool HasDownloadUrl();
     }
 }

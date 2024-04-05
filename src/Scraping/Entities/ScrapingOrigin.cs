@@ -6,7 +6,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
 
         public ScrapingOrigin() : base() { }
 
-        public ScrapingOrigin(string name, string toScrapUrl, string destinationFilename, string linkText, DateTime? lastVersion = null, string downloadUrl = "", int linkPosition = 0) {
+        public ScrapingOrigin(string name, string toScrapUrl, string destinationFilename, string linkText, DateTime? lastVersion = null, string downloadUrl = "", int linkPosition = 0, bool allowUpdate = true) {
             Name = name;
             Url = toScrapUrl;
             LinkText = linkText;
@@ -14,6 +14,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
             DestinationFilename = destinationFilename;
             DownloadUrl = downloadUrl;
             LinkPosition = linkPosition;
+            AllowUpdate = allowUpdate;
         }
 
         /// <summary>
