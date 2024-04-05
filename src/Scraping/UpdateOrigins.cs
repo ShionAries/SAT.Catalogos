@@ -9,8 +9,8 @@ namespace Jaeger.SAT.Catalogos.Scraping {
     public delegate void DelEventHandler();
 
     public class UpdateOrigins {
-        private List<IOriginInterface> Origins = new List<IOriginInterface>();
-        private IResourcesGatewayInterface resourcesGateway;
+        protected List<IOriginInterface> Origins;
+        protected IResourcesGatewayInterface ResourcesGateway;
         protected internal string getWorkingFolder;
 
         public event EventHandler<string> NotificationEvent;
@@ -22,7 +22,7 @@ namespace Jaeger.SAT.Catalogos.Scraping {
 
         public UpdateOrigins(string workingFolder = @"C:\Jaeger\Jaeger.Temporal") {
             this.getWorkingFolder = workingFolder;
-         
+            this.Origins = new List<IOriginInterface>();
         }
 
         public void Run() {
@@ -34,8 +34,8 @@ namespace Jaeger.SAT.Catalogos.Scraping {
                 this.Origins = new DumpOrigins().Origins;
             }
 
-            this.resourcesGateway = new WebResourcesGateway();
-            var reviewers = new Reviewers().CreateWithDefaultReviewers(this.resourcesGateway);
+            this.ResourcesGateway = new WebResourcesGateway();
+            var reviewers = new Reviewers().CreateWithDefaultReviewers(this.ResourcesGateway);
             var reviews = reviewers.Review(Origins);
             var notFoundReviews = reviews.Where(it => it.Status.IsNotFound()).ToList();
             var notUpdatedReviews = reviews.Where(it => it.Status.IsNotUpdated()).ToList();
@@ -61,11 +61,11 @@ namespace Jaeger.SAT.Catalogos.Scraping {
                 this.OnNotificationEvent($"No se encontraron {notFoundReviews.Count} orígenes");
             }
 
-            if (upToDateReviews.Count>0) {
-               this.OnNotificationEvent("No existen orígenes para actualizar");
+            if (upToDateReviews.Count > 0) {
+                this.OnNotificationEvent("No existen orígenes para actualizar");
             }
 
-            var upgrader = new Upgrader(this.resourcesGateway, this.getWorkingFolder);
+            var upgrader = new Upgrader(this.ResourcesGateway, this.getWorkingFolder);
             var recentOrigins = upgrader.UpgradeReviews(reviews);
             new OriginsIO().WriteFile(recentOrigins);
         }
