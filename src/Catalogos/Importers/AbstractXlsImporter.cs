@@ -1,5 +1,6 @@
-﻿using Jaeger.SAT.Catalogos.Database;
-using System;
+﻿using System;
+using Jaeger.SAT.Catalogos.Converts;
+using Jaeger.SAT.Catalogos.Database;
 
 namespace Jaeger.SAT.Catalogos.Importers {
     public abstract class AbstractXlsImporter : IImporterInterface {
@@ -9,8 +10,15 @@ namespace Jaeger.SAT.Catalogos.Importers {
 
         public void import(string source, Repository repository, string logger) {
             // csvFolder = tempdir();
+            Console.WriteLine($"Convirtiendo a archivos CSV de {source} a {csvFolder}...");
             var converter = this.createConverter();
-            converter.
+            converter.convert(source, csvFolder);
+
+            // create the injector (use a collection)
+            var injector = this.createInjectors(source);
+            injector.validate();
+
+            injector.inject(repository, logger);
         }
 
         protected void removeCsvFolder(string cvsFolder) {

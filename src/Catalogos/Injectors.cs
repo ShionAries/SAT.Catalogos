@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Jaeger.SAT.Catalogos.Database;
+using System.Collections.Generic;
 
 namespace Jaeger.SAT.Catalogos {
     public class Injectors : AbstractCollection, IInjectorInterface { 
@@ -6,10 +7,14 @@ namespace Jaeger.SAT.Catalogos {
             this.Items = new List<IInjectorInterface>();
         }
 
-        public bool Validate(IInjectorInterface member) {
-            return true;
+        public List<IInjectorInterface> Items { get; set; }
+
+        public int inject(Repository repository, string logger) {
+            throw new System.NotImplementedException();
         }
 
-        public List<IInjectorInterface> Items { get; set; }
+        public void validate() {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace Jaeger.SAT.Catalogos {
             if (!File.Exists(this._sourceFile)) { }
         }
 
-        public int injet(Repository repository, string LoggerInterface = "") {
+        public int inject(Repository repository, string LoggerInterface = "") {
             var tableName = this._dataTable.TableName;
             var filename = this._sourceFile;
             var gateway = new DataTableGateway(this._dataTable, repository);
