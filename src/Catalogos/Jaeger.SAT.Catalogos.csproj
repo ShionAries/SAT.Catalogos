@@ -40,6 +40,9 @@
     <Reference Include="MiniExcel, Version=1.31.3.0, Culture=neutral, PublicKeyToken=e7310002a53eac39, processorArchitecture=MSIL">
       <HintPath>..\..\tester\packages\MiniExcel.1.31.3\lib\net45\MiniExcel.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\tester\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.IO.Compression" />
@@ -51,28 +54,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractCollection.cs" />
-    <Compile Include="AbstractCsvInjector.cs" />
-    <Compile Include="Converts\XlsToCsvFolderConverter.cs" />
-    <Compile Include="Converts\XlsToXlsxConverter.cs" />
-    <Compile Include="Converts\XlsxToCsvFolderConverter.cs" />
-    <Compile Include="CsvFile.cs" />
-    <Compile Include="Database\DataTableGateway.cs" />
-    <Compile Include="Database\Repository.cs" />
+    <Compile Include="AbstractInjector.cs" />
+    <Compile Include="Database\Repository\Catalogo.cs" />
+    <Compile Include="Database\Repository\CatalogoContext.cs" />
+    <Compile Include="Database\Entities\ClaveBase.cs" />
+    <Compile Include="Database\Entities\ClaveBaseVigencia.cs" />
+    <Compile Include="Database\ICatalogoGeneric.cs" />
+    <Compile Include="PathsEnum.cs" />
+    <Compile Include="Converts\XlsToDataSetConverter.cs" />
+    <Compile Include="Database\Repository\FormaPagoCatalogo.cs" />
+    <Compile Include="Database\IFormaPagoCatalogo.cs" />
+    <Compile Include="Database\IUnidadesCatalogo.cs" />
+    <Compile Include="Database\Repository\UnidadesCatalogo.cs" />
+    <Compile Include="Database\Entities\ClaveFormaPago.cs" />
+    <Compile Include="Database\Entities\ClaveUnidad.cs" />
+    <Compile Include="Converts\CsvFileReader.cs" />
+    <Compile Include="Helpers\DbConvert.cs" />
+    <Compile Include="Helpers\DirectoryService.cs" />
+    <Compile Include="Converts\ExcelFileReader.cs" />
+    <Compile Include="Helpers\FileService.cs" />
+    <Compile Include="Helpers\IExcelFileReader.cs" />
+    <Compile Include="Helpers\JaegerManagerPaths.cs" />
+    <Compile Include="Helpers\Mapping\AttributeHelper.cs" />
+    <Compile Include="Helpers\Mapping\DataNamesAttribute.cs" />
+    <Compile Include="Helpers\Mapping\DataNamesMapper.cs" />
+    <Compile Include="Helpers\Mapping\PropertyMapHelper.cs" />
     <Compile Include="IInjectorInterface.cs" />
     <Compile Include="Importers\AbstractXlsImporter.cs" />
     <Compile Include="Importers\Articulo69B\ListadoCompleto.cs" />
     <Compile Include="Importers\Articulo69\Firmes.cs" />
     <Compile Include="Importers\Cfdi40Catalogs.cs" />
+    <Compile Include="Importers\Cfdi40\ClavesUnidades.cs" />
     <Compile Include="Importers\Cfdi40\FormasDePago.cs" />
-    <Compile Include="Importers\IImporterInterface.cs" />
+    <Compile Include="Importers\IImporter.cs" />
     <Compile Include="Importers\SourcesImporter.cs" />
     <Compile Include="Injectors.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UpdateDatabase.cs" />
-    <Compile Include="XlsToXlsxConverter.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Abstractions\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

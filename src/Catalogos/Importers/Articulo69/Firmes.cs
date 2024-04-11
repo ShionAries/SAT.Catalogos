@@ -1,7 +1,7 @@
 ﻿using System;
 using MiniExcelLibs.Attributes;
 
-namespace Jaeger.SAT.CFDI.Catalogos.Importers.Articulo69 {
+namespace Jaeger.SAT.Catalogos.Importers.Articulo69 {
     public class Firmes {
         [ExcelColumnName("RFC")]
         public string RFC { get; set; }

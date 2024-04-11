@@ -1,46 +1,39 @@
 ﻿using System;
-using Jaeger.SAT.Catalogos.Database;
 using Jaeger.SAT.Catalogos.Importers;
 
 namespace Jaeger.SAT.Catalogos {
     public class UpdateDatabase {
-        private string sourceFolder;
-        private string destinationDatabase;
+        private string _SourceFolder;
 
-        public UpdateDatabase(string sourceCatalog, string destinationDatabase) {
-            this.setSourceCatalog(sourceCatalog);
-            this.setDestinationDatabase(destinationDatabase);
+        public UpdateDatabase(string sourceFolder) {
+            this.SourceFolder = sourceFolder;
         }
 
-        private void setSourceCatalog(string sourceCatalog) {
-            this.sourceFolder = sourceCatalog;
+        /// <summary>
+        /// obtener o establecer la carpeta donde estan los archivos de origen
+        /// </summary>
+        public string SourceFolder {
+            get { return this._SourceFolder; }
+            set {
+                if (string.IsNullOrEmpty(value)) {
+                    throw new ArgumentNullException("Invalid source catalog: empty string received");
+                }
+
+                if (!Helpers.DirectoryService.IsDirectory(value)) {
+                    throw new ArgumentException("Invalid source catalog: is not a directory");
+                }
+                this._SourceFolder = value;
+            }
         }
 
-        private void setDestinationDatabase(string destinationDatabase) {
-            this.destinationDatabase = destinationDatabase;
-        }
-
-        private string getSourceFolder() {
-            return this.sourceFolder;
-        }
-        private string getDestinationDatabase() {
-            return this.destinationDatabase;
-        }
         public int Run() {
-            var repository = this.createRepository();
-            var importer = this.createImporter();
-            //repository->pdo()->beginTransaction();
-            importer.import(this.getSourceFolder(), repository, "");
-            //repository->pdo()->commit();
+            var importer = this.CreateImporter();
+            importer.Import(this.SourceFolder, "");
             Console.WriteLine("Se terminó correctamente con la actualización de la base de datos");
             return 0;
         }
 
-        public Repository createRepository() {
-            return new Repository();
-        }
-
-        public SourcesImporter createImporter() {
+        public SourcesImporter CreateImporter() {
             return new SourcesImporter();
         }
     }

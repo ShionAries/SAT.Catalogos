@@ -1,32 +1,36 @@
 ﻿using System;
+using System.Data;
 using Jaeger.SAT.Catalogos.Converts;
-using Jaeger.SAT.Catalogos.Database;
 
 namespace Jaeger.SAT.Catalogos.Importers {
-    public abstract class AbstractXlsImporter : IImporterInterface {
-        protected string csvFolder;
+    public abstract class AbstractXlsImporter : IImporter {
+        protected string _FileSource;
 
-        public abstract Injectors createInjectors(string csvFolder);
+        public AbstractXlsImporter(string csvFolder) {
+            this._FileSource = csvFolder;
+        }
 
-        public void import(string source, Repository repository, string logger) {
-            // csvFolder = tempdir();
-            Console.WriteLine($"Convirtiendo a archivos CSV de {source} a {csvFolder}...");
-            var converter = this.createConverter();
-            converter.convert(source, csvFolder);
+        public bool CheckFile() {
+            return System.IO.File.Exists(this._FileSource);
+        }
+
+        public abstract Injectors CreateInjectors(DataSet dataSet);
+
+        public void Import() {
+            
+            Console.WriteLine($"Convirtiendo a archivo {_FileSource}...");
+            var converter = this.CreateConverter();
+            converter.Convert(_FileSource);
 
             // create the injector (use a collection)
-            var injector = this.createInjectors(source);
-            injector.validate();
+            var injector = this.CreateInjectors(converter.DataSet);
+            injector.Validate();
 
-            injector.inject(repository, logger);
+            injector.Inject("");
         }
 
-        protected void removeCsvFolder(string cvsFolder) {
-
-        }
-
-        public XlsToCsvFolderConverter createConverter() {
-            return new XlsToCsvFolderConverter();
+        public XlsToDataSetConverter CreateConverter() {
+            return new XlsToDataSetConverter();
         }
     }
 }

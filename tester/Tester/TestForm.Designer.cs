@@ -26,6 +26,7 @@
             this.Start = new System.Windows.Forms.Button();
             this.End = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Catalogos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Start
@@ -35,9 +36,9 @@
             this.Start.Name = "Start";
             this.Start.Size = new System.Drawing.Size(75, 23);
             this.Start.TabIndex = 0;
-            this.Start.Text = "Iniciar";
+            this.Start.Text = "Scraping";
             this.Start.UseVisualStyleBackColor = true;
-            this.Start.Click += new System.EventHandler(this.Start_Click);
+            this.Start.Click += new System.EventHandler(this.Testing_Scraping_Click);
             // 
             // End
             // 
@@ -61,11 +62,23 @@
             this.textBox1.Size = new System.Drawing.Size(421, 169);
             this.textBox1.TabIndex = 2;
             // 
+            // Catalogos
+            // 
+            this.Catalogos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Catalogos.Location = new System.Drawing.Point(196, 230);
+            this.Catalogos.Name = "Catalogos";
+            this.Catalogos.Size = new System.Drawing.Size(75, 23);
+            this.Catalogos.TabIndex = 3;
+            this.Catalogos.Text = "Catalogos";
+            this.Catalogos.UseVisualStyleBackColor = true;
+            this.Catalogos.Click += new System.EventHandler(this.Testing_Catalogos_Click);
+            // 
             // TestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(445, 265);
+            this.Controls.Add(this.Catalogos);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.End);
             this.Controls.Add(this.Start);
@@ -83,6 +96,7 @@
         private System.Windows.Forms.Button Start;
         private System.Windows.Forms.Button End;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button Catalogos;
     }
 }
 

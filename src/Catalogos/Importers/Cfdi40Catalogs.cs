@@ -1,11 +1,16 @@
-﻿using Jaeger.SAT.Catalogos.Importers.Cfdi40;
+﻿using System.Data;
+using Jaeger.SAT.Catalogos.Importers.Cfdi40;
 
 namespace Jaeger.SAT.Catalogos.Importers {
-    internal class Cfdi40Catalogs : AbstractXlsImporter , IImporterInterface {
-        public override Injectors createInjectors(string csvFolder) {
+    internal class Cfdi40Catalogs : AbstractXlsImporter, IImporter {
+        public Cfdi40Catalogs(string csvFolder) : base(csvFolder) {
+        }
+
+        public override Injectors CreateInjectors(DataSet dataSet) {
             return new Injectors() {
                 Items = new System.Collections.Generic.List<IInjectorInterface>() {
-                    new FormasDePago(csvFolder + "c_FormaPago")
+                    //new FormasDePago(dataSet.Tables["c_FormaPago"]),
+                    new ClavesUnidades(dataSet.Tables["c_ClaveUnidad"]),
                 }
             };
         }

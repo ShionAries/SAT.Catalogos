@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Jaeger.SAT.Catalogos;
 
 namespace Tester {
     public partial class TestForm : Form {
@@ -12,9 +13,18 @@ namespace Tester {
             CheckForIllegalCrossThreadCalls = false;
         }
 
-        private async void Start_Click(object sender, EventArgs e) {
+        private async void Testing_Scraping_Click(object sender, EventArgs e) {
             //this.result = WaitWindow.Show(this.WorkerMethod);
             await this.Procesar();
+        }
+
+        private void Testing_Catalogos_Click(object sender, EventArgs e) {
+            var update = new UpdateDatabase(@"C:\Jaeger\Jaeger.Temporal");
+            update.Run();
+        }
+
+        private void End_Click(object sender, EventArgs e) {
+            this.Close();
         }
 
         private void WorkerMethod(object sender, WaitWindowEventArgs e) {
@@ -28,10 +38,6 @@ namespace Tester {
 
         private void Service_NotificationEvent(object sender, string e) {
             this.textBox1.Text += e + "\r\n";
-        }
-
-        private void End_Click(object sender, EventArgs e) {
-            this.Close();
         }
 
         private Task Procesar() {
