@@ -2,7 +2,7 @@
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Entities {
-    public class ConstantOrigin : Abstracts.OriginResource, IOriginInterface {
+    public class ConstantOrigin : Abstracts.OriginResource, IOrigin {
         public ConstantOrigin() : base() { }
 
         /// <summary>
@@ -49,12 +49,12 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
             return this.DownloadUrl != "";
         }
 
-        public IOriginInterface WithDownloadUrl(string downloadUrl) {
+        public IOrigin WithDownloadUrl(string downloadUrl) {
             this.DownloadUrl = downloadUrl;
             return this;
         }
 
-        public IOriginInterface WithLastModified(DateTime? lastModified) {
+        public IOrigin WithLastModified(DateTime? lastModified) {
             this.LastVersion = lastModified; 
             return this;
         }

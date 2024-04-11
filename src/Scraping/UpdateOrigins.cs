@@ -9,8 +9,8 @@ namespace Jaeger.SAT.Catalogos.Scraping {
     public delegate void DelEventHandler();
 
     public class UpdateOrigins {
-        protected List<IOriginInterface> Origins;
-        protected IResourcesGatewayInterface ResourcesGateway;
+        protected List<IOrigin> Origins;
+        protected IResourcesGateway ResourcesGateway;
         protected internal string getWorkingFolder;
 
         public event EventHandler<string> NotificationEvent;
@@ -22,7 +22,7 @@ namespace Jaeger.SAT.Catalogos.Scraping {
 
         public UpdateOrigins(string workingFolder = @"C:\Jaeger\Jaeger.Temporal") {
             this.getWorkingFolder = workingFolder;
-            this.Origins = new List<IOriginInterface>();
+            this.Origins = new List<IOrigin>();
         }
 
         public void Run() {

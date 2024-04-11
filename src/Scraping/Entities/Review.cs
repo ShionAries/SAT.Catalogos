@@ -2,12 +2,12 @@
 
 namespace Jaeger.SAT.Catalogos.Scraping.Entities {
     public class Review {
-        public Review(IOriginInterface origin, ReviewStatus status) {
+        public Review(IOrigin origin, ReviewStatus status) {
             Origin = origin;
             Status = status;
         }
 
-        public IOriginInterface Origin { get; set; }
+        public IOrigin Origin { get; set; }
 
         public ReviewStatus Status { get; set; }
     }

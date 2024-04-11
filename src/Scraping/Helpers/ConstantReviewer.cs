@@ -3,18 +3,18 @@ using Jaeger.SAT.Catalogos.Scraping.Entities;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
-    public class ConstantReviewer : IReviewerInterface {
-        protected internal IResourcesGatewayInterface gateway;
+    public class ConstantReviewer : IReviewer {
+        protected internal IResourcesGateway gateway;
 
-        public ConstantReviewer(IResourcesGatewayInterface gateway) {
+        public ConstantReviewer(IResourcesGateway gateway) {
             this.gateway = gateway;
         }
 
-        public bool Accepts(IOriginInterface origin) {
+        public bool Accepts(IOrigin origin) {
             return origin is ConstantOrigin;
         }
 
-        public Review Review(IOriginInterface origin) {
+        public Review Review(IOrigin origin) {
             if (!(origin is ConstantOrigin)) {
                 new Exception("This reviewer can only handle ConstantOrigin objects");
             }

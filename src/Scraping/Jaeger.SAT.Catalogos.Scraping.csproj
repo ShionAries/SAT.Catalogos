@@ -58,9 +58,9 @@
     <Compile Include="Helpers\Upgrader.cs" />
     <Compile Include="Helpers\WebResourcesGateway.cs" />
     <Compile Include="Helpers\XmlSerializerService.cs" />
-    <Compile Include="Interfaces\IOriginInterface.cs" />
-    <Compile Include="Interfaces\IResourcesGatewayInterface.cs" />
-    <Compile Include="Interfaces\IReviewerInterface.cs" />
+    <Compile Include="Interfaces\IOrigin.cs" />
+    <Compile Include="Interfaces\IResourcesGateway.cs" />
+    <Compile Include="Interfaces\IReviewer.cs" />
     <Compile Include="IService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\ScrapingOrigin.cs" />

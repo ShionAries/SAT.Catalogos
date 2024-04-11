@@ -6,7 +6,7 @@ using Jaeger.SAT.Catalogos.Scraping.Entities;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
-    public class WebResourcesGateway : IResourcesGatewayInterface {
+    public class WebResourcesGateway : IResourcesGateway {
         protected internal string sessionCookie;
 
         public WebResourcesGateway() {

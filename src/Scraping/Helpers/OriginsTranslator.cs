@@ -6,18 +6,18 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
     public class OriginsTranslator {
         public OriginsTranslator() { }
 
-        public List<IOriginInterface> OriginFromLayout(List<LayoutOrigin> origins) {
+        public List<IOrigin> OriginFromLayout(List<LayoutOrigin> origins) {
             if (origins == null)
                 return null;
 
-            var response = new List<IOriginInterface>();
+            var response = new List<IOrigin>();
             foreach (var item in origins) {
                 response.Add(this.OriginFromLayout(item));
             }
             return response;
         }
 
-        public IOriginInterface OriginFromLayout(LayoutOrigin item) {
+        public IOrigin OriginFromLayout(LayoutOrigin item) {
             if (item.Type.ToLower() == typeof(ConstantOrigin).Name.ToLower()) {
                 return this.ConstantOriginFromLayout(item);
             } else if (item.Type.ToLower() == typeof(ScrapingOrigin).Name.ToLower()) {
@@ -26,7 +26,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             return null;
         }
 
-        public List<LayoutOrigin> OriginToLayout(List<IOriginInterface> origins) {
+        public List<LayoutOrigin> OriginToLayout(List<IOrigin> origins) {
             var layouts = new List<LayoutOrigin>();
             foreach (var origin in origins) {
                 layouts.Add(this.OriginToLayout(origin));
@@ -34,7 +34,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             return layouts;
         }
 
-        public LayoutOrigin OriginToLayout(IOriginInterface origin) {
+        public LayoutOrigin OriginToLayout(IOrigin origin) {
             return new LayoutOrigin {
                 LinkPosition = origin.LinkPosition,
                 DestinationFilename = origin.DestinationFilename,
@@ -47,7 +47,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             };
         }
 
-        private IOriginInterface ConstantOriginFromLayout(LayoutOrigin item) {
+        private IOrigin ConstantOriginFromLayout(LayoutOrigin item) {
             var d1 = new ConstantOrigin() {
                 LinkPosition = item.LinkPosition,
                 DestinationFilename = item.DestinationFilename,
@@ -61,7 +61,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             return d1;
         }
 
-        private IOriginInterface ScrapingOriginFromLayout(LayoutOrigin item) {
+        private IOrigin ScrapingOriginFromLayout(LayoutOrigin item) {
             var d1 = new ScrapingOrigin() {
                 LinkPosition = item.LinkPosition,
                 DestinationFilename = item.DestinationFilename,

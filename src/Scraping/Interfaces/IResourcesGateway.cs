@@ -1,7 +1,7 @@
 ﻿using Jaeger.SAT.Catalogos.Scraping.Entities;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Interfaces {
-    public interface IResourcesGatewayInterface {
+    public interface IResourcesGateway {
         /// <summary>
         /// This method retrieves the http-status and last-modification headers and return the UrlResponde containing those data
         /// </summary>

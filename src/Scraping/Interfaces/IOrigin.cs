@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Interfaces {
-    public interface IOriginInterface {
+    public interface IOrigin {
         /// <summary>
         /// obtener o establecer nombre del origen
         /// </summary>
@@ -36,9 +36,9 @@ namespace Jaeger.SAT.Catalogos.Scraping.Interfaces {
         /// </summary>
         bool AllowUpdate { get; set; }
 
-        IOriginInterface WithDownloadUrl(string downloadUrl);
+        IOrigin WithDownloadUrl(string downloadUrl);
         
-        IOriginInterface WithLastModified(DateTime? lastModified);
+        IOrigin WithLastModified(DateTime? lastModified);
         
         bool HasLastVersion();
         

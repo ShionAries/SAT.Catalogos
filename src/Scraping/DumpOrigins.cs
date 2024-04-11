@@ -5,10 +5,10 @@ using Jaeger.SAT.Catalogos.Scraping.Entities;
 namespace Jaeger.SAT.Catalogos.Scraping {
     public class DumpOrigins {
         protected internal string common = "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos";
-        protected internal List<IOriginInterface> _Origins;
+        protected internal List<IOrigin> _Origins;
 
         public DumpOrigins() {
-            this._Origins = new List<IOriginInterface>() {
+            this._Origins = new List<IOrigin>() {
                 new ScrapingOrigin(
                     "CFDI 3.3",
                     "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/anexo_20.htm",
@@ -65,7 +65,7 @@ namespace Jaeger.SAT.Catalogos.Scraping {
             };
         }
 
-        public List<IOriginInterface> Origins {
+        public List<IOrigin> Origins {
             get { return _Origins; }
             set { this._Origins = value; }
         }

@@ -19,7 +19,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             this.translator = new OriginsTranslator();
         }
 
-        public List<IOriginInterface> ReadFile() {
+        public List<IOrigin> ReadFile() {
             return this.translator.OriginFromLayout(this.OriginsFromString());
         }
 
@@ -33,12 +33,12 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             return XmlSerializerService.DeserializeObject<List<LayoutOrigin>>(content);
         }
 
-        public void WriteFile(List<IOriginInterface> origins) {
+        public void WriteFile(List<IOrigin> origins) {
             Encoding utf8WithoutBom = new UTF8Encoding(false);
             File.WriteAllText(this.BuildPath(), this.OriginsToString(origins), utf8WithoutBom);
         }
 
-        private string OriginsToString(List<IOriginInterface> origins) {
+        private string OriginsToString(List<IOrigin> origins) {
             return XmlSerializerService.SerializeObject(this.translator.OriginToLayout(origins));
         }
 

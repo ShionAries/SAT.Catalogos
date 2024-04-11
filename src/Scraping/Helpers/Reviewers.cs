@@ -5,19 +5,19 @@ using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
     public class Reviewers {
-        protected internal List<IReviewerInterface> reviewer;
+        protected internal List<IReviewer> reviewer;
 
         public Reviewers() {
-            this.reviewer = new List<IReviewerInterface>();
+            this.reviewer = new List<IReviewer>();
         }
 
-        public Reviewers CreateWithDefaultReviewers(IResourcesGatewayInterface gateway) {
+        public Reviewers CreateWithDefaultReviewers(IResourcesGateway gateway) {
             this.reviewer.Add(new ScrapingReviewer(gateway));
             this.reviewer.Add(new ConstantReviewer(gateway));
             return this;
         }
 
-        public List<Review> Review(List<IOriginInterface> origins) {
+        public List<Review> Review(List<IOrigin> origins) {
             var response = new List<Review>();
             foreach (var item in origins) {
                 var reviewer = this.FindReviewerByOrigin(item);
@@ -26,7 +26,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             return response;
         }
 
-        public IReviewerInterface FindReviewerByOrigin(IOriginInterface origin) {
+        public IReviewer FindReviewerByOrigin(IOrigin origin) {
             foreach (var item in reviewer) {
                 if (item.Accepts(origin)) {
                     return item;

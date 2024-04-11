@@ -3,18 +3,18 @@ using Jaeger.SAT.Catalogos.Scraping.Entities;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
-    internal class ScrapingReviewer : IReviewerInterface {
-        protected internal IResourcesGatewayInterface gateway;
+    internal class ScrapingReviewer : IReviewer {
+        protected internal IResourcesGateway gateway;
 
-        public ScrapingReviewer(IResourcesGatewayInterface gateway) {
+        public ScrapingReviewer(IResourcesGateway gateway) {
             this.gateway = gateway;
         }
 
-        public bool Accepts(IOriginInterface origin) {
+        public bool Accepts(IOrigin origin) {
             return origin is ScrapingOrigin;
         }
 
-        public Review Review(IOriginInterface origin) {
+        public Review Review(IOrigin origin) {
             if (!(origin is ScrapingOrigin)) {
                 throw new Exception("This reviewer can only handle ScrapingOrigin objects");
             }
@@ -43,7 +43,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             return new Review(origin, new ReviewStatus(ReviewStatus.StatusEnum.UpToDate));
         }
 
-        public IOriginInterface ResolveOrigin(ScrapingOrigin origin) {
+        public IOrigin ResolveOrigin(ScrapingOrigin origin) {
             var baseResource = this.gateway.Get(origin.Url, "");
             var downloadUrl = this.ResolveHtmlToLink(baseResource, origin.LinkText, origin.LinkPosition);
             if (downloadUrl != null) {
