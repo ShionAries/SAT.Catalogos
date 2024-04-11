@@ -5,6 +5,13 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
     public class ConstantOrigin : Abstracts.OriginResource, IOriginInterface {
         public ConstantOrigin() : base() { }
 
+        /// <summary>
+        /// origen
+        /// </summary>
+        /// <param name="name">nombre o descripcion del recurso</param>
+        /// <param name="destinationFilename">nombre del archivo de destino</param>
+        /// <param name="lastVersion">fecha de la ultima revisión</param>
+        /// <param name="allowUpdate">´permitir la descarga</param>
         public ConstantOrigin(string name, string url, DateTime? lastVersion = null, string destinationFilename = "", bool allowUpdate = true) : base() {
             Name = name;
             Url = url;
