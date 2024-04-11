@@ -16,9 +16,9 @@ namespace Jaeger.SAT.Catalogos.Importers {
 
         public abstract Injectors CreateInjectors(DataSet dataSet);
 
-        public void Import() {
+        public void Import(Helpers.ILoggerInterface logger) {
             
-            Console.WriteLine($"Convirtiendo a archivo {_FileSource}...");
+            logger.Info($"Convirtiendo a archivo {_FileSource}...");
             var converter = this.CreateConverter();
             converter.Convert(_FileSource);
 
@@ -26,7 +26,7 @@ namespace Jaeger.SAT.Catalogos.Importers {
             var injector = this.CreateInjectors(converter.DataSet);
             injector.Validate();
 
-            injector.Inject("");
+            injector.Inject(logger);
         }
 
         public XlsToDataSetConverter CreateConverter() {

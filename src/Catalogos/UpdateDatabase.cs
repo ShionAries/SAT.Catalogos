@@ -4,7 +4,7 @@ using Jaeger.SAT.Catalogos.Importers;
 namespace Jaeger.SAT.Catalogos {
     public class UpdateDatabase {
         private string _SourceFolder;
-
+        protected Helpers.ILoggerInterface _Logger;
         public UpdateDatabase(string sourceFolder) {
             this.SourceFolder = sourceFolder;
         }
@@ -28,7 +28,7 @@ namespace Jaeger.SAT.Catalogos {
 
         public int Run() {
             var importer = this.CreateImporter();
-            importer.Import(this.SourceFolder, "");
+            importer.Import(this.SourceFolder, this._Logger);
             Console.WriteLine("Se terminó correctamente con la actualización de la base de datos");
             return 0;
         }

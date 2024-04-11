@@ -8,7 +8,7 @@ namespace Jaeger.SAT.Catalogos {
 
         public List<IInjectorInterface> Items { get; set; }
 
-        public int Inject(string logger) {
+        public int Inject(Helpers.ILoggerInterface logger) {
             foreach (var item in this.Items) {
                 item.Inject(logger);
             }

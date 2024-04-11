@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Jaeger.SAT.Catalogos.Importers {
     public class SourcesImporter {
-        public void Import(string source, string logger) {
+        public void Import(string source, Helpers.ILoggerInterface logger) {
             var importes = new List<IImporter> {
                 new Cfdi40Catalogs(source + @"\cfdi_40.xls") 
             };
@@ -16,7 +16,7 @@ namespace Jaeger.SAT.Catalogos.Importers {
             }
 
             foreach (var importer in importes) {
-                importer.Import();
+                importer.Import(logger);
             }
         }
     }

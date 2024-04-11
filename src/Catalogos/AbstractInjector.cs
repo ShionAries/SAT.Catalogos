@@ -26,17 +26,15 @@ namespace Jaeger.SAT.Catalogos {
             return true;
         }
 
-        public int Inject(string LoggerInterface = "") {
-            var tableName = "";
-
-            //Console.WriteLine($"Verificando encabezado de {filename}...");
+        public int Inject(Helpers.ILoggerInterface logger) {
+            //logger.Info($"Verificando encabezado de {filename}...");
             this.CreatingHeaders();
 
             this.CheckHeaders();
             //Console.WriteLine($"Inyectando contenidos de {filename} a {tableName}...");
 
             var injected = this.ChangeNamesColumns();
-            Console.WriteLine($"Se inyectaron {injected} registros en {tableName}");
+            //Console.WriteLine($"Se inyectaron {injected} registros en {tableName}");
 
             return 0;
         }

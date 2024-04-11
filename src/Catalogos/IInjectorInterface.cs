@@ -1,5 +1,5 @@
 ﻿namespace Jaeger.SAT.Catalogos {
     public interface IInjectorInterface {
-        int Inject(string logger = "");
+        int Inject(Helpers.ILoggerInterface logger);
     }
 }

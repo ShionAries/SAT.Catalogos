@@ -60,6 +60,8 @@
     <Compile Include="Database\Entities\ClaveBase.cs" />
     <Compile Include="Database\Entities\ClaveBaseVigencia.cs" />
     <Compile Include="Database\ICatalogoGeneric.cs" />
+    <Compile Include="Helpers\ILoggerInterface.cs" />
+    <Compile Include="Helpers\LoggerInterface.cs" />
     <Compile Include="PathsEnum.cs" />
     <Compile Include="Converts\XlsToDataSetConverter.cs" />
     <Compile Include="Database\Repository\FormaPagoCatalogo.cs" />
