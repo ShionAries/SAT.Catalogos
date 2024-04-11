@@ -1,5 +1,5 @@
 ﻿namespace Jaeger.SAT.Catalogos.Helpers {
-    public interface ILoggerInterface {
+    public interface ILogger {
         void Info(string message);
     }
 }

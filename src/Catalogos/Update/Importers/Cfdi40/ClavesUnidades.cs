@@ -6,14 +6,14 @@ using Jaeger.SAT.Catalogos.Repository;
 using Jaeger.SAT.Catalogos.Repository.Entities;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
-    public class ClavesUnidades : AbstractInjector, IInjectorInterface {
-        protected IUnidadesCatalogo _Catalogo;
+    public class ClavesUnidades : AbstractInjector, IInjector {
+        protected IGeneralRepository _Catalogo;
         public ClavesUnidades(DataTable dataTable) : base(dataTable) {
             _SkipRows = 3;
         }
 
-        public override void CheckHeaders() {
-            _Expected = new Dictionary<string, string> {
+        protected override void CheckHeaders() {
+            _HeadersMapper = new Dictionary<string, string> {
                 { "c_ClaveUnidad", "Clave" },
                 { "Nombre", "Nombre" },
                 { "Descripción", "Descripcion" },
@@ -24,12 +24,12 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
             };
 
             var headers = GetHeaders().ToArray();
-            if (!ForLoop(_Expected.Select(it => it.Key).ToArray(), headers)) {
+            if (!ArrayCompare(_HeadersMapper.Select(it => it.Key).ToArray(), headers)) {
                 throw new Exception("The headers did not match on file {$this->sourceFile()}");
             }
         }
 
-        public override void Fill() {
+        protected override void Fill() {
             var mapper = new Helpers.Mapping.DataNamesMapper<ClaveUnidad>();
             var resultado = mapper.Map(_DataTable).ToList();
             if (resultado != null) {

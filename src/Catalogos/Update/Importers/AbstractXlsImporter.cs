@@ -17,7 +17,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
 
         public abstract Injectors CreateInjectors(DataSet dataSet);
 
-        public void Import(Helpers.ILoggerInterface logger) {
+        public void Import(Helpers.ILogger logger) {
 
             logger.Info($"Convirtiendo a archivo {_FileSource}...");
             var converter = CreateConverter();

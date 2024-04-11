@@ -54,14 +54,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Repository\Articulo69BRepository.cs" />
+    <Compile Include="Repository\Entities\Articulo69B.cs" />
+    <Compile Include="Repository\IArticulo69BRepository.cs" />
+    <Compile Include="Repository\IGeneralRepository.cs" />
     <Compile Include="Update\AbstractInjector.cs" />
     <Compile Include="Repository\Catalogo.cs" />
     <Compile Include="Repository\CatalogoContext.cs" />
     <Compile Include="Repository\Entities\ClaveBase.cs" />
     <Compile Include="Repository\Entities\ClaveBaseVigencia.cs" />
     <Compile Include="Repository\ICatalogoGeneric.cs" />
-    <Compile Include="Helpers\ILoggerInterface.cs" />
-    <Compile Include="Helpers\LoggerInterface.cs" />
+    <Compile Include="Helpers\ILogger.cs" />
+    <Compile Include="Helpers\Logger.cs" />
     <Compile Include="PathsEnum.cs" />
     <Compile Include="Update\Converts\XlsToDataSetConverter.cs" />
     <Compile Include="Repository\FormaPagoCatalogo.cs" />
@@ -81,8 +85,9 @@
     <Compile Include="Helpers\Mapping\DataNamesAttribute.cs" />
     <Compile Include="Helpers\Mapping\DataNamesMapper.cs" />
     <Compile Include="Helpers\Mapping\PropertyMapHelper.cs" />
-    <Compile Include="Update\IInjectorInterface.cs" />
+    <Compile Include="Update\IInjector.cs" />
     <Compile Include="Update\Importers\AbstractXlsImporter.cs" />
+    <Compile Include="Update\Importers\Articulo69BCatalogs.cs" />
     <Compile Include="Update\Importers\Articulo69B\ListadoCompleto.cs" />
     <Compile Include="Update\Importers\Articulo69\Firmes.cs" />
     <Compile Include="Update\Importers\Cfdi40Catalogs.cs" />

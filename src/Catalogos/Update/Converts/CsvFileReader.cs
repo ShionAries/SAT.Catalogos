@@ -42,7 +42,7 @@ namespace Jaeger.SAT.Catalogos.Update.Converts {
         }
 
         public void GetDataSet(string tableName = "") {
-            IExcelDataReader reader = ExcelReaderFactory.CreateReader(
+            IExcelDataReader reader = ExcelReaderFactory.CreateCsvReader(
                 FileService.ReadFileStrem(FileName), new ExcelReaderConfiguration() {
                 });
 

@@ -3,9 +3,10 @@ using System.Collections.Generic;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers {
     public class SourcesImporter {
-        public void Import(string source, Helpers.ILoggerInterface logger) {
+        public void Import(string source, Helpers.ILogger logger) {
             var importes = new List<IImporter> {
-                new Cfdi40Catalogs(source + @"\cfdi_40.xls")
+                //new Cfdi40Catalogs(source + @"\cfdi_40.xls"),
+                new Articulo69BCatalogs(source + @"\Listado_Completo_69-B.csv")
             };
 
             foreach (var item in importes) {

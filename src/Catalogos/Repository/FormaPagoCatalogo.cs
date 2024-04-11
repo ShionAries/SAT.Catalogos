@@ -6,7 +6,7 @@ namespace Jaeger.SAT.Catalogos.Repository {
     /// <summary>
     /// catalogo de formas de pago
     /// </summary>
-    public class FormaPagoCatalogo : CatalogoContext<ClaveFormaPago>, IFormaPagoCatalogo {
+    public class FormaPagoCatalogo : CatalogoContext<ClaveFormaPago>, IFormaPagoCatalogo , IGeneralRepository {
         public FormaPagoCatalogo() {
             Title = "Catálogo Forma de Pago";
             FileName = "CatalogoFormaPago33.json";

@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 
 namespace Jaeger.SAT.Catalogos.Update {
-    public class Injectors : IInjectorInterface {
+    public class Injectors : IInjector {
         public Injectors() {
-            Items = new List<IInjectorInterface>();
+            Items = new List<IInjector>();
         }
 
-        public List<IInjectorInterface> Items { get; set; }
+        public List<IInjector> Items { get; set; }
 
-        public int Inject(Helpers.ILoggerInterface logger) {
+        public int Inject(Helpers.ILogger logger) {
             foreach (var item in Items) {
                 item.Inject(logger);
             }

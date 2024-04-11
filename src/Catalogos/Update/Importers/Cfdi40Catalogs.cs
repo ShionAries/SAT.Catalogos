@@ -8,7 +8,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
 
         public override Injectors CreateInjectors(DataSet dataSet) {
             return new Injectors() {
-                Items = new System.Collections.Generic.List<IInjectorInterface>() {
+                Items = new System.Collections.Generic.List<IInjector>() {
                     new FormasDePago(dataSet.Tables["c_FormaPago"]),
                     new ClavesUnidades(dataSet.Tables["c_ClaveUnidad"]),
                 }

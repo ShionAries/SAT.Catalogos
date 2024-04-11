@@ -1,73 +1,80 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Data;
-using System.IO;
 using System.Collections.Generic;
+using System;
 
 namespace Jaeger.SAT.Catalogos.Update {
-    public abstract class AbstractInjector : IInjectorInterface {
+    public abstract class AbstractInjector : IInjector {
         protected DataTable _DataTable;
         protected int _SkipRows;
-        protected Dictionary<string, string> _Expected = new Dictionary<string, string>();
+        protected Dictionary<string, string> _HeadersMapper;
 
         public AbstractInjector(DataTable dataTable) {
-            _DataTable = dataTable;
+            this._DataTable = dataTable;
+            this._HeadersMapper = new Dictionary<string, string>();
         }
 
-        protected bool ForLoop(string[] firstArray, string[] secondArray) {
-            if (firstArray.Length != secondArray.Length)
-                return false;
-
-            for (int i = 0; i < firstArray.Length; i++) {
-                if (firstArray[i] != secondArray[i])
-                    return false;
-            }
-
-            return true;
-        }
-
-        public int Inject(Helpers.ILoggerInterface logger) {
-            //logger.Info($"Verificando encabezado de {filename}...");
-            CreatingHeaders();
+        public int Inject(Helpers.ILogger logger) {
+            logger.Info($"Verificando encabezado ...{this._DataTable.TableName}");
+            FixDataTable();
 
             CheckHeaders();
-            //Console.WriteLine($"Inyectando contenidos de {filename} a {tableName}...");
+            logger.Info($"Inyectando contenidos de {this._DataTable.TableName}...");
 
-            var injected = ChangeNamesColumns();
-            //Console.WriteLine($"Se inyectaron {injected} registros en {tableName}");
+            var injected = ChangeHeaderNames();
+            logger.Info($"Se inyectaron {injected} registros en {this._DataTable.TableName}");
 
             return 0;
         }
 
-        public int ChangeNamesColumns() {
+        public int ChangeHeaderNames() {
             var inserted = 0;
             for (int i = 0; i < _DataTable.Columns.Count; i++) {
-                _DataTable.Columns[i].ColumnName = _Expected[_DataTable.Columns[i].ColumnName];
+                _DataTable.Columns[i].ColumnName = _HeadersMapper[_DataTable.Columns[i].ColumnName];
             }
             _DataTable.AcceptChanges();
             Fill();
             return inserted;
         }
 
-        public abstract void CheckHeaders();
+        protected abstract void CheckHeaders();
 
-        public abstract void Fill();
+        protected abstract void Fill();
 
-        protected void CreatingHeaders() {
+        protected bool ArrayCompare(string[] firstArray, string[] secondArray) {
+            if (firstArray.Length != secondArray.Length)
+                return false;
+
+            for (int i = 0; i < firstArray.Length; i++) {
+                if (firstArray[i].ToLower() != secondArray[i].ToLower()) {
+                    Console.WriteLine($"Diferencia en array 1 {firstArray[i]} posición {i} con array 2 {secondArray[i]}");
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        protected void FixDataTable() {
             for (int i = 0; i < _SkipRows; i++) {
                 _DataTable.Rows[i].Delete();
             }
-            var d0 = _DataTable.Rows[_SkipRows].ItemArray;
-            for (int i = 0; i < d0.Length; i++) {
-                if (d0[i].ToString() != "")
-                    _DataTable.Columns[i].ColumnName = d0[i].ToString();
+            var headers = _DataTable.Rows[_SkipRows].ItemArray;
+            for (int i = 0; i < headers.Length; i++) {
+                if (headers[i].ToString() != "")
+                    _DataTable.Columns[i].ColumnName = headers[i].ToString();
             }
             _DataTable.Rows[_SkipRows].Delete();
             _DataTable.AcceptChanges();
+            this.DeleteBlankColumns();
+        }
+
+        protected void DeleteBlankColumns() {
             // eliminar columnas que no tienen encabezados correctos
-            List<string> columnNames = _DataTable.Columns
+            var columnNames = _DataTable.Columns
                 .Cast<DataColumn>()
-                .Select(column => column.ColumnName).Where(column => column.ToLower().StartsWith("column"))
+                .Select(column => column.ColumnName)
+                .Where(column => column.ToLower().StartsWith("column"))
                 .ToList();
 
             foreach (var item in columnNames) {

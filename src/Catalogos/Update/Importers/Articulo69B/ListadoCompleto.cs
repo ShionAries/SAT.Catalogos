@@ -1,30 +1,58 @@
 ﻿using System;
-using MiniExcelLibs.Attributes;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using Jaeger.SAT.Catalogos.Repository;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Articulo69B {
-    internal class ListadoCompleto {
-        [ExcelColumnName("No")]
-        public int No { get; set; }
+    internal class ListadoCompleto : AbstractInjector, IInjector {
+        protected IGeneralRepository _Catalogo;
 
-        [ExcelColumnName("RFC")]
-        public string RFC { get; set; }
+        public ListadoCompleto(DataTable dataTable) : base(dataTable) {
+            this._SkipRows = 1;
+        }
 
-        [ExcelColumnName("Nombre del Contribuyente")]
-        public string NombreContribuyente { get; set; }
+        protected override void CheckHeaders() {
+            this._HeadersMapper = new Dictionary<string, string>() {
+                { "No", "Id" },
+                { "RFC", "RFC"},
+                { "Nombre del Contribuyente", "Nombre" },
+                { "Situación del contribuyente", "Situacion" },
+                { "Número y fecha de oficio global de presunción SAT", "OficioGlobalPresuncionSAT" },
+                { "Publicación página SAT presuntos", "PublicacionPaginaSATPresuntos" },
+                { "Número y fecha de oficio global de presunción DOF", "OficioGlobalPresuncionDOF"},
+                { "Publicación DOF presuntos","PublicacionDOFPresuntos" },
+                { "Número y fecha de oficio global de contribuyentes que desvirtuaron SAT", "OficioGlobalContribuyentesDesvirtuaronSAT" },
+                { "Publicación página SAT desvirtuados", "PublicacionPaginaSATDesvirtuados" },
+                { "Número y fecha de oficio global de contribuyentes que desvirtuaron DOF", "OficioGlobalContribuyentesDesvirtuaronDOF" },
+                { "Publicación DOF desvirtuados", "PublicacionDOFDesvirtuados" },
+                { "Número y fecha de oficio global de definitivos SAT", "OficioGlobalDefinitivosSAT" },
+                { "Publicación página SAT definitivos", "PublicacionPaginaSATDefinitivos" },
+                { "Número y fecha de oficio global de definitivos DOF", "OficioGlobalDefinitivosDOF" },
+                { "Publicación DOF definitivos", "PublicacionDOFDefinitivos" },
+                { "Número y fecha de oficio global de sentencia favorable SAT", "OficioGlobalSentenciaFavorableSAT" },
+                { "Publicación página SAT sentencia favorable", "PublicacionPaginaSATSentenciaFavorable" },
+                { "Número y fecha de oficio global de sentencia favorable DOF", "OficioGlobalSentenciaFavorableDOF" },
+                { "Publicación DOF sentencia favorable" , "PublicacionDOFSentenciaFavorable"}
+            };
 
-        [ExcelColumnName("Situación del contribuyente")]
-        public string Situcion { get; set; }
+            var headers = this.GetHeaders().ToArray();
+            if (!ArrayCompare(_HeadersMapper.Select(it => it.Key).ToArray(), headers)) {
+                throw new Exception($"The headers did not match on file {this.GetType().Name}");
+            }
+        }
 
-        [ExcelColumnName("Número y fecha de oficio global de presunción SAT")]
-        public string NumeroFechaOficio { get; set; }
-
-        [ExcelColumnName("Publicación página SAT presuntos")]
-        public string Publicacion1 { get; set; }
-
-        [ExcelColumnName("Número y fecha de oficio global de presunción DOF")]
-        public string NumeroFechaOficio1 { get; set; }
-
-        [ExcelColumnName("Publicación DOF presuntos")]
-        public string Publicacion2 { get; set; }
+        protected override void Fill() {
+            var mapper = new Helpers.Mapping.DataNamesMapper<Repository.Entities.Articulo69B>();
+            var resultado = mapper.Map(_DataTable).ToList();
+            if (resultado != null) {
+                if (resultado.Count() > 0) {
+                    _Catalogo = new Articulo69BRepository {
+                        Items = resultado.ToList()
+                    };
+                    this._Catalogo.Save();
+                }
+            }
+        }
     }
 }
