@@ -54,26 +54,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractInjector.cs" />
-    <Compile Include="Database\Repository\Catalogo.cs" />
-    <Compile Include="Database\Repository\CatalogoContext.cs" />
-    <Compile Include="Database\Entities\ClaveBase.cs" />
-    <Compile Include="Database\Entities\ClaveBaseVigencia.cs" />
-    <Compile Include="Database\ICatalogoGeneric.cs" />
+    <Compile Include="Update\AbstractInjector.cs" />
+    <Compile Include="Repository\Catalogo.cs" />
+    <Compile Include="Repository\CatalogoContext.cs" />
+    <Compile Include="Repository\Entities\ClaveBase.cs" />
+    <Compile Include="Repository\Entities\ClaveBaseVigencia.cs" />
+    <Compile Include="Repository\ICatalogoGeneric.cs" />
     <Compile Include="Helpers\ILoggerInterface.cs" />
     <Compile Include="Helpers\LoggerInterface.cs" />
     <Compile Include="PathsEnum.cs" />
-    <Compile Include="Converts\XlsToDataSetConverter.cs" />
-    <Compile Include="Database\Repository\FormaPagoCatalogo.cs" />
-    <Compile Include="Database\IFormaPagoCatalogo.cs" />
-    <Compile Include="Database\IUnidadesCatalogo.cs" />
-    <Compile Include="Database\Repository\UnidadesCatalogo.cs" />
-    <Compile Include="Database\Entities\ClaveFormaPago.cs" />
-    <Compile Include="Database\Entities\ClaveUnidad.cs" />
-    <Compile Include="Converts\CsvFileReader.cs" />
+    <Compile Include="Update\Converts\XlsToDataSetConverter.cs" />
+    <Compile Include="Repository\FormaPagoCatalogo.cs" />
+    <Compile Include="Repository\IFormaPagoCatalogo.cs" />
+    <Compile Include="Repository\IUnidadesCatalogo.cs" />
+    <Compile Include="Repository\UnidadesCatalogo.cs" />
+    <Compile Include="Repository\Entities\ClaveFormaPago.cs" />
+    <Compile Include="Repository\Entities\ClaveUnidad.cs" />
+    <Compile Include="Update\Converts\CsvFileReader.cs" />
     <Compile Include="Helpers\DbConvert.cs" />
     <Compile Include="Helpers\DirectoryService.cs" />
-    <Compile Include="Converts\ExcelFileReader.cs" />
+    <Compile Include="Update\Converts\ExcelFileReader.cs" />
     <Compile Include="Helpers\FileService.cs" />
     <Compile Include="Helpers\IExcelFileReader.cs" />
     <Compile Include="Helpers\JaegerManagerPaths.cs" />
@@ -81,22 +81,20 @@
     <Compile Include="Helpers\Mapping\DataNamesAttribute.cs" />
     <Compile Include="Helpers\Mapping\DataNamesMapper.cs" />
     <Compile Include="Helpers\Mapping\PropertyMapHelper.cs" />
-    <Compile Include="IInjectorInterface.cs" />
-    <Compile Include="Importers\AbstractXlsImporter.cs" />
-    <Compile Include="Importers\Articulo69B\ListadoCompleto.cs" />
-    <Compile Include="Importers\Articulo69\Firmes.cs" />
-    <Compile Include="Importers\Cfdi40Catalogs.cs" />
-    <Compile Include="Importers\Cfdi40\ClavesUnidades.cs" />
-    <Compile Include="Importers\Cfdi40\FormasDePago.cs" />
-    <Compile Include="Importers\IImporter.cs" />
-    <Compile Include="Importers\SourcesImporter.cs" />
-    <Compile Include="Injectors.cs" />
+    <Compile Include="Update\IInjectorInterface.cs" />
+    <Compile Include="Update\Importers\AbstractXlsImporter.cs" />
+    <Compile Include="Update\Importers\Articulo69B\ListadoCompleto.cs" />
+    <Compile Include="Update\Importers\Articulo69\Firmes.cs" />
+    <Compile Include="Update\Importers\Cfdi40Catalogs.cs" />
+    <Compile Include="Update\Importers\Cfdi40\ClavesUnidades.cs" />
+    <Compile Include="Update\Importers\Cfdi40\FormasDePago.cs" />
+    <Compile Include="Update\Importers\IImporter.cs" />
+    <Compile Include="Update\Importers\SourcesImporter.cs" />
+    <Compile Include="Update\Injectors.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UpdateDatabase.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Abstractions\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

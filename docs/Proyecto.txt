@@ -6,6 +6,13 @@ Jaeger.SAT.Catalogos.Entities
 Jaeger.SAT.Catalogos.Helpers
 Jaeger.SAT.Catalogos.Services
 Jaeger.SAT.Catalogos.Services.Update();
+Jaeger.SAT.Catalogos.Helpers
+Jaeger.SAT.Catalogos.Repository
+Jaeger.SAT.Catalogos.Repository.Entities
+Jaeger.SAT.Catalogos.Converts
+Jaeger.SAT.Catalogos.Update
+Jaeger.SAT.Catalogos.Update.Convents
+Jaeger.SAT.Catalogos.Update.Importers
 
 Jaeger.SAT.Catalogos.Scraping
 Jaeger.SAT.Catalogos.Scraping.Interfaces

@@ -1,0 +1,12 @@
+﻿using Jaeger.SAT.Catalogos.Repository.Entities;
+
+namespace Jaeger.SAT.Catalogos.Repository {
+    /// <summary>
+    /// Catálogo de unidades de medida para los conceptos en el CFDI.
+    /// </summary>
+    public interface IUnidadesCatalogo : ICatalogoGeneric<ClaveUnidad> {
+        ClaveUnidad Search(string findId);
+
+        System.Collections.Generic.IEnumerable<ClaveUnidad> GetSearch(string findId);
+    }
+}

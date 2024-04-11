@@ -1,12 +1,14 @@
 ﻿using System;
-using Jaeger.SAT.Catalogos.Importers;
+using Jaeger.SAT.Catalogos.Update.Importers;
 
 namespace Jaeger.SAT.Catalogos {
     public class UpdateDatabase {
         private string _SourceFolder;
         protected Helpers.ILoggerInterface _Logger;
+
         public UpdateDatabase(string sourceFolder) {
             this.SourceFolder = sourceFolder;
+            this._Logger = new Helpers.LoggerInterface();
         }
 
         /// <summary>
