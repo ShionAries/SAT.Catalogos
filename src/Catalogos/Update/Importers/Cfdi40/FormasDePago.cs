@@ -43,7 +43,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
             var resultado = mapper.Map(_DataTable).ToList();
             if (resultado != null) {
                 if (resultado.Count() > 0) {
-                    _Catalogo = new FormaPagoCatalogo {
+                    _Catalogo = new FormaPagoRepository {
                         Items = resultado.ToList()
                     };
                 }

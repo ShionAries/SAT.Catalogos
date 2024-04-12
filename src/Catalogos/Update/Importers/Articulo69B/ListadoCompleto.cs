@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Jaeger.SAT.Catalogos.Repository;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Articulo69B {
     internal class ListadoCompleto : AbstractInjector, IInjector {
@@ -43,13 +44,12 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Articulo69B {
         }
 
         protected override void Fill() {
-            var mapper = new Helpers.Mapping.DataNamesMapper<Repository.Entities.Articulo69B>();
-            var resultado = mapper.Map(_DataTable).ToList();
-            if (resultado != null) {
-                if (resultado.Count() > 0) {
-                    _Catalogo = new Articulo69BRepository {
-                        Items = resultado.ToList()
+            if (this._DataTable != null) {
+                if (this._DataTable.Rows.Count > 0) {
+                    this._Catalogo = new Articulo69BRepository {
+                        Builder = "SAT.Catálogos.Repository"
                     };
+                    this._Catalogo.Import(this._DataTable);
                     this._Catalogo.Save();
                 }
             }

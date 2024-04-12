@@ -14,19 +14,19 @@ namespace Jaeger.SAT.Catalogos.Repository {
     /// clase contexto para el manejo de catalogos diversos
     /// </summary>
     /// <typeparam name="T">The type of the T.</typeparam>
-    public abstract class CatalogoContext<T> : ICatalogoGeneric<T> where T : class, new() {
+    public abstract class RepositoryContext<T> : IRespositoryContext<T> where T : class, new() {
         #region declaraciones
         private bool _Recuperar = true;
-        private Catalogo<T> _Catalogo;
+        private Repository<T> _Catalogo;
         #endregion
 
         /// <summary>
         /// constructor
         /// </summary>
-        public CatalogoContext() {
+        public RepositoryContext() {
             FileName = "miCatalogo.json";
             StartPath = PathsEnum.Catalogos;
-            _Catalogo = new Catalogo<T>();
+            _Catalogo = new Repository<T>();
         }
 
         #region propiedades
@@ -78,6 +78,11 @@ namespace Jaeger.SAT.Catalogos.Repository {
                 return null;
             }
             set { _Catalogo.Actualizacion = value; }
+        }
+
+        public string Builder { 
+            get {  return _Catalogo.Builder; }
+            set { this._Catalogo.Builder = value; } 
         }
 
         /// <summary>
@@ -284,7 +289,7 @@ namespace Jaeger.SAT.Catalogos.Repository {
 
         private void Serializer(string valor) {
             var conf = new JsonSerializerSettings() { NullValueHandling = NullValueHandling.Ignore, DateFormatString = "dd/MM/yyyy" };
-            _Catalogo = JsonConvert.DeserializeObject<Catalogo<T>>(valor, conf);
+            _Catalogo = JsonConvert.DeserializeObject<Repository<T>>(valor, conf);
             Items = _Catalogo.Items;
         }
 

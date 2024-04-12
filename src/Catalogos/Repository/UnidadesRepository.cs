@@ -2,8 +2,8 @@
 using Jaeger.SAT.Catalogos.Repository.Entities;
 
 namespace Jaeger.SAT.Catalogos.Repository {
-    public class UnidadesCatalogo : CatalogoContext<ClaveUnidad>, IUnidadesCatalogo {
-        public UnidadesCatalogo() {
+    public class UnidadesRepository : RepositoryContext<ClaveUnidad>, IUnidadesRepository, IGeneralRepository {
+        public UnidadesRepository() {
             Title = "Catálogo de unidades de medida para los conceptos en el CFDI.";
             FileName = "CatalogoUnidades.json";
         }

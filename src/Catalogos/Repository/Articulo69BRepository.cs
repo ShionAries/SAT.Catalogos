@@ -4,7 +4,7 @@ namespace Jaeger.SAT.Catalogos.Repository {
     /// <summary>
     /// Artículo 69-B, primer y segundo párrafo del CFF
     /// </summary>
-    public class Articulo69BRepository : CatalogoContext<Articulo69B>, IArticulo69BRepository, IGeneralRepository {
+    public class Articulo69BRepository : RepositoryContext<Articulo69B>, IArticulo69BRepository, IGeneralRepository {
         public Articulo69BRepository() {
             this.Title = "Artículo 69-B, primer y segundo párrafo del CFF";
             this.FileName = "Articulo69B_Completo.json";

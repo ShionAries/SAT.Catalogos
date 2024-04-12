@@ -38,3 +38,11 @@ UpgradeOrigins.Default().Create().Execute();
 
 Catalogos().SourceImports(files[]).Execute();
 Catalogos().imports();
+
+Repositorio (catalogos SAT)
+
+UnidadRepository
+.Load()
+.Save(path = @"..Catalogos\repositorio.json")
+.Search()
+.Import(DataTable)

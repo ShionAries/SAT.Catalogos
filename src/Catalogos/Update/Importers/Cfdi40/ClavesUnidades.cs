@@ -34,7 +34,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
             var resultado = mapper.Map(_DataTable).ToList();
             if (resultado != null) {
                 if (resultado.Count() > 0) {
-                    _Catalogo = new UnidadesCatalogo {
+                    _Catalogo = new UnidadesRepository {
                         Items = resultado.ToList()
                     };
                 }

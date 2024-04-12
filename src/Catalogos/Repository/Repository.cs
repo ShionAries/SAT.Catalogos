@@ -7,7 +7,7 @@ namespace Jaeger.SAT.Catalogos.Repository {
     /// clase de catálogo base para contener información 
     /// </summary>
     /// <typeparam name="T">objeto clase T</typeparam>
-    public class Catalogo<TObject> {
+    public class Repository<TObject> {
         #region variables
         private DateTime? _Actualizacion;
         private DateTime? _InicioVigencia;
@@ -17,7 +17,7 @@ namespace Jaeger.SAT.Catalogos.Repository {
         /// <summary>
         /// constructor
         /// </summary>
-        public Catalogo() {
+        public Repository() {
             Version = "1.0";
             Titulo = "Catálogo";
             Revision = "0";
