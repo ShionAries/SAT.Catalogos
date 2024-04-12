@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel;
-using Jaeger.SAT.Catalogos.Helpers.Mapping;
 using Newtonsoft.Json;
+using Jaeger.SAT.Catalogos.Helpers.Mapping;
 
-namespace Jaeger.SAT.Catalogos.Repository.Entities {
+namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
     /// <summary>
     /// Clave de catalogo contiene clave, descripcion y fechas de vigencia
     /// </summary>

@@ -6,20 +6,20 @@ using Jaeger.SAT.Catalogos.Repository;
 using Jaeger.SAT.Catalogos.Repository.Entities;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
-    public class ClavesUnidades : AbstractInjector, IInjector {
-        public ClavesUnidades(DataTable dataTable) : base(dataTable) {
+    public class ClavesUsoCFDI : AbstractInjector, IInjector {
+        public ClavesUsoCFDI(DataTable dataTable) : base(dataTable) {
             _SkipRows = 3;
         }
 
         protected override void CheckHeaders() {
             _HeadersMapper = new Dictionary<string, string> {
-                { "c_ClaveUnidad", "Clave" },
-                { "Nombre", "Nombre" },
+                { "c_UsoCFDI", "Clave" },
                 { "Descripción", "Descripcion" },
-                { "Nota", "Notas" },
-                { "Fecha de inicio de vigencia", "VigenciaIni" },
-                { "Fecha de fin de vigencia", "VigenciaFin" },
-                { "Símbolo", "Simbolo" }
+                { "Fisica", "Fisica" },
+                { "Moral", "Moral" },
+                { "Fecha inicio de vigencia", "VigenciaIni" },
+                { "Fecha fin de vigencia", "VigenciaFin" },
+                { "Régimen Fiscal Receptor", "RegimenFiscalReceptor" }
             };
 
             var headers = GetHeaders().ToArray();
@@ -29,11 +29,11 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
         }
 
         protected override void Fill() {
-            var mapper = new Helpers.Mapping.DataNamesMapper<ClaveUnidad>();
+            var mapper = new Helpers.Mapping.DataNamesMapper<ClaveUsoCFDI>();
             var resultado = mapper.Map(_DataTable).ToList();
             if (resultado != null) {
                 if (resultado.Count() > 0) {
-                    _Catalogo = new UnidadesRepository {
+                    _Catalogo = new UsoCFDIRepository {
                         Items = resultado.ToList()
                     };
                 }

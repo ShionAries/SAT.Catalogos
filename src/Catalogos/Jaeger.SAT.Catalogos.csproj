@@ -37,9 +37,6 @@
     <Reference Include="ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
       <HintPath>..\..\tester\packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
     </Reference>
-    <Reference Include="MiniExcel, Version=1.31.3.0, Culture=neutral, PublicKeyToken=e7310002a53eac39, processorArchitecture=MSIL">
-      <HintPath>..\..\tester\packages\MiniExcel.1.31.3\lib\net45\MiniExcel.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\tester\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -54,23 +51,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Repository\Articulo69Repository.cs" />
     <Compile Include="Repository\Articulo69BRepository.cs" />
     <Compile Include="Repository\Entities\Articulo69B.cs" />
-    <Compile Include="Repository\IArticulo69BRepository.cs" />
-    <Compile Include="Repository\IGeneralRepository.cs" />
+    <Compile Include="Repository\Entities\ClaveUsoCFDI.cs" />
+    <Compile Include="Repository\Entities\NoLocalizados.cs" />
+    <Compile Include="Repository\Interfaces\IArticulo69Repository.cs" />
+    <Compile Include="Repository\Interfaces\IArticulo69BRepository.cs" />
+    <Compile Include="Repository\Interfaces\IClaveBase.cs" />
+    <Compile Include="Repository\Interfaces\IClaveBaseItem.cs" />
+    <Compile Include="Repository\Interfaces\IClaveBaseVigencia.cs" />
+    <Compile Include="Repository\Interfaces\IGeneralRepository.cs" />
+    <Compile Include="Repository\Interfaces\IUsoCFDICatalogo.cs" />
+    <Compile Include="Repository\UsoCFDIRepository.cs" />
     <Compile Include="Update\AbstractInjector.cs" />
     <Compile Include="Repository\Repository.cs" />
-    <Compile Include="Repository\RepositoryContext.cs" />
-    <Compile Include="Repository\Entities\ClaveBase.cs" />
-    <Compile Include="Repository\Entities\ClaveBaseVigencia.cs" />
-    <Compile Include="Repository\IRespositoryContext.cs" />
+    <Compile Include="Repository\Abstracts\RepositoryContext.cs" />
+    <Compile Include="Repository\Abstracts\ClaveBase.cs" />
+    <Compile Include="Repository\Abstracts\ClaveBaseVigencia.cs" />
+    <Compile Include="Repository\Interfaces\IRespositoryContext.cs" />
     <Compile Include="Helpers\ILogger.cs" />
     <Compile Include="Helpers\Logger.cs" />
-    <Compile Include="PathsEnum.cs" />
     <Compile Include="Update\Converts\XlsToDataSetConverter.cs" />
     <Compile Include="Repository\FormaPagoRepository.cs" />
-    <Compile Include="Repository\IFormaPagoRepository.cs" />
-    <Compile Include="Repository\IUnidadesRepository.cs" />
+    <Compile Include="Repository\Interfaces\IFormaPagoRepository.cs" />
+    <Compile Include="Repository\Interfaces\IUnidadesRepository.cs" />
     <Compile Include="Repository\UnidadesRepository.cs" />
     <Compile Include="Repository\Entities\ClaveFormaPago.cs" />
     <Compile Include="Repository\Entities\ClaveUnidad.cs" />
@@ -80,7 +85,6 @@
     <Compile Include="Update\Converts\ExcelFileReader.cs" />
     <Compile Include="Helpers\FileService.cs" />
     <Compile Include="Helpers\IExcelFileReader.cs" />
-    <Compile Include="Helpers\JaegerManagerPaths.cs" />
     <Compile Include="Helpers\Mapping\AttributeHelper.cs" />
     <Compile Include="Helpers\Mapping\DataNamesAttribute.cs" />
     <Compile Include="Helpers\Mapping\DataNamesMapper.cs" />
@@ -89,9 +93,12 @@
     <Compile Include="Update\Importers\AbstractXlsImporter.cs" />
     <Compile Include="Update\Importers\Articulo69BCatalogs.cs" />
     <Compile Include="Update\Importers\Articulo69B\ListadoCompleto.cs" />
+    <Compile Include="Update\Importers\Articulo69Catalogs.cs" />
     <Compile Include="Update\Importers\Articulo69\Firmes.cs" />
+    <Compile Include="Update\Importers\Articulo69\NoLocalizados.cs" />
     <Compile Include="Update\Importers\Cfdi40Catalogs.cs" />
     <Compile Include="Update\Importers\Cfdi40\ClavesUnidades.cs" />
+    <Compile Include="Update\Importers\Cfdi40\ClavesUsoCFDI.cs" />
     <Compile Include="Update\Importers\Cfdi40\FormasDePago.cs" />
     <Compile Include="Update\Importers\IImporter.cs" />
     <Compile Include="Update\Importers\SourcesImporter.cs" />

@@ -1,24 +1,24 @@
 ﻿using System;
-using MiniExcelLibs.Attributes;
+using Jaeger.SAT.Catalogos.Helpers.Mapping;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Articulo69 {
     public class Firmes {
-        [ExcelColumnName("RFC")]
+        [DataNames("RFC")]
         public string RFC { get; set; }
 
-        [ExcelColumnName("RAZÓN SOCIAL")]
+        [DataNames("RAZÓN SOCIAL")]
         public string RazonSocial { get; set; }
 
-        [ExcelColumnName("TIPO PERSONA")]
+        [DataNames("TIPO PERSONA")]
         public string TipoPersona { get; set; }
 
-        [ExcelColumnName("SUPUESTO")]
+        [DataNames("SUPUESTO")]
         public string Supuesto { get; set; }
 
-        [ExcelColumnName("FECHAS DE PRIMERA PUBLICACION")]
+        [DataNames("FECHAS DE PRIMERA PUBLICACION")]
         public DateTime Fechas { get; set; }
 
-        [ExcelColumnName("ENTIDAD FEDERATIVA")]
+        [DataNames("ENTIDAD FEDERATIVA")]
         public string Entidad { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Jaeger.SAT.Catalogos.Repository {
+namespace Jaeger.SAT.Catalogos.Repository.Interfaces {
     /// <summary>
     /// clase contexto para el manejo de catalogos diversos
     /// </summary>

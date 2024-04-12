@@ -83,7 +83,7 @@ namespace Jaeger.SAT.Catalogos.Repository {
         /// <summary>
         /// obtener o establecer fecha de actualización del catalogo
         /// </summary>
-        [JsonProperty("act", Order = 4)]
+        [JsonProperty("act", Order = 7)]
         public DateTime? Actualizacion {
             get {
                 DateTime firstGoodDate = new DateTime(1900, 1, 1);
@@ -96,7 +96,7 @@ namespace Jaeger.SAT.Catalogos.Repository {
             }
         }
 
-        [JsonProperty("items", Order = 7)]
+        [JsonProperty("items", Order = 99)]
         public List<TObject> Items { get; set; }
         #endregion
 

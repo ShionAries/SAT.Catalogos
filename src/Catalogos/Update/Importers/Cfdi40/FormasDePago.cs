@@ -7,7 +7,6 @@ using Jaeger.SAT.Catalogos.Repository.Entities;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
     public class FormasDePago : AbstractInjector, IInjector {
-        protected IGeneralRepository _Catalogo;
 
         public FormasDePago(DataTable dataTable) : base(dataTable) {
             _SkipRows = 3;
@@ -34,7 +33,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
 
             var headers = this.GetHeaders().ToArray();
             if (!ArrayCompare(_HeadersMapper.Select(it => it.Key).ToArray(), headers)) {
-                throw new Exception("The headers did not match on file {$this->sourceFile()}");
+                throw new Exception($"The headers did not match on {this.GetType().Name}");
             }
         }
 

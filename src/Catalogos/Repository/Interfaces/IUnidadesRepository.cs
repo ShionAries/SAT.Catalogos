@@ -1,6 +1,6 @@
 ﻿using Jaeger.SAT.Catalogos.Repository.Entities;
 
-namespace Jaeger.SAT.Catalogos.Repository {
+namespace Jaeger.SAT.Catalogos.Repository.Interfaces {
     /// <summary>
     /// Catálogo de unidades de medida para los conceptos en el CFDI.
     /// </summary>

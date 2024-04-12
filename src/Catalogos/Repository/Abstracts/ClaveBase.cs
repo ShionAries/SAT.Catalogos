@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using Jaeger.SAT.Catalogos.Helpers.Mapping;
 
-namespace Jaeger.SAT.Catalogos.Repository.Entities {
+namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
     /// <summary>
     /// item de catalogo (Clave y Descripcion)
     /// </summary>

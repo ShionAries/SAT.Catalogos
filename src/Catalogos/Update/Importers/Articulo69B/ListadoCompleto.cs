@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Jaeger.SAT.Catalogos.Repository;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Articulo69B {
     internal class ListadoCompleto : AbstractInjector, IInjector {
-        protected IGeneralRepository _Catalogo;
 
         public ListadoCompleto(DataTable dataTable) : base(dataTable) {
             this._SkipRows = 1;

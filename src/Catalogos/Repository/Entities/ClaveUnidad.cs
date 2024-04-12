@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Xml.Serialization;
 using Newtonsoft.Json;
 using Jaeger.SAT.Catalogos.Helpers.Mapping;
+using Jaeger.SAT.Catalogos.Repository.Abstracts;
 
 namespace Jaeger.SAT.Catalogos.Repository.Entities {
     /// <summary>

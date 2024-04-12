@@ -64,8 +64,9 @@ namespace Jaeger.SAT.Catalogos.Scraping {
             if (upToDateReviews.Count > 0) {
                 this.OnNotificationEvent("No existen orígenes para actualizar");
             }
-
+            this.OnNotificationEvent("Descargando ...");
             var upgrader = new Upgrader(this.ResourcesGateway, this.getWorkingFolder);
+            this.OnNotificationEvent("Actualizando archivo de control de origenes");
             var recentOrigins = upgrader.UpgradeReviews(reviews);
             new OriginsIO().WriteFile(recentOrigins);
         }

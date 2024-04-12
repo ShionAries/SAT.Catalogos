@@ -6,10 +6,9 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using Newtonsoft.Json;
-using Jaeger.SAT.Catalogos.Helpers;
-using Jaeger.SAT.Catalogos.Abstractions;
+using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
-namespace Jaeger.SAT.Catalogos.Repository {
+namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
     /// <summary>
     /// clase contexto para el manejo de catalogos diversos
     /// </summary>
@@ -25,7 +24,7 @@ namespace Jaeger.SAT.Catalogos.Repository {
         /// </summary>
         public RepositoryContext() {
             FileName = "miCatalogo.json";
-            StartPath = PathsEnum.Catalogos;
+            StartPath = @"C:\Jaeger\Jaeger.Catalogos";
             _Catalogo = new Repository<T>();
         }
 
@@ -80,15 +79,15 @@ namespace Jaeger.SAT.Catalogos.Repository {
             set { _Catalogo.Actualizacion = value; }
         }
 
-        public string Builder { 
-            get {  return _Catalogo.Builder; }
-            set { this._Catalogo.Builder = value; } 
+        public string Builder {
+            get { return _Catalogo.Builder; }
+            set { _Catalogo.Builder = value; }
         }
 
         /// <summary>
         /// obtener o establecer ruta de inicial donde se encuentra el catalogo
         /// </summary>
-        public PathsEnum StartPath { get; set; }
+        public string StartPath { get; set; }
 
         /// <summary>
         /// obtener o establecer si el catalogo debe ser recuperado desde los recursos de la libreria
@@ -263,7 +262,7 @@ namespace Jaeger.SAT.Catalogos.Repository {
         }
 
         private string ResolverName(string fileName) {
-            return JaegerManagerPaths.JaegerPath(StartPath, fileName);
+            return Path.Combine(this.StartPath, fileName);
         }
 
         private string ResolverName(string fileName, string fileDefault, bool resource = true) {
@@ -288,9 +287,9 @@ namespace Jaeger.SAT.Catalogos.Repository {
         }
 
         private void Serializer(string valor) {
-            var conf = new JsonSerializerSettings() { NullValueHandling = NullValueHandling.Ignore, DateFormatString = "dd/MM/yyyy" };
-            _Catalogo = JsonConvert.DeserializeObject<Repository<T>>(valor, conf);
-            Items = _Catalogo.Items;
+            var configuration = new JsonSerializerSettings() { NullValueHandling = NullValueHandling.Ignore, DateFormatString = "dd/MM/yyyy" };
+            this._Catalogo = JsonConvert.DeserializeObject<Repository<T>>(valor, configuration);
+            this.Items = this._Catalogo.Items;
         }
 
         private string ReadAllText(string fileName) {

@@ -2,13 +2,14 @@
 using System.Data;
 using System.Collections.Generic;
 using System;
+using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Update {
     public abstract class AbstractInjector : IInjector {
         protected DataTable _DataTable;
         protected int _SkipRows;
         protected Dictionary<string, string> _HeadersMapper;
-
+        protected IGeneralRepository _Catalogo;
         public AbstractInjector(DataTable dataTable) {
             this._DataTable = dataTable;
             this._HeadersMapper = new Dictionary<string, string>();
@@ -56,16 +57,18 @@ namespace Jaeger.SAT.Catalogos.Update {
         }
 
         protected void FixDataTable() {
-            for (int i = 0; i < _SkipRows; i++) {
-                _DataTable.Rows[i].Delete();
+            if (this._SkipRows >= 0) {
+                for (int i = 0; i < _SkipRows; i++) {
+                    _DataTable.Rows[i].Delete();
+                }
+                var headers = _DataTable.Rows[_SkipRows].ItemArray;
+                for (int i = 0; i < headers.Length; i++) {
+                    if (headers[i].ToString() != "")
+                        _DataTable.Columns[i].ColumnName = headers[i].ToString();
+                }
+                _DataTable.Rows[_SkipRows].Delete();
+                _DataTable.AcceptChanges();
             }
-            var headers = _DataTable.Rows[_SkipRows].ItemArray;
-            for (int i = 0; i < headers.Length; i++) {
-                if (headers[i].ToString() != "")
-                    _DataTable.Columns[i].ColumnName = headers[i].ToString();
-            }
-            _DataTable.Rows[_SkipRows].Delete();
-            _DataTable.AcceptChanges();
             this.DeleteBlankColumns();
         }
 
