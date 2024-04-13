@@ -56,7 +56,7 @@ namespace Jaeger.SAT.Catalogos.Update {
             return true;
         }
 
-        protected void FixDataTable() {
+        protected virtual void FixDataTable() {
             if (this._SkipRows >= 0) {
                 for (int i = 0; i < _SkipRows; i++) {
                     _DataTable.Rows[i].Delete();
