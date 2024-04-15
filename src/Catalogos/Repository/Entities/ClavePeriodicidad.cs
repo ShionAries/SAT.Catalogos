@@ -4,7 +4,7 @@ using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Entities {
     /// <summary>
-    /// Catalogo de Periodicidad
+    /// Catalogo de Periodicidad CFDI
     /// </summary>
     [JsonObject("item")]
     public class ClavePeriodicidad : ClaveBaseVigencia, IClaveBaseItem {

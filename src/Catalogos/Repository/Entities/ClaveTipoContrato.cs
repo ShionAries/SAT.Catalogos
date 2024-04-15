@@ -1,11 +1,9 @@
-﻿// develop: 21010105
-// purpose: Clave tipo de contrato Complemento Nomina 1.1 y 1.2
-using System.Xml.Serialization;
-using Jaeger.Catalogos.Abstractions;
-using Jaeger.Catalogos.Contracts;
+﻿using System.Xml.Serialization;
 using Newtonsoft.Json;
+using Jaeger.SAT.Catalogos.Repository.Abstracts;
+using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
-namespace Jaeger.Catalogos.Entities {
+namespace Jaeger.SAT.Catalogos.Repository.Entities {
     /// <summary>
     /// Nomina: Catalogo de tipos de contrato
     /// </summary>

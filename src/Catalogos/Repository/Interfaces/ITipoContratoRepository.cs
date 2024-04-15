@@ -2,8 +2,8 @@
 
 namespace Jaeger.SAT.Catalogos.Repository.Interfaces {
     /// <summary>
-    /// Nomina: catalogo de tipos de periodicidad del pago
+    /// Nomina: Catalogo de tipos de contrato
     /// </summary>
-    public interface IPeriodicidadPagoCatalogo : IRepositoryContext<ClavePeriodicidadPago> {
+    public interface ITipoContratoRepository : IRepositoryContext<ClaveTipoContrato> {
     }
 }

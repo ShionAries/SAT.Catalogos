@@ -2,6 +2,6 @@
 using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Contracts {
-    public interface ITipoJornadaCatalogo : IRepositoryContext<ClaveTipoJornada> {
+    public interface ITipoPercepcionRepository : IRepositoryContext<ClaveTipoPercepcion>{
     }
 }

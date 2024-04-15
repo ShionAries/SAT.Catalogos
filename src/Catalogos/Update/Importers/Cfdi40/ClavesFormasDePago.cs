@@ -6,9 +6,9 @@ using Jaeger.SAT.Catalogos.Repository;
 using Jaeger.SAT.Catalogos.Repository.Entities;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
-    public class FormasDePago : AbstractInjector, IInjector {
+    public class ClavesFormasDePago : AbstractInjector, IInjector {
 
-        public FormasDePago(DataTable dataTable) : base(dataTable) {
+        public ClavesFormasDePago(DataTable dataTable) : base(dataTable) {
             _SkipRows = 3;
         }
 
