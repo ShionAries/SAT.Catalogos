@@ -1,0 +1,41 @@
+﻿using System;
+using System.Linq;
+using Jaeger.Catalogos.Abstractions;
+using Jaeger.Catalogos.Contracts;
+using Jaeger.Catalogos.Entities;
+
+namespace Jaeger.Catalogos.Repositories {
+    /// <summary>
+    /// Catálogo de tipo servicio.
+    /// </summary>
+    public class TipoDeServicioCatalogo : CatalogoContext<CveTipoDeServicio>, IClaveTipoDeServicioCatalogo {
+        public TipoDeServicioCatalogo() {
+            this.Title = "Catálogo de tipo servicio.";
+            this.FileName = "CatalogoTipoDeServicio.json";
+            this.Version = "";
+        }
+
+        public CveTipoDeServicio Search(string findId) {
+            try {
+                var search = new CveTipoDeServicio();
+                search = this.Items.SingleOrDefault((CveTipoDeServicio p) => p.Clave == findId.Trim());
+                if (search == null)
+                    return new CveTipoDeServicio { Clave = findId };
+                return search;
+
+            } catch (Exception ex) {
+                Console.WriteLine(ex.Message);
+            }
+            return new CveTipoDeServicio { Clave = findId };
+        }
+
+        public override void Load() {
+            this.Items = new System.Collections.Generic.List<CveTipoDeServicio> {
+                new CveTipoDeServicio{ Clave = "TS01", Descripcion = "Carros Ferroviarios", Contenedor = 0, VigenciaIni = new DateTime(2021, 12, 1) },
+                new CveTipoDeServicio{ Clave = "TS02", Descripcion = "Carros Ferroviarios intermodal", Contenedor = 1, VigenciaIni = new DateTime(2021, 12, 1) },
+                new CveTipoDeServicio{ Clave = "TS03", Descripcion = "Tren unitario de carros ferroviarios", Contenedor = 0, VigenciaIni = new DateTime(2021, 12, 1) },
+                new CveTipoDeServicio{ Clave = "TS04", Descripcion = "Tren unitario Intermodal", Contenedor = 1, VigenciaIni = new DateTime(2021, 12, 1) }
+            };
+        }
+    }
+}

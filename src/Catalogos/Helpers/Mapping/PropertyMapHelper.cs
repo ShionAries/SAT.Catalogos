@@ -38,7 +38,17 @@ namespace Jaeger.SAT.Catalogos.Helpers.Mapping {
                 if (value == null) {
                     prop.SetValue(entity, null, null);
                 } else {
-                    prop.SetValue(entity, int.Parse(value.ToString()), null);
+                    // anhe1, modifique para evitar error cuando el valor es "" 
+                    if (value.ToString() == "") {
+                        // si la propiedad es nullable entonces el valor asignado sera null
+                        if (prop.PropertyType == typeof(int?)) {
+                            prop.SetValue(entity, null, null);
+                        } else {
+                            prop.SetValue(entity, 0, null);
+                        }
+                    } else {
+                        prop.SetValue(entity, int.Parse(value.ToString()), null);
+                    }
                 }
             } else if (prop.PropertyType == typeof(decimal) || prop.PropertyType == typeof(decimal?)) {
                 if (value == null) {

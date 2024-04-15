@@ -4,6 +4,9 @@ using Jaeger.SAT.Catalogos.Helpers.Mapping;
 using Jaeger.SAT.Catalogos.Repository.Abstracts;
 
 namespace Jaeger.SAT.Catalogos.Repository.Entities {
+    /// <summary>
+    /// Catalogo de Formas de Pago
+    /// </summary>
     [JsonObject("item")]
     public class ClaveFormaPago : ClaveBaseVigencia {
         [Description("Bancarizado")]

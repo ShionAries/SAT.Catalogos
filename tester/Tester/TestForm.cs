@@ -8,7 +8,6 @@ namespace Tester {
         public TestForm() {
             InitializeComponent();
         }
-        object result;
         private void TestForm_Load(object sender, EventArgs e) {
             CheckForIllegalCrossThreadCalls = false;
         }

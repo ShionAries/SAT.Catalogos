@@ -1,15 +1,13 @@
-﻿using System;
-using System.Data;
-using Jaeger.SAT.Catalogos.Update;
+﻿using System.Data;
 using Jaeger.SAT.Catalogos.Update.Converts;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers {
     public abstract class AbstractXlsImporter : IImporter {
-        protected string _FileSource;
 
         public AbstractXlsImporter(string csvFolder) {
             _FileSource = csvFolder;
         }
+        public string _FileSource {  get; set; }
 
         public bool CheckFile() {
             return System.IO.File.Exists(_FileSource);

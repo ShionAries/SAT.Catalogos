@@ -5,7 +5,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Interfaces {
     /// clase contexto para el manejo de catalogos diversos
     /// </summary>
     /// <typeparam name="T">The type of the T.</typeparam>
-    public interface IRespositoryContext<T> where T : class, new() {
+    public interface IRepositoryContext<T> where T : class, new() {
         /// <summary>
         /// obtener o establecer la version del catalogo
         /// </summary>

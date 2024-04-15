@@ -17,10 +17,20 @@ namespace Jaeger.SAT.Catalogos.Helpers {
 
         DataSet DataSet { get; set; }
 
+        /// <summary>
+        /// obtener lista de encabezados
+        /// </summary>
         List<string> GetHeaders();
 
+        /// <summary>
+        /// obtener tabla del dataset
+        /// </summary>
+        /// <param name="tableName"></param>
         void GetDataSet(string tableName = "");
 
+        /// <summary>
+        /// obtener informacion del archivo 
+        /// </summary>
         DataTable GetDataTable(string tableName);
     }
 }
