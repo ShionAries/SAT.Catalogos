@@ -5,7 +5,7 @@ namespace Jaeger.SAT.Catalogos.Repository {
     /// <summary>
     /// catalogo de impuestos
     /// </summary>
-    public class ImpuestosRepository : RepositoryContext<ClaveImpuesto>, IImpuestosCatalogo, IGeneralRepository {
+    public class ImpuestosRepository : RepositoryContext<ClaveImpuesto>, IImpuestosRepository, IGeneralRepository {
         public ImpuestosRepository() {
             this.Title = "Catálogo de impuestos";
             this.FileName = "CatalogoImpuestos.json";

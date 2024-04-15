@@ -1,13 +1,12 @@
 ﻿/// develop: 310520181137 
 /// purpose: clave de entidades federativas para el comprobante de retenciones
-using System.Xml.Serialization;
 using Newtonsoft.Json;
-using Jaeger.Catalogos.Abstractions;
-using Jaeger.Catalogos.Contracts;
+using Jaeger.SAT.Catalogos.Repository.Abstracts;
+using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
-namespace Jaeger.Catalogos.Entities {
+namespace Jaeger.SAT.Catalogos.Repository.Entities {
     [JsonObject("item")]
-    [XmlRoot("item")]
-    public class ClaveRetencionEntidadFederativa : ClaveBase, IClaveBase {
+    public class ClaveRetencionEntidadFederativa : ClaveBaseVigencia, IClaveBase {
+        public ClaveRetencionEntidadFederativa() { }
     }
 }

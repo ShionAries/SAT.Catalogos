@@ -3,7 +3,7 @@ using Jaeger.SAT.Catalogos.Repository.Entities;
 using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository {
-    public class ExportacionRepository : RepositoryContext<ClaveExportacion>, IExportacionCatalogo, IGeneralRepository {
+    public class ExportacionRepository : RepositoryContext<ClaveExportacion>, IExportacionRepository, IGeneralRepository {
         public ExportacionRepository() {
             this.Title = "Catálogo Exportación";
             this.FileName = "ExportacionCatalogo.json";

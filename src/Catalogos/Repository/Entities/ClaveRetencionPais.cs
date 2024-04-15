@@ -1,14 +1,12 @@
-﻿using System.Xml.Serialization;
-using Newtonsoft.Json;
-using Jaeger.Catalogos.Abstractions;
-using Jaeger.Catalogos.Contracts;
+﻿using Newtonsoft.Json;
+using Jaeger.SAT.Catalogos.Repository.Abstracts;
+using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
-namespace Jaeger.Catalogos.Entities {
+namespace Jaeger.SAT.Catalogos.Repository.Entities {
     /// <summary>
     /// Catálogo de Países
     /// </summary>
     [JsonObject("item")]
-    [XmlRoot("item")]
-    public class ClaveRetencionPais : ClaveBase, IClaveBase {
+    public class ClaveRetencionPais : ClaveBaseVigencia, IClaveBase {
     }
 }

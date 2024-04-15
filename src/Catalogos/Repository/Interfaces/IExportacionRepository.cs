@@ -2,8 +2,9 @@
 
 namespace Jaeger.SAT.Catalogos.Repository.Interfaces {
     /// <summary>
-    /// catalogo de impuestos
+    /// catalogo de exportacion para comprobante fiscal 4.0
     /// </summary>
-    public interface IImpuestosCatalogo : IRepositoryContext<ClaveImpuesto> {
+    public interface IExportacionRepository : IRepositoryContext<ClaveExportacion> {
+
     }
 }

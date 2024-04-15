@@ -4,7 +4,7 @@ using Jaeger.SAT.Catalogos.Repository.Contracts;
 using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Repositories {
-    public class TipoJornadaRepository : RepositoryContext<ClaveTipoJornada>, ITipoJornadaCatalogo, IGeneralRepository {
+    public class TipoJornadaRepository : RepositoryContext<ClaveTipoJornada>, ITipoJornadaRepository, IGeneralRepository {
         public TipoJornadaRepository() {
             this.Title = "Catálogo de tipos de jornada laboral.";
             this.FileName = "CatalogoNominaTipoJornada.json";
