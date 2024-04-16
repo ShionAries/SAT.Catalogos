@@ -2,8 +2,8 @@
 
 namespace Jaeger.SAT.Catalogos.Repository.Interfaces {
     /// <summary>
-    /// Nomina: catalogo de tipos de periodicidad del pago
+    /// Carta Porte 3.0 Catalogo de Sector COFEPRIS
     /// </summary>
-    public interface IPeriodicidadPagoCatalogo : IRepositoryContext<ClavePeriodicidadPago> {
+    public interface ISectorCofeprisRepository : IRepositoryContext<CveTipoSectorCofepris> {
     }
 }

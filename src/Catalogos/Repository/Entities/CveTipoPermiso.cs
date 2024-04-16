@@ -1,12 +1,13 @@
-﻿// develop: 240220222107
-// purpose: catalogo SAT
-using Jaeger.Catalogos.Contracts;
+﻿using Jaeger.SAT.Catalogos.Helpers.Mapping;
+using Jaeger.SAT.Catalogos.Repository.Abstracts;
+using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
-namespace Jaeger.Catalogos.Entities {
+namespace Jaeger.SAT.Catalogos.Repository.Entities {
     /// <summary>
     /// Catálogo tipo permiso.
     /// </summary>
     public class CveTipoPermiso : ClaveBaseVigencia, IClaveBaseItem {
-       public string ClaveTransporte { get; set; }
+        [DataNames("ClaveTransporte")]
+        public string ClaveTransporte { get; set; }
     }
 }

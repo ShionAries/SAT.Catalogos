@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Linq;
-using Jaeger.Catalogos.Abstractions;
-using Jaeger.Catalogos.Contracts;
-using Jaeger.Catalogos.Entities;
+using Jaeger.SAT.Catalogos.Repository.Abstracts;
+using Jaeger.SAT.Catalogos.Repository.Contracts;
+using Jaeger.SAT.Catalogos.Repository.Entities;
+using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
-namespace Jaeger.Catalogos.Repositories {
+namespace Jaeger.SAT.Catalogos.Repository.Repositories {
     /// <summary>
     /// Catálogo tipo permiso.
     /// </summary>
-    public class TipoPermisoCatalogo : CatalogoContext<CveTipoPermiso>, IClaveTipoPermisoCatalogo {
-        public TipoPermisoCatalogo() {
+    public class TipoPermisoRepository : RepositoryContext<CveTipoPermiso>, IClaveTipoPermisoRepository, IGeneralRepository {
+        public TipoPermisoRepository() {
             this.Title = "Catálogo tipo permiso.";
             this.FileName = "CatalogoTipoPermiso.json";
             this.Version = "2.0";

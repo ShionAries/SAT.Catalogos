@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Linq;
-using Jaeger.Catalogos.Abstractions;
-using Jaeger.Catalogos.Contracts;
-using Jaeger.Catalogos.Entities;
+using Jaeger.SAT.Catalogos.Repository.Abstracts;
+using Jaeger.SAT.Catalogos.Repository.Contracts;
+using Jaeger.SAT.Catalogos.Repository.Entities;
+using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.Catalogos.Repositories {
     /// <summary>
-    /// Catálogo de tipo de embalaje.
+    /// Carta Porte 3.0 Catálogo de tipo de embalaje.
     /// </summary>
-    public class TipoEmbalajeCatalogo : CatalogoContext<CveTipoEmbalaje>, IClaveTipoEmbalajeCatalogo {
-        public TipoEmbalajeCatalogo() {
+    public class TipoEmbalajeRepository : RepositoryContext<CveTipoEmbalaje>, IClaveTipoEmbalajeRepository, IGeneralRepository {
+        public TipoEmbalajeRepository() {
             this.Title = "Catálogo de tipo de embalaje.";
             this.FileName = "CatalogoTipoEmbalaje.json";
             this.Version = "1.0";

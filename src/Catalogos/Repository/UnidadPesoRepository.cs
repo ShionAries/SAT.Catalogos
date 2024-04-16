@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Linq;
-using Jaeger.Catalogos.Abstractions;
-using Jaeger.Catalogos.Contracts;
-using Jaeger.Catalogos.Entities;
+using Jaeger.SAT.Catalogos.Repository.Abstracts;
+using Jaeger.SAT.Catalogos.Repository.Entities;
+using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.Catalogos.Repositories {
     /// <summary>
     /// Catálogo de unidades de medida y embalaje.
     /// </summary>
-    public class UnidadPesoCatalogo : CatalogoContext<CveClaveUnidadPeso>, IClaveClaveUnidadPesoCatalogo {
-        public UnidadPesoCatalogo() {
+    public class UnidadPesoRepository : RepositoryContext<CveClaveUnidadPeso>, IClaveClaveUnidadPesoRepository, IGeneralRepository {
+        public UnidadPesoRepository() {
             this.Title = "Catálogo de unidades de medida y embalaje.";
             this.FileName = "CatalogoUnidadPeso.json";
             this.Version = "1.0";

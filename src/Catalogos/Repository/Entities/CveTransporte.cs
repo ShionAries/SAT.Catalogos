@@ -1,10 +1,14 @@
 ﻿// develop: 240220222107
 // purpose: catalogo SAT
-using Jaeger.Catalogos.Contracts;
 
-namespace Jaeger.Catalogos.Entities {
+// develop: 240220222107
+// purpose: catalogo SAT
+using Jaeger.SAT.Catalogos.Repository.Abstracts;
+using Jaeger.SAT.Catalogos.Repository.Interfaces;
+
+namespace Jaeger.SAT.Catalogos.Repository.Entities {
     /// <summary>
-    /// catalogo de clave de transporte
+    /// Carta Porte 3.0 catalogo de clave de transporte
     /// </summary>
     public class CveTransporte : ClaveBaseVigencia, IClaveBaseItem {
 

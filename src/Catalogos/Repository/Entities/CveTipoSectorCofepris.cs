@@ -3,9 +3,9 @@ using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Entities {
     /// <summary>
-    /// Carta Porte 3.0 Catálogo de tipo de embalaje.
+    /// Carta Porte 3.0 Catálogo sector COFEPRIS
     /// </summary>
-    public class CveTipoEmbalaje : ClaveBaseVigencia, IClaveBaseItem {
-        public CveTipoEmbalaje() { }
+    public class CveTipoSectorCofepris : ClaveBaseVigencia, IClaveBaseItem {
+        public CveTipoSectorCofepris() { }
     }
 }

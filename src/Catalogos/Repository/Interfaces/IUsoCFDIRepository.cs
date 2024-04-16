@@ -4,7 +4,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Interfaces {
     /// <summary>
     /// Catálogo de uso de comprobantes.
     /// </summary>
-    public interface IUsoCFDICatalogo : IRepositoryContext<ClaveUsoCFDI> {
+    public interface IUsoCFDIRepository : IRepositoryContext<ClaveUsoCFDI> {
         ClaveUsoCFDI Search(string findId);
     }
 }

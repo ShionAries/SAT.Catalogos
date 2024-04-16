@@ -9,7 +9,7 @@ namespace Jaeger.SAT.Catalogos.Repository {
     /// <summary>
     /// Nomina: catalogo de periodicidad del pago
     /// </summary>
-    public class PeriodicidadPagoRepository : RepositoryContext<ClavePeriodicidadPago>, IPeriodicidadPagoCatalogo, IGeneralRepository{
+    public class PeriodicidadPagoRepository : RepositoryContext<ClavePeriodicidadPago>, IPeriodicidadPagoRepository, IGeneralRepository{
         public PeriodicidadPagoRepository() {
             this.Title = "Catalogo Exportación";
             this.FileName = "PeriodicidadCatalogo.json";

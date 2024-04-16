@@ -5,7 +5,7 @@ using Jaeger.SAT.Catalogos.Repository.Entities;
 using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository {
-    public class UsoCFDIRepository : RepositoryContext<ClaveUsoCFDI>, IUsoCFDICatalogo, IGeneralRepository {
+    public class UsoCFDIRepository : RepositoryContext<ClaveUsoCFDI>, IUsoCFDIRepository, IGeneralRepository {
         public UsoCFDIRepository() {
             this.Title = "Catálogo de Uso de CFDI";
             this.FileName = "CatalogoUsoCFDI40.json";
