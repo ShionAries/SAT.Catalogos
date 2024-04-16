@@ -49,7 +49,7 @@ namespace Jaeger.SAT.Catalogos.Update.Converts {
 
             var config = new ExcelDataSetConfiguration {
                 // utilizar tipo de dato
-                UseColumnDataType = true
+                UseColumnDataType = false
             };
 
             // en caso de obtener solo una tabla, con esta funcion creamos el filtro

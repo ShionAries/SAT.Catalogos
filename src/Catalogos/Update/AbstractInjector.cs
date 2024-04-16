@@ -68,14 +68,15 @@ namespace Jaeger.SAT.Catalogos.Update {
                 for (int i = 0; i < _SkipRows; i++) {
                     this._DataTable.Rows[i].Delete();
                 }
+                this.RemoveColumnsName() ;
                 // obetener informacion de la fila
-                var headers = this._DataTable.Rows[_SkipRows].ItemArray;
+                //var headers = this._DataTable.Rows[_SkipRows].ItemArray;
                 // renombrar 
-                for (int i = 0; i < headers.Length; i++) {
-                    if (headers[i].ToString() != "")
-                        this._DataTable.Columns[i].ColumnName = headers[i].ToString();
-                }
-                this._DataTable.Rows[_SkipRows].Delete();
+                //for (int i = 0; i < headers.Length; i++) {
+                //    if (headers[i].ToString() != "")
+                //        this._DataTable.Columns[i].ColumnName = headers[i].ToString();
+                //}
+                //this._DataTable.Rows[_SkipRows].Delete();
                 this._DataTable.AcceptChanges();
             }
             this.RemoveColumnsName();
@@ -147,7 +148,7 @@ namespace Jaeger.SAT.Catalogos.Update {
                         this._DataTable.Columns[i].ColumnName = headers[i].ToString() + "_" + i;
                         Console.WriteLine($"Renombrar con posicion: {this._DataTable.Columns[i].ColumnName = headers[i].ToString().TrimEnd() + "_" + i}");
                     } else {
-                        this._DataTable.Columns[i].ColumnName = headers[i].ToString().TrimEnd();
+                        this._DataTable.Columns[i].ColumnName = headers[i].ToString().TrimEnd().Replace("\r\n", "").Replace("\n", "");
                     }
                 }
             }
