@@ -26,7 +26,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
             }
         }
 
-        protected override void Fill() {
+        protected override void CreateRepository() {
             for (int i = 0; i < this._DataTable.Rows.Count; i++) {
                 if (this._DataTable.Rows[i].ItemArray[0].ToString() == "N") {
                     this._DataTable.Rows[i]["ValorMaximo"] = "999999999999999999.999999";
@@ -35,15 +35,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
                 }
             }
             this._DataTable.AcceptChanges();
-            var mapper = new Helpers.Mapping.DataNamesMapper<CveTipoDeComprobante>();
-            var resultado = mapper.Map(_DataTable).ToList();
-            if (resultado != null) {
-                if (resultado.Count() > 0) {
-                    _Catalogo = new TipoComprobanteRepository {
-                        Items = resultado.ToList()
-                    };
-                }
-            }
+            _Catalogo = new TipoComprobanteRepository();
         }
     }
 }

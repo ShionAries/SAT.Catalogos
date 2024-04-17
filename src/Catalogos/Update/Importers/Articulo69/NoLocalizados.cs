@@ -26,16 +26,13 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Articulo69 {
             }
         }
 
-        protected override void Fill() {
-            if (this._DataTable != null) {
-                if (this._DataTable.Rows.Count > 0) {
-                    this._Catalogo = new Articulo69Repository {
-                        Builder = "SAT.Catálogos.Repository"
-                    };
-                    this._Catalogo.Import(this._DataTable);
-                    this._Catalogo.Save();
-                }
-            }
+        protected override void FixDataTable() {
+            // para este caso omitimos este metodo porque el archivo CSV ya contiene los encabezados en la primera
+            // fila
+        }
+
+        protected override void CreateRepository() {
+            this._Catalogo = new Articulo69Repository();
         }
     }
 }

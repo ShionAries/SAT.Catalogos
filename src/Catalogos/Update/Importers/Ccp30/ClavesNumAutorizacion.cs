@@ -26,14 +26,8 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp30 {
             }
         }
 
-        protected override void Fill() {
-            if (this._DataTable != null) {
-                if (this._DataTable.Rows.Count > 0) {
-                    _Catalogo = new NumAutorizacionNavieroRepository();
-                    var imported = this._Catalogo.Import(this._DataTable);
-                    Console.WriteLine($"Registros: {imported}");
-                }
-            }
+        protected override void CreateRepository() {
+            _Catalogo = new NumAutorizacionNavieroRepository();
         }
     }
 }

@@ -41,16 +41,8 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Articulo69B {
             }
         }
 
-        protected override void Fill() {
-            if (this._DataTable != null) {
-                if (this._DataTable.Rows.Count > 0) {
-                    this._Catalogo = new Articulo69BRepository {
-                        Builder = "SAT.Catálogos.Repository"
-                    };
-                    this._Catalogo.Import(this._DataTable);
-                    this._Catalogo.Save();
-                }
-            }
+        protected override void CreateRepository() {
+            this._Catalogo = new Articulo69BRepository();
         }
     }
 }

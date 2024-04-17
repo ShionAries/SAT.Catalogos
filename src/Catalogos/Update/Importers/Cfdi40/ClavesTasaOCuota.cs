@@ -30,16 +30,8 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
             }
         }
 
-        protected override void Fill() {
-            var mapper = new Helpers.Mapping.DataNamesMapper<CveTasaOCuota>();
-            var resultado = mapper.Map(_DataTable).ToList();
-            if (resultado != null) {
-                if (resultado.Count() > 0) {
-                    _Catalogo = new TasaOCuotaRepository {
-                        Items = resultado.ToList()
-                    };
-                }
-            }
+        protected override void CreateRepository() {
+            _Catalogo = new TasaOCuotaRepository();
         }
     }
 }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using Jaeger.SAT.Catalogos.Repository;
 using Jaeger.SAT.Catalogos.Repository.Cfdi40;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
@@ -28,16 +27,8 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
             }
         }
 
-        protected override void Fill() {
-            var mapper = new Helpers.Mapping.DataNamesMapper<CveAduana>();
-            var resultado = mapper.Map(_DataTable).ToList();
-            if (resultado != null) {
-                if (resultado.Count() > 0) {
-                    _Catalogo = new AduanasRepository {
-                        Items = resultado.ToList()
-                    };
-                }
-            }
+        protected override void CreateRepository() {
+            this._Catalogo = new AduanasRepository();
         }
     }
 }

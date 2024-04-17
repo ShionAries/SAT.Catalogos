@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using Jaeger.Catalogos.Repositories;
 using Jaeger.SAT.Catalogos.Repository.Ret20;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Retenciones {
@@ -28,7 +27,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Retenciones {
             }
         }
 
-        protected override void Fill() {
+        protected override void CreateRepository() {
             var mapper = new Helpers.Mapping.DataNamesMapper<CveRetencionEjercicio>();
             var resultado = mapper.Map(_DataTable).ToList();
             if (resultado != null) {

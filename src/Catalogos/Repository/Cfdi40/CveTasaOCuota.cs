@@ -12,10 +12,10 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// </summary>
     [JsonObject("item")]
     public class CveTasaOCuota : ClaveBaseVigenciaSingle, IClaveBaseVigencia {
-        private EnumFactor factorField;
+        //private EnumFactor factorField;
         private bool valorMinimoFieldSpecified;
-        private bool trasladoField;
-        private bool retencionField;
+        //private bool trasladoField;
+        //private bool retencionField;
         private decimal valorMinimoField;
         private decimal valorMaximoField;
         private string impuestoField;

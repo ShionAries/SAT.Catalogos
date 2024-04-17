@@ -36,16 +36,8 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
             }
         }
 
-        protected override void Fill() {
-            var mapper = new Helpers.Mapping.DataNamesMapper<CveFormaPago>();
-            var resultado = mapper.Map(_DataTable).ToList();
-            if (resultado != null) {
-                if (resultado.Count() > 0) {
-                    _Catalogo = new FormaPagoRepository {
-                        Items = resultado.ToList()
-                    };
-                }
-            }
+        protected override void CreateRepository() {
+            _Catalogo = new FormaPagoRepository();
         }
     }
 }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using Jaeger.SAT.Catalogos.Repository;
 using Jaeger.SAT.Catalogos.Repository.Ccp30;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp30 {
@@ -29,16 +28,8 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp30 {
             }
         }
 
-        protected override void Fill() {
-            var mapper = new Helpers.Mapping.DataNamesMapper<CveTipoEstacion>();
-            var resultado = mapper.Map(_DataTable).ToList();
-            if (resultado != null) {
-                if (resultado.Count() > 0) {
-                    _Catalogo = new TipoEstacionRepository {
-                        Items = resultado.ToList()
-                    };
-                }
-            }
+        protected override void CreateRepository() {
+            _Catalogo = new TipoEstacionRepository();
         }
     }
 }

@@ -28,16 +28,8 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
 
         }
 
-        protected override void Fill() {
-            var mapper = new Helpers.Mapping.DataNamesMapper<CveMoneda>();
-            var resultado = mapper.Map(_DataTable).ToList();
-            if (resultado != null) {
-                if (resultado.Count() > 0) {
-                    _Catalogo = new MonedaRepository {
-                        Items = resultado.ToList()
-                    };
-                }
-            }
+        protected override void CreateRepository() {
+            _Catalogo = new MonedaRepository();
         }
     }
 }

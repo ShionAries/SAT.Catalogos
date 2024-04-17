@@ -25,7 +25,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Retenciones {
             }
         }
 
-        protected override void Fill() {
+        protected override void CreateRepository() {
             var mapper = new Helpers.Mapping.DataNamesMapper<CveRetencionEntidadFederativa>();
             var resultado = mapper.Map(_DataTable).ToList();
             if (resultado != null) {

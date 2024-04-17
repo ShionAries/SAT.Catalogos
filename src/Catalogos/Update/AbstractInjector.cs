@@ -3,6 +3,7 @@ using System.Data;
 using System.Collections.Generic;
 using System;
 using Jaeger.SAT.Catalogos.Repository.Interfaces;
+using Jaeger.SAT.Catalogos.Helpers;
 
 namespace Jaeger.SAT.Catalogos.Update {
     public abstract class AbstractInjector : IInjector {
@@ -26,8 +27,11 @@ namespace Jaeger.SAT.Catalogos.Update {
             logger.Info($"Cambiado columnas para mapeo de datos {this._DataTable.TableName}...");
             this.ChangeHeadersMapper();
 
-            this.Fill();
-            logger.Info($"Se inyectaron injected registros en {this._DataTable.TableName}");
+            if (this.IsUpdateable()) {
+                this.CreateRepository();
+                this.Save();
+                logger.Info($"Se inyectaron injected registros en {this._DataTable.TableName}");
+            }
 
             return 0;
         }
@@ -50,8 +54,24 @@ namespace Jaeger.SAT.Catalogos.Update {
         /// <summary>
         /// llenar repositorio
         /// </summary>
-        protected abstract void Fill();
+        protected abstract void CreateRepository();
 
+        protected virtual bool IsUpdateable() {
+            return this._DataTable.Rows.Count > 0;
+        }
+
+        /// <summary>
+        /// utilizar el metodo comun para importar y almacenar el repositorio
+        /// </summary>
+        protected virtual void Save() {
+            var counter =this._Catalogo.Import(this._DataTable);
+            this._Catalogo.Save();
+            Console.WriteLine($"Se inyectaron {counter} registros en {this._DataTable.TableName}");
+        }
+
+        /// <summary>
+        /// realizar arreglos para obtener los encabezados 
+        /// </summary>
         protected virtual void FixDataTable() {
             for (int i = 0; i < this._SkipRows; i++) {
                 this._DataTable.Rows.RemoveAt(0);
@@ -59,18 +79,6 @@ namespace Jaeger.SAT.Catalogos.Update {
             // obetener informacion de la fila donde estan los nombres de las columnas
             this.RenameColumns();
             // eliminamos todas las columnas que tienen como nombre de columan 'Column??'
-            this.RemoveColumnsName();
-        }
-
-        protected virtual void FixDataTable1() {
-            // remover filas
-            if (this._SkipRows >= 0) {
-                for (int i = 0; i < _SkipRows; i++) {
-                    this._DataTable.Rows[i].Delete();
-                }
-                this.RemoveColumnsName() ;
-                this._DataTable.AcceptChanges();
-            }
             this.RemoveColumnsName();
         }
 

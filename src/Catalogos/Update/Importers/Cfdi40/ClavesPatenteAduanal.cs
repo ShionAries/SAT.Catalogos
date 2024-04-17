@@ -26,10 +26,8 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
             }
         }
 
-        protected override void Fill() {
+        protected override void CreateRepository() {
             this._Catalogo = new PatenteAduanalRepository();
-            var items = this._Catalogo.Import(this._DataTable);
-            Console.WriteLine($"Total de items importados{items}");
         }
     }
 }
