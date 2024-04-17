@@ -69,14 +69,6 @@ namespace Jaeger.SAT.Catalogos.Update {
                     this._DataTable.Rows[i].Delete();
                 }
                 this.RemoveColumnsName() ;
-                // obetener informacion de la fila
-                //var headers = this._DataTable.Rows[_SkipRows].ItemArray;
-                // renombrar 
-                //for (int i = 0; i < headers.Length; i++) {
-                //    if (headers[i].ToString() != "")
-                //        this._DataTable.Columns[i].ColumnName = headers[i].ToString();
-                //}
-                //this._DataTable.Rows[_SkipRows].Delete();
                 this._DataTable.AcceptChanges();
             }
             this.RemoveColumnsName();
@@ -157,8 +149,6 @@ namespace Jaeger.SAT.Catalogos.Update {
             if (fila[0].ToString() == "") {
                 this.RenameColumns();
             }
-            //this._DataTable.Rows[rowIndex].Delete();
-            //this._DataTable.AcceptChanges();
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Jaeger.SAT.Catalogos.Repository;
-using Jaeger.SAT.Catalogos.Repository.Entities;
+using Jaeger.SAT.Catalogos.Repository.Cfdi40;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
     public class ClavesObjetoImpuestos : AbstractInjector, IInjector {
@@ -26,7 +26,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
         }
 
         protected override void Fill() {
-            var mapper = new Helpers.Mapping.DataNamesMapper<ClaveObjetoImp>();
+            var mapper = new Helpers.Mapping.DataNamesMapper<CveObjetoImp>();
             var resultado = mapper.Map(_DataTable).ToList();
             if (resultado != null) {
                 if (resultado.Count() > 0) {

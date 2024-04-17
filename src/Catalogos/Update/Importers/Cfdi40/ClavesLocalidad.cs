@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Jaeger.Catalogos.Repositories;
-using Jaeger.SAT.Catalogos.Repository.Entities;
+using Jaeger.SAT.Catalogos.Repository.Cfdi40;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
     public class ClavesLocalidad : AbstractInjector, IInjector {

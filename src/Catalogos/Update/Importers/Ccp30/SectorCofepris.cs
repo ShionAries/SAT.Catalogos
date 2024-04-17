@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using Jaeger.SAT.Catalogos.Repository.Entities;
+using Jaeger.SAT.Catalogos.Repository.Ccp30;
 using Jaeger.SAT.Catalogos.Repository.Repositories;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp30 {

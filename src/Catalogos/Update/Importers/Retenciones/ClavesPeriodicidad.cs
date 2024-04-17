@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Jaeger.Catalogos.Repositories;
-using Jaeger.SAT.Catalogos.Repository.Entities;
+using Jaeger.SAT.Catalogos.Repository.Ret20;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Retenciones {
     /// <summary>
@@ -30,7 +30,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Retenciones {
         }
 
         protected override void Fill() {
-            var mapper = new Helpers.Mapping.DataNamesMapper<ClaveRetencionPeriodicidad>();
+            var mapper = new Helpers.Mapping.DataNamesMapper<CveRetencionPeriodicidad>();
             var resultado = mapper.Map(_DataTable).ToList();
             if (resultado != null) {
                 if (resultado.Count() > 0) {

@@ -1,0 +1,13 @@
+﻿using Jaeger.SAT.Catalogos.Repository.Abstracts;
+using Jaeger.SAT.Catalogos.Repository.Interfaces;
+
+namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
+    public class TasaOCuotaRepository : RepositoryContext<CveTasaOCuota>, ITasaOCuotaRepository, IGeneralRepository {
+        public TasaOCuotaRepository() {
+            Title = "Catálogo de tasas o cuotas de impuestos.";
+            FileName = "TasaOCuotaCFDI40.json";
+            Version = "2.0";
+            Revision = "0";
+        }
+    }
+}

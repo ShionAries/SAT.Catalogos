@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Jaeger.SAT.Catalogos.Repository;
-using Jaeger.SAT.Catalogos.Repository.Entities;
+using Jaeger.SAT.Catalogos.Repository.Ret20;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Retenciones {
     internal class ClavesEntidadFederativa : AbstractInjector, IInjector {
@@ -26,7 +26,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Retenciones {
         }
 
         protected override void Fill() {
-            var mapper = new Helpers.Mapping.DataNamesMapper<ClaveRetencionEntidadFederativa>();
+            var mapper = new Helpers.Mapping.DataNamesMapper<CveRetencionEntidadFederativa>();
             var resultado = mapper.Map(_DataTable).ToList();
             if (resultado != null) {
                 if (resultado.Count() > 0) {
