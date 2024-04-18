@@ -295,6 +295,7 @@
     <Compile Include="Repository\Interfaces\IRepositoryContext.cs" />
     <Compile Include="Helpers\ILogger.cs" />
     <Compile Include="Helpers\Logger.cs" />
+    <Compile Include="Update\Converts\ExcelReader.cs" />
     <Compile Include="Update\Converts\XlsToDataSetConverter.cs" />
     <Compile Include="Repository\Cfdi40\FormaPagoRepository.cs" />
     <Compile Include="Repository\Cfdi40\IFormaPagoRepository.cs" />

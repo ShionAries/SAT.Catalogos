@@ -3,11 +3,11 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Data;
 using ExcelDataReader;
-using Jaeger.SAT.Catalogos.Helpers;
 using System.Text.RegularExpressions;
+using Jaeger.SAT.Catalogos.Helpers;
 
 namespace Jaeger.SAT.Catalogos.Update.Converts {
-    public class ExcelFileReader : IExcelFileReader {
+    public class ExcelFileReader : ExcelReader, IExcelFileReader {
         public ExcelFileReader(string filename) {
             if (string.IsNullOrEmpty(filename)) {
                 throw new ArgumentException("The filename cannot be empty", "filename");
@@ -20,29 +20,7 @@ namespace Jaeger.SAT.Catalogos.Update.Converts {
             FileName = filename;
         }
 
-        /// <summary>
-        /// obtener o establecer nombre del archivo EXCEL
-        /// </summary>
-        public string FileName { get; set; }
-
-        /// <summary>
-        /// obtener o establecer la cantidad de filas que debemos saltar hasta los encabezados
-        /// </summary>
-        public int SkipRows { get; set; }
-
-        public DataTable DataTable { get; set; }
-
-        public DataSet DataSet { get; set; }
-
-        public List<string> GetHeaders() {
-            List<string> columnNames = DataTable.Columns
-                .Cast<DataColumn>()
-                .Select(column => column.ColumnName)
-                .ToList();
-            return columnNames;
-        }
-
-        public void GetDataSet(string tableName = "") {
+        public override void GetDataSet(string tableName = "") {
             IExcelDataReader reader = ExcelReaderFactory.CreateBinaryReader(
                 FileService.ReadFileStrem(FileName), new ExcelReaderConfiguration() {
                 });
@@ -90,13 +68,6 @@ namespace Jaeger.SAT.Catalogos.Update.Converts {
                 this.RemoveEmptyRows(DataSet.Tables[i]);
             }
             this.Analize();
-        }
-
-        public DataTable GetDataTable(string tableName) {
-            if (DataSet == null) {
-                GetDataTable(tableName);
-            }
-            return DataSet.Tables[tableName];
         }
 
         /// <summary>

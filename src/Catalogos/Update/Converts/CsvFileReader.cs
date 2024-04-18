@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Linq;
-using System.Collections.Generic;
-using System.Data;
 using ExcelDataReader;
 using Jaeger.SAT.Catalogos.Helpers;
 
 namespace Jaeger.SAT.Catalogos.Update.Converts {
-    public class CsvFileReader : IExcelFileReader {
+    public class CsvFileReader : ExcelReader, IExcelFileReader {
         public CsvFileReader(string filename) {
             if (string.IsNullOrEmpty(filename)) {
                 throw new ArgumentException("The filename cannot be empty", "filename");
@@ -19,29 +16,7 @@ namespace Jaeger.SAT.Catalogos.Update.Converts {
             FileName = filename;
         }
 
-        /// <summary>
-        /// obtener o establecer nombre del archivo EXCEL
-        /// </summary>
-        public string FileName { get; set; }
-
-        /// <summary>
-        /// obtener o establecer la cantidad de filas que debemos saltar hasta los encabezados
-        /// </summary>
-        public int SkipRows { get; set; }
-
-        public DataTable DataTable { get; set; }
-
-        public DataSet DataSet { get; set; }
-
-        public List<string> GetHeaders() {
-            List<string> columnNames = DataTable.Columns
-                .Cast<DataColumn>()
-                .Select(column => column.ColumnName)
-                .ToList();
-            return columnNames;
-        }
-
-        public void GetDataSet(string tableName = "") {
+        public override void GetDataSet(string tableName = "") {
             IExcelDataReader reader = ExcelReaderFactory.CreateCsvReader(
                 FileService.ReadFileStrem(FileName), new ExcelReaderConfiguration() {
                 });
@@ -67,13 +42,6 @@ namespace Jaeger.SAT.Catalogos.Update.Converts {
             };
 
             DataSet = reader.AsDataSet(config);
-        }
-
-        public DataTable GetDataTable(string tableName) {
-            if (DataSet == null) {
-                GetDataTable(tableName);
-            }
-            return DataSet.Tables[tableName];
         }
     }
 }
