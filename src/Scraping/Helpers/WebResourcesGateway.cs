@@ -28,6 +28,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             return this.CreateUrlResponseFromResponse(response, destinacion);
         }
 
+        #region metodos privados
         private UrlResponse CreateUrlResponseFromResponse(HttpWebResponse response, string url) {
             var urlResponse = new UrlResponse().CreateFromResponse(response, url);
             response.Close();
@@ -78,5 +79,6 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             }
             return true;
         }
+        #endregion
     }
 }

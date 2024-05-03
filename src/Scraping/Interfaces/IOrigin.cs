@@ -1,7 +1,11 @@
 ﻿using System;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Interfaces {
+    /// <summary>
+    /// interface de origen de datos
+    /// </summary>
     public interface IOrigin {
+        #region propiedades
         /// <summary>
         /// obtener o establecer nombre del origen
         /// </summary>
@@ -22,8 +26,14 @@ namespace Jaeger.SAT.Catalogos.Scraping.Interfaces {
         /// </summary>
         string DestinationFilename { get; set; }
         
+        /// <summary>
+        /// 
+        /// </summary>
         string LinkText { get; set; }
         
+        /// <summary>
+        /// 
+        /// </summary>
         int LinkPosition { get; set; }
         
         /// <summary>
@@ -35,13 +45,18 @@ namespace Jaeger.SAT.Catalogos.Scraping.Interfaces {
         /// obtener o establecer si el origen es actualizable
         /// </summary>
         bool AllowUpdate { get; set; }
+        #endregion
 
-        IOrigin WithDownloadUrl(string downloadUrl);
-        
-        IOrigin WithLastModified(DateTime? lastModified);
-        
+        #region metodos publicos
         bool HasLastVersion();
         
         bool HasDownloadUrl();
+        #endregion
+
+        #region builder
+        IOrigin WithDownloadUrl(string downloadUrl);
+        
+        IOrigin WithLastModified(DateTime? lastModified);
+        #endregion
     }
 }

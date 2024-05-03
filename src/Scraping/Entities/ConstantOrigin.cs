@@ -2,7 +2,13 @@
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Entities {
+    /// <summary>
+    /// origen del recurso constante
+    /// </summary>
     public class ConstantOrigin : Abstracts.OriginResource, IOrigin {
+        /// <summary>
+        /// constructor
+        /// </summary>
         public ConstantOrigin() : base() { }
 
         /// <summary>
@@ -48,12 +54,24 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
         public bool HasDownloadUrl() {
             return this.DownloadUrl != "";
         }
+        #endregion
 
+        #region builder
+        /// <summary>
+        /// agregar url de descarga
+        /// </summary>
+        /// <param name="downloadUrl">URL</param>
+        /// <returns>IOrigin</returns>
         public IOrigin WithDownloadUrl(string downloadUrl) {
             this.DownloadUrl = downloadUrl;
             return this;
         }
 
+        /// <summary>
+        /// agregar fecha de ultima modificacion
+        /// </summary>
+        /// <param name="lastModified">fecha</param>
+        /// <returns>IOrigin</returns>
         public IOrigin WithLastModified(DateTime? lastModified) {
             this.LastVersion = lastModified; 
             return this;

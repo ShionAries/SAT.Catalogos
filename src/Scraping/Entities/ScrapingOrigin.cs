@@ -2,6 +2,9 @@
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Entities {
+    /// <summary>
+    /// clase scrap para los orienes
+    /// </summary>
     public class ScrapingOrigin : Abstracts.OriginResource, IOrigin {
 
         public ScrapingOrigin() : base() { }

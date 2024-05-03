@@ -4,12 +4,27 @@ using System.Net;
 using System.Text;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Entities {
+    /// <summary>
+    /// clase para respuesta del servicio
+    /// </summary>
     public class UrlResponse {
+        #region declaraciones
         private DateTime? _LastModified;
         private string _Body;
+        #endregion
 
+        /// <summary>
+        /// constructor
+        /// </summary>
         public UrlResponse() { }
 
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="url">URL</param>
+        /// <param name="httpstatus">status http</param>
+        /// <param name="lastmodified">fecha de ultima modificacion</param>
+        /// <param name="body">cuerpo de la respuesta</param>
         public UrlResponse(string url, int httpstatus, DateTime? lastmodified, string body = "") {
             this.Url = url;
             this.HttpStatus = httpstatus;
@@ -44,6 +59,11 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
             return this.LastModified == dateTime;
         }
 
+        /// <summary>
+        /// formatear respuesta
+        /// </summary>
+        /// <param name="response">HttpWebResponse</param>
+        /// <param name="url">URL</param>
         public UrlResponse CreateFromResponse(HttpWebResponse response, string url) {
             this.LastModified = null;
             this.Url = url;

@@ -3,6 +3,9 @@ using System.Text.RegularExpressions;
 using Jaeger.SAT.Catalogos.Scraping.Entities;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
+    /// <summary>
+    /// extractor del link 
+    /// </summary>
     public class ScrapingReviewerLinkExtractor {
         public static string FromUrlResponse(UrlResponse response, string linkText, int linkPosition) {
             string pattern = @"href\s*=\s*""(?:[""'](?<1>[^""']*)[""']|(?<1>[^>\s]+))"">" + linkText;

@@ -3,6 +3,9 @@ using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 using Jaeger.SAT.Catalogos.Scraping.Entities;
 
 namespace Jaeger.SAT.Catalogos.Scraping {
+    /// <summary>
+    /// origenes de datos
+    /// </summary>
     public class DumpOrigins {
         protected internal string common = "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos";
 

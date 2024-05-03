@@ -1,8 +1,13 @@
 ﻿using System;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Abstracts {
+    /// <summary>
+    /// clase abstracta para el del origen del recurso
+    /// </summary>
     public abstract class OriginResource {
+        #region declaraciones
         private DateTime? _LastVersion;
+        #endregion
 
         #region propiedades
         /// <summary>
@@ -37,8 +42,14 @@ namespace Jaeger.SAT.Catalogos.Scraping.Abstracts {
         /// </summary>
         public string DestinationFilename { get; set; }
 
+        /// <summary>
+        /// obtener o establecer texto de referencia para la busqueda del link de descarga
+        /// </summary>
         public string LinkText { get; set; }
 
+        /// <summary>
+        /// obtener o establecer si es permitida la actualizacion
+        /// </summary>
         public bool AllowUpdate {  get; set; }
 
         [System.Xml.Serialization.XmlIgnore]

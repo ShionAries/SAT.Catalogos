@@ -4,6 +4,9 @@ using Jaeger.SAT.Catalogos.Scraping.Entities;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
+    /// <summary>
+    /// clase para actualizacion
+    /// </summary>
     internal class Upgrader {
         private readonly IResourcesGateway gateway;
         private readonly string destinationPath;
@@ -13,6 +16,11 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             this.destinationPath = destinationPath;
         }
 
+        /// <summary>
+        /// creador de ruta
+        /// </summary>
+        /// <param name="filename">nomrbe del archivo</param>
+        /// <returns>path</returns>
         protected string BuildPath(string filename) {
             return System.IO.Path.Combine(destinationPath, filename);
         }

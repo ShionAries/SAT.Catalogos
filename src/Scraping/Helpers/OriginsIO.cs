@@ -19,6 +19,9 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             this.translator = new OriginsTranslator();
         }
 
+        /// <summary>
+        /// carga de archivo
+        /// </summary>
         public List<IOrigin> ReadFile() {
             return this.translator.OriginFromLayout(this.OriginsFromString());
         }

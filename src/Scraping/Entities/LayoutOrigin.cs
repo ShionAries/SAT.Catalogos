@@ -1,4 +1,7 @@
 ﻿namespace Jaeger.SAT.Catalogos.Scraping.Entities {
+    /// <summary>
+    /// layout de origen
+    /// </summary>
     public class LayoutOrigin : Abstracts.OriginResource {
         public LayoutOrigin() { }
 
