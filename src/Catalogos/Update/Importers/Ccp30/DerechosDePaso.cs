@@ -32,7 +32,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp30 {
         }
 
         protected override void CreateRepository() {
-            var inserted = this._Catalogo.Import(this._DataTable);
+            this._Catalogo = new DerechosDePasoRepository();
         }
     }
 }

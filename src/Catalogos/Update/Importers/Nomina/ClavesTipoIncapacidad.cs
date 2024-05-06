@@ -17,9 +17,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Nomina {
         protected override void CheckHeaders() {
             _HeadersMapper = new Dictionary<string, string> {
                 { "c_TipoIncapacidad", "Clave" },
-                { "Descripción", "Descripcion" },
-                { "Fecha inicio de vigencia", "VigenciaIni" },
-                { "Fecha fin de vigencia", "VigenciaFin" }
+                { "Descripción", "Descripcion" }
             };
 
             var headers = GetHeaders().ToArray();

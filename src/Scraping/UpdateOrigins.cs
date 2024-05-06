@@ -9,7 +9,7 @@ namespace Jaeger.SAT.Catalogos.Scraping {
     public delegate void DelEventHandler();
 
     public class UpdateOrigins {
-        protected List<IOrigin> Origins;
+        public List<IOrigin> Origins {  get; set; }
         protected IResourcesGateway ResourcesGateway;
         protected internal string getWorkingFolder;
 
@@ -25,7 +25,7 @@ namespace Jaeger.SAT.Catalogos.Scraping {
             this.Origins = new List<IOrigin>();
         }
 
-        public void Run() {
+        public void ReadOrigins() {
             // cargar datos de los origenes
             this.Origins = new OriginsIO().ReadFile();
             // si es nulo entonces cargamos los datos por default
@@ -33,6 +33,10 @@ namespace Jaeger.SAT.Catalogos.Scraping {
                 Console.WriteLine("Cargando origenes del local");
                 this.Origins = new DumpOrigins().Origins;
             }
+        }
+
+        public void Run() {
+            this.ReadOrigins();
 
             this.ResourcesGateway = new WebResourcesGateway();
             var reviewers = new Reviewers().CreateWithDefaultReviewers(this.ResourcesGateway);
