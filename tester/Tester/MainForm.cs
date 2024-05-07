@@ -1,14 +1,19 @@
 ﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 using Jaeger.SAT.Catalogos;
 using Jaeger.SAT.Catalogos.Scraping;
+using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Tester {
     public partial class MainForm : Form {
         private UpdateOrigins _ScrapService;
         private BackgroundWorker _WorkerScraping;
         private BackgroundWorker _WorkerUpdate;
+        private int _previousIndex;
+        private bool _sortDirection;
 
         public MainForm() {
             InitializeComponent();
@@ -51,7 +56,7 @@ namespace Tester {
         }
 
         private void Service_NotificationEvent(object sender, string e) {
-            this.Logger.Text += e + "\r\n";
+            this.Logger.AppendText(e + "\r\n");
             Application.DoEvents();
         }
 
@@ -73,6 +78,7 @@ namespace Tester {
         private void WorkerUpdate_DoWork(object sender, DoWorkEventArgs e) {
             this.OnProcesing();
             var update = new UpdateDatabase(@"C:\Jaeger\Jaeger.Temporal");
+            update.NotificationEvent += Service_NotificationEvent;
             update.Run();
         }
 
@@ -98,6 +104,36 @@ namespace Tester {
             this.ProgressBar.Visible = false;
             this.StatusLabel.Text = "Proceso terminado.";
             Application.DoEvents();
+        }
+
+        private void GridData_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e) {
+            if (e.Button != MouseButtons.Right) {
+                if (e.ColumnIndex == this._previousIndex) {
+                    this._sortDirection = !this._sortDirection;
+                }
+                this.GridData.DataSource = this.SortData((List<IOrigin>)this.GridData.DataSource, this.GridData.Columns[e.ColumnIndex].Name, this._sortDirection);
+                this._previousIndex = e.ColumnIndex;
+            }
+        }
+
+        public List<IOrigin> SortData(List<IOrigin> data, string sCampo, bool bAscendente) {
+            List<IOrigin> response;
+            try {
+                if (!sCampo.Contains("URL")) {
+                    response = (bAscendente ? (
+                        from x in data
+                        orderby x.GetType().GetProperty(sCampo).GetValue(x)
+                        select x).ToList<IOrigin>() : (
+                        from x in data
+                        orderby x.GetType().GetProperty(sCampo).GetValue(x) descending
+                        select x).ToList<IOrigin>());
+                } else {
+                    response = data;
+                }
+            } catch (Exception exception) {
+                throw exception;
+            }
+            return response;
         }
     }
 }

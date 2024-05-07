@@ -31,10 +31,10 @@
             this.SplitContainer = new System.Windows.Forms.SplitContainer();
             this.OriginisGroupBox = new System.Windows.Forms.GroupBox();
             this.GridData = new System.Windows.Forms.DataGridView();
-            this.Logger = new System.Windows.Forms.TextBox();
             this.Catalogos = new System.Windows.Forms.Button();
             this.Cerrar = new System.Windows.Forms.Button();
             this.Scraping = new System.Windows.Forms.Button();
+            this.Logger = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Header)).BeginInit();
             this.StatusBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainer)).BeginInit();
@@ -127,17 +127,7 @@
             this.GridData.Name = "GridData";
             this.GridData.Size = new System.Drawing.Size(334, 294);
             this.GridData.TabIndex = 0;
-            // 
-            // Logger
-            // 
-            this.Logger.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Logger.Location = new System.Drawing.Point(3, 6);
-            this.Logger.Multiline = true;
-            this.Logger.Name = "Logger";
-            this.Logger.Size = new System.Drawing.Size(351, 267);
-            this.Logger.TabIndex = 0;
+            this.GridData.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.GridData_ColumnHeaderMouseClick);
             // 
             // Catalogos
             // 
@@ -168,6 +158,17 @@
             this.Scraping.TabIndex = 4;
             this.Scraping.Text = "Scraping";
             this.Scraping.UseVisualStyleBackColor = true;
+            // 
+            // Logger
+            // 
+            this.Logger.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Logger.Location = new System.Drawing.Point(3, 6);
+            this.Logger.Multiline = true;
+            this.Logger.Name = "Logger";
+            this.Logger.Size = new System.Drawing.Size(351, 267);
+            this.Logger.TabIndex = 0;
             // 
             // MainForm
             // 

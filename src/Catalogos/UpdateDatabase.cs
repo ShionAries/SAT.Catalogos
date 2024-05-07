@@ -5,7 +5,12 @@ namespace Jaeger.SAT.Catalogos {
     public class UpdateDatabase {
         private string _SourceFolder;
         protected Helpers.ILogger _Logger;
-
+        public event EventHandler<string> NotificationEvent;
+        public void OnNotificationEvent(string e) {
+            if (this.NotificationEvent != null) {
+                this.NotificationEvent(this, e);
+            }
+        }
         public UpdateDatabase(string sourceFolder) {
             this.SourceFolder = sourceFolder;
             this._Logger = new Helpers.Logger();
@@ -29,8 +34,10 @@ namespace Jaeger.SAT.Catalogos {
         }
 
         public int Run() {
+            this.OnNotificationEvent("Cargado datos");
             var importer = this.CreateImporter();
             importer.Import(this.SourceFolder, this._Logger);
+            this.OnNotificationEvent("Se terminó correctamente con la actualización de la base de datos");
             this._Logger.Info("Se terminó correctamente con la actualización de la base de datos");
             return 0;
         }
