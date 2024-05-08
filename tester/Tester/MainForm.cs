@@ -11,7 +11,6 @@ using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 namespace Tester {
     public partial class MainForm : Form {
         private UpdateOrigins _ScrapService;
-        private BackgroundWorker _WorkerScraping;
         private BackgroundWorker _WorkerUpdate;
         private int _previousIndex;
         private bool _sortDirection;
@@ -25,29 +24,23 @@ namespace Tester {
             CheckForIllegalCrossThreadCalls = false;
             this._ScrapService = new UpdateOrigins();
             this._ScrapService.ReadOrigins();
+            this._ScrapService.NotificationEvent += Service_NotificationEvent;
             this.GridData.DataSource = this._ScrapService.Origins;
             this.Catalogos.Click += this.Catalogos_Click;
             this.Scraping.Click += this.Scraping_Click;
             this.Cerrar.Click += this.Cerrar_Click;
             this.OffProcesing();
-            GridData.AlternatingRowsDefaultCellStyle = new DataGridViewCellStyle { BackColor = Color.FromArgb(224, 224, 225) };
+            this.GridData.AlternatingRowsDefaultCellStyle = new DataGridViewCellStyle { BackColor = Color.FromArgb(224, 224, 225) };
+            this.GridData.AutoResizeColumns();
         }
 
         private void Scraping_Click(object sender, EventArgs e) {
-            //if (this._WorkerScraping == null) {
-            //    this._WorkerScraping = new BackgroundWorker();
-            //    this._WorkerScraping.DoWork += WorkerScraping_DoWork;
-            //    this._WorkerScraping.RunWorkerCompleted += WorkerScraping_RunWorkerCompleted;
-            //}
-
-            //if (this._WorkerScraping.IsBusy) return;
-            //this._WorkerScraping.RunWorkerAsync();
-
             this._Waiting = new Waiting4Form(() => {
-                this._ScrapService.NotificationEvent += Service_NotificationEvent;
+                
                 this._ScrapService.Run();
             }, "Cargando datos ...", false, true);
             this._Waiting.ShowDialog(this);
+            this.GridData.DataSource = this._ScrapService.Origins;
         }
 
         private void Descarga_Click(object sender, EventArgs e) {
@@ -75,6 +68,7 @@ namespace Tester {
         private void Service_NotificationEvent(object sender, string e) {
             this.Logger.AppendText(e + "\r\n");
             this._Waiting.MessageLabel.Text = e;
+            this.StatusLabel.Text = e;
             Application.DoEvents();
         }
 

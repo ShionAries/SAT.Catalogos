@@ -13,12 +13,12 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
         }
 
         /// <summary>
-        /// obtener o establecer origen
+        /// obtener o establecer origen del recurso
         /// </summary>
         public IOrigin Origin { get; set; }
 
         /// <summary>
-        /// obtener o establecer status del origen
+        /// obtener o establecer status del origen de recurso
         /// </summary>
         public ReviewStatus Status { get; set; }
     }

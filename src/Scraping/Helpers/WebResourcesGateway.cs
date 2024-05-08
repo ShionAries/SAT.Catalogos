@@ -53,6 +53,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
                 response = (HttpWebResponse)webRequest.GetResponse();
             } catch (WebException we) {
                 Console.WriteLine(we.Message);
+                LogInfoService.Log(we.Message, we.StackTrace);
                 if (!(we.Response is HttpWebResponse resp)) {
                     throw;
                 }

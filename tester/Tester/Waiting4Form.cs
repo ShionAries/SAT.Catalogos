@@ -24,7 +24,7 @@ namespace Tester {
             // Not in the taskbar display
             this.ShowInTaskbar = false;
             this.MessageLabel.Text = waitMessage;
-            TimeSpan = 500;
+            TimeSpan = 1000;
             Message = string.Empty;
             _CancelEnable = cancelEnable;
             _WaitTime = 0;

@@ -60,3 +60,4 @@ dkms.conf
 /tester/Tester/.vs
 /tester/Tester/bin
 /tester/Tester/obj
+/src/.vs

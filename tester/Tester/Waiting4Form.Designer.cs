@@ -29,14 +29,18 @@
             this.TimerLabel = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.Cancelar = new System.Windows.Forms.Button();
+            this.Header = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.Header)).BeginInit();
             this.SuspendLayout();
             // 
             // MessageLabel
             // 
             this.MessageLabel.AutoSize = true;
+            this.MessageLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.MessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MessageLabel.Location = new System.Drawing.Point(12, 9);
             this.MessageLabel.Name = "MessageLabel";
-            this.MessageLabel.Size = new System.Drawing.Size(64, 13);
+            this.MessageLabel.Size = new System.Drawing.Size(74, 13);
             this.MessageLabel.TabIndex = 0;
             this.MessageLabel.Text = "Procesando";
             // 
@@ -47,7 +51,7 @@
             // TimerLabel
             // 
             this.TimerLabel.AutoSize = true;
-            this.TimerLabel.Location = new System.Drawing.Point(12, 35);
+            this.TimerLabel.Location = new System.Drawing.Point(15, 43);
             this.TimerLabel.Name = "TimerLabel";
             this.TimerLabel.Size = new System.Drawing.Size(16, 13);
             this.TimerLabel.TabIndex = 0;
@@ -74,6 +78,16 @@
             this.Cancelar.UseVisualStyleBackColor = true;
             this.Cancelar.Click += new System.EventHandler(this.Cancelar_Click);
             // 
+            // Header
+            // 
+            this.Header.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Header.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Header.Location = new System.Drawing.Point(0, 0);
+            this.Header.Name = "Header";
+            this.Header.Size = new System.Drawing.Size(298, 30);
+            this.Header.TabIndex = 3;
+            this.Header.TabStop = false;
+            // 
             // Waiting4Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -83,12 +97,14 @@
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.TimerLabel);
             this.Controls.Add(this.MessageLabel);
+            this.Controls.Add(this.Header);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Waiting4Form";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "LoadForm";
             this.Shown += new System.EventHandler(this.Waiting4Form_Shown);
+            ((System.ComponentModel.ISupportInitialize)(this.Header)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -100,5 +116,6 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button Cancelar;
         public System.Windows.Forms.Label MessageLabel;
+        private System.Windows.Forms.PictureBox Header;
     }
 }

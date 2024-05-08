@@ -64,7 +64,24 @@ namespace Jaeger.SAT.Catalogos.Scraping {
                     "Artículo 69-B Listado Completo",
                     "http://omawww.sat.gob.mx/cifras_sat/Documents/Listado_Completo_69-B.csv"
                     ),
-                new ConstantOrigin("Descarga y Recuperación de Comprobantes", "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1705376527662&ssbinary=true")
+                new ConstantOrigin("Manual de Usuario, sitio SAT descarga y recuperacion", 
+                            "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1705376527662&ssbinary=true", 
+                            destinationFilename: "ManualUsuario.pdf"),
+                new ConstantOrigin("Descarga y Recuperación de Comprobantes",
+                            "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1705376489587&ssbinary=true",
+                            destinationFilename: "DescargaYRecuperacionComprobantes.pdf"),
+                new ConstantOrigin("Web service: URL's",
+                            "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1705376489663&ssbinary=true",
+                            destinationFilename: "WebserviceURLs.pdf"),
+                new ConstantOrigin("Web service: servicio de solicitud de descargas para CFDI y retenciones",
+                            "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1705376527679&ssbinary=true",
+                            destinationFilename: "WebServiceSolicitudDescargaCFDIyRetenciones.pdf"),
+                new ConstantOrigin("Web service: servicio de descarga de solicitudes exitosas",
+                            "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1705376489610&ssbinary=true",
+                            destinationFilename: "WebServiceSolicitudDescargaCFDIyRetencionesExitosas.pdf"),
+                new ConstantOrigin("Web service: Servicio de verificación de descarga masiva",
+                            "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1705376527697&ssbinary=true",
+                            destinationFilename: "WebServiceSolicitudDescargaCFDIyRetencionesVerificacion.pdf")
             };
         }
 

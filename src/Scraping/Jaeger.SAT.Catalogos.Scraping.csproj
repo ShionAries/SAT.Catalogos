@@ -50,6 +50,7 @@
     <Compile Include="Entities\ReviewStatus.cs" />
     <Compile Include="Entities\UrlResponse.cs" />
     <Compile Include="Helpers\ConstantReviewer.cs" />
+    <Compile Include="Helpers\LogInfoService.cs" />
     <Compile Include="Helpers\OriginsIO.cs" />
     <Compile Include="Helpers\OriginsTranslator.cs" />
     <Compile Include="Helpers\Reviewers.cs" />

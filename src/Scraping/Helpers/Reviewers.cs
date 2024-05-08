@@ -32,7 +32,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
                     return item;
                 }
             }
-            throw new Exception("Unable to review an origin of class %s");
+            throw new Exception($"Unable to review an origin of class {origin.GetType().Name}");
         }
     }
 }
