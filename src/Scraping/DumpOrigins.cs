@@ -63,7 +63,8 @@ namespace Jaeger.SAT.Catalogos.Scraping {
                 new ConstantOrigin(
                     "Artículo 69-B Listado Completo",
                     "http://omawww.sat.gob.mx/cifras_sat/Documents/Listado_Completo_69-B.csv"
-                    )
+                    ),
+                new ConstantOrigin("Descarga y Recuperación de Comprobantes", "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1705376527662&ssbinary=true")
             };
         }
 

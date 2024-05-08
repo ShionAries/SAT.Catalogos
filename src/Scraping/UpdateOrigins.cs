@@ -11,7 +11,6 @@ namespace Jaeger.SAT.Catalogos.Scraping {
     public class UpdateOrigins {
         public List<IOrigin> Origins {  get; set; }
         protected IResourcesGateway ResourcesGateway;
-        protected internal string getWorkingFolder;
 
         public event EventHandler<string> NotificationEvent;
         public void OnNotificationEvent(string e) {
@@ -21,9 +20,11 @@ namespace Jaeger.SAT.Catalogos.Scraping {
         }
 
         public UpdateOrigins(string workingFolder = @"C:\Jaeger\Jaeger.Temporal") {
-            this.getWorkingFolder = workingFolder;
+            this.WorkingFolder = workingFolder;
             this.Origins = new List<IOrigin>();
         }
+
+        public string WorkingFolder { get; set; }
 
         public void ReadOrigins() {
             // cargar datos de los origenes
@@ -69,9 +70,9 @@ namespace Jaeger.SAT.Catalogos.Scraping {
                 this.OnNotificationEvent("No existen orígenes para actualizar");
             }
             this.OnNotificationEvent("Descargando ...");
-            var upgrader = new Upgrader(this.ResourcesGateway, this.getWorkingFolder);
-            this.OnNotificationEvent("Actualizando archivo de control de origenes");
+            var upgrader = new Upgrader(this.ResourcesGateway, this.WorkingFolder);
             var recentOrigins = upgrader.UpgradeReviews(reviews);
+            this.OnNotificationEvent("Actualizando archivo de control de origenes");
             new OriginsIO().WriteFile(recentOrigins);
         }
     }

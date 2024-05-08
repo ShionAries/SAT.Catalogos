@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Net;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
 using System.Web;
 using Jaeger.SAT.Catalogos.Scraping.Entities;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
@@ -10,7 +12,12 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
         protected internal string sessionCookie;
 
         public WebResourcesGateway() {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            ServicePointManager.ServerCertificateValidationCallback = new RemoteCertificateValidationCallback(this.SvrCertificateValidationCallback);
+        }
 
+        private bool SvrCertificateValidationCallback(object sender, X509Certificate certification, X509Chain chain, SslPolicyErrors sslPolicyErrors) {
+            return true;
         }
 
         public UrlResponse Headers(string url) {
@@ -74,7 +81,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
                 using (FileStream fileStream = new FileStream(destinacion, FileMode.Create, FileAccess.Write))
                     response.GetResponseStream().CopyTo((Stream)fileStream);
             } catch (Exception ex) {
-                Console.WriteLine(ex.Message); 
+                Console.WriteLine(ex.Message);
                 return false;
             }
             return true;

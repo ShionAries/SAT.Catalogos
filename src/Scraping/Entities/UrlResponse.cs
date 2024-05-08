@@ -33,14 +33,26 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
         }
 
         #region propiedades
+        /// <summary>
+        /// obtener o establecer URL
+        /// </summary>
         public string Url { get; set; }
 
+        /// <summary>
+        /// obtener o establecer status HttpsStatus
+        /// </summary>
         public int HttpStatus { get; set; }
 
+        /// <summary>
+        /// peticion correcta
+        /// </summary>
         public bool IsSuccess {
             get { return this.HttpStatus == 200; }
         }
 
+        /// <summary>
+        /// obtener o establecer fecha de actualizacion
+        /// </summary>
         public DateTime? LastModified {
             get {
                 if (_LastModified > new DateTime(1989, 1, 1))
@@ -50,6 +62,9 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
             set { _LastModified = value; }
         }
 
+        /// <summary>
+        /// cuerpo de la peticion
+        /// </summary>
         public string Body {
             get { return this._Body; }
         }

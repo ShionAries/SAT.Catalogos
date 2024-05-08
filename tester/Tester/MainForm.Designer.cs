@@ -23,8 +23,8 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.HeaderLabel = new System.Windows.Forms.Label();
-            this.Header = new System.Windows.Forms.PictureBox();
             this.StatusBar = new System.Windows.Forms.StatusStrip();
             this.StatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.ProgressBar = new System.Windows.Forms.ToolStripProgressBar();
@@ -35,7 +35,9 @@
             this.Cerrar = new System.Windows.Forms.Button();
             this.Scraping = new System.Windows.Forms.Button();
             this.Logger = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.Header)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Descarga = new System.Windows.Forms.Button();
+            this.Header = new System.Windows.Forms.PictureBox();
             this.StatusBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainer)).BeginInit();
             this.SplitContainer.Panel1.SuspendLayout();
@@ -43,6 +45,8 @@
             this.SplitContainer.SuspendLayout();
             this.OriginisGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Header)).BeginInit();
             this.SuspendLayout();
             // 
             // HeaderLabel
@@ -55,16 +59,6 @@
             this.HeaderLabel.Size = new System.Drawing.Size(325, 17);
             this.HeaderLabel.TabIndex = 3;
             this.HeaderLabel.Text = "Servicio de Actualización de Catálogos SAT";
-            // 
-            // Header
-            // 
-            this.Header.BackColor = System.Drawing.Color.White;
-            this.Header.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Header.Location = new System.Drawing.Point(0, 0);
-            this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(701, 40);
-            this.Header.TabIndex = 2;
-            this.Header.TabStop = false;
             // 
             // StatusBar
             // 
@@ -100,12 +94,13 @@
             // 
             // SplitContainer.Panel2
             // 
+            this.SplitContainer.Panel2.Controls.Add(this.Descarga);
             this.SplitContainer.Panel2.Controls.Add(this.Catalogos);
             this.SplitContainer.Panel2.Controls.Add(this.Cerrar);
             this.SplitContainer.Panel2.Controls.Add(this.Scraping);
             this.SplitContainer.Panel2.Controls.Add(this.Logger);
             this.SplitContainer.Size = new System.Drawing.Size(701, 313);
-            this.SplitContainer.SplitterDistance = 340;
+            this.SplitContainer.SplitterDistance = 397;
             this.SplitContainer.TabIndex = 5;
             // 
             // OriginisGroupBox
@@ -114,7 +109,7 @@
             this.OriginisGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.OriginisGroupBox.Location = new System.Drawing.Point(0, 0);
             this.OriginisGroupBox.Name = "OriginisGroupBox";
-            this.OriginisGroupBox.Size = new System.Drawing.Size(340, 313);
+            this.OriginisGroupBox.Size = new System.Drawing.Size(397, 313);
             this.OriginisGroupBox.TabIndex = 0;
             this.OriginisGroupBox.TabStop = false;
             this.OriginisGroupBox.Text = "Origenes";
@@ -125,14 +120,15 @@
             this.GridData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridData.Location = new System.Drawing.Point(3, 16);
             this.GridData.Name = "GridData";
-            this.GridData.Size = new System.Drawing.Size(334, 294);
+            this.GridData.RowHeadersVisible = false;
+            this.GridData.Size = new System.Drawing.Size(391, 294);
             this.GridData.TabIndex = 0;
             this.GridData.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.GridData_ColumnHeaderMouseClick);
             // 
             // Catalogos
             // 
             this.Catalogos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Catalogos.Location = new System.Drawing.Point(109, 281);
+            this.Catalogos.Location = new System.Drawing.Point(52, 281);
             this.Catalogos.Name = "Catalogos";
             this.Catalogos.Size = new System.Drawing.Size(75, 23);
             this.Catalogos.TabIndex = 6;
@@ -142,7 +138,7 @@
             // Cerrar
             // 
             this.Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Cerrar.Location = new System.Drawing.Point(271, 281);
+            this.Cerrar.Location = new System.Drawing.Point(214, 281);
             this.Cerrar.Name = "Cerrar";
             this.Cerrar.Size = new System.Drawing.Size(75, 23);
             this.Cerrar.TabIndex = 5;
@@ -152,7 +148,7 @@
             // Scraping
             // 
             this.Scraping.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Scraping.Location = new System.Drawing.Point(190, 281);
+            this.Scraping.Location = new System.Drawing.Point(133, 281);
             this.Scraping.Name = "Scraping";
             this.Scraping.Size = new System.Drawing.Size(75, 23);
             this.Scraping.TabIndex = 4;
@@ -167,22 +163,55 @@
             this.Logger.Location = new System.Drawing.Point(3, 6);
             this.Logger.Multiline = true;
             this.Logger.Name = "Logger";
-            this.Logger.Size = new System.Drawing.Size(351, 267);
+            this.Logger.Size = new System.Drawing.Size(294, 267);
             this.Logger.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = global::Tester.Properties.Resources.sat30px;
+            this.pictureBox1.Location = new System.Drawing.Point(659, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
+            // Descarga
+            // 
+            this.Descarga.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Descarga.Image = global::Tester.Properties.Resources.settings_16px;
+            this.Descarga.Location = new System.Drawing.Point(11, 281);
+            this.Descarga.Name = "Descarga";
+            this.Descarga.Size = new System.Drawing.Size(35, 23);
+            this.Descarga.TabIndex = 7;
+            this.Descarga.UseVisualStyleBackColor = true;
+            this.Descarga.Click += new System.EventHandler(this.Descarga_Click);
+            // 
+            // Header
+            // 
+            this.Header.BackColor = System.Drawing.Color.White;
+            this.Header.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Header.Location = new System.Drawing.Point(0, 0);
+            this.Header.Name = "Header";
+            this.Header.Size = new System.Drawing.Size(701, 40);
+            this.Header.TabIndex = 2;
+            this.Header.TabStop = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(701, 375);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.SplitContainer);
             this.Controls.Add(this.StatusBar);
             this.Controls.Add(this.HeaderLabel);
             this.Controls.Add(this.Header);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "SAT Catálogos";
             this.Load += new System.EventHandler(this.MainForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.Header)).EndInit();
             this.StatusBar.ResumeLayout(false);
             this.StatusBar.PerformLayout();
             this.SplitContainer.Panel1.ResumeLayout(false);
@@ -192,6 +221,8 @@
             this.SplitContainer.ResumeLayout(false);
             this.OriginisGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GridData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Header)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,5 +242,7 @@
         private System.Windows.Forms.Button Catalogos;
         private System.Windows.Forms.Button Cerrar;
         private System.Windows.Forms.Button Scraping;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button Descarga;
     }
 }

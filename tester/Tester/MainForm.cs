@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
 using Jaeger.SAT.Catalogos;
 using Jaeger.SAT.Catalogos.Scraping;
@@ -14,6 +15,7 @@ namespace Tester {
         private BackgroundWorker _WorkerUpdate;
         private int _previousIndex;
         private bool _sortDirection;
+        private Waiting4Form _Waiting;
 
         public MainForm() {
             InitializeComponent();
@@ -25,20 +27,34 @@ namespace Tester {
             this._ScrapService.ReadOrigins();
             this.GridData.DataSource = this._ScrapService.Origins;
             this.Catalogos.Click += this.Catalogos_Click;
-            this.Scraping.Click+= this.Scraping_Click;
+            this.Scraping.Click += this.Scraping_Click;
             this.Cerrar.Click += this.Cerrar_Click;
             this.OffProcesing();
+            GridData.AlternatingRowsDefaultCellStyle = new DataGridViewCellStyle { BackColor = Color.FromArgb(224, 224, 225) };
         }
 
         private void Scraping_Click(object sender, EventArgs e) {
-            if (this._WorkerScraping == null) {
-                this._WorkerScraping = new BackgroundWorker();
-                this._WorkerScraping.DoWork += WorkerScraping_DoWork;
-                this._WorkerScraping.RunWorkerCompleted += WorkerScraping_RunWorkerCompleted;
-            }
+            //if (this._WorkerScraping == null) {
+            //    this._WorkerScraping = new BackgroundWorker();
+            //    this._WorkerScraping.DoWork += WorkerScraping_DoWork;
+            //    this._WorkerScraping.RunWorkerCompleted += WorkerScraping_RunWorkerCompleted;
+            //}
 
-            if (this._WorkerScraping.IsBusy) return;
-            this._WorkerScraping.RunWorkerAsync();
+            //if (this._WorkerScraping.IsBusy) return;
+            //this._WorkerScraping.RunWorkerAsync();
+
+            this._Waiting = new Waiting4Form(() => {
+                this._ScrapService.NotificationEvent += Service_NotificationEvent;
+                this._ScrapService.Run();
+            }, "Cargando datos ...", false, true);
+            this._Waiting.ShowDialog(this);
+        }
+
+        private void Descarga_Click(object sender, EventArgs e) {
+            var folderBrowserDialog = new FolderBrowserDialog() { Description = "Selecciona ruta de descarga" };
+            if (folderBrowserDialog.ShowDialog(this) == DialogResult.OK) {
+                this._ScrapService.WorkingFolder = folderBrowserDialog.SelectedPath;
+            }
         }
 
         private void Catalogos_Click(object sender, EventArgs e) {
@@ -47,7 +63,8 @@ namespace Tester {
                 this._WorkerUpdate.DoWork += WorkerUpdate_DoWork;
                 this._WorkerUpdate.RunWorkerCompleted += WorkerUpdate_RunWorkerCompleted;
             }
-            if (this._WorkerUpdate.IsBusy) return;
+            if (this._WorkerUpdate.IsBusy)
+                return;
             this._WorkerUpdate.RunWorkerAsync();
         }
 
@@ -57,6 +74,7 @@ namespace Tester {
 
         private void Service_NotificationEvent(object sender, string e) {
             this.Logger.AppendText(e + "\r\n");
+            this._Waiting.MessageLabel.Text = e;
             Application.DoEvents();
         }
 
@@ -135,5 +153,7 @@ namespace Tester {
             }
             return response;
         }
+
+       
     }
 }

@@ -3,6 +3,9 @@
     /// layout de origen
     /// </summary>
     public class LayoutOrigin : Abstracts.OriginResource {
+        /// <summary>
+        /// constructor
+        /// </summary>
         public LayoutOrigin() { }
 
         /// <summary>

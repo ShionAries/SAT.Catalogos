@@ -45,17 +45,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Waiting4Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Waiting4Form.Designer.cs">
+      <DependentUpon>Waiting4Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TestForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TestForm.Designer.cs">
-      <DependentUpon>TestForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,11 +67,11 @@
     <Compile Include="WaitWindowGUIForm.Designer.cs">
       <DependentUpon>WaitWindowGUIForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Waiting4Form.resx">
+      <DependentUpon>Waiting4Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TestForm.resx">
-      <DependentUpon>TestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -81,6 +81,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="WaitWindowGUIForm.resx">
       <DependentUpon>WaitWindowGUIForm.cs</DependentUpon>
@@ -107,6 +108,12 @@
       <Project>{1c5665be-5b75-4529-8dc9-3b869007b3d4}</Project>
       <Name>Jaeger.SAT.Catalogos.Scraping</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sat30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings_16px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

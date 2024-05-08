@@ -7,7 +7,9 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
     /// servicio de validacion de formatos
     /// </summary>
     public class ValidacionService {
-
+        /// <summary>
+        /// validacion de patron con regex
+        /// </summary>
         public static bool RegexValid(string pattern, string value) {
             if (!string.IsNullOrEmpty(value)) {
                 return new Regex(pattern).IsMatch(value);

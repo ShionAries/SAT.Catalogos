@@ -10,6 +10,9 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             this.gateway = gateway;
         }
 
+        /// <summary>
+        /// Origen Aceptado
+        /// </summary>
         public bool Accepts(IOrigin origin) {
             return origin is ConstantOrigin;
         }
