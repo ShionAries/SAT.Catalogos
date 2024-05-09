@@ -6,7 +6,9 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
     /// clase scrap para los orienes
     /// </summary>
     public class ScrapingOrigin : Abstracts.OriginResource, IOrigin {
-
+        /// <summary>
+        /// constructor
+        /// </summary>
         public ScrapingOrigin() : base() { }
 
         /// <summary>

@@ -32,13 +32,16 @@ namespace Tester {
             this.OffProcesing();
             this.GridData.AlternatingRowsDefaultCellStyle = new DataGridViewCellStyle { BackColor = Color.FromArgb(224, 224, 225) };
             this.GridData.AutoResizeColumns();
+            this.GridData.ReadOnly = true;
+            this.GridData.AllowUserToResizeRows = false;
         }
 
         private void Scraping_Click(object sender, EventArgs e) {
             this._Waiting = new Waiting4Form(() => {
-                
                 this._ScrapService.Run();
-            }, "Cargando datos ...", false, true);
+            }, "Cargando datos ...") {
+                Text = ""
+            };
             this._Waiting.ShowDialog(this);
             this.GridData.DataSource = this._ScrapService.Origins;
         }
@@ -148,6 +151,18 @@ namespace Tester {
             return response;
         }
 
-       
+        private void Agregar_Click(object sender, EventArgs e) {
+
+        }
+
+        private void Delete_Click(object sender, EventArgs e) {
+            if (this.GridData.CurrentRow != null) { 
+                
+            }
+        }
+
+        private void GridData_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e) {
+            this.MessageLabel.Text = $"{this.GridData.Rows.Count} filas. |";
+        }
     }
 }

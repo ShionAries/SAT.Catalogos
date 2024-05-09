@@ -115,5 +115,11 @@
   <ItemGroup>
     <None Include="Resources\settings_16px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_16px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

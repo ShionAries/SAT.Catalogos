@@ -8,10 +8,10 @@ using Jaeger.SAT.Catalogos.Scraping.Entities;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
-    public class WebResourcesGateway : IResourcesGateway {
+    public class ResourcesGateway : IResourcesGateway {
         protected internal string sessionCookie;
 
-        public WebResourcesGateway() {
+        public ResourcesGateway() {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             ServicePointManager.ServerCertificateValidationCallback = new RemoteCertificateValidationCallback(this.SvrCertificateValidationCallback);
         }

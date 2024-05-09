@@ -8,7 +8,9 @@ namespace Jaeger.SAT.Catalogos.Scraping {
     /// </summary>
     public class DumpOrigins {
         protected internal string common = "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos";
-
+        /// <summary>
+        /// constructor
+        /// </summary>
         public DumpOrigins() {
             this.Origins = new List<IOrigin>() {
                 new ScrapingOrigin(

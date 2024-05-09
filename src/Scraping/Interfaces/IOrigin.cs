@@ -10,7 +10,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Interfaces {
         /// <summary>
         /// obtener o establecer nombre del origen
         /// </summary>
-        [DisplayName("Recurso")]
+        [DisplayName("Nombre del recurso")]
         string Name { get; set; }
 
         /// <summary>

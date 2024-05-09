@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Abstracts {
     /// <summary>
-    /// clase abstracta para el del origen del recurso
+    /// clase abstracta de origen del recurso
     /// </summary>
     public abstract class OriginResource {
         #region declaraciones

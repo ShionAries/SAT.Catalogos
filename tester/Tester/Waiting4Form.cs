@@ -4,18 +4,17 @@ using System.Windows.Forms;
 namespace Tester {
     public partial class Waiting4Form : Form {
         private int _WaitTime;
-        private bool _CancelEnable;
         private IAsyncResult _AsyncResult;
         private MethodInvoker _method;
 
         public string Message { get; set; }
         public int TimeSpan { get; set; }
 
-        public Waiting4Form(MethodInvoker method, string waitMessage, bool cancelEnable, bool timerVisable) {
-            Initialize(method, waitMessage, cancelEnable, timerVisable);
+        public Waiting4Form(MethodInvoker method, string waitMessage, bool timerVisable = true) {
+            Initialize(method, waitMessage, timerVisable);
         }
 
-        private void Initialize(MethodInvoker method, string waitMessage, bool cancelEnable, bool timerVisable) {
+        private void Initialize(MethodInvoker method, string waitMessage, bool timerVisable) {
             InitializeComponent();
             // Rimless 
             this.FormBorderStyle = FormBorderStyle.None;
@@ -26,7 +25,6 @@ namespace Tester {
             this.MessageLabel.Text = waitMessage;
             TimeSpan = 1000;
             Message = string.Empty;
-            _CancelEnable = cancelEnable;
             _WaitTime = 0;
             _method = method;
             this.Timer1.Interval = TimeSpan;

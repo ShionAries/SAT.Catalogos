@@ -57,7 +57,7 @@
     <Compile Include="Helpers\ScrapingReviewer.cs" />
     <Compile Include="Helpers\ScrapingReviewerLinkExtractor.cs" />
     <Compile Include="Helpers\Upgrader.cs" />
-    <Compile Include="Helpers\WebResourcesGateway.cs" />
+    <Compile Include="Helpers\ResourcesGateway.cs" />
     <Compile Include="Helpers\XmlSerializerService.cs" />
     <Compile Include="Interfaces\IOrigin.cs" />
     <Compile Include="Interfaces\IResourcesGateway.cs" />

@@ -1,48 +1,90 @@
-*** Dominio
-Jaeger.SAT.Catalogos
-Jaeger.SAT.Catalogos.Abstracts
-Jaeger.SAT.Catalogos.Interfaces
-Jaeger.SAT.Catalogos.Entities
-Jaeger.SAT.Catalogos.Helpers
-Jaeger.SAT.Catalogos.Services
-Jaeger.SAT.Catalogos.Services.Update();
-Jaeger.SAT.Catalogos.Helpers
-Jaeger.SAT.Catalogos.Repository
-Jaeger.SAT.Catalogos.Repository.Entities
-Jaeger.SAT.Catalogos.Converts
-Jaeger.SAT.Catalogos.Update
-Jaeger.SAT.Catalogos.Update.Convents
-Jaeger.SAT.Catalogos.Update.Importers
+********************************************************************
+** SERVICIO DE ACTUALIZACIÓN DE CATALOGOS SAT
+********************************************************************
 
-Jaeger.SAT.Catalogos.Scraping
-Jaeger.SAT.Catalogos.Scraping.Interfaces
-Jaeger.SAT.Catalogos.Scraping.Entities
-Jaeger.SAT.Catalogos.Scraping.Helpers
-Jaeger.SAT.Catalogos.Scraping.Service();
+Listado de recursos proporcionados por el SAT
 
-Jaeger.SAT.Catalogos
-Jaeger.SAT.Catalogos.CFDI
-Jaeger.SAT.Catalogos.Complemento
-Jaeger.SAT.Catalogos.Complemento.Nomina
-Jaeger.SAT.Catalogos.Complemento.Pagos
-Jaeger.SAT.Catalogos.CFDR
+Catálogos CFDI Versión 3.3
+http://omawww.sat.gob.mx/tramitesyservicios/Paginas/anexo_20.htm
 
-IUrlResponse.WithResponse(HttpResponse);
-IUrlResponse.Build();
+Catálogos CFDI Versión 4.0
+http://omawww.sat.gob.mx/tramitesyservicios/Paginas/anexo_20.htm
 
-Gateway.Url(url).Get().Execute();
-Gateway.Url(url).Header().Execute();
-Gateway.Url(url).Method(Get).Execute();
-Upgrade.Reviews(array[]).Execute();
-UpgradeOrigins.Default().Create().Execute();
+Catálogo de Retenciones
+http://omawww.sat.gob.mx/tramitesyservicios/Paginas/CFDI_retenciones.htm
 
-Catalogos().SourceImports(files[]).Execute();
-Catalogos().imports();
+Complemento de Nóminas
+http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catNomina.xls
 
-Repositorio (catalogos SAT)
+Nóminas - Estados
+http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/C_Estado.xls"
 
-UnidadRepository
-.Load()
-.Save(path = @"..Catalogos\repositorio.json")
-.Search()
-.Import(DataTable)
+CCE 2.0 - Claves de pedimento
+http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_ClavePedimento20.xls
+
+CCE 2.0 - Colonias
+http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_Colonia20.xls
+
+CCE 2.0 - Entidades o estados
+http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/C_Estado20.xls
+
+CCE 1.1 - Fracciones arancelarias 2020
+http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_FraccionArancelaria.xls
+
+CCE 1.1 - Fracciones arancelarias 20201228",
+http://omawww.sat.gob.mx/tramitesyservicios/Paginas/catalogos_emision_cfdi_complemento_ce.htm
+
+CCE 1.1 - Fracciones arancelarias 20221212
+http://omawww.sat.gob.mx/tramitesyservicios/Paginas/catalogos_emision_cfdi_complemento_ce.htm",
+
+CCE 1.1 - Incoterms
+http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_INCOTERM.xls
+
+CCE 1.1 - Localidades
+http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_Localidad.xls
+
+CCE 1.1 - Motivo traslado
+http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_MotivoTraslado.xls
+
+CCE 1.1 - Municipios
+http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_Municipio.xls
+
+CCE 1.1 - Tipos de operaciones
+http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_TipoOperacion.xls
+
+CCE 1.1 - Unidades de medida
+http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/c_UnidadAduana.xls
+
+REP
+http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/catPagos.xls
+
+CCP 2.0 - Carta Porte 2.0
+http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/CatalogosCartaPorte20.xls
+
+CCP 3.0 - Carta Porte 3.0
+http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/CatalogosCartaPorte30.xls
+
+Artículo 69 No localizados
+http://omawww.sat.gob.mx/cifras_sat/Documents/No localizados.csv
+
+Artículo 69-B Listado Completo
+http://omawww.sat.gob.mx/cifras_sat/Documents/Listado_Completo_69-B.csv
+
+Manual de Usuario, sitio SAT descarga y recuperacion
+https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1705376527662&ssbinary=true
+
+Descarga y Recuperación de Comprobantes
+https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1705376489587&ssbinary=true
+
+Web service: URL's
+https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1705376489663&ssbinary=true
+
+Web service: servicio de solicitud de descargas para CFDI y retenciones
+https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1705376527679&ssbinary=true
+
+Web service: servicio de descarga de solicitudes exitosas
+https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1705376489610&ssbinary=true
+
+Web service: Servicio de verificación de descarga masiva
+https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1705376527697&ssbinary=true
+

@@ -9,7 +9,7 @@ namespace Jaeger.SAT.Catalogos.Scraping {
     public delegate void DelEventHandler();
 
     public class UpdateOrigins {
-        public List<IOrigin> Origins {  get; set; }
+        public List<IOrigin> Origins { get; set; }
         protected IResourcesGateway ResourcesGateway;
 
         public event EventHandler<string> NotificationEvent;
@@ -33,13 +33,29 @@ namespace Jaeger.SAT.Catalogos.Scraping {
             if (this.Origins == null) {
                 Console.WriteLine("Cargando origenes del local");
                 this.Origins = new DumpOrigins().Origins;
+            } else {
+                this.WriteOrigins();
+            }
+        }
+
+        public void WriteOrigins() {
+            var origins = new DumpOrigins().Origins.ToList();
+            foreach (var item in origins) {
+                try {
+                    var search = this.Origins.Where(it => it.Url.ToLower() == item.Url.ToLower()).FirstOrDefault();
+                    if (search == null) {
+                        this.Origins.Add(item);
+                    }
+                } catch (Exception ex) {
+                    Console.WriteLine(ex.Message);
+                }
             }
         }
 
         public void Run() {
             this.ReadOrigins();
 
-            this.ResourcesGateway = new WebResourcesGateway();
+            this.ResourcesGateway = new ResourcesGateway();
             var reviewers = new Reviewers().CreateWithDefaultReviewers(this.ResourcesGateway);
             var reviews = reviewers.Review(Origins);
             var notFoundReviews = reviews.Where(it => it.Status.IsNotFound()).ToList();
