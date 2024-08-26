@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using Jaeger.SAT.Catalogos.Repository;
 using Jaeger.SAT.Catalogos.Repository.Cfdi40;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
+    /// <summary>
+    /// catalogo de regimenes fiscales
+    /// </summary>
     public class ClavesRegimenesFiscales : AbstractInjector, IInjector {
         public ClavesRegimenesFiscales(DataTable dataTable) : base(dataTable) {
             _SkipRows = 4;

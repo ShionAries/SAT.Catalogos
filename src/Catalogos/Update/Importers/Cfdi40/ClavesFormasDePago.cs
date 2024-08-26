@@ -5,6 +5,9 @@ using System.Linq;
 using Jaeger.SAT.Catalogos.Repository.Cfdi40;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
+    /// <summary>
+    /// catalogo de claves de formas de pago
+    /// </summary>
     public class ClavesFormasDePago : AbstractInjector, IInjector {
 
         public ClavesFormasDePago(DataTable dataTable) : base(dataTable) {

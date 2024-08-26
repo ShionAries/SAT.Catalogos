@@ -390,7 +390,7 @@
     <Compile Include="Update\Importers\Nomina\ClavesTipoNomina.cs" />
     <Compile Include="Update\Importers\Nomina\ClavesTipoOtroPago.cs" />
     <Compile Include="Update\Importers\Nomina\ClavesTipoPercepcion.cs" />
-    <Compile Include="Update\Importers\Nomina\ClavesTipoRegimen.cs" />
+    <Compile Include="Update\Importers\Nomina\ClavesTipoRegimenContratacion.cs" />
     <Compile Include="Update\Importers\RetencionCatalogs.cs" />
     <Compile Include="Update\Importers\Retenciones\ClavesEjercicio.cs" />
     <Compile Include="Update\Importers\Retenciones\ClavesEntidadFederativa.cs" />

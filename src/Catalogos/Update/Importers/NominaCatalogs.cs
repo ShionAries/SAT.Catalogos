@@ -23,7 +23,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
                     new ClavesTipoNomina(dataSet.Tables["c_TipoNomina"]),
                     new ClavesTipoOtroPago(dataSet.Tables["c_TipoOtroPago"]),
                     new ClavesTipoPercepcion(dataSet.Tables["c_TipoPercepcion"]),
-                    new ClavesTipoRegimen(dataSet.Tables["c_TipoRegimen"]),
+                    new ClavesTipoRegimenContratacion(dataSet.Tables["c_TipoRegimen"]),
                     new ClavesRiesgoPuesto(dataSet.Tables["c_RiesgoPuesto"]),
                 }
             };

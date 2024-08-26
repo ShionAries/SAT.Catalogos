@@ -5,6 +5,9 @@ using System.Linq;
 using Jaeger.SAT.Catalogos.Repository.Cfdi40;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
+    /// <summary>
+    /// catalogo de codigos postales
+    /// </summary>
     public class ClavesCodigosPostales : AbstractInjector, IInjector {
         public ClavesCodigosPostales(DataTable dataTable) : base(dataTable) {
             this._SkipRows = 3;

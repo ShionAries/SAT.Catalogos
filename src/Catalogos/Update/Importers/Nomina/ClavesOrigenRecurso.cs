@@ -5,6 +5,9 @@ using System.Data;
 using Jaeger.SAT.Catalogos.Repository.Nomina;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Nomina {
+    /// <summary>
+    /// catalogo del tipo de origen recurso.
+    /// </summary>
     internal class ClavesOrigenRecurso : AbstractInjector, IInjector {
         public ClavesOrigenRecurso(DataTable dataTable) : base(dataTable) {
             this._SkipRows = 3;

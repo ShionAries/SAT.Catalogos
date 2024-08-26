@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using Jaeger.SAT.Catalogos.Repository;
 using Jaeger.SAT.Catalogos.Repository.Cfdi40;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
+    /// <summary>
+    /// catalogo de tipos de comprobantes
+    /// </summary>
     public class ClavesTipoComprobante : AbstractInjector, IInjector {
         public ClavesTipoComprobante(DataTable dataTable) : base(dataTable) {
             this._SkipRows = 3;

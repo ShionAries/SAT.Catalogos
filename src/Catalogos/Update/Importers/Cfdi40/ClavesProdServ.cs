@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using Jaeger.SAT.Catalogos.Repository;
 using Jaeger.SAT.Catalogos.Repository.Cfdi40;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
+    /// <summary>
+    /// catalogo de claves de productos y servicios
+    /// </summary>
     public class ClavesProdServ : AbstractInjector, IInjector {
         public ClavesProdServ(DataTable dataTable) : base(dataTable) {
             _SkipRows = 3;

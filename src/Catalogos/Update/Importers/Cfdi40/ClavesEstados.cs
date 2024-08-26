@@ -5,6 +5,9 @@ using System.Linq;
 using Jaeger.SAT.Catalogos.Repository.Cfdi40;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
+    /// <summary>
+    /// catalogo de estados
+    /// </summary>
     public class ClavesEstados : AbstractInjector, IInjector {
         public ClavesEstados(DataTable dataTable) : base(dataTable) {
             _SkipRows = 3;

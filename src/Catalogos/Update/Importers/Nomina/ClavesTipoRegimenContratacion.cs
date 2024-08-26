@@ -8,8 +8,8 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Nomina {
     /// <summary>
     /// Nomina Catalogo de tipos de regimen de contratacion
     /// </summary>
-    internal class ClavesTipoRegimen : AbstractInjector, IInjector {
-        public ClavesTipoRegimen(DataTable dataTable) : base(dataTable) {
+    internal class ClavesTipoRegimenContratacion : AbstractInjector, IInjector {
+        public ClavesTipoRegimenContratacion(DataTable dataTable) : base(dataTable) {
             this._SkipRows = 3;
         }
 

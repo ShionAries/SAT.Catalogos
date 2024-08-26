@@ -5,6 +5,9 @@ using System.Data;
 using Jaeger.SAT.Catalogos.Repository.Nomina;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Nomina {
+    /// <summary>
+    /// catalogo de bancos
+    /// </summary>
     internal class ClavesBancos : AbstractInjector, IInjector {
         public ClavesBancos(DataTable dataTable) : base(dataTable) {
             this._SkipRows = 3;

@@ -6,7 +6,7 @@ using Jaeger.SAT.Catalogos.Repository.Nomina;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Nomina {
     /// <summary>
-    /// Nomina
+    /// catalogo de tipos de periodicidad del pago.
     /// </summary>
     internal class ClavesPeriodicidadPago : AbstractInjector, IInjector {
         public ClavesPeriodicidadPago(DataTable dataTable) : base(dataTable) {
