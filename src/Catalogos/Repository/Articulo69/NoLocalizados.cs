@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Jaeger.SAT.Catalogos.Helpers.Mapping;
 
-namespace Jaeger.SAT.Catalogos.Repository.Entities {
+namespace Jaeger.SAT.Catalogos.Repository.Articulo69 {
     [JsonObject("item")]
     public class NoLocalizados {
         public NoLocalizados() { }

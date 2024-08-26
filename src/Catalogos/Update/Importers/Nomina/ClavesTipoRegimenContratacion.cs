@@ -28,11 +28,11 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Nomina {
         }
 
         protected override void CreateRepository() {
-            var mapper = new Helpers.Mapping.DataNamesMapper<ClaveTipoRegimen>();
+            var mapper = new Helpers.Mapping.DataNamesMapper<CveTipoRegimen>();
             var resultado = mapper.Map(_DataTable).ToList();
             if (resultado != null) {
                 if (resultado.Count() > 0) {
-                    _Catalogo = new TipoRegimenRepository {
+                    _Catalogo = new TipoRegimenContratacionRepository {
                         Items = resultado.ToList()
                     };
                 }

@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Jaeger.SAT.Catalogos.Helpers.Mapping;
 
-namespace Jaeger.SAT.Catalogos.Repository.Entities {
+namespace Jaeger.SAT.Catalogos.Repository.Articulo69B {
     /// <summary>
     /// Artículo 69-B, primer y segundo párrafo del CFF
     /// </summary>
@@ -44,105 +44,105 @@ namespace Jaeger.SAT.Catalogos.Repository.Entities {
         /// Publicación página SAT presuntos
         /// </summary>
         [JsonProperty("PublicacionPaginaSATPresuntos")]
-        [DataNames("PublicacionPaginaSATPresuntos")] 
+        [DataNames("PublicacionPaginaSATPresuntos")]
         public string PublicacionPaginaSATPresuntos { get; set; }
 
         /// <summary>
         /// Número y fecha de oficio global de presunción DOF
         /// </summary>
         [JsonProperty("OficioGlobalPresuncionDOF")]
-        [DataNames("OficioGlobalPresuncionDOF")] 
+        [DataNames("OficioGlobalPresuncionDOF")]
         public string OficioGlobalPresuncionDOF { get; set; }
 
         /// <summary>
         /// Publicación DOF presuntos
         /// </summary>
         [JsonProperty("PublicacionDOFPresuntos", NullValueHandling = NullValueHandling.Ignore)]
-        [DataNames("PublicacionDOFPresuntos")] 
+        [DataNames("PublicacionDOFPresuntos")]
         public string PublicacionDOFPresuntos { get; set; }
 
         /// <summary>
         /// Número y fecha de oficio global de contribuyentes que desvirtuaron SAT
         /// </summary>
         [JsonProperty("OficioGlobalContribuyentesDesvirtuaronSAT", NullValueHandling = NullValueHandling.Ignore)]
-        [DataNames("OficioGlobalContribuyentesDesvirtuaronSAT")] 
+        [DataNames("OficioGlobalContribuyentesDesvirtuaronSAT")]
         public string OficioGlobalContribuyentesDesvirtuaronSAT { get; set; }
 
         /// <summary>
         /// Publicación página SAT desvirtuados
         /// </summary>
         [JsonProperty("PublicacionPaginaSATDesvirtuados", NullValueHandling = NullValueHandling.Ignore)]
-        [DataNames("PublicacionPaginaSATDesvirtuados")] 
+        [DataNames("PublicacionPaginaSATDesvirtuados")]
         public string PublicacionPaginaSATDesvirtuados { get; set; }
 
         /// <summary>
         /// Número y fecha de oficio global de contribuyentes que desvirtuaron DOF
         /// </summary>
         [JsonProperty("OficioGlobalContribuyentesDesvirtuaronDOF", NullValueHandling = NullValueHandling.Ignore)]
-        [DataNames("OficioGlobalContribuyentesDesvirtuaronDOF")] 
+        [DataNames("OficioGlobalContribuyentesDesvirtuaronDOF")]
         public string OficioGlobalContribuyentesDesvirtuaronDOF { get; set; }
 
         /// <summary>
         /// Publicación DOF desvirtuados
         /// </summary>
         [JsonProperty("PublicacionDOFDesvirtuados", NullValueHandling = NullValueHandling.Ignore)]
-        [DataNames("PublicacionDOFDesvirtuados")] 
+        [DataNames("PublicacionDOFDesvirtuados")]
         public string PublicacionDOFDesvirtuados { get; set; }
 
         /// <summary>
         /// Número y fecha de oficio global de definitivos SAT
         /// </summary>
         [JsonProperty("OficioGlobalDefinitivosSAT")]
-        [DataNames("OficioGlobalDefinitivosSAT")] 
+        [DataNames("OficioGlobalDefinitivosSAT")]
         public string OficioGlobalDefinitivosSAT { get; set; }
 
         /// <summary>
         /// Publicación página SAT definitivos
         /// </summary>
         [JsonProperty("PublicacionPaginaSATDefinitivos")]
-        [DataNames("PublicacionPaginaSATDefinitivos")] 
+        [DataNames("PublicacionPaginaSATDefinitivos")]
         public string PublicacionPaginaSATDefinitivos { get; set; }
 
         /// <summary>
         /// Número y fecha de oficio global de definitivos DOF
         /// </summary>
         [JsonProperty("OficioGlobalDefinitivosDOF")]
-        [DataNames("OficioGlobalDefinitivosDOF")] 
+        [DataNames("OficioGlobalDefinitivosDOF")]
         public string OficioGlobalDefinitivosDOF { get; set; }
 
         /// <summary>
         /// Publicación DOF definitivos
         /// </summary>
         [JsonProperty("PublicacionDOFDefinitivos")]
-        [DataNames("PublicacionDOFDefinitivos")] 
+        [DataNames("PublicacionDOFDefinitivos")]
         public string PublicacionDOFDefinitivos { get; set; }
 
         /// <summary>
         /// Número y fecha de oficio global de sentencia favorable SAT
         /// </summary>
         [JsonProperty("OficioGlobalSentenciaFavorableSAT")]
-        [DataNames("OficioGlobalSentenciaFavorableSAT")] 
+        [DataNames("OficioGlobalSentenciaFavorableSAT")]
         public string OficioGlobalSentenciaFavorableSAT { get; set; }
 
         /// <summary>
         /// Publicación página SAT sentencia favorable
         /// </summary>
         [JsonProperty("PublicacionPaginaSATSentenciaFavorable")]
-        [DataNames("PublicacionPaginaSATSentenciaFavorable")] 
+        [DataNames("PublicacionPaginaSATSentenciaFavorable")]
         public string PublicacionPaginaSATSentenciaFavorable { get; set; }
 
         /// <summary>
         /// Número y fecha de oficio global de sentencia favorable DOF
         /// </summary>
         [JsonProperty("OficioGlobalSentenciaFavorableDOF")]
-        [DataNames("OficioGlobalSentenciaFavorableDOF")] 
+        [DataNames("OficioGlobalSentenciaFavorableDOF")]
         public string OficioGlobalSentenciaFavorableDOF { get; set; }
 
         /// <summary>
         /// Publicación DOF sentencia favorable
         /// </summary>
         [JsonProperty("PublicacionDOFSentenciaFavorable")]
-        [DataNames("PublicacionDOFSentenciaFavorable")] 
+        [DataNames("PublicacionDOFSentenciaFavorable")]
         public string PublicacionDOFSentenciaFavorable { get; set; }
     }
 }

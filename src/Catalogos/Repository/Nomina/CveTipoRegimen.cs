@@ -9,8 +9,8 @@ namespace Jaeger.SAT.Catalogos.Repository.Nomina {
     /// Nomina: Catalogo de tipos de regimen de contratacion
     /// </summary>
     [JsonObject("item")]
-    public class ClaveTipoRegimen : ClaveBaseVigencia, IClaveBaseItem {
-        public ClaveTipoRegimen() {
+    public class CveTipoRegimen : ClaveBaseVigencia, IClaveBaseItem {
+        public CveTipoRegimen() {
         }
     }
 }

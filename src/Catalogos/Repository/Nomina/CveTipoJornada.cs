@@ -3,10 +3,10 @@ using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Nomina {
     /// <summary>
-    /// Nomina: Catalogo de tipo de incapacidad
+    /// Nomina: Catalogo de tipos de jornada laboral.
     /// </summary>
-    public class ClaveTipoIncapacidad : ClaveBase, IClaveBase {
-        public ClaveTipoIncapacidad() {
+    public class CveTipoJornada : ClaveBase, IClaveBase {
+        public CveTipoJornada() {
         }
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace Jaeger.SAT.Catalogos.Repository {
+namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
     /// <summary>
     /// clase de catálogo base para contener información 
     /// </summary>

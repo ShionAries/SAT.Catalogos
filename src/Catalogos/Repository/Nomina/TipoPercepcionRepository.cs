@@ -5,7 +5,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Nomina {
     /// <summary>
     /// catalogo de tipos de percepciones
     /// </summary>
-    public class TipoPercepcionRepository : RepositoryContext<ClaveTipoPercepcion>, ITipoPercepcionRepository, IGeneralRepository {
+    public class TipoPercepcionRepository : RepositoryContext<CveTipoPercepcion>, ITipoPercepcionRepository, IGeneralRepository {
         public TipoPercepcionRepository() {
             this.Title = "Catálogo de tipos de percepciones.";
             this.FileName = "CatalogoNominaTipoPercepcion.json";

@@ -2,8 +2,9 @@
 using Jaeger.SAT.Catalogos.Update.Importers.Cfdi40;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers {
-    internal class Cfdi40Catalogs : AbstractXlsImporter, IImporter {
-        public Cfdi40Catalogs(string csvFolder) : base(csvFolder) {
+    internal class Cfdi40Catalogos : AbstractXlsImporter, IImporter {
+        public Cfdi40Catalogos(string csvFolder) : base(csvFolder) {
+
         }
 
         public override Injectors CreateInjectors(DataSet dataSet) {

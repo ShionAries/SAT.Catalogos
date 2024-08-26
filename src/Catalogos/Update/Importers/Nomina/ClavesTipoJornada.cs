@@ -26,7 +26,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Nomina {
         }
 
         protected override void CreateRepository() {
-            var mapper = new Helpers.Mapping.DataNamesMapper<ClaveTipoJornada>();
+            var mapper = new Helpers.Mapping.DataNamesMapper<CveTipoJornada>();
             var resultado = mapper.Map(_DataTable).ToList();
             if (resultado != null) {
                 if (resultado.Count() > 0) {

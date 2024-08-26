@@ -28,7 +28,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Nomina {
         }
 
         protected override void CreateRepository() {
-            var mapper = new Helpers.Mapping.DataNamesMapper<ClaveTipoDeduccion>();
+            var mapper = new Helpers.Mapping.DataNamesMapper<CveTipoDeduccion>();
             var resultado = mapper.Map(_DataTable).ToList();
             if (resultado != null) {
                 if (resultado.Count() > 0) {

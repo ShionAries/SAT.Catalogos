@@ -5,7 +5,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Nomina {
     /// <summary>
     /// catalogo de otro tipo pago (nomina)
     /// </summary>
-    public class TipoOtroPagoRepository : RepositoryContext<ClaveTipoOtroPago>, ITipoOtroPagoRepository, IGeneralRepository {
+    public class TipoOtroPagoRepository : RepositoryContext<CveTipoOtroPago>, ITipoOtroPagoRepository, IGeneralRepository {
         public TipoOtroPagoRepository() {
             this.Title = "Catálogo de otro tipo de pago.";
             this.FileName = "CatalogoNominaTipoOtroPago.json";

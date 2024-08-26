@@ -6,5 +6,9 @@ namespace Jaeger.SAT.Catalogos.Helpers {
             var fileName = key;
             return new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
         }
+
+        public static bool Exists(string fileSource) {
+            return File.Exists(fileSource);
+        }
     }
 }

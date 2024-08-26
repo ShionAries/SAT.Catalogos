@@ -7,7 +7,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Nomina {
     /// Nomina: Catalogo del tipo de origen recurso
     /// </summary>
     [JsonObject("item")]
-    public class ClaveOrigenRecurso : ClaveBase, IClaveBase {
-        public ClaveOrigenRecurso() { }
+    public class CveOrigenRecurso : ClaveBase, IClaveBase {
+        public CveOrigenRecurso() { }
     }
 }

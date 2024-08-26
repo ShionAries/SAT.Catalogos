@@ -4,6 +4,6 @@ namespace Jaeger.SAT.Catalogos.Repository.Nomina {
     /// <summary>
     /// Nomina: Catalogo de tipos de contrato
     /// </summary>
-    public interface ITipoContratoRepository : IRepositoryContext<ClaveTipoContrato> {
+    public interface ITipoContratoRepository : IRepositoryContext<CveTipoContrato> {
     }
 }

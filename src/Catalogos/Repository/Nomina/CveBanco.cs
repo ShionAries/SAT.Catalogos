@@ -9,7 +9,7 @@ using Jaeger.SAT.Catalogos.Helpers.Mapping;
 
 namespace Jaeger.SAT.Catalogos.Repository.Nomina {
     [JsonObject("item")]
-    public class ClaveBanco : ClaveBaseVigencia, IClaveBaseItem {
+    public class CveBanco : ClaveBaseVigencia, IClaveBaseItem {
         [DisplayName("Razon Social")]
         [JsonProperty("rso", Order = 15)]
         [DataNames("RazonSocial")]

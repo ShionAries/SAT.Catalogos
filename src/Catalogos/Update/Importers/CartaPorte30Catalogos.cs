@@ -2,8 +2,8 @@
 using Jaeger.SAT.Catalogos.Update.Importers.Ccp30;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers {
-    public class CartaPorte30Catalogs : AbstractXlsImporter, IImporter {
-        public CartaPorte30Catalogs(string csvFolder) : base(csvFolder) {
+    public class CartaPorte30Catalogos : AbstractXlsImporter, IImporter {
+        public CartaPorte30Catalogos(string csvFolder) : base(csvFolder) {
         }
 
         public override Injectors CreateInjectors(DataSet dataSet) {

@@ -9,8 +9,8 @@ namespace Jaeger.SAT.Catalogos.Repository.Nomina {
     /// </summary>
     [JsonObject("item")]
     [XmlRoot("item")]
-    public class ClaveTipoContrato : ClaveBase, IClaveBase {
-        public ClaveTipoContrato() {
+    public class CveTipoContrato : ClaveBase, IClaveBase {
+        public CveTipoContrato() {
         }
     }
 }

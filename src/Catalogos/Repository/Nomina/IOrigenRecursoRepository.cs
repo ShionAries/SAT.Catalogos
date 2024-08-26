@@ -4,6 +4,6 @@ namespace Jaeger.SAT.Catalogos.Repository.Nomina {
     /// <summary>
     /// Catalogo del tipo de origen recurso.
     /// </summary>
-    public interface IOrigenRecursoRepository : IRepositoryContext<ClaveOrigenRecurso> {
+    public interface IOrigenRecursoRepository : IRepositoryContext<CveOrigenRecurso> {
     }
 }

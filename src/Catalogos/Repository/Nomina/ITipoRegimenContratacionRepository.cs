@@ -4,6 +4,6 @@ namespace Jaeger.SAT.Catalogos.Repository.Nomina {
     /// <summary>
     /// catalogo de tipos de regimen de contratacion
     /// </summary>
-    public interface ITipoRegimenRepository : IRepositoryContext<ClaveTipoRegimen> {
+    public interface ITipoRegimenContratacionRepository : IRepositoryContext<CveTipoRegimen> {
     }
 }

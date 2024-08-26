@@ -5,7 +5,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Nomina {
     /// <summary>
     /// Nomina Catalogo de tipos de deducciones
     /// </summary>
-    public class TipoDeduccionRepository : RepositoryContext<ClaveTipoDeduccion>, ITipoDeduccionRepository, IGeneralRepository {
+    public class TipoDeduccionRepository : RepositoryContext<CveTipoDeduccion>, ITipoDeduccionRepository, IGeneralRepository {
         public TipoDeduccionRepository() {
             Title = "Catálogo de tipos de deducciones.";
             FileName = "CatalogoTipoDeduccion.json";

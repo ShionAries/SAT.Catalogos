@@ -4,9 +4,9 @@ using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Nomina {
     /// <summary>
-    /// Nomina: Catalogo de clases en que deben inscribirse los patrones.
+    /// Nomina: Catalogo de tipos de deducciones
     /// </summary>
     [JsonObject("item")]
-    public class ClaveRiesgoPuesto : ClaveBaseVigencia, IClaveBaseItem {
+    public class CveTipoDeduccion : ClaveBaseVigencia, IClaveBaseItem {
     }
 }

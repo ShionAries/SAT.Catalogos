@@ -5,8 +5,8 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
     /// <summary>
     /// Catalogos de Nomina
     /// </summary>
-    internal class NominaCatalogs : AbstractXlsImporter, IImporter {
-        public NominaCatalogs(string csvFolder) : base(csvFolder) {
+    internal class NominaCatalogos : AbstractXlsImporter, IImporter {
+        public NominaCatalogos(string csvFolder) : base(csvFolder) {
         }
 
         public override Injectors CreateInjectors(DataSet dataSet) {

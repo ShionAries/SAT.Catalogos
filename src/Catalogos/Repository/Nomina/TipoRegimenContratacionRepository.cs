@@ -5,8 +5,8 @@ namespace Jaeger.SAT.Catalogos.Repository.Nomina {
     /// <summary>
     /// catalogo de tipos de regimen de contratacion
     /// </summary>
-    public class TipoRegimenRepository : RepositoryContext<ClaveTipoRegimen>, ITipoRegimenRepository, IGeneralRepository {
-        public TipoRegimenRepository() {
+    public class TipoRegimenContratacionRepository : RepositoryContext<CveTipoRegimen>, ITipoRegimenContratacionRepository, IGeneralRepository {
+        public TipoRegimenContratacionRepository() {
             this.Title = "Catálogo de tipos de régimen de contratación.";
             this.FileName = "CatalogoNominaTipoRegimenContratacion.json";
             this.Version = "2.0";

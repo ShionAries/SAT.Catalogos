@@ -2,8 +2,8 @@
 using Jaeger.SAT.Catalogos.Update.Importers.Retenciones;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers {
-    public class RetencionCatalogs : AbstractXlsImporter, IImporter {
-        public RetencionCatalogs(string csvFolder) : base(csvFolder) {
+    public class RetencionCatalogos : AbstractXlsImporter, IImporter {
+        public RetencionCatalogos(string csvFolder) : base(csvFolder) {
         }
 
         public override Injectors CreateInjectors(DataSet dataSet) {

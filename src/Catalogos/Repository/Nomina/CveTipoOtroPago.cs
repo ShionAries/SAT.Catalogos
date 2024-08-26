@@ -3,8 +3,9 @@ using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Nomina {
     /// <summary>
-    /// Nomina: Catalogo de tipos de hora extra.
+    /// Nomina: Catalogo de otro tipo de pago.
     /// </summary>
-    public class ClaveTipoHoras : ClaveBase, IClaveBase {
+    public class CveTipoOtroPago : ClaveBaseVigencia, IClaveBaseItem {
+        public CveTipoOtroPago() { }
     }
 }

@@ -5,7 +5,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Nomina {
     /// <summary>
     /// Catalogo del tipo de origen recurso.
     /// </summary>
-    public class OrigenRecursoRepository : RepositoryContext<ClaveOrigenRecurso>, IOrigenRecursoRepository, IGeneralRepository {
+    public class OrigenRecursoRepository : RepositoryContext<CveOrigenRecurso>, IOrigenRecursoRepository, IGeneralRepository {
         public OrigenRecursoRepository() {
             this.Title = "Catálogo del tipo de origen recurso.";
             this.FileName = "CatalogoNominaOrigenRecurso.json";

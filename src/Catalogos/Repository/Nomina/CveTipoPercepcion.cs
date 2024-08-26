@@ -4,10 +4,12 @@ using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Nomina {
     /// <summary>
-    /// Nomina: Catalogo de tipos de periodicidad de pago.
+    /// Nomina: Catalogo de tipos de percepciones
     /// </summary>
     [JsonObject("item")]
-    public class ClavePeriodicidadPago : ClaveBaseVigencia, IClaveBaseItem {
-        public ClavePeriodicidadPago() { }
+    public class CveTipoPercepcion : ClaveBaseVigencia, IClaveBaseItem {
+
+        public CveTipoPercepcion() {
+        }
     }
 }

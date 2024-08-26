@@ -7,7 +7,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// <summary>
     /// catalogo de municipios.
     /// </summary>
-    public class MunicipioRepository : RepositoryContext<CveMunicipio>, IClaveMunicipioRepository, IGeneralRepository {
+    public class MunicipioRepository : RepositoryContext<CveMunicipio>, IMunicipioRepository, IGeneralRepository {
         public MunicipioRepository() {
             Title = "Catálogo de municipios.";
             FileName = "MunicipioCFDI40.json";
