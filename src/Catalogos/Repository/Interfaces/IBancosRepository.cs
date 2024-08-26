@@ -1,4 +1,4 @@
-﻿using Jaeger.SAT.Catalogos.Repository.Entities;
+﻿using Jaeger.SAT.Catalogos.Repository.Nomina;
 
 namespace Jaeger.SAT.Catalogos.Repository.Interfaces {
     public interface IBancosRepository : IRepositoryContext<ClaveBanco> {

@@ -5,7 +5,7 @@ using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// <summary>
-    /// Catálogo de municipios.
+    /// catalogo de municipios.
     /// </summary>
     public class MunicipioRepository : RepositoryContext<CveMunicipio>, IClaveMunicipioRepository, IGeneralRepository {
         public MunicipioRepository() {

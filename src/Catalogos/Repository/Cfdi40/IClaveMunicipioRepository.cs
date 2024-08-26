@@ -2,7 +2,7 @@
 
 namespace Jaeger.SAT.Catalogos.Repository.Interfaces {
     /// <summary>
-    /// Catálogo de municipios.
+    /// catalogo de municipios.
     /// </summary>
     public interface IClaveMunicipioRepository : IRepositoryContext<CveMunicipio> {
         CveMunicipio Search(string findId);

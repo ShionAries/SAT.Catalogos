@@ -2,7 +2,7 @@
 
 namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// <summary>
-    /// Catálogo de régimen fiscal.
+    /// catalogo de regimen fiscal.
     /// </summary>
     public interface IRegimenesFiscalesRepository : IRepositoryContext<CveRegimenFiscal> {
         CveRegimenFiscal Search(string findId);

@@ -6,7 +6,7 @@ using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// <summary>
-    /// Catálogo de régimen fiscal.
+    /// catalogo de regimen fiscal.
     /// </summary>
     public class RegimenesFiscalesRepository : RepositoryContext<CveRegimenFiscal>, IRegimenesFiscalesRepository, IGeneralRepository {
         public RegimenesFiscalesRepository() {

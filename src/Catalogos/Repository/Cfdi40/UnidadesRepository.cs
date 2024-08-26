@@ -3,6 +3,9 @@ using Jaeger.SAT.Catalogos.Repository.Abstracts;
 using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
+    /// <summary>
+    /// catalogo de unidades de medida para los conceptos en el CFDI.
+    /// </summary>
     public class UnidadesRepository : RepositoryContext<CveUnidad>, IUnidadesRepository, IGeneralRepository {
         public UnidadesRepository() {
             Title = "Catálogo de unidades de medida para los conceptos en el CFDI.";

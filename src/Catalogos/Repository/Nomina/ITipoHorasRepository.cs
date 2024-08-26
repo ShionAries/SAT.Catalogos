@@ -1,7 +1,9 @@
-﻿using Jaeger.SAT.Catalogos.Repository.Entities;
-using Jaeger.SAT.Catalogos.Repository.Interfaces;
+﻿using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
-namespace Jaeger.Catalogos.Contracts {
+namespace Jaeger.SAT.Catalogos.Repository.Nomina {
+    /// <summary>
+    /// catalogo de tipos de horas extra (nomina)
+    /// </summary>
     public interface ITipoHorasRepository : IRepositoryContext<ClaveTipoHoras> {
     }
 }

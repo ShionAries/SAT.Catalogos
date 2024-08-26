@@ -2,6 +2,9 @@
 using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
+    /// <summary>
+    /// catalogo de exportacion para comprobante fiscal 4.0
+    /// </summary>
     public class ExportacionRepository : RepositoryContext<CveExportacion>, IExportacionRepository, IGeneralRepository {
         public ExportacionRepository() {
             Title = "Catálogo Exportación";

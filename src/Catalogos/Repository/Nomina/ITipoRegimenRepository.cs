@@ -2,8 +2,8 @@
 
 namespace Jaeger.SAT.Catalogos.Repository.Nomina {
     /// <summary>
-    /// Nomina Catalogo de tipos de deducciones
+    /// catalogo de tipos de regimen de contratacion
     /// </summary>
-    public interface ITipoDeduccionRepository : IRepositoryContext<ClaveTipoDeduccion>{
+    public interface ITipoRegimenRepository : IRepositoryContext<ClaveTipoRegimen> {
     }
 }

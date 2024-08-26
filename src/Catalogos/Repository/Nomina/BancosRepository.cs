@@ -1,9 +1,8 @@
 ﻿using System.Linq;
 using Jaeger.SAT.Catalogos.Repository.Abstracts;
-using Jaeger.SAT.Catalogos.Repository.Entities;
 using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
-namespace Jaeger.SAT.Catalogos.Repository {
+namespace Jaeger.SAT.Catalogos.Repository.Nomina {
     public class BancosRepository : RepositoryContext<ClaveBanco>, IBancosRepository, IGeneralRepository {
         public BancosRepository() {
             Title = "Catálogo de Bancos SAT";

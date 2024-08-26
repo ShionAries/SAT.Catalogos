@@ -1,8 +1,10 @@
-﻿using Jaeger.SAT.Catalogos.Repository.Entities;
-using Jaeger.SAT.Catalogos.Repository.Abstracts;
+﻿using Jaeger.SAT.Catalogos.Repository.Abstracts;
 using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
-namespace Jaeger.SAT.Catalogos.Repository {
+namespace Jaeger.SAT.Catalogos.Repository.Nomina {
+    /// <summary>
+    /// catalogo del tipo de incapacidad
+    /// </summary>
     public class TipoIncapacidadRepository : RepositoryContext<ClaveTipoIncapacidad>, ITipoIncapacidadRepository, IGeneralRepository {
         public TipoIncapacidadRepository() {
             this.Title = "Catálogo del tipo de incapacidad.";

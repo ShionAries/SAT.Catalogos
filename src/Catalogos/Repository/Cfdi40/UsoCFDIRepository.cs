@@ -4,6 +4,9 @@ using Jaeger.SAT.Catalogos.Repository.Abstracts;
 using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
+    /// <summary>
+    /// catalogo de uso de comprobantes
+    /// </summary>
     public class UsoCFDIRepository : RepositoryContext<CveUsoCFDI>, IUsoCFDIRepository, IGeneralRepository {
         public UsoCFDIRepository() {
             Title = "Catálogo de Uso de CFDI";

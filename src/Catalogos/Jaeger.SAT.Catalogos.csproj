@@ -236,7 +236,7 @@
     <Compile Include="Repository\Nomina\ITipoNominaRepository.cs" />
     <Compile Include="Repository\Nomina\ITipoOtroPagoRepository.cs" />
     <Compile Include="Repository\Nomina\ITipoPercepcionRepository.cs" />
-    <Compile Include="Repository\Cfdi40\ITipoRegimenRepository.cs" />
+    <Compile Include="Repository\Nomina\ITipoRegimenRepository.cs" />
     <Compile Include="Repository\Cfdi40\ITipoRelacionCFDIRepository.cs" />
     <Compile Include="Repository\Cfdi40\IUsoCFDIRepository.cs" />
     <Compile Include="Repository\Cfdi40\LocalidadRepository.cs" />

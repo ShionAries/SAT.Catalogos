@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Data;
-using Jaeger.SAT.Catalogos.Repository.Entities;
-using Jaeger.SAT.Catalogos.Repository;
+using Jaeger.SAT.Catalogos.Repository.Nomina;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Nomina {
     /// <summary>

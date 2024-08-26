@@ -2,6 +2,9 @@
 using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
+    /// <summary>
+    /// catalogo de tipos de comprobantes
+    /// </summary>
     public class TipoComprobanteRepository : RepositoryContext<CveTipoDeComprobante>, ITipoComprobanteRepository, IGeneralRepository {
         public TipoComprobanteRepository() {
             Title = "Catálogo de tipos de Comprobante";

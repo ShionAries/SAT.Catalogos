@@ -1,7 +1,9 @@
-﻿using Jaeger.SAT.Catalogos.Repository.Entities;
-using Jaeger.SAT.Catalogos.Repository.Interfaces;
+﻿using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
-namespace Jaeger.SAT.Catalogos.Repository.Contracts {
+namespace Jaeger.SAT.Catalogos.Repository.Nomina {
+    /// <summary>
+    /// catalogo de tipos de percepciones
+    /// </summary>
     public interface ITipoPercepcionRepository : IRepositoryContext<ClaveTipoPercepcion>{
     }
 }

@@ -1,9 +1,8 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Data;
 using System.Collections.Generic;
-using System;
 using Jaeger.SAT.Catalogos.Repository.Interfaces;
-using Jaeger.SAT.Catalogos.Helpers;
 
 namespace Jaeger.SAT.Catalogos.Update {
     public abstract class AbstractInjector : IInjector {
@@ -30,7 +29,7 @@ namespace Jaeger.SAT.Catalogos.Update {
             if (this.IsUpdateable()) {
                 this.CreateRepository();
                 this.Save();
-                logger.Info($"Se inyectaron injected registros en {this._DataTable.TableName}");
+                logger.Info($"Se inyectaron registros en {this._DataTable.TableName}");
             }
 
             return 0;

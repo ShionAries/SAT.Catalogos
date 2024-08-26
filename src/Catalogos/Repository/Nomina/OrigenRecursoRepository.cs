@@ -1,10 +1,9 @@
 ﻿using Jaeger.SAT.Catalogos.Repository.Interfaces;
 using Jaeger.SAT.Catalogos.Repository.Abstracts;
-using Jaeger.SAT.Catalogos.Repository.Entities;
 
-namespace Jaeger.SAT.Catalogos.Repository {
+namespace Jaeger.SAT.Catalogos.Repository.Nomina {
     /// <summary>
-    /// Catálogo del tipo de origen recurso.
+    /// Catalogo del tipo de origen recurso.
     /// </summary>
     public class OrigenRecursoRepository : RepositoryContext<ClaveOrigenRecurso>, IOrigenRecursoRepository, IGeneralRepository {
         public OrigenRecursoRepository() {

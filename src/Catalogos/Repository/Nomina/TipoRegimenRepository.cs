@@ -1,13 +1,14 @@
 ﻿using Jaeger.SAT.Catalogos.Repository.Abstracts;
-using Jaeger.SAT.Catalogos.Repository.Cfdi40;
-using Jaeger.SAT.Catalogos.Repository.Entities;
 using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
-namespace Jaeger.SAT.Catalogos.Repository.Repositories {
+namespace Jaeger.SAT.Catalogos.Repository.Nomina {
+    /// <summary>
+    /// catalogo de tipos de regimen de contratacion
+    /// </summary>
     public class TipoRegimenRepository : RepositoryContext<ClaveTipoRegimen>, ITipoRegimenRepository, IGeneralRepository {
         public TipoRegimenRepository() {
-            this.Title = "Catálogo de tipos de percepciones.";
-            this.FileName = "CatalogoTipoPercepcion.json";
+            this.Title = "Catálogo de tipos de régimen de contratación.";
+            this.FileName = "CatalogoNominaTipoRegimenContratacion.json";
             this.Version = "2.0";
             this.Revision = "0";
         }

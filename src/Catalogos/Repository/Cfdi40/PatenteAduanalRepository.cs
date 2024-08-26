@@ -3,7 +3,7 @@ using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// <summary>
-    /// Catálogo de patentes aduanales
+    /// catalogo de patentes aduanales
     /// </summary>
     public class PatenteAduanalRepository : RepositoryContext<CvePatenteAduanal>, IPatenteAduanalRepository, IGeneralRepository {
         public PatenteAduanalRepository() {

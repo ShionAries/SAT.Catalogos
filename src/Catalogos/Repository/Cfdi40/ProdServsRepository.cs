@@ -4,6 +4,9 @@ using Jaeger.SAT.Catalogos.Repository.Abstracts;
 using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
+    /// <summary>
+    /// catalogo de Claves de Productos y Servicios.
+    /// </summary>
     public class ProdServsRepository : RepositoryContext<CveProdServ>, IProdServsRepository, IGeneralRepository {
         public ProdServsRepository() {
             Version = "3.0";
