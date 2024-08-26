@@ -6,22 +6,19 @@ using Jaeger.SAT.Catalogos.Repository.Ccp30;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp30 {
     /// <summary>
-    /// Carta Porte Catalogo de materiales peligrosos
+    /// Carta Porte 3.0 Catalogo de configuracion maritima
     /// </summary>
-    internal class ClavesMaterialPeligroso : AbstractInjector, IInjector {
-        public ClavesMaterialPeligroso(DataTable dataTable) : base(dataTable) {
+    internal class ConfigMaritima : AbstractInjector, IInjector {
+        public ConfigMaritima(DataTable dataTable) : base(dataTable) {
             this._SkipRows = 3;
         }
 
         protected override void CheckHeaders() {
             _HeadersMapper = new Dictionary<string, string> {
-                { "Clave material peligroso", "Clave" },
+                { "Clave configuración marítima", "Clave" },
                 { "Descripción", "Descripcion" },
-                { "Clase o div.", "Clase" },
-                { "Peligro secundario", "PeligroSecundario" },
-                { "Nombre técnico", "NombreTecnico" },
                 { "Fecha de inicio de vigencia", "VigenciaIni" },
-                { "Fecha de fin de vigencia", "VigenciaFin" },
+                { "Fecha de fin de vigencia", "VigenciaFin" }
             };
 
             var headers = GetHeaders().ToArray();
@@ -31,7 +28,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp30 {
         }
 
         protected override void CreateRepository() {
-            _Catalogo = new MaterialPeligrosoRepository();
+            _Catalogo = new ConfigMaritimaRepository();
         }
     }
 }

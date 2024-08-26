@@ -5,7 +5,7 @@ using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// <summary>
-    /// CFDI 4.0, Catálogo de colonias.
+    /// CFDI 4.0, Catálogo de colonias, tambien utilizado en el complemento carta porte 3.0
     /// </summary>
     [JsonObject("item")]
     public class CveColonia : ClaveBase, IClaveBase {

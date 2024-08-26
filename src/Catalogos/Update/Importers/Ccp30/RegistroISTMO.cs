@@ -8,8 +8,8 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp30 {
     /// <summary>
     /// Carta Porte 3.0 Catalogo de Ubicaciones Polos ISTMO
     /// </summary>
-    internal class ClavesRegistroISTMO : AbstractInjector, IInjector {
-        public ClavesRegistroISTMO(DataTable dataTable) : base(dataTable) {
+    internal class RegistroISTMO : AbstractInjector, IInjector {
+        public RegistroISTMO(DataTable dataTable) : base(dataTable) {
             this._SkipRows = 3;
         }
 

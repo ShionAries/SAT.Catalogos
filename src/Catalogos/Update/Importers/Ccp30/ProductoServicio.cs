@@ -6,18 +6,21 @@ using Jaeger.SAT.Catalogos.Repository.Ccp30;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp30 {
     /// <summary>
-    /// Carta Porte 3.0 Catalogo de tipo de estacion
+    /// Carta Porte 3.0: Catalogo de productos 
     /// </summary>
-    internal class ClavesNumAutorizacion : AbstractInjector, IInjector {
-        public ClavesNumAutorizacion(DataTable dataTable) : base(dataTable) {
+    internal class ProductoServicio : AbstractInjector, IInjector {
+        public ProductoServicio(DataTable dataTable) : base(dataTable) {
             this._SkipRows = 3;
         }
 
         protected override void CheckHeaders() {
             _HeadersMapper = new Dictionary<string, string> {
-                { "Número de autorización", "NumAutorizacion" },
-                { "Inicio de vigencia", "VigenciaIni" },
-                { "Fin de vigencia", "VigenciaFin" }
+                { "c_ClaveProdServ", "Clave" },
+                { "Descripción", "Descripcion" },
+                { "Palabras similares", "PalabrasSimilares" },
+                { "Material Peligroso", "MaterialPeligroso" },
+                { "FechaInicioVigencia", "VigenciaIni" },
+                { "FechaFinVigencia", "VigenciaFin" },
             };
 
             var headers = GetHeaders().ToArray();
@@ -27,7 +30,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp30 {
         }
 
         protected override void CreateRepository() {
-            _Catalogo = new NumAutorizacionNavieroRepository();
+            _Catalogo = new ProdServCPRepository();
         }
     }
 }

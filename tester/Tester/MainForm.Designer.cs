@@ -26,23 +26,23 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.HeaderLabel = new System.Windows.Forms.Label();
             this.StatusBar = new System.Windows.Forms.StatusStrip();
+            this.MessageLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.StatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.ProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.SplitContainer = new System.Windows.Forms.SplitContainer();
             this.OriginisGroupBox = new System.Windows.Forms.GroupBox();
             this.GridData = new System.Windows.Forms.DataGridView();
+            this.TControl = new System.Windows.Forms.ToolStrip();
+            this.Agregar = new System.Windows.Forms.ToolStripButton();
+            this.Delete = new System.Windows.Forms.ToolStripButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Logger = new System.Windows.Forms.TextBox();
+            this.Descarga = new System.Windows.Forms.Button();
             this.Catalogos = new System.Windows.Forms.Button();
             this.Cerrar = new System.Windows.Forms.Button();
             this.Scraping = new System.Windows.Forms.Button();
-            this.TControl = new System.Windows.Forms.ToolStrip();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Agregar = new System.Windows.Forms.ToolStripButton();
-            this.Delete = new System.Windows.Forms.ToolStripButton();
-            this.Descarga = new System.Windows.Forms.Button();
             this.Header = new System.Windows.Forms.PictureBox();
-            this.MessageLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.StatusBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainer)).BeginInit();
             this.SplitContainer.Panel1.SuspendLayout();
@@ -50,8 +50,8 @@
             this.SplitContainer.SuspendLayout();
             this.OriginisGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridData)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.TControl.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Header)).BeginInit();
             this.SuspendLayout();
@@ -73,10 +73,15 @@
             this.MessageLabel,
             this.StatusLabel,
             this.ProgressBar});
-            this.StatusBar.Location = new System.Drawing.Point(0, 353);
+            this.StatusBar.Location = new System.Drawing.Point(0, 584);
             this.StatusBar.Name = "StatusBar";
-            this.StatusBar.Size = new System.Drawing.Size(701, 22);
+            this.StatusBar.Size = new System.Drawing.Size(1019, 22);
             this.StatusBar.TabIndex = 4;
+            // 
+            // MessageLabel
+            // 
+            this.MessageLabel.Name = "MessageLabel";
+            this.MessageLabel.Size = new System.Drawing.Size(0, 17);
             // 
             // StatusLabel
             // 
@@ -107,8 +112,8 @@
             this.SplitContainer.Panel2.Controls.Add(this.Catalogos);
             this.SplitContainer.Panel2.Controls.Add(this.Cerrar);
             this.SplitContainer.Panel2.Controls.Add(this.Scraping);
-            this.SplitContainer.Size = new System.Drawing.Size(701, 299);
-            this.SplitContainer.SplitterDistance = 397;
+            this.SplitContainer.Size = new System.Drawing.Size(1019, 530);
+            this.SplitContainer.SplitterDistance = 577;
             this.SplitContainer.TabIndex = 5;
             // 
             // OriginisGroupBox
@@ -118,7 +123,7 @@
             this.OriginisGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.OriginisGroupBox.Location = new System.Drawing.Point(0, 0);
             this.OriginisGroupBox.Name = "OriginisGroupBox";
-            this.OriginisGroupBox.Size = new System.Drawing.Size(397, 299);
+            this.OriginisGroupBox.Size = new System.Drawing.Size(577, 530);
             this.OriginisGroupBox.TabIndex = 0;
             this.OriginisGroupBox.TabStop = false;
             this.OriginisGroupBox.Text = "Origenes";
@@ -131,62 +136,10 @@
             this.GridData.Name = "GridData";
             this.GridData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.GridData.RowHeadersVisible = false;
-            this.GridData.Size = new System.Drawing.Size(391, 255);
+            this.GridData.Size = new System.Drawing.Size(571, 486);
             this.GridData.TabIndex = 0;
             this.GridData.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.GridData_ColumnHeaderMouseClick);
             this.GridData.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.GridData_RowStateChanged);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.Logger);
-            this.groupBox1.Location = new System.Drawing.Point(2, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(295, 255);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Logger";
-            // 
-            // Logger
-            // 
-            this.Logger.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Logger.Location = new System.Drawing.Point(3, 16);
-            this.Logger.Multiline = true;
-            this.Logger.Name = "Logger";
-            this.Logger.Size = new System.Drawing.Size(289, 236);
-            this.Logger.TabIndex = 0;
-            // 
-            // Catalogos
-            // 
-            this.Catalogos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Catalogos.Location = new System.Drawing.Point(52, 267);
-            this.Catalogos.Name = "Catalogos";
-            this.Catalogos.Size = new System.Drawing.Size(75, 23);
-            this.Catalogos.TabIndex = 6;
-            this.Catalogos.Text = "Catalogos";
-            this.Catalogos.UseVisualStyleBackColor = true;
-            // 
-            // Cerrar
-            // 
-            this.Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Cerrar.Location = new System.Drawing.Point(214, 267);
-            this.Cerrar.Name = "Cerrar";
-            this.Cerrar.Size = new System.Drawing.Size(75, 23);
-            this.Cerrar.TabIndex = 5;
-            this.Cerrar.Text = "Cerrar";
-            this.Cerrar.UseVisualStyleBackColor = true;
-            // 
-            // Scraping
-            // 
-            this.Scraping.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Scraping.Location = new System.Drawing.Point(133, 267);
-            this.Scraping.Name = "Scraping";
-            this.Scraping.Size = new System.Drawing.Size(75, 23);
-            this.Scraping.TabIndex = 4;
-            this.Scraping.Text = "Scraping";
-            this.Scraping.UseVisualStyleBackColor = true;
             // 
             // TControl
             // 
@@ -195,19 +148,9 @@
             this.Delete});
             this.TControl.Location = new System.Drawing.Point(3, 16);
             this.TControl.Name = "TControl";
-            this.TControl.Size = new System.Drawing.Size(391, 25);
+            this.TControl.Size = new System.Drawing.Size(571, 25);
             this.TControl.TabIndex = 1;
             this.TControl.Text = "toolStrip1";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Tester.Properties.Resources.sat30px;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
             // 
             // Agregar
             // 
@@ -227,16 +170,78 @@
             this.Delete.Text = "Remover";
             this.Delete.Click += new System.EventHandler(this.Delete_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.Logger);
+            this.groupBox1.Location = new System.Drawing.Point(2, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(433, 486);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Logger";
+            // 
+            // Logger
+            // 
+            this.Logger.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Logger.Location = new System.Drawing.Point(3, 16);
+            this.Logger.Multiline = true;
+            this.Logger.Name = "Logger";
+            this.Logger.Size = new System.Drawing.Size(427, 467);
+            this.Logger.TabIndex = 0;
+            // 
             // Descarga
             // 
             this.Descarga.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Descarga.Image = global::Tester.Properties.Resources.settings_16px;
-            this.Descarga.Location = new System.Drawing.Point(11, 267);
+            this.Descarga.Location = new System.Drawing.Point(149, 498);
             this.Descarga.Name = "Descarga";
             this.Descarga.Size = new System.Drawing.Size(35, 23);
             this.Descarga.TabIndex = 7;
             this.Descarga.UseVisualStyleBackColor = true;
             this.Descarga.Click += new System.EventHandler(this.Descarga_Click);
+            // 
+            // Catalogos
+            // 
+            this.Catalogos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Catalogos.Location = new System.Drawing.Point(190, 498);
+            this.Catalogos.Name = "Catalogos";
+            this.Catalogos.Size = new System.Drawing.Size(75, 23);
+            this.Catalogos.TabIndex = 6;
+            this.Catalogos.Text = "Catalogos";
+            this.Catalogos.UseVisualStyleBackColor = true;
+            // 
+            // Cerrar
+            // 
+            this.Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Cerrar.Location = new System.Drawing.Point(352, 498);
+            this.Cerrar.Name = "Cerrar";
+            this.Cerrar.Size = new System.Drawing.Size(75, 23);
+            this.Cerrar.TabIndex = 5;
+            this.Cerrar.Text = "Cerrar";
+            this.Cerrar.UseVisualStyleBackColor = true;
+            // 
+            // Scraping
+            // 
+            this.Scraping.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Scraping.Location = new System.Drawing.Point(271, 498);
+            this.Scraping.Name = "Scraping";
+            this.Scraping.Size = new System.Drawing.Size(75, 23);
+            this.Scraping.TabIndex = 4;
+            this.Scraping.Text = "Scraping";
+            this.Scraping.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Tester.Properties.Resources.sat30px;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
             // 
             // Header
             // 
@@ -244,20 +249,15 @@
             this.Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.Header.Location = new System.Drawing.Point(0, 0);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(701, 54);
+            this.Header.Size = new System.Drawing.Size(1019, 54);
             this.Header.TabIndex = 2;
             this.Header.TabStop = false;
-            // 
-            // MessageLabel
-            // 
-            this.MessageLabel.Name = "MessageLabel";
-            this.MessageLabel.Size = new System.Drawing.Size(0, 17);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(701, 375);
+            this.ClientSize = new System.Drawing.Size(1019, 606);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.SplitContainer);
             this.Controls.Add(this.StatusBar);
@@ -276,10 +276,10 @@
             this.OriginisGroupBox.ResumeLayout(false);
             this.OriginisGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridData)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.TControl.ResumeLayout(false);
             this.TControl.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Header)).EndInit();
             this.ResumeLayout(false);

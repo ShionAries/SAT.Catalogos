@@ -11,7 +11,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
         public ContenedorMaritimoRepository() {
             this.Title = "Catálogo de contenedores marítimos.";
             this.FileName = "CatalogoContenedorMaritimo.json";
-            this.Version = "";
+            this.Version = "1.0";
         }
 
         public CveContenedorMaritimo Search(string findId) {

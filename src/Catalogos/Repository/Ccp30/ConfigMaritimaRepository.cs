@@ -10,7 +10,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
     public class ConfigMaritimaRepository : RepositoryContext<CveConfigMaritima>, IConfigMaritimaRepository, IGeneralRepository {
         public ConfigMaritimaRepository() {
             this.Title = "Catálogo de configuración marítima.";
-            this.FileName = "CatalogoConfigMaritima.json";
+            this.FileName = "CatCcp30ConfigMaritima.json";
             this.Version = "";
         }
 

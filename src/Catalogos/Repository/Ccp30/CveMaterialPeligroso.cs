@@ -17,6 +17,5 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
 
         [DataNames("NombreTecnico")]
         public string NombreTecnico { get; set; }
-
     }
 }

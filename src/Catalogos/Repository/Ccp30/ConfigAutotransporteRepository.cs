@@ -10,7 +10,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
     public class ConfigAutotransporteRepository : RepositoryContext<CveConfigAutotransporte>, IConfigAutotransporteCatalogo, IGeneralRepository {
         public ConfigAutotransporteRepository() {
             Title = "Catálogo de configuración autotransporte federal.";
-            FileName = "CatalogoConfigAutotransporteC.json";
+            FileName = "CatCcp30ConfigAutotransporteC.json";
             Version = "2.0";
         }
 

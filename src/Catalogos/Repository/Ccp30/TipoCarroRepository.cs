@@ -10,8 +10,8 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
     public class TipoCarroRepository : RepositoryContext<CveTipoCarro>, ITipoCarroRepository, IGeneralRepository {
         public TipoCarroRepository() {
             this.Title = "Catálogo de tipo de carro.";
-            this.FileName = "CatalogoTipoCarro.json";
-            this.Version = "";
+            this.FileName = "CatCcp30TipoCarro.json";
+            this.Version = "1.0";
         }
 
         public CveTipoCarro Search(string findId) {

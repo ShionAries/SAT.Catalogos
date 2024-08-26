@@ -52,6 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Repository\Abstracts\ClaveBaseVigenciaSingle.cs" />
+    <Compile Include="Repository\Ccp30\CondicionesEspecialesRepository.cs" />
+    <Compile Include="Repository\Ccp30\ICondicionesEspeciales.cs" />
     <Compile Include="Repository\Cfdi40\AduanasRepository.cs" />
     <Compile Include="Repository\Articulo69\Articulo69Repository.cs" />
     <Compile Include="Repository\Articulo69B\Articulo69BRepository.cs" />
@@ -73,7 +75,7 @@
     <Compile Include="Repository\Ccp30\CveContenedorMaritimo.cs" />
     <Compile Include="Repository\Ccp30\CveDerechosDePaso.cs" />
     <Compile Include="Repository\Ccp30\CveFiguraTransporte.cs" />
-    <Compile Include="Repository\Ccp30\CveFiguraTransporteRepository.cs" />
+    <Compile Include="Repository\Ccp30\FiguraTransporteRepository.cs" />
     <Compile Include="Repository\Ccp30\CveNumAutorizacionNaviero.cs" />
     <Compile Include="Repository\Ccp30\CveParteTransporte.cs" />
     <Compile Include="Repository\Ccp30\CveSubTipoRemolque.cs" />
@@ -321,23 +323,24 @@
     <Compile Include="Update\Importers\Articulo69\Firmes.cs" />
     <Compile Include="Update\Importers\Articulo69\NoLocalizados.cs" />
     <Compile Include="Update\Importers\CartaPorte30Catalogos.cs" />
-    <Compile Include="Update\Importers\Ccp30\ClaveContenedorMaritimo.cs" />
-    <Compile Include="Update\Importers\Ccp30\ClavesConfigMaritima.cs" />
-    <Compile Include="Update\Importers\Ccp30\ClavesEstaciones.cs" />
-    <Compile Include="Update\Importers\Ccp30\ClavesMaterialPeligroso.cs" />
-    <Compile Include="Update\Importers\Ccp30\ClavesNumAuotirizacionNaviero.cs" />
-    <Compile Include="Update\Importers\Ccp30\ClavesNumAutorizacion.cs" />
-    <Compile Include="Update\Importers\Ccp30\ClavesProductoServicio.cs" />
-    <Compile Include="Update\Importers\Ccp30\ClavesRegistroISTMO.cs" />
-    <Compile Include="Update\Importers\Ccp30\ClavesTipoCarga.cs" />
-    <Compile Include="Update\Importers\Ccp30\ClavesTipoEmbalaje.cs" />
-    <Compile Include="Update\Importers\Ccp30\ClavesTipoEstacion.cs" />
-    <Compile Include="Update\Importers\Ccp30\ClavesTipoPermiso.cs" />
-    <Compile Include="Update\Importers\Ccp30\ClavesTransporte.cs" />
-    <Compile Include="Update\Importers\Ccp30\ClaveUnidadPeso.cs" />
+    <Compile Include="Update\Importers\Ccp30\CondicionesEspeciales.cs" />
+    <Compile Include="Update\Importers\Ccp30\Contenedor.cs" />
+    <Compile Include="Update\Importers\Ccp30\ContenedorMaritimo.cs" />
+    <Compile Include="Update\Importers\Ccp30\ConfigMaritima.cs" />
+    <Compile Include="Update\Importers\Ccp30\Estaciones.cs" />
+    <Compile Include="Update\Importers\Ccp30\Localidad.cs" />
+    <Compile Include="Update\Importers\Ccp30\MaterialPeligroso.cs" />
+    <Compile Include="Update\Importers\Ccp30\NumAutorizacionNaviero.cs" />
+    <Compile Include="Update\Importers\Ccp30\ProductoServicio.cs" />
+    <Compile Include="Update\Importers\Ccp30\RegistroISTMO.cs" />
+    <Compile Include="Update\Importers\Ccp30\TipoCarga.cs" />
+    <Compile Include="Update\Importers\Ccp30\TipoEmbalaje.cs" />
+    <Compile Include="Update\Importers\Ccp30\TipoEstacion.cs" />
+    <Compile Include="Update\Importers\Ccp30\TipoPermiso.cs" />
+    <Compile Include="Update\Importers\Ccp30\Transporte.cs" />
+    <Compile Include="Update\Importers\Ccp30\UnidadPeso.cs" />
     <Compile Include="Update\Importers\Ccp30\CodigoTransporteAereo.cs" />
     <Compile Include="Update\Importers\Ccp30\ConfigTransporte.cs" />
-    <Compile Include="Update\Importers\Ccp30\Contenedor.cs" />
     <Compile Include="Update\Importers\Ccp30\DerechosDePaso.cs" />
     <Compile Include="Update\Importers\Ccp30\DocumentoAduanero.cs" />
     <Compile Include="Update\Importers\Ccp30\FiguraTransporte.cs" />

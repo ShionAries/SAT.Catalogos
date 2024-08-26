@@ -2,27 +2,22 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using Jaeger.SAT.Catalogos.Repository.Ccp30;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp30 {
     /// <summary>
-    /// Carta Porte 3.0 Catalogo de tipo de estacion
+    /// Catalogo de Condiciones especiales del Transporte
     /// </summary>
-    internal class ClavesEstaciones : AbstractInjector, IInjector {
-        public ClavesEstaciones(DataTable dataTable) : base(dataTable) {
+    internal class CondicionesEspeciales : AbstractInjector, IInjector {
+        public CondicionesEspeciales(DataTable dataTable) : base(dataTable) {
             this._SkipRows = 3;
         }
 
         protected override void CheckHeaders() {
             _HeadersMapper = new Dictionary<string, string> {
-                { "Clave identificación", "Clave" },
+                { "Clave", "Clave" },
                 { "Descripción", "Descripcion" },
-                { "Clave transporte", "ClaveTransporte" },
-                { "Nacionalidad", "Nacionalidad" },
-                { "Designador IATA", "DesignadorIATA" },
-                { "Línea férrea", "LineaFerrea" },
-                { "Fecha de inicio de vigencia", "VigenciaIni" },
-                { "Fecha de fin de vigencia", "VigenciaFin" }
+                { "Fecha inicio de vigencia", "VigenciaIni" },
+                { "Fecha fin de vigencia", "VigenciaFin" },
             };
 
             var headers = GetHeaders().ToArray();
@@ -32,7 +27,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp30 {
         }
 
         protected override void CreateRepository() {
-            _Catalogo = new EstacionesRepository();
+            this._Catalogo = new SAT.Catalogos.Repository.Ccp30.CondicionesEspecialesRepository();
         }
     }
 }

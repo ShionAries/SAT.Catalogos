@@ -1,5 +1,4 @@
-﻿using System;
-using Jaeger.SAT.Catalogos.Repository.Abstracts;
+﻿using Jaeger.SAT.Catalogos.Repository.Abstracts;
 using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
@@ -8,11 +7,11 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
     /// a través de los distintos medios de transporte dentro del territorio nacional, cuando el dueño de dicho medio sea diferente del emisor del 
     /// comprobante con el complemento Carta Porte.
     /// </summary>
-    public class CveFiguraTransporteRepository : RepositoryContext<CveFiguraTransporte>, IFiguraTransporteRepository, IGeneralRepository {
-        public CveFiguraTransporteRepository() {
+    public class FiguraTransporteRepository : RepositoryContext<CveFiguraTransporte>, IFiguraTransporteRepository, IGeneralRepository {
+        public FiguraTransporteRepository() {
             Title = "Catálogo de figura transporte.";
-            FileName = "CatalogoFiguraTransporte.json";
-            Version = "1.0";
+            FileName = "CatCcp30FiguraTransporte.json";
+            Version = "2.0";
         }
 
         //public override void Load() {
@@ -21,6 +20,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
         //        new CveFiguraTransporte("02", "Propietario", new DateTime(2021, 12, 1)),
         //        new CveFiguraTransporte("03", "Arrendador", new DateTime(2021, 12, 1)),
         //        new CveFiguraTransporte("04", "Notificado", new DateTime(2021, 12, 1))
+        //        new CveFiguraTransporte("05", "Integrante de Coordinados", new DateTime(2021, 12, 1))
         //    };
         //}
     }

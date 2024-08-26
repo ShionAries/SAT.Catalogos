@@ -5,19 +5,20 @@ using System.Linq;
 using Jaeger.SAT.Catalogos.Repository.Ccp30;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp30 {
-    internal class ClavesProductoServicio : AbstractInjector, IInjector {
-        public ClavesProductoServicio(DataTable dataTable) : base(dataTable) {
+    /// <summary>
+    /// Carta Porte 3.0: Tipo de embalaje
+    /// </summary>
+    internal class TipoEmbalaje : AbstractInjector, IInjector {
+        public TipoEmbalaje(DataTable dataTable) : base(dataTable) {
             this._SkipRows = 3;
         }
 
         protected override void CheckHeaders() {
             _HeadersMapper = new Dictionary<string, string> {
-                { "c_ClaveProdServ", "Clave" },
+                { "Clave de designación", "Clave" },
                 { "Descripción", "Descripcion" },
-                { "Palabras similares", "PalabrasSimilares" },
-                { "Material Peligroso", "MaterialPeligroso" },
-                { "FechaInicioVigencia", "VigenciaIni" },
-                { "FechaFinVigencia", "VigenciaFin" },
+                { "Fecha de inicio de vigencia", "VigenciaIni" },
+                { "Fecha de fin de vigencia", "VigenciaFin" },
             };
 
             var headers = GetHeaders().ToArray();
@@ -27,7 +28,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp30 {
         }
 
         protected override void CreateRepository() {
-            _Catalogo = new ProdServCPRepository();
+            _Catalogo = new TipoEmbalajeRepository();
         }
     }
 }

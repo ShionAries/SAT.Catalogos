@@ -5,6 +5,9 @@ using System.Linq;
 using Jaeger.SAT.Catalogos.Repository.Ccp30;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp30 {
+    /// <summary>
+    /// Catalogo de Regimen Aduanero
+    /// </summary>
     internal class RegimenesAduaneros : AbstractInjector, IInjector {
         public RegimenesAduaneros(DataTable dataTable) : base(dataTable) {
             this._SkipRows = 3;

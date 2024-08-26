@@ -1,13 +1,31 @@
-﻿using Jaeger.SAT.Catalogos.Repository.Abstracts;
+﻿using System;
+using System.Linq;
+using Jaeger.SAT.Catalogos.Repository.Abstracts;
 using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
+    /// <summary>
+    /// Catalogo de Regimen Aduanero
+    /// </summary>
     public class RegimenAduaneroRepository : RepositoryContext<CveRegimenAduanero>, IRegimenAduaneroRepository, IGeneralRepository {
         public RegimenAduaneroRepository() {
             Title = "Catálogo de Régimen Aduanero";
-            FileName = "RegimenAduaneroCcp30.json";
+            FileName = "CatCcp30RegimenAduanero.json";
             Version = "1.0";
-            Revision = "2";
+        }
+
+        public CveRegimenAduanero Search(string findId) {
+            try {
+                var search = new CveRegimenAduanero();
+                search = this.Items.SingleOrDefault((CveRegimenAduanero p) => p.Clave == findId.Trim());
+                if (search == null)
+                    return new CveRegimenAduanero { Clave = findId };
+                return search;
+
+            } catch (Exception ex) {
+                Console.WriteLine(ex.Message);
+            }
+            return new CveRegimenAduanero { Clave = findId };
         }
     }
 }

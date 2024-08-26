@@ -6,23 +6,19 @@ using Jaeger.SAT.Catalogos.Repository.Ccp30;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp30 {
     /// <summary>
-    /// Carta Porte 3.0 Catalogo de unidad y embalaje
+    /// Carta Porte 3.0 Catalogo de tipo de carga
     /// </summary>
-    internal class ClaveUnidadPeso : AbstractInjector, IInjector {
-        public ClaveUnidadPeso(DataTable dataTable) : base(dataTable) {
+    internal class TipoCarga : AbstractInjector, IInjector {
+        public TipoCarga(DataTable dataTable) : base(dataTable) {
             this._SkipRows = 3;
         }
 
         protected override void CheckHeaders() {
             _HeadersMapper = new Dictionary<string, string> {
-                { "Clave unidad", "Clave" },
-                { "Nombre", "Nombre" },
+                { "Clave tipo carga", "Clave" },
                 { "Descripción", "Descripcion" },
-                { "Nota", "Nota" },
-                { "Fecha de inicio de vigencia", "VigenciaIni" },
-                { "Fecha de fin de vigencia", "VigenciaFin" },
-                { "Símbolo", "Simbolo" },
-                { "Bandera", "Bandera" }
+                { "Fecha inicio de vigencia", "VigenciaIni" },
+                { "Fecha fin de vigencia", "VigenciaFin" }
             };
 
             var headers = GetHeaders().ToArray();
@@ -32,7 +28,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp30 {
         }
 
         protected override void CreateRepository() {
-            _Catalogo = new UnidadPesoRepository();
+            _Catalogo = new TipoCargaRepository();
         }
     }
 }

@@ -6,29 +6,30 @@ using Jaeger.SAT.Catalogos.Repository.Ccp30;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp30 {
     /// <summary>
-    /// Carta Porte 3.0 Catalogo Figura de Transporte
+    /// Carta Porte 3.0 Catalogo tipo permiso
     /// </summary>
-    internal class FiguraTransporte : AbstractInjector, IInjector {
-        public FiguraTransporte(DataTable dataTable) : base(dataTable) {
+    internal class TipoPermiso : AbstractInjector, IInjector {
+        public TipoPermiso(DataTable dataTable) : base(dataTable) {
             this._SkipRows = 3;
         }
 
         protected override void CheckHeaders() {
-            _HeadersMapper = new Dictionary<string, string> {
-                { "Clave figura transporte", "Clave" },
+            this._HeadersMapper = new Dictionary<string, string> {
+                { "Clave", "Clave" },
                 { "Descripción", "Descripcion" },
-                { "Fecha inicio de vigencia", "VigenciaIni" },
-                { "Fecha fin de vigencia", "VigenciaFin" },
+                { "Clave transporte", "ClaveTransporte" },
+                { "Fecha de inicio de vigencia", "VigenciaIni" },
+                { "Fecha de fin de vigencia", "VigenciaFin" },
             };
 
             var headers = GetHeaders().ToArray();
-            if (!ArrayCompare(_HeadersMapper.Select(it => it.Key).ToArray(), headers)) {
+            if (!ArrayCompare(this._HeadersMapper.Select(it => it.Key).ToArray(), headers)) {
                 throw new Exception($"The headers did not match on {this.GetType().Name}");
             }
         }
 
         protected override void CreateRepository() {
-            this._Catalogo = new FiguraTransporteRepository();
+            this._Catalogo = new TipoPermisoRepository();
         }
     }
 }

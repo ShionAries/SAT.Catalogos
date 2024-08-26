@@ -11,7 +11,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
     public class SubTipoRemCatalogo : RepositoryContext<CveSubTipoRemolque>, ISubTipoRemCatalogo, IGeneralRepository {
         public SubTipoRemCatalogo() {
             this.Title = "Catálogo de tipo de remolque.";
-            this.FileName = "CatalogoSubTipoRem.json";
+            this.FileName = "CatCcp30TipoRemolque.json";
             this.Version = "1.0";
         }
 

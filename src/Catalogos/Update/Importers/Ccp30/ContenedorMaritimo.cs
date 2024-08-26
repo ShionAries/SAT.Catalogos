@@ -6,21 +6,17 @@ using Jaeger.SAT.Catalogos.Repository.Ccp30;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp30 {
     /// <summary>
-    /// Carta Porte 3.0 Catalogo de tipo de estacion
+    /// Carta Porte 3.0 Catalogo de contenedores maritimos
     /// </summary>
-    internal class ClavesNumAuotirizacionNaviero : AbstractInjector, IInjector {
-        public ClavesNumAuotirizacionNaviero(DataTable dataTable) : base(dataTable) {
+    internal class ContenedorMaritimo : AbstractInjector, IInjector {
+        public ContenedorMaritimo(DataTable dataTable) : base(dataTable) {
             this._SkipRows = 3;
         }
 
         protected override void CheckHeaders() {
             _HeadersMapper = new Dictionary<string, string> {
-                { "Clave identificación", "Clave" },
+                { "Clave del contenedor marítimo", "Clave" },
                 { "Descripción", "Descripcion" },
-                { "Clave transporte", "ClaveTransporte" },
-                { "Nacionalidad", "Nacionalidad" },
-                { "Designador IATA", "DesignadorIATA" },
-                { "Línea férrea", "LineaFerrea" },
                 { "Fecha de inicio de vigencia", "VigenciaIni" },
                 { "Fecha de fin de vigencia", "VigenciaFin" }
             };
@@ -32,7 +28,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp30 {
         }
 
         protected override void CreateRepository() {
-            _Catalogo = new EstacionesRepository();
+            _Catalogo = new ContenedorMaritimoRepository();
         }
     }
 }

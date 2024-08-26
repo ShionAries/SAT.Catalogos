@@ -6,17 +6,17 @@ using Jaeger.SAT.Catalogos.Repository.Ccp30;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp30 {
     /// <summary>
-    /// Carta Porte 3.0 Catalogo de tipo de carga
+    /// Carta Porte Claves de Transporte
     /// </summary>
-    internal class ClavesTipoCarga : AbstractInjector, IInjector {
-        public ClavesTipoCarga(DataTable dataTable) : base(dataTable) {
+    internal class Transporte : AbstractInjector, IInjector {
+        public Transporte(DataTable dataTable) : base(dataTable) {
             this._SkipRows = 3;
         }
 
         protected override void CheckHeaders() {
             _HeadersMapper = new Dictionary<string, string> {
-                { "Clave tipo carga", "Clave" },
-                { "Descripción", "Descripcion" },
+                { "Clave transporte", "Clave" },
+                { "Descripción del tipo de transporte", "Descripcion" },
                 { "Fecha inicio de vigencia", "VigenciaIni" },
                 { "Fecha fin de vigencia", "VigenciaFin" }
             };
@@ -28,7 +28,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp30 {
         }
 
         protected override void CreateRepository() {
-            _Catalogo = new TipoCargaRepository();
+            _Catalogo = new RegimenAduaneroRepository();
         }
     }
 }

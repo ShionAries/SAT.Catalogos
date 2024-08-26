@@ -10,7 +10,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
     public class ParteTransporteRepository : RepositoryContext<CveParteTransporte>, IParteTransporteRepository, IGeneralRepository {
         public ParteTransporteRepository() {
             this.Title = "Catálogo de partes del transporte rentadas o prestadas.";
-            this.FileName = "CatalogoParteTransporte.json";
+            this.FileName = "CatCcp30ParteTransporte.json";
             this.Version = "1.0";
         }
 

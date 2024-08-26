@@ -11,6 +11,7 @@ namespace Jaeger.SAT.Catalogos {
                 this.NotificationEvent(this, e);
             }
         }
+
         public UpdateDatabase(string sourceFolder) {
             this.SourceFolder = sourceFolder;
             this._Logger = new Helpers.Logger();

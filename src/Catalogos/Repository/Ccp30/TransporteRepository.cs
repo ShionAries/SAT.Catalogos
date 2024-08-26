@@ -9,7 +9,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
     public class TransporteRepository : RepositoryContext<CveTransporte>, ITransporteRepository {
         public TransporteRepository() {
             Title = "Catálogo de la clave del transporte.";
-            FileName = "CatalogoCveTransporte.json";
+            FileName = "CatCcp30CveTransporte.json";
             Version = "2.0";
         }
 

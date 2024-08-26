@@ -10,7 +10,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
     public class EstacionesRepository : RepositoryContext<CveEstaciones>, IEstacionesRepository, IGeneralRepository {
         public EstacionesRepository() {
             Title = "Catálogo de puertos marítimos, estaciones aeroportuarias y estaciones férreas.";
-            FileName = "CatalogoEstaciones.json";
+            FileName = "CatCcp30Estaciones.json";
             Version = "2.0";
         }
 
