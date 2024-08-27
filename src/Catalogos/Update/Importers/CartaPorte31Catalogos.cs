@@ -17,8 +17,9 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
                     new MaterialPeligroso(dataSet.Tables["c_MaterialPeligroso"]),
                     new TipoEmbalaje(dataSet.Tables["c_TipoEmbalaje"]),
                     new TipoPermiso(dataSet.Tables["c_TipoPermiso"]),
-                    // Localidad, para este utilizamos en cfdi40
-                    // catalogo de municipios utilizamos en cfdi 40
+                    new ClavesColonia(dataSet.Tables["c_Colonia"]),
+                    new ClavesLocalidad(dataSet.Tables["c_Localidad"]),
+                    new ClavesMunicipio(dataSet.Tables["C_Municipio"]),
                     new SectorCofepris(dataSet.Tables["c_SectorCOFEPRIS"]),
                     new FormaFarmaceutica(dataSet.Tables["c_FormaFarmaceutica"]),
                     new CondicionesEspeciales(dataSet.Tables["c_CondicionesEspeciales"]),

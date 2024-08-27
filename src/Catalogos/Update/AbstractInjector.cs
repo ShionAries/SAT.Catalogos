@@ -19,7 +19,7 @@ namespace Jaeger.SAT.Catalogos.Update {
         public int Inject(Helpers.ILogger logger) {
             logger.Info($"Arreglando tabla ...{this._DataTable.TableName}");
             this.FixDataTable();
-            
+
             logger.Info($"Verificando encabezado ...{this._DataTable.TableName}");
             this.CheckHeaders();
 
@@ -63,7 +63,7 @@ namespace Jaeger.SAT.Catalogos.Update {
         /// utilizar el metodo comun para importar y almacenar el repositorio
         /// </summary>
         protected virtual void Save() {
-            var counter =this._Catalogo.Import(this._DataTable);
+            var counter = this._Catalogo.Import(this._DataTable);
             this._Catalogo.Save();
             Console.WriteLine($"Se inyectaron {counter} registros en {this._DataTable.TableName}");
         }
@@ -104,7 +104,7 @@ namespace Jaeger.SAT.Catalogos.Update {
 
             return true;
         }
-        
+
         protected void RemoveEmptyColumns() {
             // eliminar columnas vacias
             foreach (var column in this._DataTable.Columns.Cast<DataColumn>().ToArray()) {
