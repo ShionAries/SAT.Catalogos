@@ -6,7 +6,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
     public class BancosRepository : RepositoryContext<CveBanco>, IBancosRepository, IGeneralRepository {
         public BancosRepository() {
             Title = "Catálogo de Bancos SAT";
-            FileName = "CatalogoBancos.json";
+            FileName = "CatNom12Bancos.json";
         }
 
         public CveBanco Search(string findId) {
