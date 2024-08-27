@@ -1,5 +1,5 @@
 ﻿using System.Data;
-using Jaeger.SAT.Catalogos.Update.Importers.Nomina;
+using Jaeger.SAT.Catalogos.Update.Importers.Nom12;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers {
     /// <summary>
