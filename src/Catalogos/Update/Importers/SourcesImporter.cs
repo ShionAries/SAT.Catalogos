@@ -9,7 +9,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
                 //new Cfdi40Catalogos(source + @"\cfdi_40.xls"),
                 //new NominaCatalogos(source + @"\catNomina.xls"),
                 //new RetencionCatalogos(source + @"\ret_20.xls"),
-                new CartaPorte30Catalogos(source + @"\CatalogosCartaPorte30.xls"),
+                new CartaPorte30Catalogos(source + @"\CatalogosCartaPorte31.xls"),
                 //new Articulo69BCatalogos(source + @"\Listado_Completo_69-B.csv"),
                 //new Articulo69Catalogos(source + @"\No localizados.csv")
             };

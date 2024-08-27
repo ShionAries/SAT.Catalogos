@@ -93,7 +93,7 @@ namespace Tester {
         private void WorkerUpdate_DoWork(object sender, DoWorkEventArgs e) {
             this.OnProcesing();
             var update = new UpdateDatabase(@"C:\Jaeger\Jaeger.Temporal");
-            update.NotificationEvent += Service_NotificationEvent;
+            //update.NotificationEvent += Service_NotificationEvent;
             update.Run();
         }
 
