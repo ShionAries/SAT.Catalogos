@@ -2,7 +2,7 @@
 
 namespace Jaeger.SAT.Catalogos.Repository.Ret20 {
     /// <summary>
-    /// Retenciones 2.0 Catalogo de Periodo
+    /// Retenciones 2.0 Catalogo de Ejercicio
     /// </summary>
-    public interface IRetencionPeriodoRepository : IRepositoryContext<CveRetencionPeriodo> { }
+    public interface IEjercicioRepository : IRepositoryContext<CveRetencionEjercicio> { }
 }

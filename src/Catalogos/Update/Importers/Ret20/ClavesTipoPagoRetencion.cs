@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using Jaeger.SAT.Catalogos.Repository;
 using Jaeger.SAT.Catalogos.Repository.Ret20;
 
-namespace Jaeger.SAT.Catalogos.Update.Importers.Retenciones {
+namespace Jaeger.SAT.Catalogos.Update.Importers.Ret20 {
     /// <summary>
-    /// Retenciones Catalogo de Tipo de contribuyente suajeto a retencion
+    /// Retenciones Catalogo tipo de pago de la retencion
     /// </summary>
-    internal class ClavesTipoContribuyenteSujetoRetencion : AbstractInjector, IInjector {
-        public ClavesTipoContribuyenteSujetoRetencion(DataTable dataTable) : base(dataTable) {
+    internal class ClavesTipoPagoRetencion : AbstractInjector, IInjector {
+        public ClavesTipoPagoRetencion(DataTable dataTable) : base(dataTable) {
             this._SkipRows = 3;
         }
 
         protected override void CheckHeaders() {
             _HeadersMapper = new Dictionary<string, string> {
-                { "c_TipoContribuyenteSujetoRetencion", "Clave" },
+                { "c_TipoPagoRet", "Clave" },
                 { "Descripción", "Descripcion" },
+                { "Tipo impuesto", "TipoImpuesto" },
                 { "Fecha inicio de vigencia", "VigenciaIni" },
                 { "Fecha fin de vigencia", "VigenciaFin" }
             };
@@ -29,11 +29,11 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Retenciones {
         }
 
         protected override void CreateRepository() {
-            var mapper = new Helpers.Mapping.DataNamesMapper<CveRetencionTipoContribuyenteSujeto>();
+            var mapper = new Helpers.Mapping.DataNamesMapper<CveTipoDividendoUtilidadDistrib>();
             var resultado = mapper.Map(_DataTable).ToList();
             if (resultado != null) {
                 if (resultado.Count() > 0) {
-                    _Catalogo = new RetencionTipoContribuyenteSujetoRepository {
+                    _Catalogo = new TipoPagoRetencionRepository {
                         Items = resultado.ToList()
                     };
                 }

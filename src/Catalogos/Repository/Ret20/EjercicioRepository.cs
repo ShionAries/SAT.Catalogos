@@ -5,10 +5,10 @@ namespace Jaeger.SAT.Catalogos.Repository.Ret20 {
     /// <summary>
     /// Retenciones 2.0, Catalogo de Ejercicio
     /// </summary>
-    public class RetencionEjercicioRepository : RepositoryContext<CveRetencionEjercicio>, IRetencionEjercicioRepository, IGeneralRepository {
-        public RetencionEjercicioRepository() {
+    public class EjercicioRepository : RepositoryContext<CveRetencionEjercicio>, IEjercicioRepository, IGeneralRepository {
+        public EjercicioRepository() {
             Title = "Retenciones: Catálogo Ejercicio";
-            FileName = "EjercicioRet20.json";
+            FileName = "CatRet20Ejercicio.json";
             Version = "1.0";
             Revision = "0";
         }

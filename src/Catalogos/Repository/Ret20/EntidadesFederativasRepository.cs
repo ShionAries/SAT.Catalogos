@@ -5,10 +5,10 @@ namespace Jaeger.SAT.Catalogos.Repository.Ret20 {
     /// <summary>
     /// Retenciones 2.0, Catalogo de entidades federativas (retenciones)
     /// </summary>
-    public class RetencionEntidadesFederativasRepository : RepositoryContext<CveRetencionEntidadFederativa>, IRetencionEntidadesFederativasRepository, IGeneralRepository {
-        public RetencionEntidadesFederativasRepository() {
+    public class EntidadesFederativasRepository : RepositoryContext<CveRetencionEntidadFederativa>, IEntidadesFederativasRepository, IGeneralRepository {
+        public EntidadesFederativasRepository() {
             Title = "Catálogo de Entidades Federativas";
-            FileName = "EntidadesFederativasRet20.json";
+            FileName = "CatRet20EntidadesFederativas.json";
             Version = "1.0";
             Revision = "0";
         }

@@ -4,5 +4,5 @@ namespace Jaeger.SAT.Catalogos.Repository.Ret20 {
     /// <summary>
     /// Retenciones 2.0, Catalogo de Tipo de Impuesto
     /// </summary>
-    public interface IRetencionTipoImpuestoRepository : IRepositoryContext<CveRetencionTipoImpuesto> { }
+    public interface ITipoImpuestoRepository : IRepositoryContext<CveRetencionTipoImpuesto> { }
 }

@@ -1,10 +1,12 @@
 ﻿using System.Data;
-using Jaeger.SAT.Catalogos.Update.Importers.Retenciones;
+using Jaeger.SAT.Catalogos.Update.Importers.Ret20;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers {
-    public class RetencionCatalogos : AbstractXlsImporter, IImporter {
-        public RetencionCatalogos(string csvFolder) : base(csvFolder) {
-        }
+    /// <summary>
+    /// Retencion e Informacion de Pagos
+    /// </summary>
+    public class Retencion20Catalogos : AbstractXlsImporter, IImporter {
+        public Retencion20Catalogos(string csvFolder) : base(csvFolder) { }
 
         public override Injectors CreateInjectors(DataSet dataSet) {
             return new Injectors() {

@@ -4,20 +4,19 @@ using System.Data;
 using System.Linq;
 using Jaeger.SAT.Catalogos.Repository.Ret20;
 
-namespace Jaeger.SAT.Catalogos.Update.Importers.Retenciones {
+namespace Jaeger.SAT.Catalogos.Update.Importers.Ret20 {
     /// <summary>
-    /// Retenciones 2.0 Catalogo de Periodicidad
+    /// Catalogo de periodos
     /// </summary>
-    internal class ClavesPeriodicidad : AbstractInjector, IInjector {
-        public ClavesPeriodicidad(DataTable dataTable) : base(dataTable) {
+    internal class ClavesPeriodo : AbstractInjector, IInjector {
+        public ClavesPeriodo(DataTable dataTable) : base(dataTable) {
             this._SkipRows = 3;
         }
 
         protected override void CheckHeaders() {
             _HeadersMapper = new Dictionary<string, string> {
-                { "c_Periodicidad", "Clave" },
+                { "c_Periodo", "Clave" },
                 { "Descripción", "Descripcion" },
-                { "Complemento que lo usa", "Complemento" },
                 { "Fecha inicio de vigencia", "VigenciaIni" },
                 { "Fecha fin de vigencia", "VigenciaFin" }
             };
@@ -29,11 +28,11 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Retenciones {
         }
 
         protected override void CreateRepository() {
-            var mapper = new Helpers.Mapping.DataNamesMapper<CveRetencionPeriodicidad>();
+            var mapper = new Helpers.Mapping.DataNamesMapper<CveRetencionPeriodo>();
             var resultado = mapper.Map(_DataTable).ToList();
             if (resultado != null) {
                 if (resultado.Count() > 0) {
-                    _Catalogo = new RetencionPeriodicidadRepository {
+                    _Catalogo = new PeriodoRepository {
                         Items = resultado.ToList()
                     };
                 }

@@ -4,18 +4,18 @@ using System.Data;
 using System.Linq;
 using Jaeger.SAT.Catalogos.Repository.Ret20;
 
-namespace Jaeger.SAT.Catalogos.Update.Importers.Retenciones {
+namespace Jaeger.SAT.Catalogos.Update.Importers.Ret20 {
     /// <summary>
-    /// Retenciones 2.0 Catalogo de Ejercicio
+    /// Catalogo de Entidades Federativas
     /// </summary>
-    internal class ClavesEjercicio : AbstractInjector, IInjector {
-        public ClavesEjercicio(DataTable dataTable) : base(dataTable) {
+    internal class ClavesEntidadFederativa : AbstractInjector, IInjector {
+        public ClavesEntidadFederativa(DataTable dataTable) : base(dataTable) {
             this._SkipRows = 3;
         }
 
         protected override void CheckHeaders() {
             _HeadersMapper = new Dictionary<string, string> {
-                { "c_Ejercicio", "Clave" },
+                { "c_Entidades Federativas", "Clave" },
                 { "Descripción", "Descripcion" },
                 { "Fecha inicio de vigencia", "VigenciaIni" },
                 { "Fecha fin de vigencia", "VigenciaFin" }
@@ -28,11 +28,11 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Retenciones {
         }
 
         protected override void CreateRepository() {
-            var mapper = new Helpers.Mapping.DataNamesMapper<CveRetencionEjercicio>();
+            var mapper = new Helpers.Mapping.DataNamesMapper<CveRetencionEntidadFederativa>();
             var resultado = mapper.Map(_DataTable).ToList();
             if (resultado != null) {
                 if (resultado.Count() > 0) {
-                    _Catalogo = new RetencionEjercicioRepository {
+                    _Catalogo = new EntidadesFederativasRepository {
                         Items = resultado.ToList()
                     };
                 }

@@ -4,5 +4,5 @@ namespace Jaeger.SAT.Catalogos.Repository.Ret20 {
     /// <summary>
     /// Retenciones 2.0, Catalogo de Periodicidad
     /// </summary>
-    public interface IRetencionPeriodicidadRepository : IRepositoryContext<CveRetencionPeriodicidad> { }
+    public interface IPeriodicidadRepository : IRepositoryContext<CveRetencionPeriodicidad> { }
 }

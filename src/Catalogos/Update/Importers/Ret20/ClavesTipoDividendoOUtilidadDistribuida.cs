@@ -2,21 +2,20 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using Jaeger.SAT.Catalogos.Repository;
 using Jaeger.SAT.Catalogos.Repository.Ret20;
 
-namespace Jaeger.SAT.Catalogos.Update.Importers.Retenciones {
+namespace Jaeger.SAT.Catalogos.Update.Importers.Ret20 {
     /// <summary>
-    /// Retenciones 2.0 Catalogo de Pais
+    /// Catalogo de Tipo de Dividendo o utilidad disribuida
     /// </summary>
-    internal class ClavesPais : AbstractInjector, IInjector {
-        public ClavesPais(DataTable dataTable) : base(dataTable) {
+    internal class ClavesTipoDividendoOUtilidadDistribuida : AbstractInjector, IInjector {
+        public ClavesTipoDividendoOUtilidadDistribuida(DataTable dataTable) : base(dataTable) {
             this._SkipRows = 3;
         }
 
         protected override void CheckHeaders() {
             _HeadersMapper = new Dictionary<string, string> {
-                { "c_Pais", "Clave" },
+                { "c_TipoDividendoOutilidad distribuida", "Clave" },
                 { "Descripción", "Descripcion" },
                 { "Fecha inicio de vigencia", "VigenciaIni" },
                 { "Fecha fin de vigencia", "VigenciaFin" }
@@ -29,11 +28,11 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Retenciones {
         }
 
         protected override void CreateRepository() {
-            var mapper = new Helpers.Mapping.DataNamesMapper<CveRetencionPais>();
+            var mapper = new Helpers.Mapping.DataNamesMapper<CveTipoDividendoUtilidadDistrib>();
             var resultado = mapper.Map(_DataTable).ToList();
             if (resultado != null) {
                 if (resultado.Count() > 0) {
-                    _Catalogo = new RetencionPaisesRepository {
+                    _Catalogo = new TipoDividendoOUtilidadDistribRepository {
                         Items = resultado.ToList()
                     };
                 }

@@ -2,19 +2,22 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using Jaeger.SAT.Catalogos.Repository;
 using Jaeger.SAT.Catalogos.Repository.Ret20;
 
-namespace Jaeger.SAT.Catalogos.Update.Importers.Retenciones {
-    internal class ClavesEntidadFederativa : AbstractInjector, IInjector {
-        public ClavesEntidadFederativa(DataTable dataTable) : base(dataTable) {
+namespace Jaeger.SAT.Catalogos.Update.Importers.Ret20 {
+    /// <summary>
+    /// Retenciones 2.0 Catalogo de Periodicidad
+    /// </summary>
+    internal class ClavesPeriodicidad : AbstractInjector, IInjector {
+        public ClavesPeriodicidad(DataTable dataTable) : base(dataTable) {
             this._SkipRows = 3;
         }
 
         protected override void CheckHeaders() {
             _HeadersMapper = new Dictionary<string, string> {
-                { "c_Entidades Federativas", "Clave" },
+                { "c_Periodicidad", "Clave" },
                 { "Descripción", "Descripcion" },
+                { "Complemento que lo usa", "Complemento" },
                 { "Fecha inicio de vigencia", "VigenciaIni" },
                 { "Fecha fin de vigencia", "VigenciaFin" }
             };
@@ -26,11 +29,11 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Retenciones {
         }
 
         protected override void CreateRepository() {
-            var mapper = new Helpers.Mapping.DataNamesMapper<CveRetencionEntidadFederativa>();
+            var mapper = new Helpers.Mapping.DataNamesMapper<CveRetencionPeriodicidad>();
             var resultado = mapper.Map(_DataTable).ToList();
             if (resultado != null) {
                 if (resultado.Count() > 0) {
-                    _Catalogo = new RetencionEntidadesFederativasRepository {
+                    _Catalogo = new PeriodicidadRepository {
                         Items = resultado.ToList()
                     };
                 }

@@ -4,18 +4,18 @@ using System.Data;
 using System.Linq;
 using Jaeger.SAT.Catalogos.Repository.Ret20;
 
-namespace Jaeger.SAT.Catalogos.Update.Importers.Retenciones {
+namespace Jaeger.SAT.Catalogos.Update.Importers.Ret20 {
     /// <summary>
-    /// Catalogo de tipo impuesto
+    /// Retenciones 2.0 Catalogo de Ejercicio
     /// </summary>
-    internal class ClavesTipoImpuesto : AbstractInjector, IInjector {
-        public ClavesTipoImpuesto(DataTable dataTable) : base(dataTable) {
+    internal class ClavesEjercicio : AbstractInjector, IInjector {
+        public ClavesEjercicio(DataTable dataTable) : base(dataTable) {
             this._SkipRows = 3;
         }
 
         protected override void CheckHeaders() {
             _HeadersMapper = new Dictionary<string, string> {
-                { "c_TipoImpuesto", "Clave" },
+                { "c_Ejercicio", "Clave" },
                 { "Descripción", "Descripcion" },
                 { "Fecha inicio de vigencia", "VigenciaIni" },
                 { "Fecha fin de vigencia", "VigenciaFin" }
@@ -28,11 +28,11 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Retenciones {
         }
 
         protected override void CreateRepository() {
-            var mapper = new Helpers.Mapping.DataNamesMapper<CveRetencionTipoImpuesto>();
+            var mapper = new Helpers.Mapping.DataNamesMapper<CveRetencionEjercicio>();
             var resultado = mapper.Map(_DataTable).ToList();
             if (resultado != null) {
                 if (resultado.Count() > 0) {
-                    _Catalogo = new RetencionTipoImpuestoRepository {
+                    _Catalogo = new EjercicioRepository {
                         Items = resultado.ToList()
                     };
                 }
