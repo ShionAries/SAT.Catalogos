@@ -58,6 +58,7 @@ namespace Jaeger.SAT.Catalogos.Scraping {
                 new ConstantOrigin("REP", $"{common}/catPagos.xls"),
                 new ConstantOrigin("CCP 2.0 - Carta Porte 2.0", $"{common}/CatalogosCartaPorte20.xls"),
                 new ConstantOrigin("CCP 3.0 - Carta Porte 3.0", $"{common}/CatalogosCartaPorte30.xls"),
+                new ConstantOrigin("CCP 3.0 - Carta Porte 3.1", $"{common}/CatalogosCartaPorte31.xls"),
                 new ConstantOrigin(
                     "Artículo 69 No localizados",
                     "http://omawww.sat.gob.mx/cifras_sat/Documents/No localizados.csv"

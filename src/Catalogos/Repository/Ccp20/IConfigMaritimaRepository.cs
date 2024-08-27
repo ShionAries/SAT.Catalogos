@@ -1,0 +1,10 @@
+﻿using Jaeger.SAT.Catalogos.Repository.Interfaces;
+
+namespace Jaeger.SAT.Catalogos.Repository.Ccp20 {
+    /// <summary>
+    /// Catálogo de configuración marítima.
+    /// </summary>
+    public interface IConfigMaritimaRepository : IRepositoryContext<CveConfigMaritima> {
+        CveConfigMaritima Search(string findId);
+    }
+}
