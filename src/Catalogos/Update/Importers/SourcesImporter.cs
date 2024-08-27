@@ -10,8 +10,8 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
                 //new NominaCatalogos(source + @"\catNomina.xls"),
                 //new RetencionCatalogos(source + @"\ret_20.xls"),
                 new CartaPorte20Catalogos(source + @"\CatalogosCartaPorte20.xls"),
-                new CartaPorte30Catalogos(source + @"\CatalogosCartaPorte30.xls"),
-                new CartaPorte31Catalogos(source + @"\CatalogosCartaPorte31.xls"),
+                //new CartaPorte30Catalogos(source + @"\CatalogosCartaPorte30.xls"),
+                //new CartaPorte31Catalogos(source + @"\CatalogosCartaPorte31.xls"),
                 //new Articulo69BCatalogos(source + @"\Listado_Completo_69-B.csv"),
                 //new Articulo69Catalogos(source + @"\No localizados.csv")
             };

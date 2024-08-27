@@ -10,7 +10,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     public class FiguraTransporteRepository : RepositoryContext<CveFiguraTransporte>, IFiguraTransporteRepository, IGeneralRepository {
         public FiguraTransporteRepository() {
             Title = "Catálogo de figura transporte.";
-            FileName = "CatCcp30FiguraTransporte.json";
+            FileName = "CatCcp31FiguraTransporte.json";
             Version = "2.0";
         }
 

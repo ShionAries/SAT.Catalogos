@@ -8,7 +8,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
         public override Injectors CreateInjectors(DataSet dataSet) {
             return new Injectors {
                 Items = new System.Collections.Generic.List<IInjector> {
-                    new RegimenesAduaneros(dataSet.Tables["c_RegimenAduanero"]),
+                    //new RegimenesAduaneros(dataSet.Tables["c_RegimenAduanero"]),
                     new Transporte(dataSet.Tables["c_CveTransporte"]),
                     new TipoEstacion(dataSet.Tables["c_TipoEstacion"]),
                     new Estaciones(dataSet.Tables["c_Estaciones "]),
@@ -19,16 +19,16 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
                     new TipoPermiso(dataSet.Tables["c_TipoPermiso"]),
                     // Localidad, para este utilizamos en cfdi40
                     // catalogo de municipios utilizamos en cfdi 40
-                    new SectorCofepris(dataSet.Tables["c_SectorCOFEPRIS"]),
-                    new FormaFarmaceutica(dataSet.Tables["c_FormaFarmaceutica"]),
+                    //new SectorCofepris(dataSet.Tables["c_SectorCOFEPRIS"]),
+                    //new FormaFarmaceutica(dataSet.Tables["c_FormaFarmaceutica"]),
                     //new CondicionesEspeciales(dataSet.Tables["c_CondicionesEspeciales"]),
-                    new TipoMateria(dataSet.Tables["c_TipoMateria"]),
-                    new DocumentoAduanero(dataSet.Tables["c_DocumentoAduanero"]),
+                    //new TipoMateria(dataSet.Tables["c_TipoMateria"]),
+                    //new DocumentoAduanero(dataSet.Tables["c_DocumentoAduanero"]),
                     new ParteTransporte(dataSet.Tables["c_ParteTransporte"]),
                     new FiguraTransporte(dataSet.Tables["c_FiguraTransporte"]),
-                    new ConfigTransporte(dataSet.Tables["c_ConfigAutotransporte"]),
+                    new ConfigAutoTransporte(dataSet.Tables["c_ConfigAutotransporte"]),
                     new SubTipoRemolque(dataSet.Tables[" c_SubTipoRem"]),
-                    new RegistroISTMO(dataSet.Tables["c_RegistroISTMO"]),
+                    //new RegistroISTMO(dataSet.Tables["c_RegistroISTMO"]),
                     new ConfigMaritima(dataSet.Tables["c_ConfigMaritima"]),
                     new TipoCarga(dataSet.Tables["c_ClaveTipoCarga"]),
                     new ContenedorMaritimo(dataSet.Tables["c_ContenedorMaritimo"]),

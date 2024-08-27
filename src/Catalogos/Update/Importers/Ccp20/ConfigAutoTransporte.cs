@@ -8,8 +8,8 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp20 {
     /// <summary>
     /// Carta Porte 3.0 Catalogo Figura de Transporte
     /// </summary>
-    internal class ConfigTransporte : AbstractInjector, IInjector {
-        public ConfigTransporte(DataTable dataTable) : base(dataTable) {
+    internal class ConfigAutoTransporte : AbstractInjector, IInjector {
+        public ConfigAutoTransporte(DataTable dataTable) : base(dataTable) {
             this._SkipRows = 3;
         }
 
