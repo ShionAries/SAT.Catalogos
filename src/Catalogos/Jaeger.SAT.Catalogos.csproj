@@ -233,6 +233,9 @@
     <Compile Include="Repository\Cfdi40\CveProdServ.cs" />
     <Compile Include="Repository\Ccp30\CveProdServCP.cs" />
     <Compile Include="Repository\Cfdi40\CveRegimenFiscal.cs" />
+    <Compile Include="Repository\Rep20\CveTipoCadenaPago.cs" />
+    <Compile Include="Repository\Rep20\ITipoCadenaPagoRepository.cs" />
+    <Compile Include="Repository\Rep20\TipoCadenaPagoRepository.cs" />
     <Compile Include="Repository\Ret20\CveRetencion.cs" />
     <Compile Include="Repository\Ret20\CveRetencionEjercicio.cs" />
     <Compile Include="Repository\Ret20\CveRetencionEntidadFederativa.cs" />
@@ -524,6 +527,8 @@
     <Compile Include="Update\Importers\Nom12\ClavesTipoOtroPago.cs" />
     <Compile Include="Update\Importers\Nom12\ClavesTipoPercepcion.cs" />
     <Compile Include="Update\Importers\Nom12\ClavesTipoRegimenContratacion.cs" />
+    <Compile Include="Update\Importers\RecepcionPago20Catalogos.cs" />
+    <Compile Include="Update\Importers\Rep20\TIpoCadenaPagoImporter.cs" />
     <Compile Include="Update\Importers\Retencion20Catalogos.cs" />
     <Compile Include="Update\Importers\Ret20\ClavesEjercicio.cs" />
     <Compile Include="Update\Importers\Ret20\ClavesEntidadFederativa.cs" />
