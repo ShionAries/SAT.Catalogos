@@ -10,6 +10,8 @@ namespace Jaeger.SAT.Catalogos {
 
         public string SourceFolder { get; set; }
 
+        public IImporter Importer { get; set; }
+
         #region
         public UpdateRepository WithFolderSource(string sourceFolder) {
             this.SourceFolder = sourceFolder;
@@ -17,10 +19,16 @@ namespace Jaeger.SAT.Catalogos {
         }
 
         public UpdateRepository AddImporter(IImporter importer) {
+            this.Importer = importer;
             return this;
         }
 
         public int Run() {
+            if (this.Importer != null) {
+                if (this.Importer.CheckFile()) {
+                    this.Importer.Import(new Helpers.Logger());
+                }
+            }
             return 0;
         }
         #endregion

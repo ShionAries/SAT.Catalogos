@@ -16,6 +16,8 @@ namespace Jaeger.SAT.Catalogos.Update {
             this._HeadersMapper = new Dictionary<string, string>();
         }
 
+        public DateTime LastVersion { get; set; }
+
         public int Inject(Helpers.ILogger logger) {
             logger.Info($"Arreglando tabla ...{this._DataTable.TableName}");
             this.FixDataTable();

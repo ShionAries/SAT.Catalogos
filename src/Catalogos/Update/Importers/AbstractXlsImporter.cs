@@ -10,6 +10,9 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
             FileSource = csvFolder;
         }
 
+        /// <summary>
+        /// obtener o establecer nombre del archivo del origen de los datos
+        /// </summary>
         public string FileSource { get; set; }
 
         public string DirectorySource { get; set; }

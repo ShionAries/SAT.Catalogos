@@ -9,6 +9,8 @@ namespace Jaeger.SAT.Catalogos.Update {
             Items = new List<IInjector>();
         }
 
+        public System.DateTime LastVersion { get; set; }
+
         /// <summary>
         /// obtener o establecer inyectores
         /// </summary>

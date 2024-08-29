@@ -2,7 +2,7 @@
 using Jaeger.SAT.Catalogos.Update.Importers.Articulo69B;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers {
-    internal class Articulo69BCatalogos : AbstractXlsImporter, IImporter {
+    public class Articulo69BCatalogos : AbstractXlsImporter, IImporter {
         
         public Articulo69BCatalogos(string csvFolder) : base(csvFolder) {
         
