@@ -33,7 +33,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
         }
 
         protected override void CreateRepository() {
-            _Catalogo = new TasaOCuotaRepository();
+            _Repository = new TasaOCuotaRepository();
         }
     }
 }

@@ -6,9 +6,10 @@ using Jaeger.SAT.Catalogos.Scraping.Entities;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
     public class OriginsIO {
-        protected string fileName = @"origins.xml";
+        #region
         protected string workingFolder;
         protected OriginsTranslator translator;
+        #endregion
 
         /// <summary>
         /// constructor
@@ -17,7 +18,10 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
         public OriginsIO(string workingFolder = @"C:\Jaeger\Jaeger.Temporal") {
             this.workingFolder = workingFolder;
             this.translator = new OriginsTranslator();
+            this.FileName = @"origins.xml";
         }
+
+        protected string FileName { get; set; }
 
         /// <summary>
         /// carga de archivo
@@ -46,7 +50,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
         }
 
         protected string BuildPath() {
-            return Path.Combine(this.workingFolder, this.fileName);
+            return Path.Combine(this.workingFolder, this.FileName);
         }
     }
 }

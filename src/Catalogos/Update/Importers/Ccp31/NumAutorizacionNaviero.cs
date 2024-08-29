@@ -27,7 +27,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp31 {
         }
 
         protected override void CreateRepository() {
-            _Catalogo = new NumAutorizacionNavieroRepository();
+            _Repository = new NumAutorizacionNavieroRepository();
         }
     }
 }

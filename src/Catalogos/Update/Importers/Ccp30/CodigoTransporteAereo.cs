@@ -30,7 +30,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp30 {
         }
 
         protected override void CreateRepository() {
-            this._Catalogo = new CodigoTransporteAereoRepository();
+            this._Repository = new CodigoTransporteAereoRepository();
         }
     }
 }

@@ -388,6 +388,7 @@
     <Compile Include="Repository\Cfdi40\UsoCFDIRepository.cs" />
     <Compile Include="Repository\ValueObjects\EnumFactor.cs" />
     <Compile Include="Repository\ValueObjects\EnumRangoOFijo.cs" />
+    <Compile Include="UpdateRepository.cs" />
     <Compile Include="Update\AbstractInjector.cs" />
     <Compile Include="Repository\Abstracts\Repository.cs" />
     <Compile Include="Repository\Abstracts\RepositoryContext.cs" />
@@ -409,7 +410,7 @@
     <Compile Include="Helpers\DirectoryService.cs" />
     <Compile Include="Update\Converts\ExcelFileReader.cs" />
     <Compile Include="Helpers\FileService.cs" />
-    <Compile Include="Helpers\IExcelFileReader.cs" />
+    <Compile Include="Update\Converts\IExcelFileReader.cs" />
     <Compile Include="Helpers\Mapping\AttributeHelper.cs" />
     <Compile Include="Helpers\Mapping\DataNamesAttribute.cs" />
     <Compile Include="Helpers\Mapping\DataNamesMapper.cs" />
@@ -513,7 +514,7 @@
     <Compile Include="Update\Importers\Cfdi40\ClavesTipoComprobante.cs" />
     <Compile Include="Update\Importers\Cfdi40\ClavesFormasDePago.cs" />
     <Compile Include="Update\Importers\IImporter.cs" />
-    <Compile Include="Update\Importers\NominaCatalogos.cs" />
+    <Compile Include="Update\Importers\Nomina12Catalogos.cs" />
     <Compile Include="Update\Importers\Nom12\ClavesBancos.cs" />
     <Compile Include="Update\Importers\Nom12\ClavesOrigenRecurso.cs" />
     <Compile Include="Update\Importers\Nom12\ClavesPeriodicidadPago.cs" />

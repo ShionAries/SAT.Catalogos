@@ -29,7 +29,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
         }
 
         protected override void CreateRepository() {
-            _Catalogo = new MunicipioRepository();
+            _Repository = new MunicipioRepository();
         }
     }
 }

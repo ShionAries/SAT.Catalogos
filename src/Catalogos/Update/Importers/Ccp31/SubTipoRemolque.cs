@@ -28,7 +28,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp31 {
         }
 
         protected override void CreateRepository() {
-            this._Catalogo = new SubTipoRemCatalogo();
+            this._Repository = new SubTipoRemCatalogo();
         }
     }
 }

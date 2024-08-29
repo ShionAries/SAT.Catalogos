@@ -28,7 +28,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
         }
 
         protected override void CreateRepository() {
-            _Catalogo = new TipoRelacionCFDIRepository();
+            _Repository = new TipoRelacionCFDIRepository();
         }
     }
 }

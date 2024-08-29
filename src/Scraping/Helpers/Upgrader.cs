@@ -39,7 +39,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
         public List<IOrigin> UpgradeReviews(List<Review> reviews) {
             var origins = new List<IOrigin>();
             foreach (Review review in reviews) {
-                origins.Add(UpgradeReview(review));
+                origins.Add(this.UpgradeReview(review));
             }
             return origins;
         }

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data;
 
-namespace Jaeger.SAT.Catalogos.Helpers {
+namespace Jaeger.SAT.Catalogos.Update.Converts {
     public interface IExcelFileReader {
         /// <summary>
         /// obtener o establecer nombre del archivo EXCEL

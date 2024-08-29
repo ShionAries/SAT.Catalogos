@@ -40,7 +40,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
         }
 
         protected override void CreateRepository() {
-            this._Catalogo = new CodigoPostalRepository();
+            this._Repository = new CodigoPostalRepository();
         }
     }
 }

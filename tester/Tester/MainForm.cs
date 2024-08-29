@@ -23,7 +23,7 @@ namespace Tester {
         private void MainForm_Load(object sender, EventArgs e) {
             CheckForIllegalCrossThreadCalls = false;
             this._ScrapService = new UpdateOrigins();
-            this._ScrapService.ReadOrigins();
+            this._ScrapService.Read();
             this._ScrapService.NotificationEvent += Service_NotificationEvent;
             this.GridData.DataSource = this._ScrapService.Origins;
             this.Catalogos.Click += this.Catalogos_Click;

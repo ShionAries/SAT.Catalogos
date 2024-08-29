@@ -26,7 +26,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Rep20 {
         }
 
         protected override void CreateRepository() {
-            this._Catalogo = new TipoCadenaPagoRepository();
+            this._Repository = new TipoCadenaPagoRepository();
         }
     }
 }

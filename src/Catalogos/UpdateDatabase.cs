@@ -5,6 +5,7 @@ namespace Jaeger.SAT.Catalogos {
     public class UpdateDatabase {
         private string _SourceFolder;
         protected Helpers.ILogger _Logger;
+
         public event EventHandler<string> NotificationEvent;
         public void OnNotificationEvent(string e) {
             if (this.NotificationEvent != null) {

@@ -28,7 +28,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp31 {
         }
 
         protected override void CreateRepository() {
-            _Catalogo = new RegimenAduaneroRepository();
+            _Repository = new RegimenAduaneroRepository();
         }
     }
 }

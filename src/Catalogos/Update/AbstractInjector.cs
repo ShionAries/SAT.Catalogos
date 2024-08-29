@@ -9,7 +9,7 @@ namespace Jaeger.SAT.Catalogos.Update {
         protected DataTable _DataTable;
         protected int _SkipRows;
         protected Dictionary<string, string> _HeadersMapper;
-        protected IGeneralRepository _Catalogo;
+        protected IGeneralRepository _Repository;
 
         public AbstractInjector(DataTable dataTable) {
             this._DataTable = dataTable;
@@ -63,8 +63,8 @@ namespace Jaeger.SAT.Catalogos.Update {
         /// utilizar el metodo comun para importar y almacenar el repositorio
         /// </summary>
         protected virtual void Save() {
-            var counter = this._Catalogo.Import(this._DataTable);
-            this._Catalogo.Save();
+            var counter = this._Repository.Import(this._DataTable);
+            this._Repository.Save();
             Console.WriteLine($"Se inyectaron {counter} registros en {this._DataTable.TableName}");
         }
 

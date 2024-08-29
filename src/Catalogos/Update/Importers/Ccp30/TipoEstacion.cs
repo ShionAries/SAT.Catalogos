@@ -29,7 +29,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp30 {
         }
 
         protected override void CreateRepository() {
-            _Catalogo = new TipoEstacionRepository();
+            _Repository = new TipoEstacionRepository();
         }
     }
 }

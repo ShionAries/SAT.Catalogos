@@ -28,7 +28,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp30 {
         }
 
         protected override void CreateRepository() {
-            _Catalogo = new ConfigMaritimaRepository();
+            _Repository = new ConfigMaritimaRepository();
         }
     }
 }

@@ -32,7 +32,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Ret20 {
             var resultado = mapper.Map(_DataTable).ToList();
             if (resultado != null) {
                 if (resultado.Count() > 0) {
-                    _Catalogo = new PeriodoRepository {
+                    _Repository = new PeriodoRepository {
                         Items = resultado.ToList()
                     };
                 }

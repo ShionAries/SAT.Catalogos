@@ -9,7 +9,6 @@ namespace Jaeger.SAT.Catalogos.Scraping {
     public delegate void DelEventHandler();
 
     public class UpdateOrigins {
-        public List<IOrigin> Origins { get; set; }
         protected IResourcesGateway ResourcesGateway;
 
         public event EventHandler<string> NotificationEvent;
@@ -19,14 +18,26 @@ namespace Jaeger.SAT.Catalogos.Scraping {
             }
         }
 
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="workingFolder">ruta de la carpeta de trabajo</param>
         public UpdateOrigins(string workingFolder = @"C:\Jaeger\Jaeger.Temporal") {
             this.WorkingFolder = workingFolder;
             this.Origins = new List<IOrigin>();
         }
 
+        /// <summary>
+        /// obtener o establecer origenes
+        /// </summary>
+        public List<IOrigin> Origins { get; set; }
+
+        /// <summary>
+        /// obtener o establecer carpeta de trabajo
+        /// </summary>
         public string WorkingFolder { get; set; }
 
-        public void ReadOrigins() {
+        public void Read() {
             // cargar datos de los origenes
             this.Origins = new OriginsIO().ReadFile();
             // si es nulo entonces cargamos los datos por default
@@ -34,11 +45,11 @@ namespace Jaeger.SAT.Catalogos.Scraping {
                 Console.WriteLine("Cargando origenes del local");
                 this.Origins = new DumpOrigins().Origins;
             } else {
-                this.WriteOrigins();
+                this.Write();
             }
         }
 
-        public void WriteOrigins() {
+        public void Write() {
             var origins = new DumpOrigins().Origins.ToList();
             foreach (var item in origins) {
                 try {
@@ -53,7 +64,7 @@ namespace Jaeger.SAT.Catalogos.Scraping {
         }
 
         public void Run() {
-            this.ReadOrigins();
+            this.Read();
 
             this.ResourcesGateway = new ResourcesGateway();
             var reviewers = new Reviewers().CreateWithDefaultReviewers(this.ResourcesGateway);

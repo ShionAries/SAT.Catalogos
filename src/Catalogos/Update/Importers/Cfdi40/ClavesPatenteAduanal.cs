@@ -27,7 +27,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
         }
 
         protected override void CreateRepository() {
-            this._Catalogo = new PatenteAduanalRepository();
+            this._Repository = new PatenteAduanalRepository();
         }
     }
 }

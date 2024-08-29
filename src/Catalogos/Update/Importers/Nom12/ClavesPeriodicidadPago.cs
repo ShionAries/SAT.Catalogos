@@ -32,7 +32,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Nom12 {
             var resultado = mapper.Map(_DataTable).ToList();
             if (resultado != null) {
                 if (resultado.Count() > 0) {
-                    _Catalogo = new PeriodicidadPagoRepository {
+                    _Repository = new PeriodicidadPagoRepository {
                         Items = resultado.ToList()
                     };
                 }

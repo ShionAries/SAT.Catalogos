@@ -27,7 +27,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp31 {
         }
 
         protected override void CreateRepository() {
-            this._Catalogo = new ColoniaRepository();
+            this._Repository = new ColoniaRepository();
         }
     }
 }

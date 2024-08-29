@@ -6,7 +6,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
     /// <summary>
     /// servicio de validacion de formatos
     /// </summary>
-    public class ValidacionService {
+    internal class ValidacionService {
         /// <summary>
         /// validacion de patron con regex
         /// </summary>

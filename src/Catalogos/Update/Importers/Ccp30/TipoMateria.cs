@@ -28,7 +28,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp30 {
         }
 
         protected override void CreateRepository() {
-            _Catalogo = new TipoMateriaRepository();
+            _Repository = new TipoMateriaRepository();
         }
     }
 }
