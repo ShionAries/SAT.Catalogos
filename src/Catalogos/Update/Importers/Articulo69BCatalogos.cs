@@ -5,15 +5,16 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
     public class Articulo69BCatalogos : AbstractXlsImporter, IImporter {
         
         public Articulo69BCatalogos(string csvFolder) : base(csvFolder) {
-        
+            this.FileName = "Listado_Completo_69-B.csv";
         }
 
         public override Injectors CreateInjectors(DataSet dataSet) {
-            return new Injectors() {
+            var injectors = new Injectors {
                 Items = new System.Collections.Generic.List<IInjector> {
                     new ListadoCompleto(dataSet.Tables[0])
-                }
+                },
             };
+            return injectors;
         }
     }
 }

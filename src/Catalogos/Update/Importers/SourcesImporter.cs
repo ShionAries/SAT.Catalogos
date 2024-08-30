@@ -13,13 +13,13 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
                 new CartaPorte31Catalogos(this.GetFullName(source, "CatalogosCartaPorte31.xls")),
                 new Articulo69BCatalogos(this.GetFullName(source, "Listado_Completo_69-B.csv")),
                 new Articulo69Catalogos(this.GetFullName(source, "No localizados.csv")),
-                new RecepcionPago20Catalogos(this.GetFullName(source, "catPagos.xls")) { DirectorySource = source }
+                new RecepcionPago20Catalogos(this.GetFullName(source, "catPagos.xls")) { WorkingFolder = source }
             };
 
             foreach (var item in importers) {
                 if (!item.CheckFile()) {
                     Console.WriteLine("Error");
-                    logger.Info($"No existe el archivo{item.FileSource}");
+                  //  logger.Info($"No existe el archivo{item.FileSource}");
                     return;
                 }
             }

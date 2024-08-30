@@ -6,17 +6,28 @@ using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Update {
     public abstract class AbstractInjector : IInjector {
-        protected DataTable _DataTable;
+        #region declaraciones
         protected int _SkipRows;
+        protected DataTable _DataTable;
         protected Dictionary<string, string> _HeadersMapper;
         protected IGeneralRepository _Repository;
+        protected DateTime? _LastVersion;
+        #endregion
 
         public AbstractInjector(DataTable dataTable) {
             this._DataTable = dataTable;
             this._HeadersMapper = new Dictionary<string, string>();
+            this.LastVersion = null;
         }
 
-        public DateTime LastVersion { get; set; }
+        public DateTime? LastVersion {
+            get {
+                if (this._LastVersion >= new DateTime(1900, 1, 1))
+                    return this._LastVersion;
+                return this._LastVersion;
+            }
+            set { this._LastVersion = value; }
+        }
 
         public int Inject(Helpers.ILogger logger) {
             logger.Info($"Arreglando tabla ...{this._DataTable.TableName}");

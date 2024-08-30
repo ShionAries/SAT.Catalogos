@@ -7,26 +7,27 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
         /// constructor
         /// </summary>
         public AbstractXlsImporter(string csvFolder) {
-            FileSource = csvFolder;
+            WorkingFolder = csvFolder;
         }
 
         /// <summary>
         /// obtener o establecer nombre del archivo del origen de los datos
         /// </summary>
-        public string FileSource { get; set; }
+        //public string FileSource { get; set; }
+        public string FileName { get; set; }
 
-        public string DirectorySource { get; set; }
+        public string WorkingFolder { get; set; }
 
         public bool CheckFile() {
-            return Helpers.FileService.Exists(FileSource);
+            return Helpers.FileService.Exists(GetFullPath());
         }
 
         public abstract Injectors CreateInjectors(DataSet dataSet);
 
         public void Import(Helpers.ILogger logger) {
-            logger.Info($"Cargando archivo {FileSource}...");
+            //logger.Info($"Cargando archivo {FileSource}...");
             var converter = CreateConverter();
-            converter.Convert(FileSource);
+            converter.Convert(this.GetFullPath());
 
             // create the injector (use a collection)
             var injector = CreateInjectors(converter.DataSet);
@@ -36,6 +37,10 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
 
         public XlsToDataSetConverter CreateConverter() {
             return new XlsToDataSetConverter();
+        }
+
+        public string GetFullPath() {
+            return System.IO.Path.Combine(this.WorkingFolder, FileName);
         }
     }
 }

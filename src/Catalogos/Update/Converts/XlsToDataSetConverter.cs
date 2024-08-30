@@ -1,5 +1,4 @@
 ﻿using System.Data;
-using Jaeger.SAT.Catalogos.Helpers;
 
 namespace Jaeger.SAT.Catalogos.Update.Converts {
     public class XlsToDataSetConverter {

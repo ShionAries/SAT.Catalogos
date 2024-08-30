@@ -11,6 +11,12 @@ namespace Jaeger.SAT.Catalogos.Repository.Articulo69B {
             FileName = "Articulo69B_Completo.json";
         }
 
+        public Articulo69BRepository(System.DateTime? lastUpdate = null) {
+            Title = "Artículo 69-B, primer y segundo párrafo del CFF";
+            FileName = "Articulo69B_Completo.json";
+            if (lastUpdate != null ) { this.Actualizacion = lastUpdate; }
+        }
+
         /// <summary>
         /// retorna un objeto codigo agrupador del catalogo del sat
         /// </summary>
