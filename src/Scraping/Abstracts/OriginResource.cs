@@ -40,7 +40,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Abstracts {
         /// obtener o establecer URL de descarga del archivo
         /// </summary>
         [DisplayName("URL de Descarga")]
-        public abstract string DownloadUrl {  get; set; }
+        public abstract string DownloadUrl { get; set; }
 
         /// <summary>
         /// obtener o establecer nombre del archivo de descarga
@@ -57,7 +57,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Abstracts {
         /// obtener o establecer si es permitida la actualizacion
         /// </summary>
         [DisplayName("Permitir")]
-        public bool AllowUpdate {  get; set; }
+        public bool AllowUpdate { get; set; }
 
         [Browsable(false)]
         [System.Xml.Serialization.XmlIgnore]

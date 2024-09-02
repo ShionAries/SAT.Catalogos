@@ -34,7 +34,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             return layouts;
         }
 
-        public LayoutOrigin OriginToLayout(IOrigin origin) {
+        private LayoutOrigin OriginToLayout(IOrigin origin) {
             return new LayoutOrigin {
                 LinkPosition = origin.LinkPosition,
                 DestinationFilename = origin.DestinationFilename,
@@ -48,7 +48,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
         }
 
         private IOrigin ConstantOriginFromLayout(LayoutOrigin item) {
-            var d1 = new ConstantOrigin() {
+            return new ConstantOrigin() {
                 LinkPosition = item.LinkPosition,
                 DestinationFilename = item.DestinationFilename,
                 Url = item.Url,
@@ -57,12 +57,10 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
                 LinkText = item.LinkText,
                 Name = item.Name
             };
-
-            return d1;
         }
 
         private IOrigin ScrapingOriginFromLayout(LayoutOrigin item) {
-            var d1 = new ScrapingOrigin() {
+            return new ScrapingOrigin() {
                 LinkPosition = item.LinkPosition,
                 DestinationFilename = item.DestinationFilename,
                 Url = item.Url,
@@ -71,8 +69,6 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
                 LinkText = item.LinkText,
                 Name = item.Name
             };
-
-            return d1;
         }
     }
 }

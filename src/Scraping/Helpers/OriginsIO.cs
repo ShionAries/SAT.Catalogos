@@ -21,6 +21,9 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             this.FileName = @"origins.xml";
         }
 
+        /// <summary>
+        /// obtener o establecer nombre del archivo
+        /// </summary>
         protected string FileName { get; set; }
 
         /// <summary>

@@ -11,6 +11,11 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
         private readonly IResourcesGateway gateway;
         private readonly string destinationPath;
 
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="gateway"></param>
+        /// <param name="destinationPath">archivo destino</param>
         public Upgrader(IResourcesGateway gateway, string destinationPath) {
             this.gateway = gateway;
             this.destinationPath = destinationPath;
@@ -25,7 +30,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             return System.IO.Path.Combine(destinationPath, filename);
         }
 
-        public IOrigin UpgradeReview(Review review) {
+        protected IOrigin UpgradeReview(Review review) {
             var origin = review.Origin;
             var destination = this.BuildPath(origin.DestinationFilename);
             if (!review.Status.IsNotUpdated()) {

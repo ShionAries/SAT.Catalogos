@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstracts\OriginResource.cs" />
+    <Compile Include="Abstracts\UpdateOrigin.cs" />
     <Compile Include="Entities\ConstantOrigin.cs" />
     <Compile Include="DumpOrigins.cs" />
     <Compile Include="Entities\LayoutOrigin.cs" />

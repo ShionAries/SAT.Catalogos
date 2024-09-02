@@ -13,11 +13,16 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
         /// <summary>
         /// obtener o establecer nombre del archivo del origen de los datos
         /// </summary>
-        //public string FileSource { get; set; }
         public string FileName { get; set; }
 
+        /// <summary>
+        /// obtener o establecer la carpeta de trabajo
+        /// </summary>
         public string WorkingFolder { get; set; }
 
+        /// <summary>
+        /// verificar la existencia del archivo de origen
+        /// </summary>
         public bool CheckFile() {
             return Helpers.FileService.Exists(GetFullPath());
         }

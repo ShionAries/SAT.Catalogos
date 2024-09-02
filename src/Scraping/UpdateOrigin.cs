@@ -4,33 +4,19 @@ using Jaeger.SAT.Catalogos.Scraping.Helpers;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Scraping {
-    public class UpdateOrigin {
-        protected IResourcesGateway ResourcesGateway;
-
+    public class UpdateOrigin : Abstracts.UpdateOrigin {
         /// <summary>
         /// constructor
         /// </summary>
         /// <param name="workingFolder">ruta de la carpeta de trabajo</param>
-        public UpdateOrigin(string workingFolder = @"C:\Jaeger\Jaeger.Temporal") {
-            this.WorkingFolder = workingFolder;
-        }
+        public UpdateOrigin(string workingFolder = @"C:\Jaeger\Jaeger.Temporal") : base(workingFolder) { }
 
         /// <summary>
         /// obtener o establecer origenes
         /// </summary>
         public IOrigin Origin { get; set; }
 
-        /// <summary>
-        /// obtener o establecer carpeta de trabajo
-        /// </summary>
-        public string WorkingFolder { get; set; }
-
         #region builder
-        public UpdateOrigin WithWorkingFolder(string workingFilder) {
-            this.WorkingFolder = workingFilder;
-            return this;
-        }
-
         public UpdateOrigin WithOrigin(IOrigin origin) {
             this.Origin = origin;
             return this;

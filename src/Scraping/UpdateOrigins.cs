@@ -5,25 +5,19 @@ using Jaeger.SAT.Catalogos.Scraping.Helpers;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Scraping {
-    //custom delegate
-    public delegate void DelEventHandler();
-
-    public class UpdateOrigins {
-        protected IResourcesGateway ResourcesGateway;
-
-        public event EventHandler<string> NotificationEvent;
-        public void OnNotificationEvent(string e) {
-            if (this.NotificationEvent != null) {
-                this.NotificationEvent(this, e);
-            }
+    public class UpdateOrigins : Abstracts.UpdateOrigin {
+        /// <summary>
+        /// constructor
+        /// </summary>
+        public UpdateOrigins() : base() {
+            this.Origins = new List<IOrigin>();
         }
 
         /// <summary>
         /// constructor
         /// </summary>
         /// <param name="workingFolder">ruta de la carpeta de trabajo</param>
-        public UpdateOrigins(string workingFolder = @"C:\Jaeger\Jaeger.Temporal") {
-            this.WorkingFolder = workingFolder;
+        public UpdateOrigins(string workingFolder = @"C:\Jaeger\Jaeger.Temporal") : base(workingFolder) {
             this.Origins = new List<IOrigin>();
         }
 
@@ -31,11 +25,6 @@ namespace Jaeger.SAT.Catalogos.Scraping {
         /// obtener o establecer origenes
         /// </summary>
         public List<IOrigin> Origins { get; set; }
-
-        /// <summary>
-        /// obtener o establecer carpeta de trabajo
-        /// </summary>
-        public string WorkingFolder { get; set; }
 
         public void Read() {
             // cargar datos de los origenes
