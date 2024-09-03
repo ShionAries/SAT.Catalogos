@@ -45,6 +45,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfiguracionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfiguracionForm.Designer.cs">
+      <DependentUpon>ConfiguracionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenuForm.Designer.cs">
+      <DependentUpon>MainMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OriginsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OriginsForm.Designer.cs">
+      <DependentUpon>OriginsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateForm.Designer.cs">
+      <DependentUpon>UpdateForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Waiting4Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +91,18 @@
     <Compile Include="WaitWindowGUIForm.Designer.cs">
       <DependentUpon>WaitWindowGUIForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ConfiguracionForm.resx">
+      <DependentUpon>ConfiguracionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenuForm.resx">
+      <DependentUpon>MainMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OriginsForm.resx">
+      <DependentUpon>OriginsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateForm.resx">
+      <DependentUpon>UpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Waiting4Form.resx">
       <DependentUpon>Waiting4Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,6 +156,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\delete_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\available_updates_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_window_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database_administrator_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_page_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\start_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings_32px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

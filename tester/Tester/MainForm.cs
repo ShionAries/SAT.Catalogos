@@ -7,10 +7,14 @@ using System.Windows.Forms;
 using Jaeger.SAT.Catalogos;
 using Jaeger.SAT.Catalogos.Scraping;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
+using Jaeger.SAT.Catalogos.Scraping.Entities;
+using Jaeger.SAT.Catalogos.Update.Importers;
+using Jaeger.SAT.Catalogos.Scraping.Helpers;
 
 namespace Tester {
     public partial class MainForm : Form {
-        private UpdateOrigins _ScrapService;
+        //private UpdateOrigins _ScrapService;
+        private OriginService _ScrapService;
         private BackgroundWorker _WorkerUpdate;
         private int _previousIndex;
         private bool _sortDirection;
@@ -22,28 +26,40 @@ namespace Tester {
 
         private void MainForm_Load(object sender, EventArgs e) {
             CheckForIllegalCrossThreadCalls = false;
-            this._ScrapService = new UpdateOrigins();
-            this._ScrapService.Read();
-            this._ScrapService.NotificationEvent += Service_NotificationEvent;
-            this.GridData.DataSource = this._ScrapService.Origins;
+            this._ScrapService = new OriginService();
+            this._ScrapService.GetAll();
+            //this._ScrapService.NotificationEvent += Service_NotificationEvent;
+            this.GridData.DataSource = this._ScrapService.DataSource;
             this.Catalogos.Click += this.Catalogos_Click;
             this.Scraping.Click += this.Scraping_Click;
             this.Cerrar.Click += this.Cerrar_Click;
             this.OffProcesing();
             this.GridData.AlternatingRowsDefaultCellStyle = new DataGridViewCellStyle { BackColor = Color.FromArgb(224, 224, 225) };
             this.GridData.AutoResizeColumns();
-            this.GridData.ReadOnly = true;
-            this.GridData.AllowUserToResizeRows = false;
+            //this.GridData.ReadOnly = true;
+            //this.GridData.AllowUserToResizeRows = false;
         }
 
         private void Scraping_Click(object sender, EventArgs e) {
-            this._Waiting = new Waiting4Form(() => {
-                this._ScrapService.Run();
-            }, "Cargando datos ...") {
-                Text = ""
-            };
-            this._Waiting.ShowDialog(this);
-            this.GridData.DataSource = this._ScrapService.Origins;
+            this._ScrapService.SaveChanges();
+            return;
+            var updateOrigin = new UpdateOrigin().WithOrigin(new ConstantOrigin(
+                    "Artículo 69-B Listado Completo",
+                    "http://omawww.sat.gob.mx/cifras_sat/Documents/Listado_Completo_69-B.csv"
+                    )).Run();
+
+            MessageBox.Show(this, updateOrigin.Origin.LastVersion.Value.ToLongDateString());
+            var importer = new Articulo69BCatalogos(updateOrigin.WorkingFolder);
+            var updateRepository = new UpdateRepository().WithFolderSource(updateOrigin.WorkingFolder).AddImporter(importer).Run();
+
+            return;
+            //this._Waiting = new Waiting4Form(() => {
+            //    this._ScrapService.Run();
+            //}, "Cargando datos ...") {
+            //    Text = ""
+            //};
+            //this._Waiting.ShowDialog(this);
+            //this.GridData.DataSource = this._ScrapService.Origins;
         }
 
         private void Descarga_Click(object sender, EventArgs e) {
@@ -78,12 +94,12 @@ namespace Tester {
         #region scraping
         private void WorkerScraping_DoWork(object sender, DoWorkEventArgs e) {
             this.OnProcesing();
-            this._ScrapService.NotificationEvent += Service_NotificationEvent;
-            this._ScrapService.Run();
+            //this._ScrapService.NotificationEvent += Service_NotificationEvent;
+            //this._ScrapService.Run();
         }
 
         private void WorkerScraping_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) {
-            this.GridData.DataSource = this._ScrapService.Origins;
+            //this.GridData.DataSource = this._ScrapService.Origins;
             this.OffProcesing();
             Application.DoEvents();
         }

@@ -3,18 +3,17 @@ using Jaeger.SAT.Catalogos.Scraping.Entities;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
-    internal class ScrapingReviewer : IReviewer {
-        protected internal IResourcesGateway gateway;
+    internal class ScrapingReviewer : Abstracts.Reviewer, IReviewer {
 
         public ScrapingReviewer(IResourcesGateway gateway) {
             this.gateway = gateway;
         }
 
-        public bool Accepts(IOrigin origin) {
+        public override bool Accepts(IOrigin origin) {
             return origin is ScrapingOrigin;
         }
 
-        public Review Review(IOrigin origin) {
+        public override Review Review(IOrigin origin) {
             if (!(origin is ScrapingOrigin)) {
                 throw new Exception("This reviewer can only handle ScrapingOrigin objects");
             }
@@ -43,7 +42,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             return new Review(origin, new ReviewStatus(ReviewStatus.StatusEnum.UpToDate));
         }
 
-        public IOrigin ResolveOrigin(ScrapingOrigin origin) {
+        protected IOrigin ResolveOrigin(ScrapingOrigin origin) {
             var baseResource = this.gateway.Get(origin.Url, "");
             var downloadUrl = this.ResolveHtmlToLink(baseResource, origin.LinkText, origin.LinkPosition);
             if (downloadUrl != null) {
@@ -53,7 +52,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             return origin.WithDownloadUrl(downloadUrl);
         }
 
-        public string ResolveHtmlToLink(UrlResponse response, string linkText, int linkPosition) {
+        protected string ResolveHtmlToLink(UrlResponse response, string linkText, int linkPosition) {
             return ScrapingReviewerLinkExtractor.FromUrlResponse(response, linkText, linkPosition);
         }
     }

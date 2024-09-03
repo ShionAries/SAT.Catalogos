@@ -43,7 +43,8 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
                 LastVersion = origin.LastVersion,
                 LinkText = origin.LinkText,
                 Name = origin.Name,
-                Type = origin.GetType().Name
+                Type = origin.GetType().Name,
+                AllowUpdate = origin.AllowUpdate,
             };
         }
 
@@ -55,7 +56,8 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
                 DownloadUrl = item.DownloadUrl,
                 LastVersion = item.LastVersion,
                 LinkText = item.LinkText,
-                Name = item.Name
+                Name = item.Name,
+                AllowUpdate = item.AllowUpdate,
             };
         }
 
@@ -67,7 +69,8 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
                 DownloadUrl = item.DownloadUrl,
                 LastVersion = item.LastVersion,
                 LinkText = item.LinkText,
-                Name = item.Name
+                Name = item.Name,
+                AllowUpdate = item.AllowUpdate,
             };
         }
     }
