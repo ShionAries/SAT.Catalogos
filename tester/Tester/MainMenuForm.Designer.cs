@@ -25,10 +25,11 @@
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenuForm));
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.SalirBtn = new System.Windows.Forms.Button();
+            this.SettingsBtn = new System.Windows.Forms.Button();
+            this.TestingBrn = new System.Windows.Forms.Button();
+            this.UpdatesBtn = new System.Windows.Forms.Button();
+            this.ControlBtn = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.HeaderLabel = new System.Windows.Forms.Label();
             this.BtnHome = new System.Windows.Forms.PictureBox();
@@ -47,10 +48,11 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.panelMenu.Controls.Add(this.button4);
-            this.panelMenu.Controls.Add(this.button3);
-            this.panelMenu.Controls.Add(this.button2);
-            this.panelMenu.Controls.Add(this.button1);
+            this.panelMenu.Controls.Add(this.SalirBtn);
+            this.panelMenu.Controls.Add(this.SettingsBtn);
+            this.panelMenu.Controls.Add(this.TestingBrn);
+            this.panelMenu.Controls.Add(this.UpdatesBtn);
+            this.panelMenu.Controls.Add(this.ControlBtn);
             this.panelMenu.Controls.Add(this.panelLogo);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(5, 0);
@@ -58,85 +60,104 @@
             this.panelMenu.Size = new System.Drawing.Size(220, 476);
             this.panelMenu.TabIndex = 0;
             // 
-            // button4
+            // SalirBtn
             // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button4.Image = global::Tester.Properties.Resources.close_window_32px;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(0, 250);
-            this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.button4.Size = new System.Drawing.Size(220, 60);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Salir";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.ExitBtn_Click);
+            this.SalirBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.SalirBtn.FlatAppearance.BorderSize = 0;
+            this.SalirBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SalirBtn.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SalirBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.SalirBtn.Image = global::Tester.Properties.Resources.close_window_32px;
+            this.SalirBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SalirBtn.Location = new System.Drawing.Point(0, 310);
+            this.SalirBtn.Name = "SalirBtn";
+            this.SalirBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.SalirBtn.Size = new System.Drawing.Size(220, 60);
+            this.SalirBtn.TabIndex = 5;
+            this.SalirBtn.Text = "Salir";
+            this.SalirBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SalirBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.SalirBtn.UseVisualStyleBackColor = true;
+            this.SalirBtn.Click += new System.EventHandler(this.ExitBtn_Click);
             // 
-            // button3
+            // SettingsBtn
             // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button3.Image = global::Tester.Properties.Resources.settings_32px;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(0, 190);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.button3.Size = new System.Drawing.Size(220, 60);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Configuración";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.ConfiguracionBtn_Click);
+            this.SettingsBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.SettingsBtn.FlatAppearance.BorderSize = 0;
+            this.SettingsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SettingsBtn.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SettingsBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.SettingsBtn.Image = global::Tester.Properties.Resources.settings_32px;
+            this.SettingsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SettingsBtn.Location = new System.Drawing.Point(0, 250);
+            this.SettingsBtn.Name = "SettingsBtn";
+            this.SettingsBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.SettingsBtn.Size = new System.Drawing.Size(220, 60);
+            this.SettingsBtn.TabIndex = 4;
+            this.SettingsBtn.Text = "Configuración";
+            this.SettingsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SettingsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.SettingsBtn.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // TestingBrn
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Image = global::Tester.Properties.Resources.available_updates_32px;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(0, 130);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.button2.Size = new System.Drawing.Size(220, 60);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Actualización";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.UpdateBtn_Click);
+            this.TestingBrn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TestingBrn.FlatAppearance.BorderSize = 0;
+            this.TestingBrn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TestingBrn.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TestingBrn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.TestingBrn.Image = global::Tester.Properties.Resources.test_lab_30px;
+            this.TestingBrn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.TestingBrn.Location = new System.Drawing.Point(0, 190);
+            this.TestingBrn.Name = "TestingBrn";
+            this.TestingBrn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.TestingBrn.Size = new System.Drawing.Size(220, 60);
+            this.TestingBrn.TabIndex = 3;
+            this.TestingBrn.Text = "Prueba";
+            this.TestingBrn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.TestingBrn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.TestingBrn.UseVisualStyleBackColor = true;
+            this.TestingBrn.Click += new System.EventHandler(this.ConfiguracionBtn_Click);
             // 
-            // button1
+            // UpdatesBtn
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Image = global::Tester.Properties.Resources.database_administrator_32px;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 70);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.button1.Size = new System.Drawing.Size(220, 60);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Control";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.ControlBtn_Click);
+            this.UpdatesBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.UpdatesBtn.FlatAppearance.BorderSize = 0;
+            this.UpdatesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdatesBtn.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdatesBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.UpdatesBtn.Image = global::Tester.Properties.Resources.available_updates_32px;
+            this.UpdatesBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UpdatesBtn.Location = new System.Drawing.Point(0, 130);
+            this.UpdatesBtn.Name = "UpdatesBtn";
+            this.UpdatesBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.UpdatesBtn.Size = new System.Drawing.Size(220, 60);
+            this.UpdatesBtn.TabIndex = 2;
+            this.UpdatesBtn.Text = "Actualización";
+            this.UpdatesBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UpdatesBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.UpdatesBtn.UseVisualStyleBackColor = true;
+            this.UpdatesBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
+            // 
+            // ControlBtn
+            // 
+            this.ControlBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ControlBtn.FlatAppearance.BorderSize = 0;
+            this.ControlBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ControlBtn.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ControlBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ControlBtn.Image = global::Tester.Properties.Resources.database_administrator_32px;
+            this.ControlBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ControlBtn.Location = new System.Drawing.Point(0, 70);
+            this.ControlBtn.Name = "ControlBtn";
+            this.ControlBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.ControlBtn.Size = new System.Drawing.Size(220, 60);
+            this.ControlBtn.TabIndex = 1;
+            this.ControlBtn.Text = "Control";
+            this.ControlBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ControlBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ControlBtn.UseVisualStyleBackColor = true;
+            this.ControlBtn.Click += new System.EventHandler(this.ControlBtn_Click);
             // 
             // panelLogo
             // 
@@ -249,10 +270,10 @@
 
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Panel panelLogo;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button ControlBtn;
+        private System.Windows.Forms.Button SettingsBtn;
+        private System.Windows.Forms.Button TestingBrn;
+        private System.Windows.Forms.Button UpdatesBtn;
         private System.Windows.Forms.PictureBox BtnHome;
         private System.Windows.Forms.Panel panelTitleBar;
         private System.Windows.Forms.PictureBox iconCurrentChildForm;
@@ -260,5 +281,6 @@
         private System.Windows.Forms.Panel panelDesktop;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label HeaderLabel;
+        private System.Windows.Forms.Button SalirBtn;
     }
 }

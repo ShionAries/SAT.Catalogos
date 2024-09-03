@@ -22,8 +22,9 @@ namespace Tester {
 
         public MainMenuForm() {
             InitializeComponent();
-            this.leftBorderBtn = new Panel();
-            this.leftBorderBtn.Size = new Size(7, 60);
+            this.leftBorderBtn = new Panel {
+                Size = new Size(7, 60)
+            };
             this.panelMenu.Controls.Add(this.leftBorderBtn);
 
             this.Text = string.Empty;
@@ -34,6 +35,7 @@ namespace Tester {
 
         private void MainMenuForm_Load(object sender, EventArgs e) {
             this._ScrapService = new OriginService();
+            this.ControlBtn.PerformClick();
         }
 
         private void ActiveButton(object sender, Color color) {
@@ -45,6 +47,7 @@ namespace Tester {
                 currentBtn.TextAlign = ContentAlignment.MiddleCenter;
                 currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
                 currentBtn.ImageAlign = ContentAlignment.MiddleCenter;
+
                 this.leftBorderBtn.BackColor = color;
                 this.leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
                 this.leftBorderBtn.Visible = true;

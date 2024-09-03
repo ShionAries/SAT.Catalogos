@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.OriginisGroupBox = new System.Windows.Forms.GroupBox();
             this.GridData = new System.Windows.Forms.DataGridView();
             this.TControl = new System.Windows.Forms.ToolStrip();
@@ -49,6 +50,8 @@
             // 
             // GridData
             // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
+            this.GridData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.GridData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridData.Location = new System.Drawing.Point(5, 43);
