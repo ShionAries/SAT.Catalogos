@@ -33,10 +33,12 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
             AllowUpdate = allowUpdate;
         }
 
+        #region propiedades
         /// <summary>
         /// obtener o establecer URL de descarga del archivo
         /// </summary>
         public override string DownloadUrl { get; set; }
+        #endregion
 
         #region metodos publicos
         public bool HasLastVersion() {

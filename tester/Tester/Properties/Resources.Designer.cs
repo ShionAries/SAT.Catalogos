@@ -123,6 +123,16 @@ namespace Tester.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap edit_16px {
+            get {
+                object obj = ResourceManager.GetObject("edit_16px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap home_page_32px {
             get {
                 object obj = ResourceManager.GetObject("home_page_32px", resourceCulture);

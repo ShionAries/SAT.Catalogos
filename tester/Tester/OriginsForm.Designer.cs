@@ -30,6 +30,7 @@
             this.Agregar = new System.Windows.Forms.ToolStripButton();
             this.Delete = new System.Windows.Forms.ToolStripButton();
             this.Guardar = new System.Windows.Forms.ToolStripButton();
+            this.Editar = new System.Windows.Forms.ToolStripButton();
             this.OriginisGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridData)).BeginInit();
             this.TControl.SuspendLayout();
@@ -65,6 +66,7 @@
             // 
             this.TControl.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Agregar,
+            this.Editar,
             this.Delete,
             this.Guardar});
             this.TControl.Location = new System.Drawing.Point(5, 18);
@@ -97,6 +99,14 @@
             this.Guardar.Size = new System.Drawing.Size(69, 22);
             this.Guardar.Text = "Guardar";
             // 
+            // Editar
+            // 
+            this.Editar.Image = global::Tester.Properties.Resources.edit_16px;
+            this.Editar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Editar.Name = "Editar";
+            this.Editar.Size = new System.Drawing.Size(57, 22);
+            this.Editar.Text = "Editar";
+            // 
             // OriginsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -123,5 +133,6 @@
         private System.Windows.Forms.ToolStripButton Agregar;
         private System.Windows.Forms.ToolStripButton Delete;
         private System.Windows.Forms.ToolStripButton Guardar;
+        private System.Windows.Forms.ToolStripButton Editar;
     }
 }

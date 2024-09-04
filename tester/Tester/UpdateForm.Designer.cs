@@ -24,8 +24,8 @@
         /// </summary>
         private void InitializeComponent() {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Logger = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.Logger = new System.Windows.Forms.TextBox();
             this.Start = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -36,13 +36,23 @@
             this.groupBox1.Controls.Add(this.Start);
             this.groupBox1.Controls.Add(this.Logger);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Location = new System.Drawing.Point(5, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox1.Size = new System.Drawing.Size(800, 450);
+            this.groupBox1.Size = new System.Drawing.Size(790, 440);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Logger";
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Location = new System.Drawing.Point(572, 405);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(125, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Actualizar Repositorio";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // Logger
             // 
@@ -52,24 +62,14 @@
             this.Logger.Location = new System.Drawing.Point(12, 21);
             this.Logger.Multiline = true;
             this.Logger.Name = "Logger";
-            this.Logger.Size = new System.Drawing.Size(776, 388);
+            this.Logger.Size = new System.Drawing.Size(766, 378);
             this.Logger.TabIndex = 0;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(632, 415);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button1";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // Start
             // 
             this.Start.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Start.Image = global::Tester.Properties.Resources.start_16px;
-            this.Start.Location = new System.Drawing.Point(713, 415);
+            this.Start.Location = new System.Drawing.Point(703, 405);
             this.Start.Name = "Start";
             this.Start.Size = new System.Drawing.Size(75, 23);
             this.Start.TabIndex = 1;
@@ -84,6 +84,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox1);
             this.Name = "UpdateForm";
+            this.Padding = new System.Windows.Forms.Padding(5);
             this.Text = "Actualización de datos";
             this.Load += new System.EventHandler(this.UpdateForm_Load);
             this.groupBox1.ResumeLayout(false);

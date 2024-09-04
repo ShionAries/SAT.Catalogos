@@ -108,8 +108,13 @@ namespace Tester {
             OpenChildForm(new UpdateForm(this._ScrapService));
         }
 
-        private void ConfiguracionBtn_Click(object sender, EventArgs e) {
+        private void TestingBtn_Click(object sender, EventArgs e) {
             ActiveButton(sender, RGBColors.color3);
+            OpenChildForm(new TestingForm(this._ScrapService));
+        }
+
+        private void ConfiguracionBtn_Click(object sender, EventArgs e) {
+            ActiveButton(sender, RGBColors.color4);
             OpenChildForm(new ConfiguracionForm());
         }
 

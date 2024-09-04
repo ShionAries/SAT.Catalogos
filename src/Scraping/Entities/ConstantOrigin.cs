@@ -38,6 +38,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
             this.DestinationFilename = destinationFilename;
         }
 
+        #region propiedades
         /// <summary>
         /// obtener o establecer URL de descarga del archivo
         /// </summary>
@@ -45,6 +46,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
             get { return this.Url; }
             set { this.Url = value; }
         }
+        #endregion
 
         #region metodos publicos
         public bool HasLastVersion() {

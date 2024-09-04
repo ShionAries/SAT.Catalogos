@@ -65,7 +65,7 @@
             this.SalirBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.SalirBtn.FlatAppearance.BorderSize = 0;
             this.SalirBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SalirBtn.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SalirBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SalirBtn.ForeColor = System.Drawing.SystemColors.ControlText;
             this.SalirBtn.Image = global::Tester.Properties.Resources.close_window_32px;
             this.SalirBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -85,7 +85,7 @@
             this.SettingsBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.SettingsBtn.FlatAppearance.BorderSize = 0;
             this.SettingsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SettingsBtn.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SettingsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SettingsBtn.ForeColor = System.Drawing.SystemColors.ControlText;
             this.SettingsBtn.Image = global::Tester.Properties.Resources.settings_32px;
             this.SettingsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -98,13 +98,14 @@
             this.SettingsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.SettingsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.SettingsBtn.UseVisualStyleBackColor = true;
+            this.SettingsBtn.Click += new System.EventHandler(this.ConfiguracionBtn_Click);
             // 
             // TestingBrn
             // 
             this.TestingBrn.Dock = System.Windows.Forms.DockStyle.Top;
             this.TestingBrn.FlatAppearance.BorderSize = 0;
             this.TestingBrn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TestingBrn.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TestingBrn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TestingBrn.ForeColor = System.Drawing.SystemColors.ControlText;
             this.TestingBrn.Image = global::Tester.Properties.Resources.test_lab_30px;
             this.TestingBrn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -117,14 +118,14 @@
             this.TestingBrn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.TestingBrn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.TestingBrn.UseVisualStyleBackColor = true;
-            this.TestingBrn.Click += new System.EventHandler(this.ConfiguracionBtn_Click);
+            this.TestingBrn.Click += new System.EventHandler(this.TestingBtn_Click);
             // 
             // UpdatesBtn
             // 
             this.UpdatesBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.UpdatesBtn.FlatAppearance.BorderSize = 0;
             this.UpdatesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.UpdatesBtn.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdatesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpdatesBtn.ForeColor = System.Drawing.SystemColors.ControlText;
             this.UpdatesBtn.Image = global::Tester.Properties.Resources.available_updates_32px;
             this.UpdatesBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -144,7 +145,7 @@
             this.ControlBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.ControlBtn.FlatAppearance.BorderSize = 0;
             this.ControlBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ControlBtn.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ControlBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ControlBtn.ForeColor = System.Drawing.SystemColors.ControlText;
             this.ControlBtn.Image = global::Tester.Properties.Resources.database_administrator_32px;
             this.ControlBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -172,7 +173,7 @@
             // HeaderLabel
             // 
             this.HeaderLabel.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.HeaderLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HeaderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HeaderLabel.Location = new System.Drawing.Point(50, 13);
             this.HeaderLabel.Name = "HeaderLabel";
             this.HeaderLabel.Size = new System.Drawing.Size(164, 54);
@@ -192,11 +193,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label1.Location = new System.Drawing.Point(42, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 17);
+            this.label1.Size = new System.Drawing.Size(44, 16);
             this.label1.TabIndex = 4;
             this.label1.Text = "Home";
             // 
@@ -214,7 +215,7 @@
             // 
             // iconCurrentChildForm
             // 
-            this.iconCurrentChildForm.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconCurrentChildForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iconCurrentChildForm.ForeColor = System.Drawing.Color.Gainsboro;
             this.iconCurrentChildForm.Image = global::Tester.Properties.Resources.home_page_32px;
             this.iconCurrentChildForm.Location = new System.Drawing.Point(6, 12);
