@@ -1,11 +1,12 @@
 ﻿using System;
 using System.ComponentModel;
+using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Abstracts {
     /// <summary>
     /// clase abstracta de origen del recurso
     /// </summary>
-    public abstract class OriginResource {
+    public abstract class OriginResource : IOrigin {
         #region declaraciones
         private DateTime? _LastVersion;
         #endregion
@@ -62,6 +63,29 @@ namespace Jaeger.SAT.Catalogos.Scraping.Abstracts {
         [Browsable(false)]
         [System.Xml.Serialization.XmlIgnore]
         public int LinkPosition { get; set; }
+        #endregion
+
+
+        #region metodos publicos
+        public virtual bool HasLastVersion() {
+            return this.LastVersion != null;
+        }
+
+        public virtual bool HasDownloadUrl() {
+            return this.DownloadUrl != "";
+        }
+        #endregion
+
+        #region builder
+        public virtual IOrigin WithDownloadUrl(string downloadUrl) {
+            this.DownloadUrl = downloadUrl;
+            return this;
+        }
+
+        public virtual IOrigin WithLastModified(DateTime? lastModified) {
+            this.LastVersion = lastModified;
+            return this;
+        }
         #endregion
     }
 }

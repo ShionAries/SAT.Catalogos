@@ -40,43 +40,12 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
 
         #region propiedades
         /// <summary>
-        /// obtener o establecer URL de descarga del archivo
+        /// obtener o establecer URL de descarga del archivo, en este caso se sobre escribe la propiedad
+        /// porque la liga de la consulta y la descarga de archivo es la misma
         /// </summary>
         public override string DownloadUrl {
             get { return this.Url; }
             set { this.Url = value; }
-        }
-        #endregion
-
-        #region metodos publicos
-        public bool HasLastVersion() {
-            return this.LastVersion != null;
-        }
-
-        public bool HasDownloadUrl() {
-            return this.DownloadUrl != "";
-        }
-        #endregion
-
-        #region builder
-        /// <summary>
-        /// agregar url de descarga
-        /// </summary>
-        /// <param name="downloadUrl">URL</param>
-        /// <returns>IOrigin</returns>
-        public IOrigin WithDownloadUrl(string downloadUrl) {
-            this.DownloadUrl = downloadUrl;
-            return this;
-        }
-
-        /// <summary>
-        /// agregar fecha de ultima modificacion
-        /// </summary>
-        /// <param name="lastModified">fecha</param>
-        /// <returns>IOrigin</returns>
-        public IOrigin WithLastModified(DateTime? lastModified) {
-            this.LastVersion = lastModified; 
-            return this;
         }
         #endregion
     }

@@ -2,6 +2,9 @@
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Abstracts {
+    /// <summary>
+    /// clase abstracta para revisor
+    /// </summary>
     public abstract class Reviewer {
         protected internal IResourcesGateway gateway;
 

@@ -4,12 +4,21 @@ using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 using Jaeger.SAT.Catalogos.Scraping.ValueObjects;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
+    /// <summary>
+    /// clase revisor para origen constante
+    /// </summary>
     internal class ScrapingReviewer : Abstracts.Reviewer, IReviewer {
-
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="gateway">IResourcesGateway</param>
         public ScrapingReviewer(IResourcesGateway gateway) {
             this.gateway = gateway;
         }
 
+        /// <summary>
+        /// Origen Aceptado
+        /// </summary>
         public override bool Accepts(IOrigin origin) {
             return origin is ScrapingOrigin;
         }

@@ -4,6 +4,9 @@ using Jaeger.SAT.Catalogos.Scraping.Helpers;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Scraping {
+    /// <summary>
+    /// 
+    /// </summary>
     public class UpdateService : Abstracts.UpdateOrigin {
         public UpdateService() {
             this.ResourcesGateway = new ResourcesGateway();
@@ -18,14 +21,14 @@ namespace Jaeger.SAT.Catalogos.Scraping {
             var upToDateReviews = reviews.Where(it => it.Status == ValueObjects.StatusEnum.UpToDate).ToList();
 
             foreach (var item in upToDateReviews) {
-                this.OnNotificationEvent(string.Format("El origen {0} desde {1} para {2} está actualizado", item.Origin.Name, item.Origin.DownloadUrl, item.Origin.DestinationFilename));
+                this.OnNotificationEvent($"El origen {item.Origin.Name} desde {item.Origin.DownloadUrl} para {item.Origin.DestinationFilename} está actualizado");
             }
 
             foreach (var item in notUpdatedReviews) {
                 if (!item.Origin.HasLastVersion()) {
-                    this.OnNotificationEvent(string.Format("El origen {0} desde {1} para {2} no existe, se descargará", item.Origin.Name, item.Origin.DownloadUrl, item.Origin.DestinationFilename));
+                    this.OnNotificationEvent($"El origen {item.Origin.Name} desde {item.Origin.DownloadUrl} para {item.Origin.DestinationFilename} no existe, se descargará");
                 } else {
-                    this.OnNotificationEvent(string.Format("El origen {0} desde {1} para {2} está desactualizado, la nueva versión tiene fecha {3}", item.Origin.Name, item.Origin.DownloadUrl, item.Origin.DestinationFilename, item.Origin.LastVersion));
+                    this.OnNotificationEvent($"El origen {item.Origin.Name} desde {item.Origin.DownloadUrl} para {item.Origin.DestinationFilename} está desactualizado, la nueva versión tiene fecha {item.Origin.LastVersion}");
                 }
             }
 

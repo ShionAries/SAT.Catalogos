@@ -4,8 +4,14 @@ using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 using Jaeger.SAT.Catalogos.Scraping.ValueObjects;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
-    public class ConstantReviewer : Abstracts.Reviewer, IReviewer {
-
+    /// <summary>
+    /// clase revisor para origen constante
+    /// </summary>
+    internal class ConstantReviewer : Abstracts.Reviewer, IReviewer {
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="gateway">IResourcesGateway</param>
         public ConstantReviewer(IResourcesGateway gateway) {
             this.gateway = gateway;
         }

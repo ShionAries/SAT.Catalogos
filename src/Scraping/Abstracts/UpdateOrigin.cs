@@ -4,7 +4,9 @@ using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 namespace Jaeger.SAT.Catalogos.Scraping.Abstracts {
     //custom delegate
     //public delegate void DelEventHandler();
-
+    /// <summary>
+    /// clase abstracta
+    /// </summary>
     public abstract class UpdateOrigin {
         protected IResourcesGateway ResourcesGateway;
         public event EventHandler<string> NotificationEvent;
@@ -15,10 +17,17 @@ namespace Jaeger.SAT.Catalogos.Scraping.Abstracts {
             }
         }
 
+        /// <summary>
+        /// constructor
+        /// </summary>
         public UpdateOrigin() {
             this.WorkingFolder = @"C:\Jaeger\Jaeger.Temporal";
         }
 
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="workingFolder">carpeta temporal de trabajo</param>
         public UpdateOrigin(string workingFolder = @"C:\Jaeger\Jaeger.Temporal") {
             this.WorkingFolder = workingFolder;
         }

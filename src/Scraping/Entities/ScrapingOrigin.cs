@@ -39,25 +39,5 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
         /// </summary>
         public override string DownloadUrl { get; set; }
         #endregion
-
-        #region metodos publicos
-        public bool HasLastVersion() {
-            return this.LastVersion != null;
-        }
-
-        public bool HasDownloadUrl() {
-            return this.DownloadUrl != "";
-        }
-
-        public IOrigin WithDownloadUrl(string downloadUrl) {
-            this.DownloadUrl = downloadUrl;
-            return this;
-        }
-
-        public IOrigin WithLastModified(DateTime? lastModified) {
-            this.LastVersion = lastModified;
-            return this;
-        }
-        #endregion
     }
 }

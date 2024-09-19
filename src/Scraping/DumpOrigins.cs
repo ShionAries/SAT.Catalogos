@@ -6,7 +6,7 @@ namespace Jaeger.SAT.Catalogos.Scraping {
     /// <summary>
     /// origenes de datos
     /// </summary>
-    public class DumpOrigins {
+    internal class DumpOrigins {
         protected internal string common = "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos";
         /// <summary>
         /// constructor
