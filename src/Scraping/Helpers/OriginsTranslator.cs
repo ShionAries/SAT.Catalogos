@@ -4,6 +4,9 @@ using Jaeger.SAT.Catalogos.Scraping.Entities;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
     public class OriginsTranslator {
+        /// <summary>
+        /// constructor
+        /// </summary>
         public OriginsTranslator() { }
 
         public List<IOrigin> OriginFromLayout(List<LayoutOrigin> origins) {

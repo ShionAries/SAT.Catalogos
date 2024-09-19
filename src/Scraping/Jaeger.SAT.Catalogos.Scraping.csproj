@@ -45,11 +45,11 @@
     <Compile Include="Abstracts\OriginResource.cs" />
     <Compile Include="Abstracts\Reviewer.cs" />
     <Compile Include="Abstracts\UpdateOrigin.cs" />
+    <Compile Include="Entities\Configuration.cs" />
     <Compile Include="Entities\ConstantOrigin.cs" />
     <Compile Include="DumpOrigins.cs" />
     <Compile Include="Entities\LayoutOrigin.cs" />
     <Compile Include="Entities\Review.cs" />
-    <Compile Include="Entities\ReviewStatus.cs" />
     <Compile Include="Entities\UrlResponse.cs" />
     <Compile Include="Helpers\ConstantReviewer.cs" />
     <Compile Include="Helpers\LogInfoService.cs" />
@@ -71,6 +71,7 @@
     <Compile Include="UpdateOrigin.cs" />
     <Compile Include="UpdateOrigins.cs" />
     <Compile Include="UpdateService.cs" />
+    <Compile Include="ValueObjects\StatusEnum.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

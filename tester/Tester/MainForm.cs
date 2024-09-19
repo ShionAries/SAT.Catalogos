@@ -65,7 +65,7 @@ namespace Tester {
         private void Descarga_Click(object sender, EventArgs e) {
             var folderBrowserDialog = new FolderBrowserDialog() { Description = "Selecciona ruta de descarga" };
             if (folderBrowserDialog.ShowDialog(this) == DialogResult.OK) {
-                this._ScrapService.WorkingFolder = folderBrowserDialog.SelectedPath;
+                this._ScrapService.Configuration.WorkingFolder = folderBrowserDialog.SelectedPath;
             }
         }
 

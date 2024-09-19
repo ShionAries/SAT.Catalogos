@@ -4,13 +4,22 @@ using Jaeger.SAT.Catalogos.Scraping.Entities;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
+    /// <summary>
+    /// revisores
+    /// </summary>
     public class Reviewers {
         protected internal List<IReviewer> reviewer;
 
+        /// <summary>
+        /// constructor
+        /// </summary>
         public Reviewers() {
             this.reviewer = new List<IReviewer>();
         }
 
+        /// <summary>
+        /// crear opciones por default
+        /// </summary>
         public Reviewers CreateWithDefaultReviewers(IResourcesGateway gateway) {
             this.reviewer.Add(new ScrapingReviewer(gateway));
             this.reviewer.Add(new ConstantReviewer(gateway));
@@ -26,7 +35,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             return response;
         }
 
-        public IReviewer FindReviewerByOrigin(IOrigin origin) {
+        private IReviewer FindReviewerByOrigin(IOrigin origin) {
             foreach (var item in reviewer) {
                 if (item.Accepts(origin)) {
                     return item;

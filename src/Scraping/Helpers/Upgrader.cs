@@ -33,7 +33,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
         protected IOrigin UpgradeReview(Review review) {
             var origin = review.Origin;
             var destination = this.BuildPath(origin.DestinationFilename);
-            if (!review.Status.IsNotUpdated()) {
+            if (!(review.Status == ValueObjects.StatusEnum.NotUpdated)) {
                 return origin;
             }
             Console.WriteLine($"Actualizando {origin.Name} desde {origin.DownloadUrl} en {destination}");

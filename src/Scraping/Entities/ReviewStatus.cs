@@ -1,14 +1,9 @@
-﻿namespace Jaeger.SAT.Catalogos.Scraping.Entities {
+﻿using Jaeger.SAT.Catalogos.Scraping.ValueObjects;
+
+namespace Jaeger.SAT.Catalogos.Scraping.Entities {
     public class ReviewStatus {
         protected internal StatusEnum _Status;
-        /// <summary>
-        /// enumeracion de status del origen
-        /// </summary>
-        public enum StatusEnum {
-            UpToDate,
-            NotFound,
-            NotUpdated
-        }
+        
 
         public ReviewStatus(StatusEnum status) {
             this._Status = status;

@@ -1,52 +1,72 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Jaeger.SAT.Catalogos.Scraping.Entities;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
+    /// <summary>
+    /// clase para servicio de origenes
+    /// </summary>
     public class OriginService : OriginsTranslator {
-        public OriginService() {
-            this.FileName = "origins.xml";
-            this.WorkingFolder = @"C:\Jaeger\Jaeger.Temporal";
+
+        /// <summary>
+        /// constructor
+        /// </summary>
+        public OriginService(Configuration configuration) {
+            this.Configuration = configuration;
         }
 
-        public string FileName { get; set; }
+        /// <summary>
+        /// constructor
+        /// </summary>
+        public OriginService() {
+            this.Configuration = new Configuration();
+        }
 
-        public string WorkingFolder { get; set; }
+        public Configuration Configuration { get; set; }
 
+        /// <summary>
+        /// obtener o establecer lista de origines de datos
+        /// </summary>
         public List<IOrigin> DataSource { get; set; }
 
-        public OriginService(string name) { }
-
-        public OriginService GetAll() { 
+        public OriginService GetAll() {
             this.DataSource = this.OriginFromLayout(this.OriginsFromString());
-            return this; 
+            return this;
         }
 
+        /// <summary>
+        /// almacenar datos
+        /// </summary>
         public OriginService SaveChanges() {
             this.WriteFile();
-            return this; 
+            return this;
         }
 
-        public OriginService Delete() { 
-            return this; 
+        /// <summary>
+        /// eliminar archivo de datos
+        /// </summary>
+        public OriginService Delete() {
+            return this;
         }
 
-        public OriginService Add(IOrigin origin) { 
+        /// <summary>
+        /// agregar origen
+        /// </summary>
+        /// <param name="origin">interface de origen</param>
+        /// <returns></returns>
+        public OriginService Add(IOrigin origin) {
             if (this.DataSource == null) {
                 this.DataSource = new List<IOrigin>();
             }
             this.DataSource.Add(origin);
-            return this; 
+            return this;
         }
 
-        #region
+        #region builder
         protected string BuildPath() {
-            return Path.Combine(this.WorkingFolder, this.FileName);
+            return Path.Combine(this.Configuration.WorkingFolder, this.Configuration.FileName);
         }
 
         protected List<LayoutOrigin> ReadOrigin(string content) {

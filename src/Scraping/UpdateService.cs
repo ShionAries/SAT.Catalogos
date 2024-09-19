@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Jaeger.SAT.Catalogos.Scraping.Helpers;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
@@ -16,9 +13,9 @@ namespace Jaeger.SAT.Catalogos.Scraping {
             this.ResourcesGateway = new ResourcesGateway();
             var reviewers = new Reviewers().CreateWithDefaultReviewers(this.ResourcesGateway);
             var reviews = reviewers.Review(origins);
-            var notFoundReviews = reviews.Where(it => it.Status.IsNotFound()).ToList();
-            var notUpdatedReviews = reviews.Where(it => it.Status.IsNotUpdated()).ToList();
-            var upToDateReviews = reviews.Where(it => it.Status.IsUptodate()).ToList();
+            var notFoundReviews = reviews.Where(it => it.Status == ValueObjects.StatusEnum.NotFound).ToList();
+            var notUpdatedReviews = reviews.Where(it => it.Status == ValueObjects.StatusEnum.NotUpdated).ToList();
+            var upToDateReviews = reviews.Where(it => it.Status == ValueObjects.StatusEnum.UpToDate).ToList();
 
             foreach (var item in upToDateReviews) {
                 this.OnNotificationEvent(string.Format("El origen {0} desde {1} para {2} está actualizado", item.Origin.Name, item.Origin.DownloadUrl, item.Origin.DestinationFilename));

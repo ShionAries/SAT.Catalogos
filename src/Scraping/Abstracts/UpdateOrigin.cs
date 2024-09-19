@@ -3,7 +3,7 @@ using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Abstracts {
     //custom delegate
-    public delegate void DelEventHandler();
+    //public delegate void DelEventHandler();
 
     public abstract class UpdateOrigin {
         protected IResourcesGateway ResourcesGateway;

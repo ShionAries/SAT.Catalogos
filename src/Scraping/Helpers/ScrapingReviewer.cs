@@ -1,6 +1,7 @@
 ﻿using System;
 using Jaeger.SAT.Catalogos.Scraping.Entities;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
+using Jaeger.SAT.Catalogos.Scraping.ValueObjects;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
     internal class ScrapingReviewer : Abstracts.Reviewer, IReviewer {
@@ -22,7 +23,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
                 try {
                     origin = this.ResolveOrigin(origin as ScrapingOrigin);
                 } catch (Exception) {
-                    return new Review(origin, new ReviewStatus(ReviewStatus.StatusEnum.NotFound));
+                    return new Review(origin, StatusEnum.NotFound);
                 }
             }
 
@@ -30,16 +31,16 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
 
             // si no se pudo obtener el recurso
             if (!response.IsSuccess) {
-                return new Review(origin, new ReviewStatus(ReviewStatus.StatusEnum.NotFound));
+                return new Review(origin, StatusEnum.NotFound);
             }
 
             // si el recurso no coincide con la última versión
             if (!origin.HasLastVersion() || !response.DateMatch(origin.LastVersion)) {
-                return new Review(origin, new ReviewStatus(ReviewStatus.StatusEnum.NotUpdated));
+                return new Review(origin, StatusEnum.NotUpdated);
             }
 
             // entonces el recurso coincide
-            return new Review(origin, new ReviewStatus(ReviewStatus.StatusEnum.UpToDate));
+            return new Review(origin, StatusEnum.UpToDate);
         }
 
         protected IOrigin ResolveOrigin(ScrapingOrigin origin) {

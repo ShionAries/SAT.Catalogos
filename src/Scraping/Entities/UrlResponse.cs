@@ -70,6 +70,11 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
         }
         #endregion
 
+        /// <summary>
+        /// metodo para comprobar las fechas
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <returns>verdero si las fechas coinciden</returns>
         public bool DateMatch(DateTime? dateTime) {
             return this.LastModified == dateTime;
         }

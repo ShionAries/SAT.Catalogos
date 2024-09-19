@@ -1,4 +1,5 @@
 ﻿using Jaeger.SAT.Catalogos.Scraping.Interfaces;
+using Jaeger.SAT.Catalogos.Scraping.ValueObjects;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Entities {
     public class Review {
@@ -7,7 +8,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
         /// </summary>
         /// <param name="origin">Origen</param>
         /// <param name="status">status</param>
-        public Review(IOrigin origin, ReviewStatus status) {
+        public Review(IOrigin origin, StatusEnum status) {
             Origin = origin;
             Status = status;
         }
@@ -20,6 +21,6 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
         /// <summary>
         /// obtener o establecer status del origen de recurso
         /// </summary>
-        public ReviewStatus Status { get; set; }
+        public StatusEnum Status { get; set; }
     }
 }

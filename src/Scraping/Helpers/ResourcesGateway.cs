@@ -20,11 +20,22 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             return true;
         }
 
+        /// <summary>
+        /// obtener encabezados 
+        /// </summary>
+        /// <param name="url">URL del recurso</param>
+        /// <returns>UrlResponse</returns>
         public UrlResponse Headers(string url) {
             var response = this.ObtainResponse("HEAD", url);
             return this.CreateUrlResponseFromResponse(response, url);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="url">URL</param>
+        /// <param name="destinacion">archivo destino</param>
+        /// <returns>UrlResponse</returns>
         public UrlResponse Get(string url, string destinacion) {
             var response = this.ObtainResponse("GET", url);
             if (response.StatusCode == HttpStatusCode.OK && !string.IsNullOrEmpty(destinacion)) {

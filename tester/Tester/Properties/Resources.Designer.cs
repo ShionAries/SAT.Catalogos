@@ -131,6 +131,15 @@ namespace Tester.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a origins.xml.
+        /// </summary>
+        internal static string FileName {
+            get {
+                return ResourceManager.GetString("FileName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap home_page_32px {
@@ -197,6 +206,15 @@ namespace Tester.Properties {
             get {
                 object obj = ResourceManager.GetObject("test_lab_30px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a C:\Jaeger\Jaeger.Temporal.
+        /// </summary>
+        internal static string WorkingFolder {
+            get {
+                return ResourceManager.GetString("WorkingFolder", resourceCulture);
             }
         }
     }
