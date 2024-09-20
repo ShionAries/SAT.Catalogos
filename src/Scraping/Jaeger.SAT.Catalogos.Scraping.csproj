@@ -52,12 +52,14 @@
     <Compile Include="Entities\Review.cs" />
     <Compile Include="Entities\UrlResponse.cs" />
     <Compile Include="Helpers\ConstantReviewer.cs" />
+    <Compile Include="Helpers\ConstantReviewer1.cs" />
     <Compile Include="Helpers\LogInfoService.cs" />
     <Compile Include="Helpers\OriginService.cs" />
     <Compile Include="Helpers\OriginsIO.cs" />
     <Compile Include="Helpers\OriginsTranslator.cs" />
     <Compile Include="Helpers\Reviewers.cs" />
     <Compile Include="Helpers\ScrapingReviewer.cs" />
+    <Compile Include="Helpers\ScrapingReviewer1.cs" />
     <Compile Include="Helpers\ScrapingReviewerLinkExtractor.cs" />
     <Compile Include="Helpers\Upgrader.cs" />
     <Compile Include="Helpers\ResourcesGateway.cs" />
