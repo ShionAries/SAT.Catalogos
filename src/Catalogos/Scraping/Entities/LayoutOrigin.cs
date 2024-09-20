@@ -16,6 +16,6 @@
         /// <summary>
         /// obtener o establecer nombre de la instancia 
         /// </summary>
-        public string Type {  get; set; }
+        public string Type { get; set; }
     }
 }

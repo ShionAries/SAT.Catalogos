@@ -54,6 +54,9 @@ namespace Jaeger.SAT.Catalogos.Scraping.Interfaces {
         /// </summary>
         [DisplayName("Permitir")]
         bool AllowUpdate { get; set; }
+
+        [DisplayName("Importer")]
+        string Importer { get; set; }
         #endregion
 
         #region metodos publicos

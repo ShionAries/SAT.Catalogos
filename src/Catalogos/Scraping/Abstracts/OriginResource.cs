@@ -60,6 +60,9 @@ namespace Jaeger.SAT.Catalogos.Scraping.Abstracts {
         [DisplayName("Permitir")]
         public bool AllowUpdate { get; set; }
 
+        [DisplayName("Importer")]
+        public string Importer { get; set; }
+
         [Browsable(false)]
         [System.Xml.Serialization.XmlIgnore]
         public int LinkPosition { get; set; }

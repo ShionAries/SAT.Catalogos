@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
+namespace Jaeger.SAT.Catalogos.Helpers {
     /// <summary>
     /// Clase para looger de informacion
     /// </summary>

@@ -48,6 +48,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
                 Name = origin.Name,
                 Type = origin.GetType().Name,
                 AllowUpdate = origin.AllowUpdate,
+                Importer = origin.Name
             };
         }
 

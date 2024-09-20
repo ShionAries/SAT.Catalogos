@@ -392,6 +392,7 @@
     <Compile Include="Scraping\Abstracts\OriginResource.cs" />
     <Compile Include="Scraping\Abstracts\Reviewer.cs" />
     <Compile Include="Scraping\Abstracts\UpdateOrigin.cs" />
+    <Compile Include="Scraping\Builder\UpdaterServiceBuilder.cs" />
     <Compile Include="Scraping\DumpOrigins.cs" />
     <Compile Include="Scraping\Entities\Configuration.cs" />
     <Compile Include="Scraping\Entities\ConstantOrigin.cs" />
@@ -400,7 +401,7 @@
     <Compile Include="Scraping\Entities\ScrapingOrigin.cs" />
     <Compile Include="Scraping\Entities\UrlResponse.cs" />
     <Compile Include="Scraping\Helpers\ConstantReviewer.cs" />
-    <Compile Include="Scraping\Helpers\LogInfoService.cs" />
+    <Compile Include="Helpers\LogInfoService.cs" />
     <Compile Include="Scraping\Helpers\OriginService.cs" />
     <Compile Include="Scraping\Helpers\OriginsIO.cs" />
     <Compile Include="Scraping\Helpers\OriginsTranslator.cs" />
