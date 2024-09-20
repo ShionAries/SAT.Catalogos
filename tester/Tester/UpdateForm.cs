@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Jaeger.SAT.Catalogos.Scraping;
+using Jaeger.SAT.Catalogos.Scraping.Builder;
 using Jaeger.SAT.Catalogos.Scraping.Helpers;
 
 namespace Tester {
@@ -8,11 +9,14 @@ namespace Tester {
         private OriginService _ScrapService;
         private UpdateService _UpdateService;
         private Waiting4Form _Waiting;
+        private IUpdaterServiceBuilder Service;
 
         public UpdateForm(OriginService originService) {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
             this._ScrapService = originService;
+            this.Service = UpdateService.Create();
+            
         }
 
         private void UpdateForm_Load(object sender, EventArgs e) {
@@ -29,8 +33,11 @@ namespace Tester {
 
         private void StartButton_Click(object sender, EventArgs e) {
             this._Waiting = new Waiting4Form(() => {
-                this._ScrapService.DataSource = this._UpdateService.Run(this._ScrapService.DataSource);
-            }, "Cargando datos ...") {
+                var d0 = this.Service.Update(this._ScrapService.DataSource).Execute();
+                d0.Download();
+                this._ScrapService.DataSource = this.Service.Origins;
+
+            }, "Actualizando datos ...") {
                 Text = ""
             };
             this._Waiting.ShowDialog(this);
