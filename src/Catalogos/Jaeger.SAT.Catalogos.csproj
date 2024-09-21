@@ -416,6 +416,7 @@
     <Compile Include="Scraping\Interfaces\IResourcesGateway.cs" />
     <Compile Include="Scraping\Interfaces\IReviewer.cs" />
     <Compile Include="Scraping\Builder\IUpdaterServiceBuilder.cs" />
+    <Compile Include="Scraping\ScrapingService.cs" />
     <Compile Include="Scraping\UpdateService.cs" />
     <Compile Include="Scraping\ValueObjects\StatusEnum.cs" />
     <Compile Include="UpdateDatabase.cs" />

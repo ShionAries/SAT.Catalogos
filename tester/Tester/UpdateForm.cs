@@ -16,7 +16,8 @@ namespace Tester {
             CheckForIllegalCrossThreadCalls = false;
             this._ScrapService = originService;
             this.Service = UpdateService.Create();
-            
+            IScrapingService service = new ScrapingService();
+            service.Review(this._ScrapService.DataSource).Execute(); 
         }
 
         private void UpdateForm_Load(object sender, EventArgs e) {
