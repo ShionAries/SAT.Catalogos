@@ -1,4 +1,5 @@
-﻿using Jaeger.SAT.Catalogos.Update.Importers;
+﻿using Jaeger.SAT.Catalogos.Scraping.Entities;
+using Jaeger.SAT.Catalogos.Update.Importers;
 
 namespace Jaeger.SAT.Catalogos {
     public class UpdateRepository {
@@ -7,6 +8,12 @@ namespace Jaeger.SAT.Catalogos {
         public UpdateRepository(string sourceFolder) {
             SourceFolder = sourceFolder;
         }
+
+        public UpdateRepository(Configuration configuration) {
+            Configuration = configuration;
+        }
+
+        public Configuration Configuration { get; set; }
 
         public string SourceFolder { get; set; }
 

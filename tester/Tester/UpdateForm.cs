@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using Jaeger.SAT.Catalogos.Scraping;
-using Jaeger.SAT.Catalogos.Scraping.Builder;
 using Jaeger.SAT.Catalogos.Scraping.Helpers;
 
 namespace Tester {
@@ -9,21 +9,19 @@ namespace Tester {
         private OriginService _ScrapService;
         private UpdateService _UpdateService;
         private Waiting4Form _Waiting;
-        private IUpdaterServiceBuilder Service;
-
+        private ScrapingService scrapingService;
         public UpdateForm(OriginService originService) {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
             this._ScrapService = originService;
-            this.Service = UpdateService.Create();
-            IScrapingService service = new ScrapingService();
-            service.Review(this._ScrapService.DataSource).Execute(); 
         }
 
         private void UpdateForm_Load(object sender, EventArgs e) {
             this.Start.Click += StartButton_Click;
             this._UpdateService = new UpdateService();
             this._UpdateService.NotificationEvent += _UpdateService_NotificationEvent;
+            this.scrapingService = new ScrapingService();
+            
         }
 
         private void _UpdateService_NotificationEvent(object sender, string e) {
@@ -34,9 +32,9 @@ namespace Tester {
 
         private void StartButton_Click(object sender, EventArgs e) {
             this._Waiting = new Waiting4Form(() => {
-                var d0 = this.Service.Update(this._ScrapService.DataSource).Execute();
-                d0.Download();
-                this._ScrapService.DataSource = this.Service.Origins;
+                this.scrapingService.Review(this._ScrapService.DataSource);
+                this.scrapingService.Upgrader();
+                this._ScrapService.DataSource = this.scrapingService.GetOrigins();
 
             }, "Actualizando datos ...") {
                 Text = ""

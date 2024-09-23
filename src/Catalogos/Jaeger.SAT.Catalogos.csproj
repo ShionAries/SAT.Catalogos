@@ -392,6 +392,7 @@
     <Compile Include="Scraping\Abstracts\OriginResource.cs" />
     <Compile Include="Scraping\Abstracts\Reviewer.cs" />
     <Compile Include="Scraping\Abstracts\UpdateOrigin.cs" />
+    <Compile Include="Scraping\Builder\IUpdaterServiceBuilder.cs" />
     <Compile Include="Scraping\Builder\UpdaterServiceBuilder.cs" />
     <Compile Include="Scraping\DumpOrigins.cs" />
     <Compile Include="Scraping\Entities\Configuration.cs" />
@@ -415,7 +416,6 @@
     <Compile Include="Scraping\Interfaces\IOrigin.cs" />
     <Compile Include="Scraping\Interfaces\IResourcesGateway.cs" />
     <Compile Include="Scraping\Interfaces\IReviewer.cs" />
-    <Compile Include="Scraping\Builder\IUpdaterServiceBuilder.cs" />
     <Compile Include="Scraping\ScrapingService.cs" />
     <Compile Include="Scraping\UpdateService.cs" />
     <Compile Include="Scraping\ValueObjects\StatusEnum.cs" />

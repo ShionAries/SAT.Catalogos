@@ -6,9 +6,11 @@ using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Builder {
     public class UpdaterServiceBuilder : IUpdaterServiceBuilder, IUpdaterServiceIOriginBuilder, IUpdaterServiceExecuteBuilder, IUpdaterServiceDownloadBuilder {
+        
         private List<IOrigin> LOrigins;
         protected internal List<IReviewer> reviewer;
         protected internal List<Review> reviews;
+
         public UpdaterServiceBuilder() {
             this.Gateway = new ResourcesGateway();
             this.reviewer = new List<IReviewer>();
@@ -22,6 +24,8 @@ namespace Jaeger.SAT.Catalogos.Scraping.Builder {
         }
 
         public IResourcesGateway Gateway { get; set; }
+        
+        public Configuration Configuration { get; set; }
 
         public IUpdaterServiceIOriginBuilder Update(IOrigin origin) {
             this.LOrigins.Add(origin);

@@ -2,8 +2,6 @@
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using Jaeger.SAT.Catalogos.Scraping;
-using Jaeger.SAT.Catalogos.Scraping.Builder;
 using Jaeger.SAT.Catalogos.Scraping.Helpers;
 
 namespace Tester {
@@ -12,7 +10,6 @@ namespace Tester {
         private Panel leftBorderBtn;
         private Button currentBtn;
         private Form currentChildForm;
-        private IUpdaterServiceBuilder Service;
 
         private struct RGBColors {
             public static Color color1 = Color.FromArgb(172, 126, 241);

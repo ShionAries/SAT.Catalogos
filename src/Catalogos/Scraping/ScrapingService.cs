@@ -1,89 +1,102 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Jaeger.SAT.Catalogos.Scraping.Entities;
 using Jaeger.SAT.Catalogos.Scraping.Helpers;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Scraping {
-    public interface IScrapingService {
-        IResourcesGateway Gateway { get; set; }
-        IScrapingService Set(IResourcesGateway gateway);
-        IScraping1Service Review(IOrigin origin);
-        IScraping2Service Review(List<IOrigin> origins);
-    }
+    public class ScrapingService {
+        private ScrapingReviewer scrapingReviewer;
+        private ConstantReviewer constantReviewer;
+        private Upgrader upgrader;
+        private List<Review> reviewers;
+        private Review reviewer;
+        private List<IOrigin> origins;
+        private IOrigin origin;
 
-    public interface IScraping1Service {
-        IScraping3Service Execute();
-    }
+        public ScrapingService() {
+            this.Gateway = new ResourcesGateway();
+            this.Configuration = new Configuration();
+        }
 
-    public interface IScraping2Service {
-        IScraping4Service Execute();
-    }
+        public ScrapingService(Configuration configuration) {
+            this.Gateway = new ResourcesGateway();
+            this.Configuration = configuration;
+        }
 
-    public interface IScraping3Service {
-        IScraping5Service Download();
-
-    }
-
-    public interface IScraping4Service {
-        IScraping6Service Download();
-
-    }
-
-    public interface IScraping5Service { }
-    public interface IScraping6Service { }
-
-    public class ScrapingService : IScrapingService, IScraping1Service, IScraping2Service, IScraping3Service, IScraping4Service, IScraping5Service, IScraping6Service {
-        public ScrapingService() { }
-
-        public IResourcesGateway Gateway { get; set; }
-        IResourcesGateway IScrapingService.Gateway { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        public IScrapingService Set(IResourcesGateway gateway) {
+        public ScrapingService(IResourcesGateway gateway, Configuration configuration = null) {
             this.Gateway = gateway;
-            return this;
+            if (configuration != null)
+                this.Configuration = configuration;
+        }
+        #region propiedades
+        public IResourcesGateway Gateway { get; set; }
+
+        public Configuration Configuration { get; set; }
+        #endregion
+
+        #region metodos publicos
+        public Review Review(IOrigin origin) {
+            this.origin = origin;
+            this.CreateWithDefaultReviewers();
+            var reviewer2 = this.FindReviewerByOrigin(this.origin);
+            if (reviewer2 != null) {
+                this.reviewer = reviewer2.Review(this.origin);
+                return reviewer;
+            }
+            return null;
         }
 
-        public IScrapingService Review(IOrigin origin) {
-            return this;
+        public void Review(List<IOrigin> origins) {
+            this.origins = origins;
+            this.CreateWithDefaultReviewers();
+            this.reviewers = new List<Review>();
+            foreach (var item in this.origins) {
+                var reviewer = this.FindReviewerByOrigin(item);
+                reviewers.Add(reviewer.Review(item));
+            }
         }
 
-        IScrapingService IScrapingService.Set(IResourcesGateway gateway) {
-            throw new NotImplementedException();
+        public List<Review> GetReviews() {
+            return this.reviewers;
         }
 
-        IScraping1Service IScrapingService.Review(IOrigin origin) {
-            throw new NotImplementedException();
+        public IOrigin GetOrigin() {
+            return this.origin;
         }
 
-        IScraping2Service IScrapingService.Review(List<IOrigin> origins) {
-            throw new NotImplementedException();
+        public List<IOrigin> GetOrigins() {
+            return this.origins;
         }
 
-        IScraping3Service IScraping1Service.Execute() {
-            throw new NotImplementedException();
+        public void Upgrader() {
+            if (this.reviewer != null) {
+                this.origin = this.upgrader.UpgradeReview(this.reviewer);
+            } else if (this.reviewers != null) {
+                this.origins = this.upgrader.UpgradeReviews(this.reviewers);
+            }
+        }
+        #endregion
+
+        #region metodos privados
+        private IReviewer FindReviewerByOrigin(IOrigin origin) {
+            if (this.scrapingReviewer.Accepts(origin))
+                return this.scrapingReviewer;
+            if (this.constantReviewer.Accepts(origin))
+                return this.constantReviewer;
+
+            throw new Exception($"Unable to review an origin of class {origin.GetType().Name}");
         }
 
-        IScraping4Service IScraping2Service.Execute() {
-            throw new NotImplementedException();
+        private void CreateWithDefaultReviewers() {
+            if (this.scrapingReviewer == null)
+                this.scrapingReviewer = new ScrapingReviewer(this.Gateway);
+            if (this.constantReviewer == null)
+                this.constantReviewer = new ConstantReviewer(this.Gateway);
+            if (this.upgrader == null)
+                this.upgrader = new Upgrader(this.Gateway, this.Configuration.WorkingFolder);
         }
-
-        IScraping5Service IScraping3Service.Download() {
-            throw new NotImplementedException();
-        }
-
-        IScraping6Service IScraping4Service.Download() {
-            throw new NotImplementedException();
-        }
-    }
-
-    public class Prueba {
-        Prueba() {
-            IScrapingService service = new ScrapingService().Set(new ResourcesGateway());
-            service.Review(new Entities.ScrapingOrigin()).Execute();
-            service.Review(new List<IOrigin>() { new Entities.ScrapingOrigin(), new Entities.ConstantOrigin() }).Execute().Download();
-        }
+        #endregion
     }
 }

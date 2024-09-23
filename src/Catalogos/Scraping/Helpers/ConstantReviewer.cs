@@ -35,7 +35,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             }
 
             // si el recurso no coincide con la ultima version
-            if (!origin.HasLastVersion() || ! response.DateMatch(origin.LastVersion)) {
+            if (!origin.HasLastVersion() || !response.DateMatch(origin.LastVersion)) {
                 return new Review(origin, StatusEnum.NotUpdated);
             }
 

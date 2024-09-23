@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Jaeger.SAT.Catalogos.Scraping.Builder;
 using Jaeger.SAT.Catalogos.Scraping.Helpers;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
@@ -18,9 +17,6 @@ namespace Jaeger.SAT.Catalogos.Scraping {
             var notFoundReviews = reviews.Where(it => it.Status == ValueObjects.StatusEnum.NotFound).ToList();
             var notUpdatedReviews = reviews.Where(it => it.Status == ValueObjects.StatusEnum.NotUpdated).ToList();
             var upToDateReviews = reviews.Where(it => it.Status == ValueObjects.StatusEnum.UpToDate).ToList();
-
-            var d0 = Create().Update(origins).Execute();
-
 
             foreach (var item in upToDateReviews) {
                 this.OnNotificationEvent($"El origen {item.Origin.Name} desde {item.Origin.DownloadUrl} para {item.Origin.DestinationFilename} está actualizado");
@@ -51,10 +47,6 @@ namespace Jaeger.SAT.Catalogos.Scraping {
             this.OnNotificationEvent("Actualizando archivo de control de origenes");
 
             return recentOrigins;
-        }
-
-        public static IUpdaterServiceBuilder Create() {
-            return new UpdaterServiceBuilder();
         }
     }
 }

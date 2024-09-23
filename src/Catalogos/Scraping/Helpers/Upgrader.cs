@@ -30,7 +30,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             return System.IO.Path.Combine(destinationPath, filename);
         }
 
-        protected IOrigin UpgradeReview(Review review) {
+        public IOrigin UpgradeReview(Review review) {
             var origin = review.Origin;
             var destination = this.BuildPath(origin.DestinationFilename);
             if (!(review.Status == ValueObjects.StatusEnum.NotUpdated)) {
