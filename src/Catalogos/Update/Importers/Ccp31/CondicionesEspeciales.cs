@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jaeger.SAT.Catalogos.Update.Abstracts;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;

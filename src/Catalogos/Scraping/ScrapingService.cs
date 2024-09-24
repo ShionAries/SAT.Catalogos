@@ -4,6 +4,7 @@ using System.Linq;
 using Jaeger.SAT.Catalogos.Scraping.Entities;
 using Jaeger.SAT.Catalogos.Scraping.Helpers;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
+using Jaeger.SAT.Catalogos.Update;
 
 namespace Jaeger.SAT.Catalogos.Scraping {
     public class ScrapingService {
@@ -30,6 +31,7 @@ namespace Jaeger.SAT.Catalogos.Scraping {
             if (configuration != null)
                 this.Configuration = configuration;
         }
+
         #region propiedades
         public IResourcesGateway Gateway { get; set; }
 

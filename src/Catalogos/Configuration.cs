@@ -1,4 +1,4 @@
-﻿namespace Jaeger.SAT.Catalogos.Scraping.Entities {
+﻿namespace Jaeger.SAT.Catalogos.Update {
     /// <summary>
     /// clase para configuracion del servicio
     /// </summary>
@@ -7,8 +7,8 @@
         /// constructor
         /// </summary>
         public Configuration() {
-            this.FileName = "origins.xml";
-            this.WorkingFolder = @"C:\Jaeger\Jaeger.Temporal";
+            FileName = "origins.xml";
+            WorkingFolder = @"C:\Jaeger\Jaeger.Temporal";
         }
 
         public Configuration(string fileName = "origins.xml", string workingFolder = @"C:\Jaeger\Jaeger.Temporal") {
@@ -29,6 +29,6 @@
         /// <summary>
         /// obtener o establecer ruta completa de archivo log
         /// </summary>
-        public string LogFileName {  get; set; }
+        public string LogFileName { get; set; }
     }
 }

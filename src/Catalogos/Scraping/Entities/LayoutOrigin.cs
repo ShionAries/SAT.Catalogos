@@ -17,5 +17,10 @@
         /// obtener o establecer nombre de la instancia 
         /// </summary>
         public string Type { get; set; }
+
+        /// <summary>
+        /// obtener o establecer nombre del importador
+        /// </summary>
+        public string Importer { get; set; }
     }
 }

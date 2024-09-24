@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Jaeger.SAT.Catalogos.Repository.Rep20;
+using Jaeger.SAT.Catalogos.Update.Abstracts;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Rep20 {
     /// <summary>

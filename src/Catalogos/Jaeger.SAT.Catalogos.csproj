@@ -395,7 +395,7 @@
     <Compile Include="Scraping\Builder\IUpdaterServiceBuilder.cs" />
     <Compile Include="Scraping\Builder\UpdaterServiceBuilder.cs" />
     <Compile Include="Scraping\DumpOrigins.cs" />
-    <Compile Include="Scraping\Entities\Configuration.cs" />
+    <Compile Include="Configuration.cs" />
     <Compile Include="Scraping\Entities\ConstantOrigin.cs" />
     <Compile Include="Scraping\Entities\LayoutOrigin.cs" />
     <Compile Include="Scraping\Entities\Review.cs" />
@@ -421,7 +421,7 @@
     <Compile Include="Scraping\ValueObjects\StatusEnum.cs" />
     <Compile Include="UpdateDatabase.cs" />
     <Compile Include="UpdateRepository.cs" />
-    <Compile Include="Update\AbstractInjector.cs" />
+    <Compile Include="Update\Abstracts\AbstractInjector.cs" />
     <Compile Include="Repository\Abstracts\Repository.cs" />
     <Compile Include="Repository\Abstracts\RepositoryContext.cs" />
     <Compile Include="Repository\Abstracts\ClaveBase.cs" />

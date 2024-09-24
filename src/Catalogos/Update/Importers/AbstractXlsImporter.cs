@@ -2,6 +2,9 @@
 using Jaeger.SAT.Catalogos.Update.Converts;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers {
+    /// <summary>
+    /// clase abstracta para importador
+    /// </summary>
     public abstract class AbstractXlsImporter : IImporter {
         /// <summary>
         /// constructor

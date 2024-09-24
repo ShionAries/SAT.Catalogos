@@ -1,4 +1,4 @@
-﻿using Jaeger.SAT.Catalogos.Scraping.Entities;
+﻿using Jaeger.SAT.Catalogos.Update;
 using Jaeger.SAT.Catalogos.Update.Importers;
 
 namespace Jaeger.SAT.Catalogos {

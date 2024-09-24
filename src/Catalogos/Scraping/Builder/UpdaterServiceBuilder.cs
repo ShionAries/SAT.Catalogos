@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Jaeger.SAT.Catalogos.Scraping.Entities;
 using Jaeger.SAT.Catalogos.Scraping.Helpers;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
+using Jaeger.SAT.Catalogos.Update;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Builder {
     public class UpdaterServiceBuilder : IUpdaterServiceBuilder, IUpdaterServiceIOriginBuilder, IUpdaterServiceExecuteBuilder, IUpdaterServiceDownloadBuilder {
