@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using Jaeger.SAT.Catalogos.Helpers;
 using Jaeger.SAT.Catalogos.Scraping.Entities;
@@ -15,7 +16,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
         /// <summary>
         /// constructor
         /// </summary>
-        public OriginService(Configuration configuration) {
+        public OriginService(IConfiguration configuration) {
             this.Configuration = configuration;
         }
 
@@ -26,7 +27,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             this.Configuration = new Configuration();
         }
 
-        public Configuration Configuration { get; set; }
+        public IConfiguration Configuration { get; set; }
 
         /// <summary>
         /// obtener o establecer lista de origines de datos
@@ -62,7 +63,10 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             if (this.DataSource == null) {
                 this.DataSource = new List<IOrigin>();
             }
-            this.DataSource.Add(origin);
+            
+            if (this.DataSource.Where(it => it.Equals(origin)).Count()==0) {
+                this.DataSource.Add(origin);
+            }
             return this;
         }
 

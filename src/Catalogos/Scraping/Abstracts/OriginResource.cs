@@ -86,5 +86,13 @@ namespace Jaeger.SAT.Catalogos.Scraping.Abstracts {
             return this;
         }
         #endregion
+
+        public override bool Equals(object obj) {
+            return this.Name == (obj as IOrigin).Name;
+        }
+
+        public override int GetHashCode() {
+            return base.GetHashCode();
+        }
     }
 }
