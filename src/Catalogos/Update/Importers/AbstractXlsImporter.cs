@@ -43,11 +43,11 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
             injector.Inject();
         }
 
-        public XlsToDataSetConverter CreateConverter() {
+        protected XlsToDataSetConverter CreateConverter() {
             return new XlsToDataSetConverter();
         }
 
-        public string GetFullPath() {
+        protected string GetFullPath() {
             return System.IO.Path.Combine(this.WorkingFolder, FileName);
         }
     }

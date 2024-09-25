@@ -8,8 +8,7 @@ namespace Jaeger.SAT.Catalogos.Scraping {
     /// 
     /// </summary>
     public class UpdateService : Abstracts.UpdateOrigin {
-        public UpdateService() {
-        }
+        public UpdateService() { }
 
         public List<IOrigin> Run(List<IOrigin> origins) {
             var reviewers = new Reviewers().CreateWithDefaultReviewers();

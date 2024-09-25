@@ -2,7 +2,7 @@
     /// <summary>
     /// clase para configuracion del servicio
     /// </summary>
-    public class Configuration {
+    public class Configuration : IConfiguration {
         /// <summary>
         /// constructor
         /// </summary>

@@ -24,9 +24,9 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
                 }
             }
 
-            //foreach (var importer in importers) {
-            //    importer.Import(logger);
-            //}
+            foreach (var importer in importers) {
+                importer.Import();
+            }
         }
 
         protected internal string GetFullName(string sourceFolder, string fileName) {

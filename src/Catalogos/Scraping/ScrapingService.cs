@@ -26,7 +26,7 @@ namespace Jaeger.SAT.Catalogos.Scraping {
             this.Configuration = configuration;
         }
 
-        public ScrapingService(IResourcesGateway gateway, Configuration configuration = null) {
+        public ScrapingService(IResourcesGateway gateway, IConfiguration configuration = null) {
             this.Gateway = gateway;
             if (configuration != null)
                 this.Configuration = configuration;
@@ -35,7 +35,7 @@ namespace Jaeger.SAT.Catalogos.Scraping {
         #region propiedades
         public IResourcesGateway Gateway { get; set; }
 
-        public Configuration Configuration { get; set; }
+        public IConfiguration Configuration { get; set; }
         #endregion
 
         #region metodos publicos
