@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 using Jaeger.SAT.Catalogos.Scraping.Entities;
+using Jaeger.SAT.Catalogos.Helpers;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
     public class OriginsIO {

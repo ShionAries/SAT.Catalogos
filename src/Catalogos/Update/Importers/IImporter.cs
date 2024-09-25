@@ -4,6 +4,6 @@
 
         bool CheckFile();
 
-        void Import(Helpers.ILogger logger);
+        void Import();
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers {
     public class SourcesImporter {
-        public void Import(string source, Helpers.ILogger logger) {
+        public void Import(string source) {
             var importers = new List<IImporter> {
                 new Cfdi40Catalogos(this.GetFullName(source, "cfdi_40.xls")),
                 new Nomina12Catalogos(this.GetFullName(source, "catNomina.xls")),
@@ -24,9 +24,9 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
                 }
             }
 
-            foreach (var importer in importers) {
-                importer.Import(logger);
-            }
+            //foreach (var importer in importers) {
+            //    importer.Import(logger);
+            //}
         }
 
         protected internal string GetFullName(string sourceFolder, string fileName) {

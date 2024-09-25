@@ -29,20 +29,20 @@ namespace Jaeger.SAT.Catalogos.Update.Abstracts {
             set { _LastVersion = value; }
         }
 
-        public int Inject(Helpers.ILogger logger) {
-            logger.Info($"Arreglando tabla ...{_DataTable.TableName}");
+        public int Inject() {
+            //logger.Info($"Arreglando tabla ...{_DataTable.TableName}");
             FixDataTable();
 
-            logger.Info($"Verificando encabezado ...{_DataTable.TableName}");
+            //logger.Info($"Verificando encabezado ...{_DataTable.TableName}");
             CheckHeaders();
 
-            logger.Info($"Cambiado columnas para mapeo de datos {_DataTable.TableName}...");
+            //logger.Info($"Cambiado columnas para mapeo de datos {_DataTable.TableName}...");
             ChangeHeadersMapper();
 
             if (IsUpdateable()) {
                 CreateRepository();
                 Save();
-                logger.Info($"Se inyectaron registros en {_DataTable.TableName}");
+                //logger.Info($"Se inyectaron registros en {_DataTable.TableName}");
             }
 
             return 0;

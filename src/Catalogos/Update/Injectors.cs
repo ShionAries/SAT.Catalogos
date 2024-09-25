@@ -14,9 +14,9 @@ namespace Jaeger.SAT.Catalogos.Update {
         /// </summary>
         public List<IInjector> Items { get; set; }
 
-        public int Inject(Helpers.ILogger logger) {
+        public int Inject() {
             foreach (var item in Items) {
-                item.Inject(logger);
+                item.Inject();
             }
             return 0;
         }

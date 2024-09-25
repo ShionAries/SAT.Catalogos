@@ -4,7 +4,7 @@ using System.Text;
 using System.Xml.Serialization;
 using System.Xml;
 
-namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
+namespace Jaeger.SAT.Catalogos.Helpers {
     internal class XmlSerializerService {
 
         public static string SerializeObject<T>(T obj) {
@@ -21,7 +21,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
                 memoryStream = (MemoryStream)xmlTextWriter.BaseStream;
                 str = utf8WithoutBom.GetString(memoryStream.ToArray());
                 empty = str;
-            } catch (System.Exception ex) {
+            } catch (Exception ex) {
                 Console.WriteLine(ex.Message);
                 empty = string.Empty;
             }
@@ -35,12 +35,12 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
                 return (T)xmlSerializer.Deserialize(memoryStream);
             } catch (Exception ex) {
                 Console.WriteLine(ex.Message);
-                return default(T);
+                return default;
             }
         }
-        
+
         public static byte[] StringToUtf8ByteArray(string pXmlString) {
-            return (new UTF8Encoding(false)).GetBytes(pXmlString);
+            return new UTF8Encoding(false).GetBytes(pXmlString);
         }
     }
 }

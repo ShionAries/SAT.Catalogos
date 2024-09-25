@@ -33,7 +33,7 @@ namespace Jaeger.SAT.Catalogos {
         public int Run() {
             if (this.Importer != null) {
                 if (this.Importer.CheckFile()) {
-                    this.Importer.Import(new Helpers.Logger());
+                    this.Importer.Import();
                 }
             }
             return 0;

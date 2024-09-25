@@ -32,7 +32,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
 
         public abstract Injectors CreateInjectors(DataSet dataSet);
 
-        public void Import(Helpers.ILogger logger) {
+        public void Import() {
             //logger.Info($"Cargando archivo {FileSource}...");
             var converter = CreateConverter();
             converter.Convert(this.GetFullPath());
@@ -40,7 +40,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
             // create the injector (use a collection)
             var injector = CreateInjectors(converter.DataSet);
             injector.Validate();
-            injector.Inject(logger);
+            injector.Inject();
         }
 
         public XlsToDataSetConverter CreateConverter() {

@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
+namespace Jaeger.SAT.Catalogos.Helpers {
     /// <summary>
     /// servicio de validacion de formatos
     /// </summary>
