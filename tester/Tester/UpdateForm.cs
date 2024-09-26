@@ -19,7 +19,10 @@ namespace Tester {
 
         private void UpdateForm_Load(object sender, EventArgs e) {
             var builder = ScrapingServiceBuilder.Create().Review(Jaeger.SAT.Catalogos.Scraping.ValueObjects.SourceIdentifierEnum.Articulo69B).Upgrader();
-            builder.get
+            var origen = builder.GetOrigin();
+            var update = builder.Update();
+            update.Origin(origen).Update(Jaeger.SAT.Catalogos.Scraping.ValueObjects.SourceIdentifierEnum.Articulo69B).Import();
+            
             return;
             this.Start.Click += StartButton_Click;
             this._UpdateService = new UpdateService();

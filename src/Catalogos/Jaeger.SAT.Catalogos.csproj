@@ -52,6 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builder\IUpdateRepositoryServiceBuilder.cs" />
+    <Compile Include="Builder\ScrapingServiceReviewsBuilder.cs" />
+    <Compile Include="Builder\UpdateRepositoryServiceBuilder.cs" />
     <Compile Include="IConfiguration.cs" />
     <Compile Include="Repository\Abstracts\ClaveBaseVigenciaSingle.cs" />
     <Compile Include="Repository\Ccp31\CodigoTransporteAereoRepository.cs" />

@@ -8,6 +8,7 @@ namespace Jaeger.SAT.Catalogos.Builder {
         IScrapingReviewServiceBuilder Review(SourceIdentifierEnum sourceIdentifier);
         IScrapingReviewServiceBuilder Review(IOrigin origin);
         IOrigin GetOrigin();
+        IScrapingServiceReviewsBuilder Reviews();
     }
 
     public interface IScrapingReviewServiceBuilder {
@@ -15,14 +16,15 @@ namespace Jaeger.SAT.Catalogos.Builder {
     }
 
     public interface IScrapingReviewsServiceBuilder {
-
     }
 
     public interface IScrapingServiceUpgraderBuilder {
+        IOrigin GetOrigin();
+        IUpdateRepositoryServiceBuilder Update();
 
     }
 
-    public interface IUpdateServiceBuilder {
-
+    public interface IScrapingServiceReviewsBuilder {
+        IScrapingReviewServiceBuilder Reviews(List<IOrigin> origins);
     }
 }

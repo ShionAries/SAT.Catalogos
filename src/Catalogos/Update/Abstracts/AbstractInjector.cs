@@ -17,7 +17,7 @@ namespace Jaeger.SAT.Catalogos.Update.Abstracts {
         public AbstractInjector(DataTable dataTable) {
             _DataTable = dataTable;
             _HeadersMapper = new Dictionary<string, string>();
-            LastVersion = null;
+           // LastVersion = null;
         }
 
         public DateTime? LastVersion {
@@ -30,19 +30,19 @@ namespace Jaeger.SAT.Catalogos.Update.Abstracts {
         }
 
         public int Inject() {
-            //logger.Info($"Arreglando tabla ...{_DataTable.TableName}");
+            //Arreglando tabla 
             FixDataTable();
 
-            //logger.Info($"Verificando encabezado ...{_DataTable.TableName}");
+            //Verificando encabezado
             CheckHeaders();
 
-            //logger.Info($"Cambiado columnas para mapeo de datos {_DataTable.TableName}...");
+            ///Cambiado columnas para mapeo de datos
             ChangeHeadersMapper();
 
             if (IsUpdateable()) {
                 CreateRepository();
                 Save();
-                //logger.Info($"Se inyectaron registros en {_DataTable.TableName}");
+                //Se inyectaron registros
             }
 
             return 0;

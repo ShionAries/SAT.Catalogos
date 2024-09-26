@@ -3,7 +3,7 @@ using Jaeger.SAT.Catalogos.Update.Importers.Articulo69B;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers {
     public class Articulo69BCatalogos : AbstractXlsImporter, IImporter {
-        
+
         public Articulo69BCatalogos(IConfiguration configuration) : base(configuration) {
             this.FileName = "Listado_Completo_69-B.csv";
         }
@@ -11,7 +11,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
         public override Injectors CreateInjectors(DataSet dataSet) {
             var injectors = new Injectors {
                 Items = new System.Collections.Generic.List<IInjector> {
-                    new ListadoCompleto(dataSet.Tables[0])
+                    new ListadoCompleto(dataSet.Tables[0]){ LastVersion = this.LastVersion}
                 },
             };
             return injectors;

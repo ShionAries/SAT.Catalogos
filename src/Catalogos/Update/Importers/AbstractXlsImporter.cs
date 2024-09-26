@@ -16,6 +16,8 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
         }
 
         #region propiedades
+        public System.DateTime? LastVersion { get; set; }
+
         public IConfiguration Configuration { get; set; }
 
         /// <summary>

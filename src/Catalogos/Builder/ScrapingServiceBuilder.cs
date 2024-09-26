@@ -14,6 +14,7 @@ namespace Jaeger.SAT.Catalogos.Builder {
         private Upgrader upgrader;
         private IOrigin origin;
         private Review reviewer;
+        private SourceIdentifierEnum sourceIdentifier;
         #endregion
 
         #region constructor
@@ -46,6 +47,7 @@ namespace Jaeger.SAT.Catalogos.Builder {
 
         #region builder
         public IScrapingReviewServiceBuilder Review(SourceIdentifierEnum sourceIdentifier) {
+            this.sourceIdentifier = sourceIdentifier;
             this.origin = DumpOrigins.GetOrigin(sourceIdentifier);
             this.CreateWithDefaultReviewers();
             var reviewer2 = FindReviewerByOrigin(this.origin);
@@ -60,11 +62,15 @@ namespace Jaeger.SAT.Catalogos.Builder {
             return this;
         }
 
+        public IUpdateRepositoryServiceBuilder Update() {
+            return new UpdateRepositoryServiceBuilder(this.Configuration, this.origin, this.sourceIdentifier);
+        }
+
         public IScrapingReviewsServiceBuilder Review(List<IOrigin> origin) {
             return this;
         }
 
-        public IScrapingServiceUpgraderBuilder Upgrader() {
+        public virtual IScrapingServiceUpgraderBuilder Upgrader() {
             if (reviewer != null) {
                 origin = upgrader.UpgradeReview(reviewer);
             }
@@ -73,6 +79,10 @@ namespace Jaeger.SAT.Catalogos.Builder {
 
         public IOrigin GetOrigin() {
             return this.origin;
+        }
+
+        public IScrapingServiceReviewsBuilder Reviews() {
+            return new ScrapingServiceReviewsBuilder(this.Configuration);
         }
         #endregion
 
