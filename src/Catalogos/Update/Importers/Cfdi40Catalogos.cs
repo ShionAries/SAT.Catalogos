@@ -1,10 +1,15 @@
 ﻿using System.Data;
+using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 using Jaeger.SAT.Catalogos.Update.Importers.Cfdi40;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers {
     internal class Cfdi40Catalogos : AbstractXlsImporter, IImporter {
-        public Cfdi40Catalogos(string csvFolder) : base(csvFolder) {
+        public Cfdi40Catalogos(IConfiguration configuration) : base(configuration) {
+            this.FileName = "cfdi_40.xls";
+        }
 
+        public Cfdi40Catalogos(IOrigin origin, IConfiguration configuration) : base(configuration) {
+            this.FileName = origin.DestinationFilename;
         }
 
         public override Injectors CreateInjectors(DataSet dataSet) {

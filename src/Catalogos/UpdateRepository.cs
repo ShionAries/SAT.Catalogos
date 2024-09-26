@@ -1,5 +1,4 @@
-﻿using Jaeger.SAT.Catalogos.Update;
-using Jaeger.SAT.Catalogos.Update.Importers;
+﻿using Jaeger.SAT.Catalogos.Update.Importers;
 
 namespace Jaeger.SAT.Catalogos {
     public class UpdateRepository {

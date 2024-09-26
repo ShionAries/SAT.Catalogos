@@ -4,7 +4,7 @@ using Jaeger.SAT.Catalogos.Update.Importers.Articulo69B;
 namespace Jaeger.SAT.Catalogos.Update.Importers {
     public class Articulo69BCatalogos : AbstractXlsImporter, IImporter {
         
-        public Articulo69BCatalogos(string csvFolder) : base(csvFolder) {
+        public Articulo69BCatalogos(IConfiguration configuration) : base(configuration) {
             this.FileName = "Listado_Completo_69-B.csv";
         }
 

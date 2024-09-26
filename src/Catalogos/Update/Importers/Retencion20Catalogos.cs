@@ -6,7 +6,9 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
     /// Retencion e Informacion de Pagos
     /// </summary>
     public class Retencion20Catalogos : AbstractXlsImporter, IImporter {
-        public Retencion20Catalogos(string csvFolder) : base(csvFolder) { }
+        public Retencion20Catalogos(IConfiguration configuration) : base(configuration) {
+            this.FileName = "ret_20.xls";
+        }
 
         public override Injectors CreateInjectors(DataSet dataSet) {
             return new Injectors() {

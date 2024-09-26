@@ -3,19 +3,19 @@ using System.Linq;
 using Jaeger.SAT.Catalogos.Scraping.Helpers;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
-namespace Jaeger.SAT.Catalogos.Scraping {
+namespace Jaeger.SAT.Catalogos {
     /// <summary>
     /// 
     /// </summary>
-    public class UpdateService : Abstracts.UpdateOrigin {
+    public class UpdateService : Scraping.Abstracts.UpdateOrigin {
         public UpdateService() { }
 
         public List<IOrigin> Run(List<IOrigin> origins) {
             var reviewers = new Reviewers().CreateWithDefaultReviewers();
             var reviews = reviewers.Review(origins);
-            var notFoundReviews = reviews.Where(it => it.Status == ValueObjects.StatusEnum.NotFound).ToList();
-            var notUpdatedReviews = reviews.Where(it => it.Status == ValueObjects.StatusEnum.NotUpdated).ToList();
-            var upToDateReviews = reviews.Where(it => it.Status == ValueObjects.StatusEnum.UpToDate).ToList();
+            var notFoundReviews = reviews.Where(it => it.Status == Scraping.ValueObjects.StatusEnum.NotFound).ToList();
+            var notUpdatedReviews = reviews.Where(it => it.Status == Scraping.ValueObjects.StatusEnum.NotUpdated).ToList();
+            var upToDateReviews = reviews.Where(it => it.Status == Scraping.ValueObjects.StatusEnum.UpToDate).ToList();
 
             foreach (var item in upToDateReviews) {
                 this.OnNotificationEvent($"El origen {item.Origin.Name} desde {item.Origin.DownloadUrl} para {item.Origin.DestinationFilename} está actualizado");

@@ -10,8 +10,9 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
         public OriginsTranslator() { }
 
         public List<IOrigin> OriginFromLayout(List<LayoutOrigin> origins) {
-            if (origins == null)
-                return null;
+            if (origins == null) { 
+                return new DumpOrigins().Origins;
+             }
 
             var response = new List<IOrigin>();
             foreach (var item in origins) {
@@ -48,7 +49,6 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
                 Name = origin.Name,
                 Type = origin.GetType().Name,
                 AllowUpdate = origin.AllowUpdate,
-                Importer = origin.Name
             };
         }
 

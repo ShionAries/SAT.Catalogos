@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
-using Jaeger.SAT.Catalogos.Scraping;
+using Jaeger.SAT.Catalogos;
+using Jaeger.SAT.Catalogos.Builder;
 using Jaeger.SAT.Catalogos.Scraping.Helpers;
 
 namespace Tester {
@@ -17,11 +18,14 @@ namespace Tester {
         }
 
         private void UpdateForm_Load(object sender, EventArgs e) {
+            var builder = ScrapingServiceBuilder.Create().Review(Jaeger.SAT.Catalogos.Scraping.ValueObjects.SourceIdentifierEnum.Articulo69B).Upgrader();
+            builder.get
+            return;
             this.Start.Click += StartButton_Click;
             this._UpdateService = new UpdateService();
             this._UpdateService.NotificationEvent += _UpdateService_NotificationEvent;
             this.scrapingService = new ScrapingService();
-            
+            this.scrapingService.Upgrader();
         }
 
         private void _UpdateService_NotificationEvent(object sender, string e) {

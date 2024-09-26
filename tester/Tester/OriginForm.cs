@@ -16,7 +16,7 @@ namespace Tester {
 
         private void OriginForm_Load(object sender, EventArgs e) {
             if (origin != null) { 
-                this.OriginName.Text = origin.Name;
+                this.OriginName.Text = origin.Name.ToString();
                 this.Url.Text = origin.Url;
                 this.DownloadUrl.Text = origin.DownloadUrl;
                 this.DestinationFileName.Text = origin.DestinationFilename;

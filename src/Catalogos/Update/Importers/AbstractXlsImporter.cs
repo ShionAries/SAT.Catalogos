@@ -9,19 +9,20 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
         /// <summary>
         /// constructor
         /// </summary>
-        public AbstractXlsImporter(string csvFolder) {
-            WorkingFolder = csvFolder;
+        public AbstractXlsImporter() { }
+
+        public AbstractXlsImporter(IConfiguration configuration) {
+            this.Configuration = configuration;
         }
+
+        #region propiedades
+        public IConfiguration Configuration { get; set; }
 
         /// <summary>
         /// obtener o establecer nombre del archivo del origen de los datos
         /// </summary>
         public string FileName { get; set; }
-
-        /// <summary>
-        /// obtener o establecer la carpeta de trabajo
-        /// </summary>
-        public string WorkingFolder { get; set; }
+        #endregion
 
         /// <summary>
         /// verificar la existencia del archivo de origen
@@ -48,7 +49,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
         }
 
         protected string GetFullPath() {
-            return System.IO.Path.Combine(this.WorkingFolder, FileName);
+            return System.IO.Path.Combine(this.Configuration.WorkingFolder, FileName);
         }
     }
 }

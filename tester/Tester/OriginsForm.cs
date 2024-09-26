@@ -40,9 +40,7 @@ namespace Tester {
                 };
                 this.waiting.ShowDialog(this);
             }
-            var origen = this.scrapService.DataSource.FirstOrDefault();
-            origen.LastVersion = System.DateTime.Now;
-            this.scrapService.Add(origen);
+            
             this.GridData.DataSource = this.scrapService.DataSource;
         }
 

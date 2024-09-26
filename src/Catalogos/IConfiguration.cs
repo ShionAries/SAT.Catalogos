@@ -1,4 +1,4 @@
-﻿namespace Jaeger.SAT.Catalogos.Update {
+﻿namespace Jaeger.SAT.Catalogos {
     /// <summary>
     /// clase para configuracion del servicio
     /// </summary>

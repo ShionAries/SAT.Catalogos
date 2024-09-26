@@ -6,7 +6,9 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
     /// Catalogos de Nomina
     /// </summary>
     internal class Nomina12Catalogos : AbstractXlsImporter, IImporter {
-        public Nomina12Catalogos(string csvFolder) : base(csvFolder) { }
+        public Nomina12Catalogos(IConfiguration configuration) : base(configuration) {
+            this.FileName = "catNomina.xls";
+        }
 
         public override Injectors CreateInjectors(DataSet dataSet) {
             return new Injectors() {

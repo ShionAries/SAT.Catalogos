@@ -1,33 +1,24 @@
 ﻿using System.Collections.Generic;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 using Jaeger.SAT.Catalogos.Scraping.Entities;
+using Jaeger.SAT.Catalogos.Scraping.ValueObjects;
 
-namespace Jaeger.SAT.Catalogos.Scraping {
+namespace Jaeger.SAT.Catalogos {
     /// <summary>
     /// origenes de datos
     /// </summary>
-    internal class DumpOrigins {
-        protected internal string common = "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos";
+    public class DumpOrigins {
+        public static string common = "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos";
         /// <summary>
         /// constructor
         /// </summary>
         public DumpOrigins() {
-            this.Origins = new List<IOrigin>() {
-                new ScrapingOrigin(
-                    "CFDI 3.3",
-                    "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/anexo_20.htm",
-                    "catCFDI.xls",
-                    "Catálogos CFDI Versión 3.3"),
-                new ScrapingOrigin(
-                    "CFDI 4.0",
-                    "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/anexo_20.htm",
-                    "cfdi_40.xls",
-                    "Catálogos CFDI Versión 4.0"),
-                new ScrapingOrigin(
-                    "RET 2.0",
-                    "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/CFDI_retenciones.htm",
-                    "ret_20.xls",
-                    "Catálogos"),
+            Origins = new List<IOrigin>() {
+                GetOrigin(SourceIdentifierEnum.CFDIv33),
+                GetOrigin(SourceIdentifierEnum.CFDIv40),
+                GetOrigin(SourceIdentifierEnum.RETv20),
+                GetOrigin(SourceIdentifierEnum.Nomina12),
+                GetOrigin(SourceIdentifierEnum.NominaEstados),
                 new ConstantOrigin("Nóminas", $"{common}/catNomina.xls"),
                 new ConstantOrigin("Nóminas - Estados", $"{common}/C_Estado.xls", null, "nominas_estados.xls"),
                 new ConstantOrigin("CCE 2.0 - Claves de pedimento", $"{common}/c_ClavePedimento20.xls"),
@@ -67,8 +58,8 @@ namespace Jaeger.SAT.Catalogos.Scraping {
                     "Artículo 69-B Listado Completo",
                     "http://omawww.sat.gob.mx/cifras_sat/Documents/Listado_Completo_69-B.csv"
                     ),
-                new ConstantOrigin("Manual de Usuario, sitio SAT descarga y recuperacion", 
-                            "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1705376527662&ssbinary=true", 
+                new ConstantOrigin("Manual de Usuario, sitio SAT descarga y recuperacion",
+                            "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1705376527662&ssbinary=true",
                             destinationFilename: "ManualUsuario.pdf"),
                 new ConstantOrigin("Descarga y Recuperación de Comprobantes",
                             "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1705376489587&ssbinary=true",
@@ -89,5 +80,56 @@ namespace Jaeger.SAT.Catalogos.Scraping {
         }
 
         public List<IOrigin> Origins { get; set; }
+
+        public static IOrigin GetOrigin(SourceIdentifierEnum source) {
+            switch (source) {
+                case SourceIdentifierEnum.CFDIv33:
+                    return new ScrapingOrigin(
+                        "CFDI 3.3",
+                        "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/anexo_20.htm",
+                        "catCFDI.xls",
+                        "Catálogos CFDI Versión 3.3");
+                case SourceIdentifierEnum.CFDIv40:
+                    return new ScrapingOrigin(
+                        "CFDI 4.0",
+                        "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/anexo_20.htm",
+                        "cfdi_40.xls",
+                        "Catálogos CFDI Versión 4.0");
+                case SourceIdentifierEnum.RETv20:
+                    return new ScrapingOrigin(
+                    "RET 2.0",
+                    "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/CFDI_retenciones.htm",
+                    "ret_20.xls",
+                    "Catálogos");
+                case SourceIdentifierEnum.Nomina12:
+                    return new ConstantOrigin("Nóminas", $"{common}/catNomina.xls");
+                case SourceIdentifierEnum.NominaEstados:
+                    return new ConstantOrigin("Nóminas - Estados", $"{common}/C_Estado.xls", null, "nominas_estados.xls");
+                case SourceIdentifierEnum.Articulo69:
+                    return new ConstantOrigin(
+                    "Artículo 69 No localizados",
+                    "http://omawww.sat.gob.mx/cifras_sat/Documents/No localizados.csv"
+                    );
+                case SourceIdentifierEnum.Articulo69B:
+                    return new ConstantOrigin(
+                    "Artículo 69-B Listado Completo",
+                    "http://omawww.sat.gob.mx/cifras_sat/Documents/Listado_Completo_69-B.csv"
+                    );
+                case SourceIdentifierEnum.CPortev20:
+                    return new ConstantOrigin("CCE 2.0 - Claves de pedimento", $"{common}/c_ClavePedimento20.xls");
+                case SourceIdentifierEnum.CPortev30:
+                    return new ConstantOrigin("CCP 3.0 - Carta Porte 3.0", $"{common}/CatalogosCartaPorte30.xls");
+                case SourceIdentifierEnum.CPorteV31:
+                    return new ConstantOrigin("CCP 3.0 - Carta Porte 3.1", $"{common}/CatalogosCartaPorte31.xls");
+                case SourceIdentifierEnum.REP:
+                    return new ConstantOrigin("REP", $"{common}/catPagos.xls");
+                default:
+                    break;
+            }
+            if (source == SourceIdentifierEnum.CFDIv33) {
+            } else if (source == SourceIdentifierEnum.CFDIv40) {
+            }
+            return null;
+        }
     }
 }
