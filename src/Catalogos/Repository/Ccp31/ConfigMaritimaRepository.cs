@@ -12,7 +12,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
             this.Title = "Catálogo de configuración marítima.";
             this.FileName = "CatCcp31ConfigMaritima.json";
             this.Version = "1.0";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
 
         public CveConfigMaritima Search(string findId) {

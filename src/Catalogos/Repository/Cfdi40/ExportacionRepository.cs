@@ -11,7 +11,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             FileName = "ExportacionCFDi40.json";
             Version = "2.0";
             Revision = "1";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
 
         //public override void Load() {

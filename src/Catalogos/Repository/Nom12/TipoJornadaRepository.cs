@@ -11,7 +11,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
             this.FileName = "CatNom12TipoJornada.json";
             this.Version = "1.0";
             this.Revision = "A";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
     }
 }

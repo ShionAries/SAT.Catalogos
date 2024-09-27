@@ -14,7 +14,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Articulo69 {
         public Articulo69Repository(System.DateTime? lastUpdate = null) {
             Title = "Artículo 69, primer y segundo párrafo del CFF";
             FileName = "Articulo69_NoLocalizados.json";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
 
         /// <summary>

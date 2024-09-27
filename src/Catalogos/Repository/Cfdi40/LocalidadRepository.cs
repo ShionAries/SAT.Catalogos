@@ -12,7 +12,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             Title = "Catálogo de localidades.";
             FileName = "LocalidadCFDI40.json";
             Version = "1.0";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
 
         public CveLocalidad Search(string findId) {

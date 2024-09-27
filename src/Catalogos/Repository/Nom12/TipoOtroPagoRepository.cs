@@ -10,7 +10,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
             this.Title = "Catálogo de otro tipo de pago.";
             this.FileName = "CatNom12TipoOtroPago.json";
             this.Version = "2";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
     }
 }

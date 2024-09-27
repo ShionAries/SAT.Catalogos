@@ -12,7 +12,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
             Title = "Catálogo de colonias.";
             FileName = "CatCcp31Colonia.json";
             Version = "2.0";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
 
         public CveColonia Search(string findId) {

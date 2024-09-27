@@ -14,7 +14,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
             Title = "Catálogo de Forma Farmacéutica.";
             FileName = "CatCcp31FormaFarmaceutica.json";
             Version = "1.0";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
 
         public CveFormaFarmaceutica Search(string findId) {

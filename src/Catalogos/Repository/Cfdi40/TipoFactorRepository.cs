@@ -11,7 +11,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             FileName = "TipoFactorCFD40.json";
             Version = "1.0";
             Revision = "0";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
 
         public CveTipoFactor Search(string findId) {

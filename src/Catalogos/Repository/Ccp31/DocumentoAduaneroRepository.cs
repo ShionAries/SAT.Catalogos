@@ -14,7 +14,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
             this.Title = "Catálogo de Documentos Aduaneros";
             this.FileName = "CatCcp31DocumentosAduaneros.json";
             this.Version = "1.0";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
 
         public CveDocumentoAduanero Search(string findId) {

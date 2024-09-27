@@ -10,7 +10,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             Title = "Catálogo Objeto de Impuestos";
             FileName = "ObjetoImpCFDI40.json";
             Version = "1.0";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
 
         //public override void Load() {

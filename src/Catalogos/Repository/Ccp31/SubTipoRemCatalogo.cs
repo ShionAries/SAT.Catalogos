@@ -13,7 +13,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
             this.Title = "Catálogo de tipo de remolque.";
             this.FileName = "CatCcp31TipoRemolque.json";
             this.Version = "1.0";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
 
         public CveSubTipoRemolque Search(string findId) {

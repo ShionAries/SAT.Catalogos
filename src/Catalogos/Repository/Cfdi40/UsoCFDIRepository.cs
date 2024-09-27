@@ -11,7 +11,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
         public UsoCFDIRepository(System.DateTime? lastUpdate = null) {
             Title = "Catálogo de Uso de CFDI";
             FileName = "UsoCFDI40.json";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
 
         public CveUsoCFDI Search(string findId) {

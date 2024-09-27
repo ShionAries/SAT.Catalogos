@@ -12,7 +12,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
             Title = "Catálogo de municipios.";
             FileName = "SatCcp31Municipio.json";
             Version = "1.0";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
 
         public CveMunicipio Search(string findId) {

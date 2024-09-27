@@ -11,7 +11,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             FileName = "NumPedimentoAduanaCFDI40.json";
             Version = "31.0";
             Revision = "0";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
     }
 }

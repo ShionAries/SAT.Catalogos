@@ -11,7 +11,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             FileName = "TipoComprobantes40.json";
             Version = "1.0";
             Revision = "2";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
             //this.Items.Add(new ClaveTipoDeComprobante { Clave = "I", Descripcion = "Ingreso", ValorMaximo = new decimal(999999999999999999.999999), VigenciaIni = new DateTime(2017 / 7 / 29) });
             //this.Items.Add(new ClaveTipoDeComprobante { Clave = "E", Descripcion = "Egreso", ValorMaximo = new decimal(999999999999999999.999999), VigenciaIni = new DateTime(2017 / 7 / 29) });
             //this.Items.Add(new ClaveTipoDeComprobante { Clave = "T", Descripcion = "Traslado", ValorMaximo = new decimal(0), VigenciaIni = new DateTime(2017 / 7 / 29) });

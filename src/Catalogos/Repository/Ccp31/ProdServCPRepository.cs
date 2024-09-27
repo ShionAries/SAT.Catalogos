@@ -13,7 +13,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
             FileName = "CatCcp31ProdServCP.json";
             Version = "2.0";
             Revision = "A";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
 
         public List<CveProdServCP> Productos(string find) {

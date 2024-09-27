@@ -12,7 +12,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             Title = "Catálogo de aduanas (tomado del anexo 22, apéndice I de la RGCE 2017).";
             Version = "1.0";
             Revision = "1";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
 
         public CveAduana Search(string clave) {

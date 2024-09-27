@@ -7,6 +7,7 @@ namespace Jaeger.SAT.Catalogos.Builder {
         private IImporter importer;
         private IOrigin origin;
         private SourceIdentifierEnum sourceIdentifier;
+
         #region constructor
         public UpdateRepositoryServiceBuilder() : base() {
             this.Configuration = ConfigurationService.ConfigurationDefault();
@@ -41,9 +42,9 @@ namespace Jaeger.SAT.Catalogos.Builder {
         protected virtual IImporter GetImporter(SourceIdentifierEnum source) {
             switch (source) {
                 case SourceIdentifierEnum.CFDIv33:
-                    return new Articulo69BCatalogos(this.Configuration);
-                case SourceIdentifierEnum.CFDIv40:
                     break;
+                case SourceIdentifierEnum.CFDIv40:
+                    return new Cfdi40Catalogos(this.Configuration);
                 case SourceIdentifierEnum.RETv20:
                     break;
                 case SourceIdentifierEnum.Nomina12:

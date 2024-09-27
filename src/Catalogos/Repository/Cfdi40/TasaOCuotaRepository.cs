@@ -11,7 +11,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             FileName = "TasaOCuotaCFDI40.json";
             Version = "2.0";
             Revision = "0";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
     }
 }

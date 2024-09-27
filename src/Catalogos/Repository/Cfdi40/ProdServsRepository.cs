@@ -13,7 +13,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             Revision = "2";
             Title = "Catálogo de Productos y Servicios";
             FileName = "ProdServsCFDI40.json";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
 
         public CveProdServ Search(string findId) {

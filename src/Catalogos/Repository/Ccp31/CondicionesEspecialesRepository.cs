@@ -12,7 +12,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
             this.Title = "Catálogo de Condiciones especiales del Transporte";
             this.FileName = "CatCcp31CondicionesEspeciales.json";
             this.Version = "1.0";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
 
         public CveCondicionesEspeciales Search(string findId) {

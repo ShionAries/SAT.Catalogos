@@ -12,7 +12,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
             Title = "Catálogo de figura transporte.";
             FileName = "CatCcp31FiguraTransporte.json";
             Version = "2.0";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
 
         //public override void Load() {

@@ -12,7 +12,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
             Title = "Catálogo código transporte aéreo.";
             FileName = "CatCcp31CodigoTransporteAereo.json";
             Version = "1.0";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
 
         public CveCodigoTransporteAereo Search(string findId) {

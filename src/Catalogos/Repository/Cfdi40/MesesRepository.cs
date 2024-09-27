@@ -13,7 +13,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             Title = "Catalogo Meses";
             FileName = "MesesCFDI40.json";
             Version = "1.0";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
 
         //public override void Load() {

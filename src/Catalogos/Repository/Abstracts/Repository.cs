@@ -23,7 +23,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
             Titulo = "Catálogo";
             Revision = "0";
             Builder = Assembly.GetExecutingAssembly().GetName().ToString();
-            Actualizacion = DateTime.Now;
+            LastUpdate = DateTime.Now;
             Items = new List<TObject>();
         }
 
@@ -85,7 +85,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
         /// obtener o establecer fecha de actualización del catalogo
         /// </summary>
         [JsonProperty("act", Order = 7)]
-        public DateTime? Actualizacion {
+        public DateTime? LastUpdate {
             get {
                 DateTime firstGoodDate = new DateTime(1900, 1, 1);
                 if (_Actualizacion >= firstGoodDate)

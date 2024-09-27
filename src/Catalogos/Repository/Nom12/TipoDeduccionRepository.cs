@@ -11,7 +11,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
             FileName = "CatNom12TipoDeduccion.json";
             Version = "3.0";
             Revision = "0";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
     }
 }

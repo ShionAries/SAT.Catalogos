@@ -12,7 +12,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
             Title = "Catálogo de tipo de tráfico ferroviario";
             FileName = "CatCcp31TipoDeTrafico.json";
             Version = "1.0";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
 
         public CveTipoDeTrafico Search(string findId) {

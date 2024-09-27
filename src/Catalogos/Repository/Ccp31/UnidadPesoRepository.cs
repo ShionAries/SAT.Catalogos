@@ -12,7 +12,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
             Title = "Catálogo de unidades de medida y embalaje.";
             FileName = "CatCcp31UnidadPeso.json";
             Version = "1.0";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
         public CveUnidadPeso Seach(string findId) {
             try {

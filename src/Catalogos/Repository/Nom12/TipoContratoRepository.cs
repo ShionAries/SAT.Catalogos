@@ -11,7 +11,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
             this.FileName = "CatNom12TipoContrato.json";
             this.Version = "1.0";
             this.Revision = "0";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             Title = "Catálogo de códigos postales.";
             FileName = "CodigoPostalCFDi40.json";
             Version = "2.0";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
 
         public CveCodigoPostal Search(string find) {

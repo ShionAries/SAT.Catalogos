@@ -12,7 +12,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
             Title = "Catálogo de puertos marítimos, estaciones aeroportuarias y estaciones férreas.";
             FileName = "CatCcp31Estaciones.json";
             Version = "2.0";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
 
         public CveEstaciones Search(string findId) {

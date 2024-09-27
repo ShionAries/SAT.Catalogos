@@ -12,7 +12,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
             Title = "Catálogo de configuración autotransporte federal.";
             FileName = "CatCcp31ConfigAutotransporteC.json";
             Version = "2.0";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
 
         public CveConfigAutotransporte Search(string findId) {

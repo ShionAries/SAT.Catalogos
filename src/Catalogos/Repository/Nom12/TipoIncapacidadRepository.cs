@@ -10,7 +10,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
             this.Title = "Catálogo del tipo de incapacidad.";
             this.FileName = "CatNom12TipoIncapacidad.json";
             this.Version = "1.0";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
     }
 }

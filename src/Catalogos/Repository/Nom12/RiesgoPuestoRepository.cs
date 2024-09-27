@@ -10,7 +10,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
             Title = "Catálogo de clases en que deben inscribirse los patrones.";
             FileName = "CatNom12RiesgoPuesto.json";
             Version = "2.0";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
     }
 }

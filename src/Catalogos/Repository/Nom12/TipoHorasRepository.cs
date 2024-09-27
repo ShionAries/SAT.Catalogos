@@ -10,7 +10,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
             this.Title = "Catálogo de tipos de Hora Extra.";
             this.FileName = "CatNom12TipoHoras.json";
             this.Version = "1.0";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
     }
 }

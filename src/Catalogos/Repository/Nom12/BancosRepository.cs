@@ -7,7 +7,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
         public BancosRepository(System.DateTime? lastUpdate = null) {
             Title = "Catálogo de Bancos SAT";
             FileName = "CatNom12Bancos.json";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
 
         public CveBanco Search(string findId) {

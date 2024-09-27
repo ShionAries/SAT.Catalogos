@@ -11,7 +11,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
             this.FileName = "CatNom12TipoPercepcion.json";
             this.Version = "2.0";
             this.Revision = "0";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
             this.Title = "Catalogo Exportación";
             this.FileName = "CatNom12PeriodicidadPago.json";
             this.Version = "1.0";
-            this.AddLastVersion(lastUpdate);
+            this.AddLastUpdate(lastUpdate);
         }
 
         public CvePeriodicidadPago Search(string findId) {
