@@ -6,11 +6,12 @@ namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
     /// Nomina Catalogo de tipos de deducciones
     /// </summary>
     public class TipoDeduccionRepository : RepositoryContext<CveTipoDeduccion>, ITipoDeduccionRepository, IGeneralRepository {
-        public TipoDeduccionRepository() {
+        public TipoDeduccionRepository(System.DateTime? lastUpdate = null) {
             Title = "Catálogo de tipos de deducciones.";
             FileName = "CatNom12TipoDeduccion.json";
             Version = "3.0";
             Revision = "0";
+            this.AddLastVersion(lastUpdate);
         }
     }
 }

@@ -33,7 +33,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Nom12 {
             var resultado = mapper.Map(_DataTable).ToList();
             if (resultado != null) {
                 if (resultado.Count() > 0) {
-                    _Repository = new TipoRegimenContratacionRepository {
+                    _Repository = new TipoRegimenContratacionRepository(this.LastVersion) {
                         Items = resultado.ToList()
                     };
                 }

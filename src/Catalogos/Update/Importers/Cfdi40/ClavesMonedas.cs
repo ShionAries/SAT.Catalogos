@@ -31,7 +31,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
         }
 
         protected override void CreateRepository() {
-            _Repository = new MonedaRepository();
+            _Repository = new MonedaRepository(this.LastVersion);
         }
     }
 }

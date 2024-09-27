@@ -41,7 +41,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
         }
 
         protected override void CreateRepository() {
-            _Repository = new FormaPagoRepository();
+            _Repository = new FormaPagoRepository(this.LastVersion);
         }
     }
 }

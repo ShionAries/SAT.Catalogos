@@ -14,12 +14,18 @@ namespace Jaeger.SAT.Catalogos.Update.Abstracts {
         protected DateTime? _LastVersion;
         #endregion
 
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="dataTable">datatable de datos</param>
         public AbstractInjector(DataTable dataTable) {
             _DataTable = dataTable;
             _HeadersMapper = new Dictionary<string, string>();
-           // LastVersion = null;
         }
 
+        /// <summary>
+        /// obtener o establecer fecha de ultima actualizacion del catalogo
+        /// </summary>
         public DateTime? LastVersion {
             get {
                 if (_LastVersion >= new DateTime(1900, 1, 1))
@@ -29,6 +35,10 @@ namespace Jaeger.SAT.Catalogos.Update.Abstracts {
             set { _LastVersion = value; }
         }
 
+        /// <summary>
+        /// proceso de inyeccion de datos
+        /// </summary>
+        /// <returns>siempre es 0</returns>
         public int Inject() {
             //Arreglando tabla 
             FixDataTable();
@@ -38,11 +48,12 @@ namespace Jaeger.SAT.Catalogos.Update.Abstracts {
 
             ///Cambiado columnas para mapeo de datos
             ChangeHeadersMapper();
-
+            // si es actualizable
             if (IsUpdateable()) {
+                // crear repositorio
                 CreateRepository();
+                // guardar
                 Save();
-                //Se inyectaron registros
             }
 
             return 0;
@@ -94,6 +105,10 @@ namespace Jaeger.SAT.Catalogos.Update.Abstracts {
             RemoveColumnsName();
         }
 
+        /// <summary>
+        /// obtener encabezados de encabezados
+        /// </summary>
+        /// <returns>retorna lista de enbabezados de datatable</returns>
         protected List<string> GetHeaders() {
             List<string> columnNames = _DataTable.Columns
                 .Cast<DataColumn>()
@@ -102,12 +117,20 @@ namespace Jaeger.SAT.Catalogos.Update.Abstracts {
             return columnNames;
         }
 
+        /// <summary>
+        /// funcion de comparacion de dos arrays
+        /// </summary>
+        /// <param name="firstArray">primer array</param>
+        /// <param name="secondArray">segundo array</param>
+        /// <returns>verdadero si ambas matrizes coinciden</returns>
         protected bool ArrayCompare(string[] firstArray, string[] secondArray) {
+            // logitud
             if (firstArray.Length != secondArray.Length) {
                 Console.WriteLine($"ArrayCompare las matrizes son diferentes en longitud");
                 return false;
             }
 
+            // verificar 
             for (int i = 0; i < firstArray.Length; i++) {
                 if (firstArray[i].ToLower() != secondArray[i].ToLower()) {
                     Console.WriteLine($"Diferencia en array 1 '{firstArray[i]}' posición {i} con array 2 '{secondArray[i]}'");
@@ -151,6 +174,10 @@ namespace Jaeger.SAT.Catalogos.Update.Abstracts {
             _DataTable = _DataTable.Rows.Cast<DataRow>().Where(row => !row.ItemArray.All(field => field == DBNull.Value | field.Equals(""))).CopyToDataTable();
         }
 
+        /// <summary>
+        /// renombres de columnas del datatable
+        /// </summary>
+        /// <param name="rowIndex">indica la fila donde se encuentran los encabezados</param>
         protected void RenameColumns(int rowIndex = 0) {
             var headers = _DataTable.Rows[rowIndex].ItemArray;
             for (int i = 0; i < headers.Length; i++) {

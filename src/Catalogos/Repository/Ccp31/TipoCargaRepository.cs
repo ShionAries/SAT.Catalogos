@@ -8,10 +8,11 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     /// Catálogo del tipo de carga.
     /// </summary>
     public class TipoCargaRepository : RepositoryContext<CveTipoCarga>, ITipoCargaRepository, IGeneralRepository {
-        public TipoCargaRepository() {
+        public TipoCargaRepository(System.DateTime? lastUpdate = null) {
             Title = "Catálogo del tipo de carga.";
             FileName = "CatCcp31TipoCarga.json";
             Version = "1.0";
+            this.AddLastVersion(lastUpdate);
         }
 
         public CveTipoCarga Search(string findId) {

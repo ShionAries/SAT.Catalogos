@@ -9,10 +9,11 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// catalogo de meses para comprobante fiscal 4.0
     /// </summary>
     public class MesesRepository : RepositoryContext<CveMeses>, IMesesRepository, IGeneralRepository {
-        public MesesRepository() {
+        public MesesRepository(System.DateTime? lastUpdate = null) {
             Title = "Catalogo Meses";
             FileName = "MesesCFDI40.json";
             Version = "1.0";
+            this.AddLastVersion(lastUpdate);
         }
 
         //public override void Load() {

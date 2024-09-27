@@ -10,10 +10,11 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     /// </summary>
     [JsonObject("item")]
     public class DocumentoAduaneroRepository : RepositoryContext<CveDocumentoAduanero>, IDocuemntoAduaneroRepository, IGeneralRepository { 
-        public DocumentoAduaneroRepository() {
+        public DocumentoAduaneroRepository(System.DateTime? lastUpdate = null) {
             this.Title = "Catálogo de Documentos Aduaneros";
             this.FileName = "CatCcp31DocumentosAduaneros.json";
             this.Version = "1.0";
+            this.AddLastVersion(lastUpdate);
         }
 
         public CveDocumentoAduanero Search(string findId) {

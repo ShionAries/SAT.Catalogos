@@ -8,10 +8,11 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     /// Catalogo de Sector COFEPRIS
     /// </summary>
     public class SectorCofeprisRepository : RepositoryContext<CveTipoSectorCofepris>, ISectorCofeprisRepository, IGeneralRepository {
-        public SectorCofeprisRepository() : base() {
+        public SectorCofeprisRepository(System.DateTime? lastUpdate = null) : base() {
             this.Title = "Catálogo de Sector COFEPRIS.";
             this.FileName = "CatCcp31SectorCOFEPRIS.json";
             this.Version = "1.0";
+            this.AddLastVersion(lastUpdate);
         }
 
         public CveTipoSectorCofepris Search(string findId) {

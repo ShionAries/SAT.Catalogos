@@ -8,10 +8,11 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     /// comprobante con el complemento Carta Porte.
     /// </summary>
     public class FiguraTransporteRepository : RepositoryContext<CveFiguraTransporte>, IFiguraTransporteRepository, IGeneralRepository {
-        public FiguraTransporteRepository() {
+        public FiguraTransporteRepository(System.DateTime? lastUpdate = null) {
             Title = "Catálogo de figura transporte.";
             FileName = "CatCcp31FiguraTransporte.json";
             Version = "2.0";
+            this.AddLastVersion(lastUpdate);
         }
 
         //public override void Load() {

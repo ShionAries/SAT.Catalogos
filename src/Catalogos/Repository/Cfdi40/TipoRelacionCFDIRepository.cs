@@ -9,9 +9,10 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// Catalogo de tipos de relacion entre CFDI.
     /// </summary>
     public class TipoRelacionCFDIRepository : RepositoryContext<CveTipoRelacionCFDI>, ITipoRelacionCFDIRepository, IGeneralRepository {
-        public TipoRelacionCFDIRepository() {
+        public TipoRelacionCFDIRepository(System.DateTime? lastUpdate = null) {
             Title = "Catálogo de tipos de relación entre CFDI.";
             FileName = "TipoRelacionCFDI40.json";
+            this.AddLastVersion(lastUpdate);
         }
 
         public CveTipoRelacionCFDI Search(string findId) {

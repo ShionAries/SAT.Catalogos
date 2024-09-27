@@ -7,9 +7,10 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// catalogo de monedas
     /// </summary>
     public class MonedaRepository : RepositoryContext<CveMoneda>, IMonedaRepository, IGeneralRepository {
-        public MonedaRepository() {
+        public MonedaRepository(System.DateTime? lastUpdate = null) {
             Title = "Catálogo de Monedas";
             FileName = "MonedaCFDI40.json";
+            this.AddLastVersion(lastUpdate);
         }
 
         public CveMoneda Search(string findId) {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using Newtonsoft.Json;
 
 namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
@@ -21,7 +22,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
             Version = "1.0";
             Titulo = "Catálogo";
             Revision = "0";
-            Builder = "JaegerEditor";
+            Builder = Assembly.GetExecutingAssembly().GetName().ToString();
             Actualizacion = DateTime.Now;
             Items = new List<TObject>();
         }

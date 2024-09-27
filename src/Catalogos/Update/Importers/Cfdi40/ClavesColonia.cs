@@ -28,7 +28,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
         }
 
         protected override void CreateRepository() {
-            this._Repository = new ColoniaRepository();
+            this._Repository = new ColoniaRepository(this.LastVersion);
         }
     }
 }

@@ -245,7 +245,13 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
         #endregion
 
         #region metodos privados
-
+        public void AddLastVersion(DateTime? lastUpdate = null) {
+            if (lastUpdate != null) {
+                this.Actualizacion = lastUpdate;
+            } else {
+                this.Actualizacion = null;
+            }
+        }
         private bool GetResource(string nameResource, string fileName) {
             // sino existe la carpeta la creamos
             if (!Directory.Exists(Path.GetDirectoryName(fileName))) {

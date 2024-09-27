@@ -33,7 +33,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Articulo69 {
         }
 
         protected override void CreateRepository() {
-            this._Repository = new Articulo69Repository();
+            this._Repository = new Articulo69Repository(this.LastVersion);
         }
     }
 }

@@ -11,6 +11,12 @@ namespace Jaeger.SAT.Catalogos.Repository.Articulo69 {
             FileName = "Articulo69_NoLocalizados.json";
         }
 
+        public Articulo69Repository(System.DateTime? lastUpdate = null) {
+            Title = "Artículo 69, primer y segundo párrafo del CFF";
+            FileName = "Articulo69_NoLocalizados.json";
+            this.AddLastVersion(lastUpdate);
+        }
+
         /// <summary>
         /// retorna un objeto codigo agrupador del catalogo del sat
         /// </summary>

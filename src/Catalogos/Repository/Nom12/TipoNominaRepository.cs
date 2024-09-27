@@ -6,9 +6,10 @@ namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
     /// catalogo de tipos de nomina
     /// </summary>
     public class TipoNominaRepository : RepositoryContext<CveTipoNomina>, ITipoNominaRepository, IGeneralRepository {
-        public TipoNominaRepository() {
+        public TipoNominaRepository(System.DateTime? lastUpdate = null) {
             Title = "Catálogo de tipos de nómina.";
             FileName = "CatNom12Tipos.json";
+            this.AddLastVersion(lastUpdate);
         }
     }
 }

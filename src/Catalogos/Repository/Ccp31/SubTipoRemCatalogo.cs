@@ -9,10 +9,11 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     /// Catálogo de tipo de remolque.
     /// </summary>
     public class SubTipoRemCatalogo : RepositoryContext<CveSubTipoRemolque>, ISubTipoRemCatalogo, IGeneralRepository {
-        public SubTipoRemCatalogo() {
+        public SubTipoRemCatalogo(System.DateTime? lastUpdate = null) {
             this.Title = "Catálogo de tipo de remolque.";
             this.FileName = "CatCcp31TipoRemolque.json";
             this.Version = "1.0";
+            this.AddLastVersion(lastUpdate);
         }
 
         public CveSubTipoRemolque Search(string findId) {

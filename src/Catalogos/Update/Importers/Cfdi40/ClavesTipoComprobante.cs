@@ -38,7 +38,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
                 }
             }
             this._DataTable.AcceptChanges();
-            _Repository = new TipoComprobanteRepository();
+            _Repository = new TipoComprobanteRepository(this.LastVersion);
         }
     }
 }

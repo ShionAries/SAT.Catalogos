@@ -31,7 +31,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
         }
 
         protected override void CreateRepository() {
-            _Repository = new RegimenesFiscalesRepository();
+            _Repository = new RegimenesFiscalesRepository(this.LastVersion);
         }
     }
 }
