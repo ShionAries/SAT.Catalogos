@@ -4,18 +4,19 @@ using System.Windows.Forms;
 using Jaeger.SAT.Catalogos;
 using Jaeger.SAT.Catalogos.Builder;
 using Jaeger.SAT.Catalogos.Scraping.Helpers;
+using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Tester {
     public partial class UpdateForm : Form {
-        private OriginService Service;
+        private IOriginService Service;
         private UpdateService _UpdateService;
         private Waiting4Form _Waiting;
         private ScrapingService scrapingService;
 
-        public UpdateForm(OriginService originService) {
+        public UpdateForm(IOriginService service) {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
-            this.Service = originService;
+            this.Service = service;
         }
 
         private void UpdateForm_Load(object sender, EventArgs e) {

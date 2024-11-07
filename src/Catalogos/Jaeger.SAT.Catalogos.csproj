@@ -417,6 +417,7 @@
     <Compile Include="Scraping\Helpers\Upgrader.cs" />
     <Compile Include="Helpers\ValidacionService.cs" />
     <Compile Include="Scraping\Interfaces\IOrigin.cs" />
+    <Compile Include="Scraping\Interfaces\IOriginService.cs" />
     <Compile Include="Scraping\Interfaces\IResourcesGateway.cs" />
     <Compile Include="Scraping\Interfaces\IReviewer.cs" />
     <Compile Include="ScrapingService.cs" />

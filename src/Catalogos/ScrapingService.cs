@@ -48,10 +48,10 @@ namespace Jaeger.SAT.Catalogos {
         #region metodos publicos
         public Review Review(IOrigin origin) {
             this.origin = origin;
-            CreateWithDefaultReviewers();
-            var reviewer2 = FindReviewerByOrigin(this.origin);
-            if (reviewer2 != null) {
-                reviewer = reviewer2.Review(this.origin);
+            this.CreateWithDefaultReviewers();
+            var localReview = this.FindReviewerByOrigin(this.origin);
+            if (localReview != null) {
+                reviewer = localReview.Review(this.origin);
                 return reviewer;
             }
             return null;
@@ -59,11 +59,11 @@ namespace Jaeger.SAT.Catalogos {
 
         public void Review(List<IOrigin> origins) {
             this.origins = origins;
-            CreateWithDefaultReviewers();
+            this.CreateWithDefaultReviewers();
             reviewers = new List<Review>();
             foreach (var item in this.origins) {
-                var reviewer = FindReviewerByOrigin(item);
-                reviewers.Add(reviewer.Review(item));
+                var localReviewer = this.FindReviewerByOrigin(item);
+                reviewers.Add(localReviewer.Review(item));
             }
         }
 

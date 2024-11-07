@@ -1,19 +1,13 @@
-﻿using Jaeger.SAT.Catalogos.Scraping.Helpers;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
+using Jaeger.SAT.Catalogos.Scraping.Helpers;
+using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Tester {
     public partial class TestingForm : Form {
-        private OriginService _ScrapService;
+        private IOriginService _ScrapService;
 
-        public TestingForm(OriginService originService) {
+        public TestingForm(IOriginService originService) {
             InitializeComponent();
             _ScrapService = originService;
         }

@@ -10,13 +10,13 @@ namespace Tester {
         #region declaraciones
         private int previousIndex;
         private bool sortDirection;
-        private OriginService service;
+        private IOriginService Service;
         private Waiting4Form waiting;
         #endregion
 
-        public OriginsForm(OriginService originService) {
+        public OriginsForm(IOriginService originService) {
             InitializeComponent();
-            this.service = originService;
+            this.Service = originService;
         }
 
         private void OriginsForm_Load(object sender, EventArgs e) {
@@ -31,16 +31,19 @@ namespace Tester {
             this.Delete.Click += this.Delete_Click;
             this.Guardar.Click += this.Guardar_Click;
 
-            if (this.service.DataSource == null) {
+            if (this.Service.DataSource == null) {
                 this.waiting = new Waiting4Form(() => {
-                    this.service.GetAll();
+                    this.Service.GetAll();
                 }, "Cargando datos ...") {
                     Text = ""
                 };
                 this.waiting.ShowDialog(this);
             }
             
-            this.GridData.DataSource = this.service.DataSource;
+            this.GridData.DataSource = this.Service.DataSource;
+            if (this.Service.IsDefault) {
+                MessageBox.Show(this, "No se encontro archivo de control de origenes, se obtuvo la información por default.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
         }
 
         private void Agregar_Click(object sender, EventArgs e) {
@@ -51,7 +54,7 @@ namespace Tester {
             if (this.GridData.CurrentRow != null) {
                 var seleccionado = this.GridData.CurrentRow.DataBoundItem as IOrigin;
                 if (seleccionado != null) {
-                    var editar = new OriginForm(this.service, seleccionado);
+                    var editar = new OriginForm(this.Service, seleccionado);
                     editar.ShowDialog(this);
                 }
             }
@@ -62,7 +65,7 @@ namespace Tester {
         }
 
         private void Guardar_Click(object sender, EventArgs e) {
-            this.service.SaveChanges();
+            this.Service.Save();
         }
 
         #region acciones del grid

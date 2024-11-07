@@ -10,22 +10,25 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
     /// <summary>
     /// clase para servicio de origenes
     /// </summary>
-    public class OriginService : OriginsTranslator {
+    public class OriginService : OriginsTranslator, IOriginService {
 
         /// <summary>
         /// constructor
         /// </summary>
-        public OriginService(IConfiguration configuration) {
+        public OriginService(IConfiguration configuration) : base() {
             this.Configuration = configuration;
         }
 
         /// <summary>
         /// constructor
         /// </summary>
-        public OriginService() {
+        public OriginService() : base() {
             this.Configuration = new Configuration();
         }
 
+        /// <summary>
+        /// obtener o establecer configuracion
+        /// </summary>
         public IConfiguration Configuration { get; set; }
 
         /// <summary>
@@ -33,7 +36,10 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
         /// </summary>
         public List<IOrigin> DataSource { get; set; }
 
-        public OriginService GetAll() {
+        /// <summary>
+        /// obtener listado de origenes
+        /// </summary>
+        public IOriginService GetAll() {
             this.DataSource = this.OriginFromLayout(this.OriginsFromString());
             return this;
         }
@@ -41,7 +47,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
         /// <summary>
         /// almacenar datos
         /// </summary>
-        public OriginService SaveChanges() {
+        public IOriginService Save() {
             this.WriteFile();
             return this;
         }
@@ -49,7 +55,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
         /// <summary>
         /// eliminar archivo de datos
         /// </summary>
-        public OriginService Delete() {
+        public IOriginService Delete() {
             return this;
         }
 
@@ -58,7 +64,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
         /// </summary>
         /// <param name="origin">interface de origen</param>
         /// <returns></returns>
-        public OriginService Add(IOrigin origin) {
+        public IOriginService Add(IOrigin origin) {
             if (this.DataSource == null) {
                 this.DataSource = new List<IOrigin>();
             }
