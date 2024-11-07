@@ -2,7 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Text;
-using Jaeger.SAT.Catalogos.Helpers;
+using Newtonsoft.Json;
 using Jaeger.SAT.Catalogos.Scraping.Entities;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
@@ -62,8 +62,8 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             if (this.DataSource == null) {
                 this.DataSource = new List<IOrigin>();
             }
-            
-            if (this.DataSource.Where(it => it.Equals(origin)).Count()==0) {
+
+            if (this.DataSource.Where(it => it.Equals(origin)).Count() == 0) {
                 this.DataSource.Add(origin);
             }
             return this;
@@ -75,7 +75,8 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
         }
 
         protected List<LayoutOrigin> ReadOrigin(string content) {
-            return XmlSerializerService.DeserializeObject<List<LayoutOrigin>>(content);
+            var configuration = new JsonSerializerSettings() { NullValueHandling = NullValueHandling.Ignore, DateFormatString = "dd/MM/yyyy" };
+            return JsonConvert.DeserializeObject<List<LayoutOrigin>>(content, configuration);
         }
 
         protected List<LayoutOrigin> OriginsFromString() {
@@ -85,12 +86,10 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
         }
 
         protected void WriteFile() {
+            var configuration = new JsonSerializerSettings() { NullValueHandling = NullValueHandling.Ignore, DateFormatString = "dd/MM/yyyy" };
+            var contenido = JsonConvert.SerializeObject(OriginToLayout(this.DataSource), Newtonsoft.Json.Formatting.None, configuration);
             Encoding utf8WithoutBom = new UTF8Encoding(false);
-            File.WriteAllText(this.BuildPath(), this.OriginsToString(this.DataSource), utf8WithoutBom);
-        }
-
-        protected string OriginsToString(List<IOrigin> origins) {
-            return XmlSerializerService.SerializeObject(this.OriginToLayout(origins));
+            File.WriteAllText(this.BuildPath(), contenido, utf8WithoutBom);
         }
         #endregion
     }

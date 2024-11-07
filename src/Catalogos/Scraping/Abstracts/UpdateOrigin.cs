@@ -1,5 +1,4 @@
 ﻿using System;
-using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Abstracts {
     //custom delegate

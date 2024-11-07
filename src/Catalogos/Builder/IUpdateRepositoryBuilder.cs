@@ -1,9 +1,8 @@
-﻿using Jaeger.SAT.Catalogos.Scraping.Helpers;
-using Jaeger.SAT.Catalogos.Scraping.Interfaces;
+﻿using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 using Jaeger.SAT.Catalogos.Scraping.ValueObjects;
 
 namespace Jaeger.SAT.Catalogos.Builder {
-    public interface IUpdateRepositoryServiceBuilder {
+    public interface IUpdateRepositoryBuilder {
         IUpdateRepositoryServiceOriginBuilder Origin(IOrigin origin);
     }
 

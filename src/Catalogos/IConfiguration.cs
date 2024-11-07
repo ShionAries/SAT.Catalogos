@@ -9,13 +9,15 @@
         string FileName { get; set; }
 
         /// <summary>
+        /// obtener o establecer ruta completa de archivo log
+        /// </summary>
+        string LogFileName { get; set; }
+
+        /// <summary>
         /// obtener o establecer folder temporal de trabajo
         /// </summary>
         string WorkingFolder { get; set; }
 
-        /// <summary>
-        /// obtener o establecer ruta completa de archivo log
-        /// </summary>
-        string LogFileName { get; set; }
+        string WorkingDirectory { get; set; }
     }
 }

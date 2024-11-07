@@ -6,7 +6,7 @@ using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 using Jaeger.SAT.Catalogos.Scraping.ValueObjects;
 
 namespace Jaeger.SAT.Catalogos.Builder {
-    public class ScrapingServiceBuilder : ConfigurationService, IScrapingServiceBuilder, IScrapingReviewServiceBuilder, IScrapingReviewsServiceBuilder, IScrapingServiceUpgraderBuilder {
+    public class ScrapingBuilder : ConfigurationService, IScrapingBuilder, IScrapingReviewServiceBuilder, IScrapingReviewsServiceBuilder, IScrapingServiceUpgraderBuilder {
         #region declaraciones
         private ScrapingReviewer scrapingReviewer;
         private ConstantReviewer constantReviewer;
@@ -17,7 +17,7 @@ namespace Jaeger.SAT.Catalogos.Builder {
         #endregion
 
         #region constructor
-        public ScrapingServiceBuilder() : base() {
+        public ScrapingBuilder() : base() {
             this.Configuration = ConfigurationService.ConfigurationDefault();
             this.Gateway = new ResourcesGateway();
         }
@@ -26,7 +26,7 @@ namespace Jaeger.SAT.Catalogos.Builder {
         /// constructor
         /// </summary>
         /// <param name="configuration">objeto IConfiguration</param>
-        public ScrapingServiceBuilder(IConfiguration configuration) : base(configuration) {
+        public ScrapingBuilder(IConfiguration configuration) : base(configuration) {
             this.Gateway = new ResourcesGateway();
         }
 
@@ -35,7 +35,7 @@ namespace Jaeger.SAT.Catalogos.Builder {
         /// </summary>
         /// <param name="gateway">IResourceGateway</param>
         /// <param name="configuration">IConfiguration</param>
-        public ScrapingServiceBuilder(IResourcesGateway gateway, IConfiguration configuration = null) : base(configuration) {
+        public ScrapingBuilder(IResourcesGateway gateway, IConfiguration configuration = null) : base(configuration) {
             this.Gateway = gateway;
         }
         #endregion
@@ -48,10 +48,10 @@ namespace Jaeger.SAT.Catalogos.Builder {
         public IScrapingReviewServiceBuilder Review(SourceIdentifierEnum sourceIdentifier) {
             this.sourceIdentifier = sourceIdentifier;
             this.origin = DumpOrigins.GetOrigin(sourceIdentifier);
-            this.CreateWithDefaultReviewers();
-            var reviewer2 = FindReviewerByOrigin(this.origin);
-            if (reviewer2 != null) {
-                reviewer = reviewer2.Review(this.origin);
+            this.CreateDefaultReviewers();
+            var localReviewer = FindReviewerByOrigin(this.origin);
+            if (localReviewer != null) {
+                reviewer = localReviewer.Review(this.origin);
             }
             return this;
         }
@@ -61,8 +61,8 @@ namespace Jaeger.SAT.Catalogos.Builder {
             return this;
         }
 
-        public IUpdateRepositoryServiceBuilder Update() {
-            return new UpdateRepositoryServiceBuilder(this.Configuration, this.origin, this.sourceIdentifier);
+        public IUpdateRepositoryBuilder Update() {
+            return new UpdateRepositoryBuilder(this.Configuration, this.origin, this.sourceIdentifier);
         }
 
         public IScrapingReviewsServiceBuilder Review(List<IOrigin> origin) {
@@ -81,7 +81,7 @@ namespace Jaeger.SAT.Catalogos.Builder {
         }
 
         public IScrapingServiceReviewsBuilder Reviews() {
-            return new ScrapingServiceReviewsBuilder(this.Configuration);
+            return new ScrapingReviewsBuilder(this.Configuration);
         }
         #endregion
 
@@ -95,7 +95,7 @@ namespace Jaeger.SAT.Catalogos.Builder {
             throw new Exception($"Unable to review an origin of class {origin.GetType().Name}");
         }
 
-        protected void CreateWithDefaultReviewers() {
+        protected void CreateDefaultReviewers() {
             if (scrapingReviewer == null)
                 scrapingReviewer = new ScrapingReviewer(Gateway);
             if (constantReviewer == null)
@@ -105,8 +105,8 @@ namespace Jaeger.SAT.Catalogos.Builder {
         }
         #endregion
 
-        public static IScrapingServiceBuilder Create() {
-            return new ScrapingServiceBuilder();
+        public static IScrapingBuilder Create() {
+            return new ScrapingBuilder();
         }
     }
 }

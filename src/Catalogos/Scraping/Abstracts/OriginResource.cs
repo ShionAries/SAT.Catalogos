@@ -59,10 +59,6 @@ namespace Jaeger.SAT.Catalogos.Scraping.Abstracts {
         /// </summary>
         [DisplayName("Permitir")]
         public bool AllowUpdate { get; set; }
-
-        [Browsable(false)]
-        [System.Xml.Serialization.XmlIgnore]
-        public int LinkPosition { get; set; }
         #endregion
 
         #region metodos publicos
@@ -88,7 +84,15 @@ namespace Jaeger.SAT.Catalogos.Scraping.Abstracts {
         #endregion
 
         public override bool Equals(object obj) {
-            return this.Name == (obj as IOrigin).Name;
+            if (obj != null) {
+                try {
+                    return this.Name == (obj as IOrigin).Name;
+                } catch (Exception ex) {
+                    Console.WriteLine(ex.Message);
+                    return false;
+                }
+            }
+            return false;
         }
 
         public override int GetHashCode() {

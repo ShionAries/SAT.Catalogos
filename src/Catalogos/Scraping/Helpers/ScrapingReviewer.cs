@@ -54,7 +54,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
 
         protected IOrigin ResolveOrigin(ScrapingOrigin origin) {
             var baseResource = this.gateway.Get(origin.Url, "");
-            var downloadUrl = this.ResolveHtmlToLink(baseResource, origin.LinkText, origin.LinkPosition);
+            var downloadUrl = this.ResolveHtmlToLink(baseResource, origin.LinkText);
             if (downloadUrl != null) {
                 string parentDirectory = origin.Url.Substring(0, origin.Url.LastIndexOf("/"));
                 downloadUrl = parentDirectory + "/" + downloadUrl;
@@ -62,8 +62,8 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             return origin.WithDownloadUrl(downloadUrl);
         }
 
-        protected string ResolveHtmlToLink(UrlResponse response, string linkText, int linkPosition) {
-            return ScrapingReviewerLinkExtractor.FromUrlResponse(response, linkText, linkPosition);
+        protected string ResolveHtmlToLink(UrlResponse response, string linkText) {
+            return ScrapingReviewerLinkExtractor.FromUrlResponse(response, linkText);
         }
     }
 }

@@ -52,9 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Builder\IUpdateRepositoryServiceBuilder.cs" />
-    <Compile Include="Builder\ScrapingServiceReviewsBuilder.cs" />
-    <Compile Include="Builder\UpdateRepositoryServiceBuilder.cs" />
+    <Compile Include="Builder\IUpdateRepositoryBuilder.cs" />
+    <Compile Include="Builder\ScrapingReviewsBuilder.cs" />
+    <Compile Include="Builder\UpdateRepositoryBuilder.cs" />
     <Compile Include="IConfiguration.cs" />
     <Compile Include="Repository\Abstracts\ClaveBaseVigenciaSingle.cs" />
     <Compile Include="Repository\Abstracts\IRepositoryContext.cs" />
@@ -397,8 +397,8 @@
     <Compile Include="Scraping\Abstracts\OriginResource.cs" />
     <Compile Include="Scraping\Abstracts\Reviewer.cs" />
     <Compile Include="Scraping\Abstracts\UpdateOrigin.cs" />
-    <Compile Include="Builder\IScrapingServiceBuilder.cs" />
-    <Compile Include="Builder\ScrapingServiceBuilder.cs" />
+    <Compile Include="Builder\IScrapingBuilder.cs" />
+    <Compile Include="Builder\ScrapingBuilder.cs" />
     <Compile Include="DumpOrigins.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="Scraping\Entities\ConstantOrigin.cs" />
@@ -416,7 +416,6 @@
     <Compile Include="Scraping\Helpers\ScrapingReviewerLinkExtractor.cs" />
     <Compile Include="Scraping\Helpers\Upgrader.cs" />
     <Compile Include="Helpers\ValidacionService.cs" />
-    <Compile Include="Helpers\XmlSerializerService.cs" />
     <Compile Include="Scraping\Interfaces\IOrigin.cs" />
     <Compile Include="Scraping\Interfaces\IResourcesGateway.cs" />
     <Compile Include="Scraping\Interfaces\IReviewer.cs" />

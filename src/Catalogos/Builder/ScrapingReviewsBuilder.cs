@@ -4,18 +4,18 @@ using Jaeger.SAT.Catalogos.Scraping.Helpers;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Builder {
-    public class ScrapingServiceReviewsBuilder : ScrapingServiceBuilder, IScrapingServiceReviewsBuilder {
+    public class ScrapingReviewsBuilder : ScrapingBuilder, IScrapingServiceReviewsBuilder {
         #region declaraciones
         private List<Review> reviewers;
         private List<IOrigin> origins;
         private Upgrader upgrader;
         #endregion
 
-        public ScrapingServiceReviewsBuilder(IConfiguration configuration) : base(configuration) { }
+        public ScrapingReviewsBuilder(IConfiguration configuration) : base(configuration) { }
 
         public IScrapingReviewServiceBuilder Reviews(List<IOrigin> origins) {
             this.origins = origins;
-            CreateWithDefaultReviewers();
+            CreateDefaultReviewers();
             reviewers = new List<Review>();
             foreach (var item in this.origins) {
                 var reviewer = FindReviewerByOrigin(item);

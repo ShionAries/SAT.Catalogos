@@ -3,13 +3,15 @@ using Jaeger.SAT.Catalogos.Scraping.ValueObjects;
 using Jaeger.SAT.Catalogos.Update.Importers;
 
 namespace Jaeger.SAT.Catalogos.Builder {
-    public class UpdateRepositoryServiceBuilder : ConfigurationService, IUpdateRepositoryServiceBuilder, IUpdateRepositoryServiceSourceBuilder, IUpdateRepositoryServiceOriginBuilder, IUpdateRepositoryServiceImportBuilder {
+    public class UpdateRepositoryBuilder : ConfigurationService, IUpdateRepositoryBuilder, IUpdateRepositoryServiceSourceBuilder, IUpdateRepositoryServiceOriginBuilder, IUpdateRepositoryServiceImportBuilder {
+        #region declaraciones
         private IImporter importer;
         private IOrigin origin;
         private SourceIdentifierEnum sourceIdentifier;
+        #endregion
 
         #region constructor
-        public UpdateRepositoryServiceBuilder() : base() {
+        public UpdateRepositoryBuilder() : base() {
             this.Configuration = ConfigurationService.ConfigurationDefault();
         }
 
@@ -17,7 +19,7 @@ namespace Jaeger.SAT.Catalogos.Builder {
         /// constructor
         /// </summary>
         /// <param name="configuration">objeto IConfiguration</param>
-        public UpdateRepositoryServiceBuilder(IConfiguration configuration, IOrigin origin, SourceIdentifierEnum source) : base(configuration) {
+        public UpdateRepositoryBuilder(IConfiguration configuration, IOrigin origin, SourceIdentifierEnum source) : base(configuration) {
             this.origin = origin;
             this.sourceIdentifier=source;
         }

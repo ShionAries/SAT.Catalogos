@@ -38,12 +38,6 @@ namespace Jaeger.SAT.Catalogos.Scraping.Interfaces {
         string LinkText { get; set; }
 
         /// <summary>
-        /// 
-        /// </summary>
-        [Browsable(false)]
-        int LinkPosition { get; set; }
-
-        /// <summary>
         /// obtener o establecer URL de descarga del archivo
         /// </summary>
         [DisplayName("URL de Descarga")]

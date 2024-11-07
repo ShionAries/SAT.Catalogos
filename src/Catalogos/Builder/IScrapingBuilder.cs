@@ -3,7 +3,7 @@ using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 using Jaeger.SAT.Catalogos.Scraping.ValueObjects;
 
 namespace Jaeger.SAT.Catalogos.Builder {
-    public interface IScrapingServiceBuilder {
+    public interface IScrapingBuilder {
         IResourcesGateway Gateway { get; set; }
         IScrapingReviewServiceBuilder Review(SourceIdentifierEnum sourceIdentifier);
         IScrapingReviewServiceBuilder Review(IOrigin origin);
@@ -20,7 +20,7 @@ namespace Jaeger.SAT.Catalogos.Builder {
 
     public interface IScrapingServiceUpgraderBuilder {
         IOrigin GetOrigin();
-        IUpdateRepositoryServiceBuilder Update();
+        IUpdateRepositoryBuilder Update();
 
     }
 

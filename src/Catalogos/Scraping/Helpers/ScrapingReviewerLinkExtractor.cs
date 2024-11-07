@@ -7,7 +7,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
     /// extractor del link 
     /// </summary>
     public class ScrapingReviewerLinkExtractor {
-        public static string FromUrlResponse(UrlResponse response, string linkText, int linkPosition) {
+        public static string FromUrlResponse(UrlResponse response, string linkText) {
             string pattern = @"href\s*=\s*""(?:[""'](?<1>[^""']*)[""']|(?<1>[^>\s]+))"">" + linkText;
             RegexOptions options = RegexOptions.Multiline;
             var matches = Regex.Matches(response.Body, pattern, options);
@@ -15,7 +15,6 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
                 if (m.Value.Contains(linkText)) {
                     if (m.Groups.Count == 2) {
                         Console.WriteLine("'{0}' found at index {1}.", m.Groups[1].Value, m.Index);
-                        linkPosition = m.Index;
                         return m.Groups[1].Value;
                     }
                 }

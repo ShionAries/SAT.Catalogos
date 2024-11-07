@@ -1,7 +1,4 @@
-﻿using System;
-using System.IO;
-
-namespace Jaeger.SAT.Catalogos.Helpers {
+﻿namespace Jaeger.SAT.Catalogos.Helpers {
     /// <summary>
     /// Clase para looger de informacion
     /// </summary>
@@ -9,15 +6,15 @@ namespace Jaeger.SAT.Catalogos.Helpers {
         static readonly string path = @"C:\Jaeger\Jaeger.Log";
 
         internal static void Log(string title, string stackTrace) {
-            if (!Directory.Exists(path)) {
-                Directory.CreateDirectory(path);
+            if (!System.IO.Directory.Exists(path)) {
+                System.IO.Directory.CreateDirectory(path);
             }
             System.Text.StringBuilder stringBuilder = new System.Text.StringBuilder();
             stringBuilder.AppendLine("-------------------------------------------------->");
-            stringBuilder.AppendLine($"{DateTime.Now:dd/MM/yyyy HH:mm:ss}: {title}\r\n");
+            stringBuilder.AppendLine($"{System.DateTime.Now:dd/MM/yyyy HH:mm:ss}: {title}\r\n");
             stringBuilder.AppendLine(stackTrace);
             stringBuilder.AppendLine("");
-            using (StreamWriter streamWriter = new StreamWriter(Path.Combine(path, "Jaeger_SAT_Catalogos_Scraping.log"), true))
+            using (System.IO.StreamWriter streamWriter = new System.IO.StreamWriter(System.IO.Path.Combine(path, "Jaeger_SAT_Catalogos_Scraping.log"), true))
                 streamWriter.Write(stringBuilder.ToString());
         }
     }

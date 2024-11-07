@@ -40,7 +40,6 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
 
         private LayoutOrigin OriginToLayout(IOrigin origin) {
             return new LayoutOrigin {
-                LinkPosition = origin.LinkPosition,
                 DestinationFilename = origin.DestinationFilename,
                 Url = origin.Url,
                 DownloadUrl = origin.DownloadUrl,
@@ -54,7 +53,6 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
 
         private IOrigin ConstantOriginFromLayout(LayoutOrigin item) {
             return new ConstantOrigin() {
-                LinkPosition = item.LinkPosition,
                 DestinationFilename = item.DestinationFilename,
                 Url = item.Url,
                 DownloadUrl = item.DownloadUrl,
@@ -67,7 +65,6 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
 
         private IOrigin ScrapingOriginFromLayout(LayoutOrigin item) {
             return new ScrapingOrigin() {
-                LinkPosition = item.LinkPosition,
                 DestinationFilename = item.DestinationFilename,
                 Url = item.Url,
                 DownloadUrl = item.DownloadUrl,

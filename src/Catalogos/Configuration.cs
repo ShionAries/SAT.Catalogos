@@ -11,11 +11,11 @@ namespace Jaeger.SAT.Catalogos {
         /// constructor
         /// </summary>
         public Configuration() {
-            FileName = "origins.xml";
+            FileName = "origins.json";
             WorkingFolder = @"C:\Jaeger\Jaeger.Temporal";
         }
 
-        public Configuration(string fileName = "origins.xml", string workingFolder = @"C:\Jaeger\Jaeger.Temporal") {
+        public Configuration(string fileName = "origins.json", string workingFolder = @"C:\Jaeger\Jaeger.Temporal") {
             FileName = fileName;
             WorkingFolder = workingFolder;
         }
