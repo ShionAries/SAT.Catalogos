@@ -23,14 +23,21 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.OriginisGroupBox = new System.Windows.Forms.GroupBox();
             this.GridData = new System.Windows.Forms.DataGridView();
             this.TControl = new System.Windows.Forms.ToolStrip();
             this.Agregar = new System.Windows.Forms.ToolStripButton();
+            this.Editar = new System.Windows.Forms.ToolStripButton();
             this.Delete = new System.Windows.Forms.ToolStripButton();
             this.Guardar = new System.Windows.Forms.ToolStripButton();
-            this.Editar = new System.Windows.Forms.ToolStripButton();
+            this.NameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Url = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastVersion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DestinationFileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DownloadUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Permitir = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.OriginisGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridData)).BeginInit();
             this.TControl.SuspendLayout();
@@ -51,9 +58,16 @@
             // 
             // GridData
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
-            this.GridData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Silver;
+            this.GridData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.GridData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GridData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NameCol,
+            this.Url,
+            this.LastVersion,
+            this.DestinationFileName,
+            this.DownloadUrl,
+            this.Permitir});
             this.GridData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridData.Location = new System.Drawing.Point(5, 43);
             this.GridData.Name = "GridData";
@@ -83,6 +97,14 @@
             this.Agregar.Size = new System.Drawing.Size(69, 22);
             this.Agregar.Text = "Agregar";
             // 
+            // Editar
+            // 
+            this.Editar.Image = global::Tester.Properties.Resources.edit_16px;
+            this.Editar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Editar.Name = "Editar";
+            this.Editar.Size = new System.Drawing.Size(57, 22);
+            this.Editar.Text = "Editar";
+            // 
             // Delete
             // 
             this.Delete.Image = global::Tester.Properties.Resources.delete_16px;
@@ -99,13 +121,47 @@
             this.Guardar.Size = new System.Drawing.Size(69, 22);
             this.Guardar.Text = "Guardar";
             // 
-            // Editar
+            // NameCol
             // 
-            this.Editar.Image = global::Tester.Properties.Resources.edit_16px;
-            this.Editar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Editar.Name = "Editar";
-            this.Editar.Size = new System.Drawing.Size(57, 22);
-            this.Editar.Text = "Editar";
+            this.NameCol.DataPropertyName = "Name";
+            this.NameCol.HeaderText = "Nombre";
+            this.NameCol.Name = "NameCol";
+            this.NameCol.Width = 150;
+            // 
+            // Url
+            // 
+            this.Url.DataPropertyName = "Url";
+            this.Url.HeaderText = "Url";
+            this.Url.Name = "Url";
+            // 
+            // LastVersion
+            // 
+            this.LastVersion.DataPropertyName = "LastVersion";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "d";
+            dataGridViewCellStyle4.NullValue = null;
+            this.LastVersion.DefaultCellStyle = dataGridViewCellStyle4;
+            this.LastVersion.HeaderText = "Últ. Actualización";
+            this.LastVersion.Name = "LastVersion";
+            // 
+            // DestinationFileName
+            // 
+            this.DestinationFileName.DataPropertyName = "DestinationFileName";
+            this.DestinationFileName.HeaderText = "Destino";
+            this.DestinationFileName.Name = "DestinationFileName";
+            // 
+            // DownloadUrl
+            // 
+            this.DownloadUrl.DataPropertyName = "DownloadUrl";
+            this.DownloadUrl.HeaderText = "Download";
+            this.DownloadUrl.Name = "DownloadUrl";
+            // 
+            // Permitir
+            // 
+            this.Permitir.DataPropertyName = "AllowUpdate";
+            this.Permitir.HeaderText = "Permitir";
+            this.Permitir.Name = "Permitir";
+            this.Permitir.Width = 50;
             // 
             // OriginsForm
             // 
@@ -134,5 +190,11 @@
         private System.Windows.Forms.ToolStripButton Delete;
         private System.Windows.Forms.ToolStripButton Guardar;
         private System.Windows.Forms.ToolStripButton Editar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Url;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastVersion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DestinationFileName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DownloadUrl;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Permitir;
     }
 }

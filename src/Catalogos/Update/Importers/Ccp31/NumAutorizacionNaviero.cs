@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Jaeger.SAT.Catalogos.Repository.Ccp31;
+using Jaeger.SAT.Catalogos.Update.Abstracts;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp31 {
     /// <summary>
@@ -27,7 +28,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp31 {
         }
 
         protected override void CreateRepository() {
-            _Repository = new NumAutorizacionNavieroRepository();
+            _Repository = new NumAutorizacionNavieroRepository(this.LastVersion);
         }
     }
 }

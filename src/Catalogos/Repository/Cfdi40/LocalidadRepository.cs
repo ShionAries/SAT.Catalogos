@@ -8,10 +8,11 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// catalogo de localidades. 
     /// </summary>
     public class LocalidadRepository : RepositoryContext<CveLocalidad>, ILocalidadRepository, IGeneralRepository {
-        public LocalidadRepository() {
+        public LocalidadRepository(System.DateTime? lastUpdate = null) {
             Title = "Catálogo de localidades.";
             FileName = "LocalidadCFDI40.json";
             Version = "1.0";
+            this.AddLastUpdate(lastUpdate);
         }
 
         public CveLocalidad Search(string findId) {

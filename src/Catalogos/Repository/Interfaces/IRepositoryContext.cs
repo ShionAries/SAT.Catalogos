@@ -21,7 +21,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Interfaces {
         /// </summary>
         string Revision { get; set; }
 
-        System.DateTime? Actualizacion { get; set; }
+        System.DateTime? LastUpdate { get; set; }
 
         string Builder { get; set; }
 

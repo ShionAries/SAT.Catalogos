@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Jaeger.SAT.Catalogos.Repository.Cfdi40;
+using Jaeger.SAT.Catalogos.Update.Abstracts;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
     /// <summary>
@@ -37,7 +38,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
                 }
             }
             this._DataTable.AcceptChanges();
-            _Repository = new TipoComprobanteRepository();
+            _Repository = new TipoComprobanteRepository(this.LastVersion);
         }
     }
 }

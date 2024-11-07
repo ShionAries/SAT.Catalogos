@@ -8,10 +8,11 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     /// Catálogo de tipo de estación.
     /// </summary>
     public class TipoEstacionRepository : RepositoryContext<CveTipoEstacion>, ITipoEstacionRepository, IGeneralRepository {
-        public TipoEstacionRepository() {
+        public TipoEstacionRepository(System.DateTime? lastUpdate = null) {
             Title = "Catálogo de tipo de estación.";
             FileName = "CatCcp31CveTipoEstacion.json";
             Version = "1.0";
+            this.AddLastUpdate(lastUpdate);
         }
 
         public CveTipoEstacion Search(string findId) {

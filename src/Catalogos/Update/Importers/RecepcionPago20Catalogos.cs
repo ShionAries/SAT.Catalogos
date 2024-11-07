@@ -6,7 +6,9 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
     /// Catalogo del tipo de la cadena de pago.
     /// </summary>
     public class RecepcionPago20Catalogos : AbstractXlsImporter, IImporter {
-        public RecepcionPago20Catalogos(string csvFolder) : base(csvFolder) { }
+        public RecepcionPago20Catalogos(IConfiguration configuration) : base(configuration) {
+            this.FileName = "catPagos.xls";
+        }
 
         public override Injectors CreateInjectors(DataSet dataSet) {
             return new Injectors {

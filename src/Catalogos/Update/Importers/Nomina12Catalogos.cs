@@ -6,24 +6,26 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
     /// Catalogos de Nomina
     /// </summary>
     internal class Nomina12Catalogos : AbstractXlsImporter, IImporter {
-        public Nomina12Catalogos(string csvFolder) : base(csvFolder) { }
+        public Nomina12Catalogos(IConfiguration configuration) : base(configuration) {
+            this.FileName = "catNomina.xls";
+        }
 
         public override Injectors CreateInjectors(DataSet dataSet) {
             return new Injectors() {
                 Items = new System.Collections.Generic.List<IInjector> {
-                    new ClavesBancos(dataSet.Tables["c_Banco"]),
-                    new ClavesOrigenRecurso(dataSet.Tables["c_OrigenRecurso"]),
-                    new ClavesPeriodicidadPago(dataSet.Tables["c_PeriodicidadPago"]),
-                    new ClavesTipoContrato(dataSet.Tables["c_TipoContrato"]),
-                    new ClavesTipoDeduccion(dataSet.Tables["c_TipoDeduccion"]),
-                    new ClavesTipoHoras(dataSet.Tables["c_TipoHoras"]),
-                    new ClavesTipoIncapacidad(dataSet.Tables["c_TipoIncapacidad"]),
-                    new ClavesTipoJornada(dataSet.Tables["c_TipoJornada"]),
-                    new ClavesTipoNomina(dataSet.Tables["c_TipoNomina"]),
-                    new ClavesTipoOtroPago(dataSet.Tables["c_TipoOtroPago"]),
-                    new ClavesTipoPercepcion(dataSet.Tables["c_TipoPercepcion"]),
-                    new ClavesTipoRegimenContratacion(dataSet.Tables["c_TipoRegimen"]),
-                    new ClavesRiesgoPuesto(dataSet.Tables["c_RiesgoPuesto"]),
+                    new ClavesBancos(dataSet.Tables["c_Banco"]) { LastVersion = this.LastVersion },
+                    new ClavesOrigenRecurso(dataSet.Tables["c_OrigenRecurso"]) { LastVersion = this.LastVersion },
+                    new ClavesPeriodicidadPago(dataSet.Tables["c_PeriodicidadPago"]) { LastVersion = this.LastVersion },
+                    new ClavesTipoContrato(dataSet.Tables["c_TipoContrato"]) { LastVersion = this.LastVersion },
+                    new ClavesTipoDeduccion(dataSet.Tables["c_TipoDeduccion"]) { LastVersion = this.LastVersion },
+                    new ClavesTipoHoras(dataSet.Tables["c_TipoHoras"]) { LastVersion = this.LastVersion },
+                    new ClavesTipoIncapacidad(dataSet.Tables["c_TipoIncapacidad"]) { LastVersion = this.LastVersion },
+                    new ClavesTipoJornada(dataSet.Tables["c_TipoJornada"]) { LastVersion = this.LastVersion },
+                    new ClavesTipoNomina(dataSet.Tables["c_TipoNomina"]) { LastVersion = this.LastVersion },
+                    new ClavesTipoOtroPago(dataSet.Tables["c_TipoOtroPago"]) { LastVersion = this.LastVersion },
+                    new ClavesTipoPercepcion(dataSet.Tables["c_TipoPercepcion"]) { LastVersion = this.LastVersion },
+                    new ClavesTipoRegimenContratacion(dataSet.Tables["c_TipoRegimen"]) { LastVersion = this.LastVersion },
+                    new ClavesRiesgoPuesto(dataSet.Tables["c_RiesgoPuesto"]) { LastVersion = this.LastVersion }
                 }
             };
         }

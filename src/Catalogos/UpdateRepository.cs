@@ -8,6 +8,12 @@ namespace Jaeger.SAT.Catalogos {
             SourceFolder = sourceFolder;
         }
 
+        public UpdateRepository(Configuration configuration) {
+            Configuration = configuration;
+        }
+
+        public Configuration Configuration { get; set; }
+
         public string SourceFolder { get; set; }
 
         public IImporter Importer { get; set; }
@@ -26,7 +32,7 @@ namespace Jaeger.SAT.Catalogos {
         public int Run() {
             if (this.Importer != null) {
                 if (this.Importer.CheckFile()) {
-                    this.Importer.Import(new Helpers.Logger());
+                    this.Importer.Import();
                 }
             }
             return 0;

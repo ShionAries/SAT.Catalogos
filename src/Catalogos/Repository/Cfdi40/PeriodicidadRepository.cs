@@ -9,10 +9,11 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// Catalogo de periodicidad para comprobante fiscal 4.0
     /// </summary>
     public class PeriodicidadRepository : RepositoryContext<CvePeriodicidad>, IPeriodicidadRepository, IGeneralRepository {
-        public PeriodicidadRepository() {
+        public PeriodicidadRepository(System.DateTime? lastUpdate = null) {
             Title = "Catalogo Exportación";
             FileName = "PeriodicidadCFDI40.json";
             Version = "1.0";
+            this.AddLastUpdate(lastUpdate);
         }
 
         //public override void Load() {

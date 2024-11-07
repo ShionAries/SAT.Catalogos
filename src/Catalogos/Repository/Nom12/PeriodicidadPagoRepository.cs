@@ -9,10 +9,11 @@ namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
     /// Nomina: catalogo de periodicidad del pago
     /// </summary>
     public class PeriodicidadPagoRepository : RepositoryContext<CvePeriodicidadPago>, IPeriodicidadPagoRepository, IGeneralRepository{
-        public PeriodicidadPagoRepository() {
+        public PeriodicidadPagoRepository(System.DateTime? lastUpdate = null) {
             this.Title = "Catalogo Exportación";
             this.FileName = "CatNom12PeriodicidadPago.json";
             this.Version = "1.0";
+            this.AddLastUpdate(lastUpdate);
         }
 
         public CvePeriodicidadPago Search(string findId) {

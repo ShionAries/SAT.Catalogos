@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Jaeger.SAT.Catalogos.Repository.Articulo69B;
+using Jaeger.SAT.Catalogos.Update.Abstracts;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Articulo69B {
     internal class ListadoCompleto : AbstractInjector, IInjector {
@@ -42,7 +43,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Articulo69B {
         }
 
         protected override void CreateRepository() {
-            this._Repository = new Articulo69BRepository();
+            this._Repository = new Articulo69BRepository(this.LastVersion);
         }
     }
 }

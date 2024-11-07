@@ -10,48 +10,48 @@ namespace Tester {
         #region declaraciones
         private int previousIndex;
         private bool sortDirection;
-        private OriginService scrapService;
+        private OriginService service;
         private Waiting4Form waiting;
         #endregion
 
         public OriginsForm(OriginService originService) {
             InitializeComponent();
-            this.scrapService = originService;
+            this.service = originService;
         }
 
         private void OriginsForm_Load(object sender, EventArgs e) {
-            this.GridData.ReadOnly = true;
             this.GridData.AllowUserToAddRows = false;
             this.GridData.AllowUserToDeleteRows = false;
             this.GridData.AllowUserToResizeRows = false;
             this.GridData.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.GridData.ColumnHeaderMouseClick += this.GridData_ColumnHeaderMouseClick;
+
             this.Agregar.Click += this.Agregar_Click;
             this.Editar.Click += this.Editar_Click;
             this.Delete.Click += this.Delete_Click;
             this.Guardar.Click += this.Guardar_Click;
 
-
-            if (this.scrapService.DataSource == null) {
+            if (this.service.DataSource == null) {
                 this.waiting = new Waiting4Form(() => {
-                    this.scrapService.GetAll();
+                    this.service.GetAll();
                 }, "Cargando datos ...") {
                     Text = ""
                 };
                 this.waiting.ShowDialog(this);
             }
-            this.GridData.DataSource = this.scrapService.DataSource;
+            
+            this.GridData.DataSource = this.service.DataSource;
         }
 
         private void Agregar_Click(object sender, EventArgs e) {
-            throw new NotImplementedException();
+            
         }
 
         private void Editar_Click(object sender, EventArgs e) {
             if (this.GridData.CurrentRow != null) {
                 var seleccionado = this.GridData.CurrentRow.DataBoundItem as IOrigin;
                 if (seleccionado != null) {
-                    var editar = new OriginForm(this.scrapService, seleccionado);
+                    var editar = new OriginForm(this.service, seleccionado);
                     editar.ShowDialog(this);
                 }
             }
@@ -62,7 +62,7 @@ namespace Tester {
         }
 
         private void Guardar_Click(object sender, EventArgs e) {
-            this.scrapService.SaveChanges();
+            this.service.SaveChanges();
         }
 
         #region acciones del grid

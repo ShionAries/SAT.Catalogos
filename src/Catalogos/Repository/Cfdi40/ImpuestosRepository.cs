@@ -6,11 +6,12 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// catalogo de impuestos
     /// </summary>
     public class ImpuestosRepository : RepositoryContext<CveImpuesto>, IImpuestosRepository, IGeneralRepository {
-        public ImpuestosRepository() {
+        public ImpuestosRepository(System.DateTime? lastUpdate = null) {
             Title = "Catálogo de impuestos";
             FileName = "ImpuestosCFDI40.json";
             Version = "1.0";
             Revision = "0";
+            this.AddLastUpdate(lastUpdate);
         }
     }
 }

@@ -35,6 +35,7 @@ namespace Tester {
 
         private void MainMenuForm_Load(object sender, EventArgs e) {
             this._ScrapService = new OriginService();
+            
             this.ControlBtn.PerformClick();
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using Newtonsoft.Json;
 
 namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
@@ -21,8 +22,8 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
             Version = "1.0";
             Titulo = "Catálogo";
             Revision = "0";
-            Builder = "JaegerEditor";
-            Actualizacion = DateTime.Now;
+            Builder = Assembly.GetExecutingAssembly().GetName().ToString();
+            LastUpdate = DateTime.Now;
             Items = new List<TObject>();
         }
 
@@ -84,7 +85,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
         /// obtener o establecer fecha de actualización del catalogo
         /// </summary>
         [JsonProperty("act", Order = 7)]
-        public DateTime? Actualizacion {
+        public DateTime? LastUpdate {
             get {
                 DateTime firstGoodDate = new DateTime(1900, 1, 1);
                 if (_Actualizacion >= firstGoodDate)

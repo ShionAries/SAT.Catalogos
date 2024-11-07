@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Data;
 using Jaeger.SAT.Catalogos.Repository.Nom12;
+using Jaeger.SAT.Catalogos.Update.Abstracts;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.Nom12 {
     /// <summary>
@@ -30,7 +31,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Nom12 {
             var resultado = mapper.Map(_DataTable).ToList();
             if (resultado != null) {
                 if (resultado.Count() > 0) {
-                    _Repository = new OrigenRecursoRepository {
+                    _Repository = new OrigenRecursoRepository(this.LastVersion) {
                         Items = resultado.ToList()
                     };
                 }

@@ -42,6 +42,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -51,7 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builder\IUpdateRepositoryBuilder.cs" />
+    <Compile Include="Builder\ScrapingReviewsBuilder.cs" />
+    <Compile Include="Builder\UpdateRepositoryBuilder.cs" />
+    <Compile Include="IConfiguration.cs" />
     <Compile Include="Repository\Abstracts\ClaveBaseVigenciaSingle.cs" />
+    <Compile Include="Repository\Abstracts\IRepositoryContext.cs" />
     <Compile Include="Repository\Ccp31\CodigoTransporteAereoRepository.cs" />
     <Compile Include="Repository\Ccp31\ColoniaRepository.cs" />
     <Compile Include="Repository\Ccp31\CondicionesEspecialesRepository.cs" />
@@ -388,15 +394,44 @@
     <Compile Include="Repository\Cfdi40\UsoCFDIRepository.cs" />
     <Compile Include="Repository\ValueObjects\EnumFactor.cs" />
     <Compile Include="Repository\ValueObjects\EnumRangoOFijo.cs" />
+    <Compile Include="Scraping\Abstracts\OriginResource.cs" />
+    <Compile Include="Scraping\Abstracts\Reviewer.cs" />
+    <Compile Include="Scraping\Abstracts\UpdateOrigin.cs" />
+    <Compile Include="Builder\IScrapingBuilder.cs" />
+    <Compile Include="Builder\ScrapingBuilder.cs" />
+    <Compile Include="DumpOrigins.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="Scraping\Entities\ConstantOrigin.cs" />
+    <Compile Include="Scraping\Entities\LayoutOrigin.cs" />
+    <Compile Include="Scraping\Entities\Review.cs" />
+    <Compile Include="Scraping\Entities\ScrapingOrigin.cs" />
+    <Compile Include="Scraping\Entities\UrlResponse.cs" />
+    <Compile Include="Scraping\Helpers\ConstantReviewer.cs" />
+    <Compile Include="Helpers\LogInfoService.cs" />
+    <Compile Include="Scraping\Helpers\OriginService.cs" />
+    <Compile Include="Scraping\Helpers\OriginsTranslator.cs" />
+    <Compile Include="Scraping\Helpers\ResourcesGateway.cs" />
+    <Compile Include="Scraping\Helpers\Reviewers.cs" />
+    <Compile Include="Scraping\Helpers\ScrapingReviewer.cs" />
+    <Compile Include="Scraping\Helpers\ScrapingReviewerLinkExtractor.cs" />
+    <Compile Include="Scraping\Helpers\Upgrader.cs" />
+    <Compile Include="Helpers\ValidacionService.cs" />
+    <Compile Include="Scraping\Interfaces\IOrigin.cs" />
+    <Compile Include="Scraping\Interfaces\IResourcesGateway.cs" />
+    <Compile Include="Scraping\Interfaces\IReviewer.cs" />
+    <Compile Include="ScrapingService.cs" />
+    <Compile Include="Scraping\ValueObjects\SourceIdentifierEnum.cs" />
+    <Compile Include="Scraping\ValueObjects\StatusEnum.cs" />
+    <Compile Include="ConfigurationService.cs" />
+    <Compile Include="UpdateDatabase.cs" />
     <Compile Include="UpdateRepository.cs" />
-    <Compile Include="Update\AbstractInjector.cs" />
+    <Compile Include="UpdateService.cs" />
+    <Compile Include="Update\Abstracts\AbstractInjector.cs" />
     <Compile Include="Repository\Abstracts\Repository.cs" />
     <Compile Include="Repository\Abstracts\RepositoryContext.cs" />
     <Compile Include="Repository\Abstracts\ClaveBase.cs" />
     <Compile Include="Repository\Abstracts\ClaveBaseVigencia.cs" />
     <Compile Include="Repository\Interfaces\IRepositoryContext.cs" />
-    <Compile Include="Helpers\ILogger.cs" />
-    <Compile Include="Helpers\Logger.cs" />
     <Compile Include="Update\Converts\ExcelReader.cs" />
     <Compile Include="Update\Converts\XlsToDataSetConverter.cs" />
     <Compile Include="Repository\Cfdi40\FormaPagoRepository.cs" />
@@ -544,7 +579,6 @@
     <Compile Include="Update\Importers\SourcesImporter.cs" />
     <Compile Include="Update\Injectors.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UpdateDatabase.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

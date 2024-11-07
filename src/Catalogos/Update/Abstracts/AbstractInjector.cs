@@ -4,7 +4,7 @@ using System.Data;
 using System.Collections.Generic;
 using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
-namespace Jaeger.SAT.Catalogos.Update {
+namespace Jaeger.SAT.Catalogos.Update.Abstracts {
     public abstract class AbstractInjector : IInjector {
         #region declaraciones
         protected int _SkipRows;
@@ -14,35 +14,46 @@ namespace Jaeger.SAT.Catalogos.Update {
         protected DateTime? _LastVersion;
         #endregion
 
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="dataTable">datatable de datos</param>
         public AbstractInjector(DataTable dataTable) {
-            this._DataTable = dataTable;
-            this._HeadersMapper = new Dictionary<string, string>();
-            this.LastVersion = null;
+            _DataTable = dataTable;
+            _HeadersMapper = new Dictionary<string, string>();
         }
 
+        /// <summary>
+        /// obtener o establecer fecha de ultima actualizacion del catalogo
+        /// </summary>
         public DateTime? LastVersion {
             get {
-                if (this._LastVersion >= new DateTime(1900, 1, 1))
-                    return this._LastVersion;
-                return this._LastVersion;
+                if (_LastVersion >= new DateTime(1900, 1, 1))
+                    return _LastVersion;
+                return _LastVersion;
             }
-            set { this._LastVersion = value; }
+            set { _LastVersion = value; }
         }
 
-        public int Inject(Helpers.ILogger logger) {
-            logger.Info($"Arreglando tabla ...{this._DataTable.TableName}");
-            this.FixDataTable();
+        /// <summary>
+        /// proceso de inyeccion de datos
+        /// </summary>
+        /// <returns>siempre es 0</returns>
+        public int Inject() {
+            //Arreglando tabla 
+            FixDataTable();
 
-            logger.Info($"Verificando encabezado ...{this._DataTable.TableName}");
-            this.CheckHeaders();
+            //Verificando encabezado
+            CheckHeaders();
 
-            logger.Info($"Cambiado columnas para mapeo de datos {this._DataTable.TableName}...");
-            this.ChangeHeadersMapper();
-
-            if (this.IsUpdateable()) {
-                this.CreateRepository();
-                this.Save();
-                logger.Info($"Se inyectaron registros en {this._DataTable.TableName}");
+            ///Cambiado columnas para mapeo de datos
+            ChangeHeadersMapper();
+            // si es actualizable
+            if (IsUpdateable()) {
+                // crear repositorio
+                CreateRepository();
+                // guardar
+                Save();
             }
 
             return 0;
@@ -52,10 +63,10 @@ namespace Jaeger.SAT.Catalogos.Update {
         /// cambiar los nombres de las columnas por las palabras clave para el mapeo de datos
         /// </summary>
         public void ChangeHeadersMapper() {
-            for (int i = 0; i < this._DataTable.Columns.Count; i++) {
-                this._DataTable.Columns[i].ColumnName = _HeadersMapper[this._DataTable.Columns[i].ColumnName];
+            for (int i = 0; i < _DataTable.Columns.Count; i++) {
+                _DataTable.Columns[i].ColumnName = _HeadersMapper[_DataTable.Columns[i].ColumnName];
             }
-            this._DataTable.AcceptChanges();
+            _DataTable.AcceptChanges();
         }
 
         /// <summary>
@@ -69,45 +80,57 @@ namespace Jaeger.SAT.Catalogos.Update {
         protected abstract void CreateRepository();
 
         protected virtual bool IsUpdateable() {
-            return this._DataTable.Rows.Count > 0;
+            return _DataTable.Rows.Count > 0;
         }
 
         /// <summary>
         /// utilizar el metodo comun para importar y almacenar el repositorio
         /// </summary>
         protected virtual void Save() {
-            var counter = this._Repository.Import(this._DataTable);
-            this._Repository.Save();
-            Console.WriteLine($"Se inyectaron {counter} registros en {this._DataTable.TableName}");
+            var counter = _Repository.Import(_DataTable);
+            _Repository.Save();
+            Console.WriteLine($"Se inyectaron {counter} registros en {_DataTable.TableName}");
         }
 
         /// <summary>
         /// realizar arreglos para obtener los encabezados 
         /// </summary>
         protected virtual void FixDataTable() {
-            for (int i = 0; i < this._SkipRows; i++) {
-                this._DataTable.Rows.RemoveAt(0);
+            for (int i = 0; i < _SkipRows; i++) {
+                _DataTable.Rows.RemoveAt(0);
             }
             // obetener informacion de la fila donde estan los nombres de las columnas
-            this.RenameColumns();
+            RenameColumns();
             // eliminamos todas las columnas que tienen como nombre de columan 'Column??'
-            this.RemoveColumnsName();
+            RemoveColumnsName();
         }
 
+        /// <summary>
+        /// obtener encabezados de encabezados
+        /// </summary>
+        /// <returns>retorna lista de enbabezados de datatable</returns>
         protected List<string> GetHeaders() {
-            List<string> columnNames = this._DataTable.Columns
+            List<string> columnNames = _DataTable.Columns
                 .Cast<DataColumn>()
                 .Select(column => column.ColumnName)
                 .ToList();
             return columnNames;
         }
 
+        /// <summary>
+        /// funcion de comparacion de dos arrays
+        /// </summary>
+        /// <param name="firstArray">primer array</param>
+        /// <param name="secondArray">segundo array</param>
+        /// <returns>verdadero si ambas matrizes coinciden</returns>
         protected bool ArrayCompare(string[] firstArray, string[] secondArray) {
+            // logitud
             if (firstArray.Length != secondArray.Length) {
                 Console.WriteLine($"ArrayCompare las matrizes son diferentes en longitud");
                 return false;
             }
 
+            // verificar 
             for (int i = 0; i < firstArray.Length; i++) {
                 if (firstArray[i].ToLower() != secondArray[i].ToLower()) {
                     Console.WriteLine($"Diferencia en array 1 '{firstArray[i]}' posición {i} con array 2 '{secondArray[i]}'");
@@ -120,9 +143,9 @@ namespace Jaeger.SAT.Catalogos.Update {
 
         protected void RemoveEmptyColumns() {
             // eliminar columnas vacias
-            foreach (var column in this._DataTable.Columns.Cast<DataColumn>().ToArray()) {
-                if (this._DataTable.AsEnumerable().All(dr => dr.IsNull(column)))
-                    this._DataTable.Columns.Remove(column);
+            foreach (var column in _DataTable.Columns.Cast<DataColumn>().ToArray()) {
+                if (_DataTable.AsEnumerable().All(dr => dr.IsNull(column)))
+                    _DataTable.Columns.Remove(column);
             }
         }
 
@@ -131,16 +154,16 @@ namespace Jaeger.SAT.Catalogos.Update {
         /// </summary>
         protected void RemoveColumnsName() {
             // eliminar columnas que no tienen encabezados correctos
-            var columnNames = this._DataTable.Columns
+            var columnNames = _DataTable.Columns
                 .Cast<DataColumn>()
                 .Select(column => column.ColumnName)
                 .Where(column => column.ToLower().StartsWith("column"))
                 .ToList();
 
             foreach (var item in columnNames) {
-                this._DataTable.Columns.Remove(item);
+                _DataTable.Columns.Remove(item);
             }
-            this._DataTable.AcceptChanges();
+            _DataTable.AcceptChanges();
         }
 
         /// <summary>
@@ -148,26 +171,30 @@ namespace Jaeger.SAT.Catalogos.Update {
         /// </summary>
         protected void RemoveEmptyRows() {
             // eliminar filas vacias
-            _DataTable = this._DataTable.Rows.Cast<DataRow>().Where(row => !row.ItemArray.All(field => field == DBNull.Value | field.Equals(""))).CopyToDataTable();
+            _DataTable = _DataTable.Rows.Cast<DataRow>().Where(row => !row.ItemArray.All(field => field == DBNull.Value | field.Equals(""))).CopyToDataTable();
         }
 
+        /// <summary>
+        /// renombres de columnas del datatable
+        /// </summary>
+        /// <param name="rowIndex">indica la fila donde se encuentran los encabezados</param>
         protected void RenameColumns(int rowIndex = 0) {
-            var headers = this._DataTable.Rows[rowIndex].ItemArray;
+            var headers = _DataTable.Rows[rowIndex].ItemArray;
             for (int i = 0; i < headers.Length; i++) {
                 if (headers[i].ToString() != "" || headers[i].ToString().ToLower().StartsWith("column")) {
                     // en caso de repetir el nombre de la columna
-                    if (this._DataTable.Columns.Contains(headers[i].ToString())) {
-                        this._DataTable.Columns[i].ColumnName = headers[i].ToString() + "_" + i;
-                        Console.WriteLine($"Renombrar con posicion: {this._DataTable.Columns[i].ColumnName = headers[i].ToString().TrimEnd() + "_" + i}");
+                    if (_DataTable.Columns.Contains(headers[i].ToString())) {
+                        _DataTable.Columns[i].ColumnName = headers[i].ToString() + "_" + i;
+                        Console.WriteLine($"Renombrar con posicion: {_DataTable.Columns[i].ColumnName = headers[i].ToString().TrimEnd() + "_" + i}");
                     } else {
-                        this._DataTable.Columns[i].ColumnName = headers[i].ToString().TrimEnd().Replace("\r\n", "").Replace("\n", "");
+                        _DataTable.Columns[i].ColumnName = headers[i].ToString().TrimEnd().Replace("\r\n", "").Replace("\n", "");
                     }
                 }
             }
-            this._DataTable.Rows.RemoveAt(0);
-            var fila = this._DataTable.Rows[0].ItemArray;
+            _DataTable.Rows.RemoveAt(0);
+            var fila = _DataTable.Rows[0].ItemArray;
             if (fila[0].ToString() == "") {
-                this.RenameColumns();
+                RenameColumns();
             }
         }
     }

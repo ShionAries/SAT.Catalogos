@@ -5,8 +5,7 @@ using System.Data;
 
 namespace Jaeger.SAT.Catalogos.Helpers {
     public class DbConvert {
-        public DbConvert() {
-        }
+        public DbConvert() { }
 
         public static bool ConvertBool(object boolValue) {
             if (boolValue != DBNull.Value) {

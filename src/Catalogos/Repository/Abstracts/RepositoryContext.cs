@@ -6,7 +6,6 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using Newtonsoft.Json;
-using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
     /// <summary>
@@ -15,8 +14,8 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
     /// <typeparam name="T">The type of the T.</typeparam>
     public abstract class RepositoryContext<T> : IRepositoryContext<T> where T : class, new() {
         #region declaraciones
-        private bool _Recuperar = true;
-        private Repository<T> _Catalogo;
+        protected internal bool _Recuperar = true;
+        protected internal Repository<T> _Repository;
         #endregion
 
         /// <summary>
@@ -25,7 +24,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
         public RepositoryContext() {
             FileName = "miCatalogo.json";
             StartPath = @"C:\Jaeger\Jaeger.Catalogos";
-            _Catalogo = new Repository<T>();
+            _Repository = new Repository<T>();
         }
 
         #region propiedades
@@ -39,10 +38,10 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
         /// </summary>
         public string Version {
             get {
-                return _Catalogo.Version;
+                return _Repository.Version;
             }
             set {
-                _Catalogo.Version = value;
+                _Repository.Version = value;
             }
         }
 
@@ -51,10 +50,10 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
         /// </summary>
         public string Title {
             get {
-                return _Catalogo.Titulo;
+                return _Repository.Titulo;
             }
             set {
-                _Catalogo.Titulo = value;
+                _Repository.Titulo = value;
             }
         }
 
@@ -63,25 +62,31 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
         /// </summary>
         public string Revision {
             get {
-                return _Catalogo.Revision;
+                return _Repository.Revision;
             }
             set {
-                _Catalogo.Revision = value;
+                _Repository.Revision = value;
             }
         }
 
-        public DateTime? Actualizacion {
+        /// <summary>
+        /// obtener o establecer ultima fecha de actualizacion
+        /// </summary>
+        public DateTime? LastUpdate {
             get {
-                if (_Catalogo.Actualizacion >= new DateTime(1900, 1, 1))
-                    return _Catalogo.Actualizacion;
+                if (_Repository.LastUpdate >= new DateTime(1900, 1, 1))
+                    return _Repository.LastUpdate;
                 return null;
             }
-            set { _Catalogo.Actualizacion = value; }
+            set { _Repository.LastUpdate = value; }
         }
 
+        /// <summary>
+        /// obtener o establecer nombre del editor
+        /// </summary>
         public string Builder {
-            get { return _Catalogo.Builder; }
-            set { _Catalogo.Builder = value; }
+            get { return _Repository.Builder; }
+            set { _Repository.Builder = value; }
         }
 
         /// <summary>
@@ -106,10 +111,10 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
         /// </summary>
         public List<T> Items {
             get {
-                return _Catalogo.Items;
+                return _Repository.Items;
             }
             set {
-                _Catalogo.Items = value;
+                _Repository.Items = value;
             }
         }
         #endregion
@@ -214,12 +219,12 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
         /// </summary>
         public bool Save() {
             Encoding utf8WithoutBom = new UTF8Encoding(false);
-            File.WriteAllText(ResolverName(FileName), _Catalogo.ToJson(), utf8WithoutBom);
+            File.WriteAllText(ResolverName(FileName), _Repository.ToJson(), utf8WithoutBom);
             return false;
         }
 
         public bool SaveZIP() {
-            var contenido = Zip(_Catalogo.ToJson());
+            var contenido = Zip(_Repository.ToJson());
             var nombre = Path.ChangeExtension(ResolverName(FileName), "zip");
             File.WriteAllBytes(nombre, contenido);
             return false;
@@ -245,6 +250,13 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
         #endregion
 
         #region metodos privados
+        public void AddLastUpdate(DateTime? lastUpdate = null) {
+            if (lastUpdate != null) {
+                this.LastUpdate = lastUpdate;
+            } else {
+                this.LastUpdate = null;
+            }
+        }
 
         private bool GetResource(string nameResource, string fileName) {
             // sino existe la carpeta la creamos
@@ -288,8 +300,8 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
 
         private void Serializer(string valor) {
             var configuration = new JsonSerializerSettings() { NullValueHandling = NullValueHandling.Ignore, DateFormatString = "dd/MM/yyyy" };
-            this._Catalogo = JsonConvert.DeserializeObject<Repository<T>>(valor, configuration);
-            this.Items = this._Catalogo.Items;
+            this._Repository = JsonConvert.DeserializeObject<Repository<T>>(valor, configuration);
+            this.Items = this._Repository.Items;
         }
 
         private string ReadAllText(string fileName) {

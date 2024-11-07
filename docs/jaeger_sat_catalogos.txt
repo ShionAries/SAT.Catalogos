@@ -1,0 +1,43 @@
+Estructura del proyecto
+.
+└── Jaeger
+    └── SAT
+        ├── CFDI
+        │   ├── API
+        │   │   └── Consulta de Estado
+        │   └── Reader
+        └── Catálogos
+            ├── Helpers
+            ├── Repository
+            ├── Update
+            │   ├── Converts
+            │   └── Importers
+            └── Scraping
+                ├── Abstracts
+                ├── Entities
+                ├── Helpers
+                └── Interfaces
+
+https://tree.nathanfriend.io/?s=(%27options!(%27fancy!true~fullPath0~trailingSlash0~rootDot0)~3(%273%27Jaeg2.SAT.-CFDI*API6sulta%20de%20Estado*Read2.-Cat%C3%A1logo45Repository*Update6v2t4-Import24Scraping*-Abstract4-Entitie4-5-Int2faces%27)~v2sion!%271%27)*.---%20%20.%5Cn-0!false2er3source!4s*5Help246*-Con%01654320.-*
+
+IConfiguration = ScrapingService.ConfigurationDefault();
+Service = ScrapingService.Create(IConfiguration).Review(IOrigin);
+Service.IsSuccess().Upgrader();
+Service.IsSuccess().Update().Repository().Execute();
+
+CFDIv33
+CFDIv40
+RETv20
+Nomina12
+NominaEstados
+Articulo69
+Articulo69B
+CPortev20
+CPortev30
+CPorteV31
+CCE20ClavesPedimento
+CCE20Colonias
+
+¿Cual es recuerdo más feliz que tiene de ustedes dos juntos?
+¿Cual es la cosa mas linda que tu allás hecho por ella?
+¿Que es lo que vas a recordar de mi? el día que ya no este aquí

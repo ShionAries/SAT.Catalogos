@@ -3,17 +3,17 @@ using System.Collections.Generic;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers {
     public class SourcesImporter {
-        public void Import(string source, Helpers.ILogger logger) {
+        public void Import(IConfiguration configuration) {
             var importers = new List<IImporter> {
-                new Cfdi40Catalogos(this.GetFullName(source, "cfdi_40.xls")),
-                new Nomina12Catalogos(this.GetFullName(source, "catNomina.xls")),
-                new Retencion20Catalogos(this.GetFullName(source, "ret_20.xls")),
+                new Cfdi40Catalogos(configuration),
+                new Nomina12Catalogos(configuration),
+                new Retencion20Catalogos(configuration),
                 //new CartaPorte20Catalogos(this.GetFullName(source, "CatalogosCartaPorte20.xls")),
-                new CartaPorte30Catalogos(this.GetFullName(source, "CatalogosCartaPorte30.xls")),
-                new CartaPorte31Catalogos(this.GetFullName(source, "CatalogosCartaPorte31.xls")),
-                new Articulo69BCatalogos(this.GetFullName(source, "Listado_Completo_69-B.csv")),
-                new Articulo69Catalogos(this.GetFullName(source, "No localizados.csv")),
-                new RecepcionPago20Catalogos(this.GetFullName(source, "catPagos.xls")) { WorkingFolder = source }
+                new CartaPorte30Catalogos(configuration),
+                new CartaPorte31Catalogos(configuration),
+                new Articulo69BCatalogos(configuration),
+                new Articulo69Catalogos(configuration),
+                new RecepcionPago20Catalogos(configuration)
             };
 
             foreach (var item in importers) {
@@ -25,12 +25,8 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
             }
 
             foreach (var importer in importers) {
-                importer.Import(logger);
+                importer.Import();
             }
-        }
-
-        protected internal string GetFullName(string sourceFolder, string fileName) {
-            return System.IO.Path.Combine(sourceFolder, fileName);
         }
     }
 }

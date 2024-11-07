@@ -6,9 +6,10 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// catalogo de estados
     /// </summary>
     public class EstadoRepository : RepositoryContext<CveEstado>, IEstadoRepository, IGeneralRepository {
-        public EstadoRepository() {
+        public EstadoRepository(System.DateTime? lastUpdate = null) {
             Title = "Catálogo de Estados";
             FileName = "EstadosCFDi40.json";
+            this.AddLastUpdate(lastUpdate);
         }
     }
 }

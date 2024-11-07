@@ -8,10 +8,11 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     /// Catálogo de colonias.
     /// </summary>
     public class ColoniaRepository : RepositoryContext<CveColonia>, IColoniaRepository, IGeneralRepository {
-        public ColoniaRepository() {
+        public ColoniaRepository(System.DateTime? lastUpdate = null) {
             Title = "Catálogo de colonias.";
             FileName = "CatCcp31Colonia.json";
             Version = "2.0";
+            this.AddLastUpdate(lastUpdate);
         }
 
         public CveColonia Search(string findId) {

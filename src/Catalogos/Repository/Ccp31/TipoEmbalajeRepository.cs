@@ -8,10 +8,11 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     /// Carta Porte 3.0 Catálogo de tipo de embalaje.
     /// </summary>
     public class TipoEmbalajeRepository : RepositoryContext<CveTipoEmbalaje>, ITipoEmbalajeRepository, IGeneralRepository {
-        public TipoEmbalajeRepository() {
+        public TipoEmbalajeRepository(System.DateTime? lastUpdate = null) {
             Title = "Catálogo de tipo de embalaje.";
             FileName = "CatCcp31TipoEmbalaje.json";
             Version = "1.0";
+            this.AddLastUpdate(lastUpdate);
         }
 
         public CveTipoEmbalaje Search(string findId) {

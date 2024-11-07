@@ -65,7 +65,6 @@ namespace Jaeger.SAT.Catalogos.Scraping.Abstracts {
         public int LinkPosition { get; set; }
         #endregion
 
-
         #region metodos publicos
         public virtual bool HasLastVersion() {
             return this.LastVersion != null;

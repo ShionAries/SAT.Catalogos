@@ -8,10 +8,11 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     /// catalogo de municipios.
     /// </summary>
     public class MunicipioRepository : RepositoryContext<CveMunicipio>, IMunicipioRepository, IGeneralRepository {
-        public MunicipioRepository() {
+        public MunicipioRepository(System.DateTime? lastUpdate = null) {
             Title = "Catálogo de municipios.";
             FileName = "SatCcp31Municipio.json";
             Version = "1.0";
+            this.AddLastUpdate(lastUpdate);
         }
 
         public CveMunicipio Search(string findId) {
