@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Jaeger.SAT.Catalogos.Scraping.Abstracts;
 using Jaeger.SAT.Catalogos.Scraping.Entities;
 using Jaeger.SAT.Catalogos.Scraping.Helpers;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
