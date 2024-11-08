@@ -403,7 +403,6 @@
     <Compile Include="Configuration.cs" />
     <Compile Include="Scraping\Entities\ConstantOrigin.cs" />
     <Compile Include="Scraping\Entities\LayoutOrigin.cs" />
-    <Compile Include="Scraping\Entities\Review.cs" />
     <Compile Include="Scraping\Entities\ScrapingOrigin.cs" />
     <Compile Include="Scraping\Entities\UrlResponse.cs" />
     <Compile Include="Scraping\Helpers\ConstantReviewer.cs" />

@@ -1,5 +1,4 @@
-﻿using Jaeger.SAT.Catalogos.Scraping.Entities;
-using Jaeger.SAT.Catalogos.Scraping.Interfaces;
+﻿using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Abstracts {
     /// <summary>
@@ -13,6 +12,6 @@ namespace Jaeger.SAT.Catalogos.Scraping.Abstracts {
         /// </summary>
         public abstract bool Accepts(IOrigin origin);
 
-        public abstract Review Review(IOrigin origin);
+        public abstract IOrigin Review(IOrigin origin);
     }
 }

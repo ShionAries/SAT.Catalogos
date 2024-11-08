@@ -12,7 +12,7 @@ namespace Jaeger.SAT.Catalogos.Builder {
         private ConstantReviewer constantReviewer;
         private Upgrader upgrader;
         private IOrigin origin;
-        private Review reviewer;
+        //private Review reviewer;
         private SourceIdentifierEnum sourceIdentifier;
         #endregion
 
@@ -51,7 +51,7 @@ namespace Jaeger.SAT.Catalogos.Builder {
             this.CreateDefaultReviewers();
             var localReviewer = FindReviewerByOrigin(this.origin);
             if (localReviewer != null) {
-                reviewer = localReviewer.Review(this.origin);
+                this.origin = localReviewer.Review(this.origin);
             }
             return this;
         }
@@ -70,8 +70,8 @@ namespace Jaeger.SAT.Catalogos.Builder {
         }
 
         public virtual IScrapingServiceUpgraderBuilder Upgrader() {
-            if (reviewer != null) {
-                origin = upgrader.UpgradeReview(reviewer);
+            if (this.origin != null) {
+                origin = upgrader.UpgradeReview(this.origin);
             }
             return this;
         }

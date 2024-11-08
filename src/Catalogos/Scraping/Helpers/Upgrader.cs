@@ -30,10 +30,10 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             return System.IO.Path.Combine(destinationPath, filename);
         }
 
-        public IOrigin UpgradeReview(Review review) {
-            var origin = review.Origin;
+        public IOrigin UpgradeReview(IOrigin origin) {
+            
             var destination = this.BuildPath(origin.DestinationFilename);
-            if (!(review.Status == ValueObjects.StatusEnum.NotUpdated)) {
+            if (!(origin.Status == ValueObjects.StatusEnum.NotUpdated)) {
                 return origin;
             }
             Console.WriteLine($"Actualizando {origin.Name} desde {origin.DownloadUrl} en {destination}");
@@ -41,9 +41,9 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             return origin.WithLastModified(urlResponse.LastModified);
         }
 
-        public List<IOrigin> UpgradeReviews(List<Review> reviews) {
+        public List<IOrigin> UpgradeReviews(List<IOrigin> reviews) {
             var origins = new List<IOrigin>();
-            foreach (Review review in reviews) {
+            foreach (IOrigin review in reviews) {
                 origins.Add(this.UpgradeReview(review));
             }
             return origins;

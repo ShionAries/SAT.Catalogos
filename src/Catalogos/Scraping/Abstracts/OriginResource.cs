@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
+using Jaeger.SAT.Catalogos.Scraping.ValueObjects;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Abstracts {
     /// <summary>
@@ -59,6 +60,13 @@ namespace Jaeger.SAT.Catalogos.Scraping.Abstracts {
         /// </summary>
         [DisplayName("Permitir")]
         public bool AllowUpdate { get; set; }
+
+        /// <summary>
+        /// obtener o establecer status del origen de recurso
+        /// </summary>
+        [Newtonsoft.Json.JsonIgnore]
+        [Browsable(false)]
+        public StatusEnum Status { get; set; }
         #endregion
 
         #region metodos publicos

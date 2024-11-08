@@ -18,19 +18,19 @@ namespace Jaeger.SAT.Catalogos {
             var upToDateReviews = reviews.Where(it => it.Status == Scraping.ValueObjects.StatusEnum.UpToDate).ToList();
 
             foreach (var item in upToDateReviews) {
-                this.OnNotificationEvent($"El origen {item.Origin.Name} desde {item.Origin.DownloadUrl} para {item.Origin.DestinationFilename} está actualizado");
+                this.OnNotificationEvent($"El origen {item.Name} desde {item.DownloadUrl} para {item.DestinationFilename} está actualizado");
             }
 
             foreach (var item in notUpdatedReviews) {
-                if (!item.Origin.HasLastVersion()) {
-                    this.OnNotificationEvent($"El origen {item.Origin.Name} desde {item.Origin.DownloadUrl} para {item.Origin.DestinationFilename} no existe, se descargará");
+                if (!item.HasLastVersion()) {
+                    this.OnNotificationEvent($"El origen {item.Name} desde {item.DownloadUrl} para {item.DestinationFilename} no existe, se descargará");
                 } else {
-                    this.OnNotificationEvent($"El origen {item.Origin.Name} desde {item.Origin.DownloadUrl} para {item.Origin.DestinationFilename} está desactualizado, la nueva versión tiene fecha {item.Origin.LastVersion}");
+                    this.OnNotificationEvent($"El origen {item.Name} desde {item.DownloadUrl} para {item.DestinationFilename} está desactualizado, la nueva versión tiene fecha {item.LastVersion}");
                 }
             }
 
             foreach (var item in notFoundReviews) {
-                this.OnNotificationEvent(string.Format("El origen {0} para {1} no fue encontrado", item.Origin.Name, item.Origin.DestinationFilename));
+                this.OnNotificationEvent(string.Format("El origen {0} para {1} no fue encontrado", item.Name, item.DestinationFilename));
             }
 
             if (notFoundReviews.Count > 0) {

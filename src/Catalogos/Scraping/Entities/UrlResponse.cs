@@ -70,6 +70,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
         }
         #endregion
 
+        #region metodos publicos
         /// <summary>
         /// metodo para comprobar las fechas
         /// </summary>
@@ -96,5 +97,6 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
             this._Body = DataReader.ReadToEnd();
             return this;
         }
+        #endregion
     }
 }

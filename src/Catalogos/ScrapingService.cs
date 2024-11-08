@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Jaeger.SAT.Catalogos.Scraping.Entities;
 using Jaeger.SAT.Catalogos.Scraping.Helpers;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
@@ -11,8 +10,6 @@ namespace Jaeger.SAT.Catalogos {
         private ScrapingReviewer scrapingReviewer;
         private ConstantReviewer constantReviewer;
         private Upgrader upgrader;
-        private List<Review> reviewers;
-        private Review reviewer;
         private List<IOrigin> origins;
         private IOrigin origin;
         #endregion
@@ -46,13 +43,13 @@ namespace Jaeger.SAT.Catalogos {
         #endregion
 
         #region metodos publicos
-        public Review Review(IOrigin origin) {
+        public IOrigin Review(IOrigin origin) {
             this.origin = origin;
             this.CreateWithDefaultReviewers();
             var localReview = this.FindReviewerByOrigin(this.origin);
             if (localReview != null) {
-                reviewer = localReview.Review(this.origin);
-                return reviewer;
+                this.origin = localReview.Review(this.origin);
+                return this.origin;
             }
             return null;
         }
@@ -60,15 +57,10 @@ namespace Jaeger.SAT.Catalogos {
         public void Review(List<IOrigin> origins) {
             this.origins = origins;
             this.CreateWithDefaultReviewers();
-            reviewers = new List<Review>();
-            foreach (var item in this.origins) {
-                var localReviewer = this.FindReviewerByOrigin(item);
-                reviewers.Add(localReviewer.Review(item));
+            for (int i = 0; i < this.origins.Count(); i++) {
+                var localReviewer = this.FindReviewerByOrigin(this.origins[i]);
+                this.origins[i] = localReviewer.Review(this.origins[i]);
             }
-        }
-
-        public List<Review> GetReviews() {
-            return reviewers;
         }
 
         public IOrigin GetOrigin() {
@@ -80,10 +72,10 @@ namespace Jaeger.SAT.Catalogos {
         }
 
         public void Upgrader() {
-            if (reviewer != null) {
-                origin = upgrader.UpgradeReview(reviewer);
-            } else if (reviewers != null) {
-                origins = upgrader.UpgradeReviews(reviewers);
+            if (this.origin != null) {
+                origin = upgrader.UpgradeReview(this.origin);
+            } else if (this.origins != null) {
+                origins = upgrader.UpgradeReviews(this.origins);
             }
         }
         #endregion

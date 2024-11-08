@@ -6,7 +6,7 @@ using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 namespace Jaeger.SAT.Catalogos.Builder {
     public class ScrapingReviewsBuilder : ScrapingBuilder, IScrapingServiceReviewsBuilder {
         #region declaraciones
-        private List<Review> reviewers;
+        private List<IOrigin> reviewers;
         private List<IOrigin> origins;
         private Upgrader upgrader;
         #endregion
@@ -16,7 +16,7 @@ namespace Jaeger.SAT.Catalogos.Builder {
         public IScrapingReviewServiceBuilder Reviews(List<IOrigin> origins) {
             this.origins = origins;
             CreateDefaultReviewers();
-            reviewers = new List<Review>();
+            reviewers = new List<IOrigin>();
             foreach (var item in this.origins) {
                 var reviewer = FindReviewerByOrigin(item);
                 reviewers.Add(reviewer.Review(item));

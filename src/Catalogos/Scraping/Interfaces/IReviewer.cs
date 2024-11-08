@@ -4,6 +4,6 @@ namespace Jaeger.SAT.Catalogos.Scraping.Interfaces {
     public interface IReviewer {
         bool Accepts(IOrigin origin);
 
-        Review Review(IOrigin origin);
+        IOrigin Review(IOrigin origin);
     }
 }

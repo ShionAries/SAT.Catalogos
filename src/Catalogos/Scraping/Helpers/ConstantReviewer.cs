@@ -23,7 +23,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             return origin is ConstantOrigin;
         }
 
-        public override Review Review(IOrigin origin) {
+        public override IOrigin Review(IOrigin origin) {
             if (!(origin is ConstantOrigin)) {
                 new Exception("This reviewer can only handle ConstantOrigin objects");
             }
@@ -31,16 +31,19 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             // obtener la información de la url del origen
             var response = this.gateway.Headers(origin.Url);
             if (!response.IsSuccess) {
-                return new Review(origin, StatusEnum.NotFound);
+                origin.Status = StatusEnum.NotFound;
+                return origin;
             }
 
             // si el recurso no coincide con la ultima version
             if (!origin.HasLastVersion() || !response.DateMatch(origin.LastVersion)) {
-                return new Review(origin, StatusEnum.NotUpdated);
+                origin.Status = StatusEnum.NotUpdated;
+                return origin;
             }
 
             // entonces el recurso coincide
-            return new Review(origin, StatusEnum.UpToDate);
+            origin.Status = StatusEnum.UpToDate;
+            return origin;
         }
     }
 }
