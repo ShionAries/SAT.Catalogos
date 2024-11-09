@@ -11,7 +11,6 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
     /// clase para servicio de origenes
     /// </summary>
     public class OriginService : OriginsTranslator, IOriginService {
-
         /// <summary>
         /// constructor
         /// </summary>
