@@ -14,6 +14,7 @@ namespace Jaeger.SAT.Catalogos {
         private IOrigin origin;
         #endregion
 
+        #region constructor
         /// <summary>
         /// constructor
         /// </summary>
@@ -37,6 +38,7 @@ namespace Jaeger.SAT.Catalogos {
         public ScrapingService(IResourcesGateway gateway, IConfiguration configuration = null) : base(configuration) {
             Gateway = gateway;
         }
+        #endregion
 
         #region propiedades
         public IResourcesGateway Gateway { get; set; }

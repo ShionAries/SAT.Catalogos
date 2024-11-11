@@ -1,6 +1,6 @@
-﻿using Jaeger.SAT.Catalogos.Scraping.ValueObjects;
-using System;
+﻿using System;
 using System.ComponentModel;
+using Jaeger.SAT.Catalogos.Scraping.ValueObjects;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Interfaces {
     /// <summary>

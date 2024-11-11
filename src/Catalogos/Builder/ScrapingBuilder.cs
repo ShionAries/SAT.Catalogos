@@ -1,19 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using Jaeger.SAT.Catalogos.Scraping.Entities;
 using Jaeger.SAT.Catalogos.Scraping.Helpers;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
-using Jaeger.SAT.Catalogos.Scraping.ValueObjects;
 
 namespace Jaeger.SAT.Catalogos.Builder {
-    public class ScrapingBuilder : ConfigurationService, IScrapingBuilder, IScrapingReviewServiceBuilder, IScrapingReviewsServiceBuilder, IScrapingServiceUpgraderBuilder {
+    public class ScrapingBuilder : ConfigurationService, IScrapingBuilder, IScrapingOriginServiceBuilder, IScrapingReviewServiceBuilder, IScrapingServiceUpgraderBuilder {
         #region declaraciones
         private ScrapingReviewer scrapingReviewer;
         private ConstantReviewer constantReviewer;
         private Upgrader upgrader;
         private IOrigin origin;
-        //private Review reviewer;
-        private SourceIdentifierEnum sourceIdentifier;
+        
         #endregion
 
         #region constructor
@@ -45,9 +41,12 @@ namespace Jaeger.SAT.Catalogos.Builder {
         #endregion
 
         #region builder
-        public IScrapingReviewServiceBuilder Review(SourceIdentifierEnum sourceIdentifier) {
-            this.sourceIdentifier = sourceIdentifier;
-            this.origin = DumpOrigins.GetOrigin(sourceIdentifier);
+        public IScrapingOriginServiceBuilder Origin(IOrigin origin) {
+            this.origin = origin;
+            return this;
+        }
+
+        public IScrapingReviewServiceBuilder Review() {
             this.CreateDefaultReviewers();
             var localReviewer = FindReviewerByOrigin(this.origin);
             if (localReviewer != null) {
@@ -56,20 +55,8 @@ namespace Jaeger.SAT.Catalogos.Builder {
             return this;
         }
 
-        public IScrapingReviewServiceBuilder Review(IOrigin origin) {
-            this.origin = origin;
-            return this;
-        }
-
-        public IUpdateRepositoryBuilder Update() {
-            return new UpdateRepositoryBuilder(this.Configuration, this.origin, this.sourceIdentifier);
-        }
-
-        public IScrapingReviewsServiceBuilder Review(List<IOrigin> origin) {
-            return this;
-        }
-
         public virtual IScrapingServiceUpgraderBuilder Upgrader() {
+            this.CreateDefaultReviewers();
             if (this.origin != null) {
                 origin = upgrader.UpgradeReview(this.origin);
             }
@@ -78,10 +65,6 @@ namespace Jaeger.SAT.Catalogos.Builder {
 
         public IOrigin GetOrigin() {
             return this.origin;
-        }
-
-        public IScrapingServiceReviewsBuilder Reviews() {
-            return new ScrapingReviewsBuilder(this.Configuration);
         }
         #endregion
 
@@ -97,11 +80,11 @@ namespace Jaeger.SAT.Catalogos.Builder {
 
         protected void CreateDefaultReviewers() {
             if (scrapingReviewer == null)
-                scrapingReviewer = new ScrapingReviewer(Gateway);
+                scrapingReviewer = new ScrapingReviewer(this.Gateway);
             if (constantReviewer == null)
-                constantReviewer = new ConstantReviewer(Gateway);
+                constantReviewer = new ConstantReviewer(this.Gateway);
             if (upgrader == null)
-                upgrader = new Upgrader(Gateway, Configuration.WorkingFolder);
+                upgrader = new Upgrader(this.Gateway, this.Configuration.WorkingFolder);
         }
         #endregion
 

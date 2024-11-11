@@ -12,7 +12,7 @@ namespace Jaeger.SAT.Catalogos.Builder {
 
         public ScrapingReviewsBuilder(IConfiguration configuration) : base(configuration) { }
 
-        public IScrapingReviewServiceBuilder Reviews(List<IOrigin> origins) {
+        public IScrapingOriginServiceBuilder Reviews(List<IOrigin> origins) {
             this.origins = origins;
             CreateDefaultReviewers();
             reviewers = new List<IOrigin>();

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
@@ -7,8 +6,10 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
     /// clase para actualizacion
     /// </summary>
     internal class Upgrader {
+        #region declaraciones
         private readonly IResourcesGateway gateway;
         private readonly string destinationPath;
+        #endregion
 
         /// <summary>
         /// constructor
@@ -41,17 +42,6 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             Console.WriteLine($"Actualizando {origin.Name} desde {origin.DownloadUrl} en {destination}");
             var urlResponse = this.gateway.Get(origin.DownloadUrl, destination);
             return origin.WithLastModified(urlResponse.LastModified);
-        }
-
-        /// <summary>
-        /// Revision de actualizacion
-        /// </summary>
-        /// <param name="origins">List<IOrigin></param>
-        public List<IOrigin> UpgradeReviews(List<IOrigin> origins) {
-            for (int i = 0; i < origins.Count; i++) {
-                origins[i] = this.UpgradeReview(origins[i]);
-            }
-            return origins;
         }
     }
 }

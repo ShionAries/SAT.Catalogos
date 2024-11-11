@@ -21,7 +21,7 @@ namespace Jaeger.SAT.Catalogos.Builder {
         /// <param name="configuration">objeto IConfiguration</param>
         public UpdateRepositoryBuilder(IConfiguration configuration, IOrigin origin, SourceIdentifierEnum source) : base(configuration) {
             this.origin = origin;
-            this.sourceIdentifier=source;
+            this.sourceIdentifier = source;
         }
         #endregion
 

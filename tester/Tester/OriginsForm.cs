@@ -2,8 +2,8 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Jaeger.SAT.Catalogos.Scraping.Helpers;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
+using Jaeger.SAT.Catalogos.Builder;
 
 namespace Tester {
     public partial class OriginsForm : Form {
@@ -31,6 +31,8 @@ namespace Tester {
             this.Delete.Click += this.Delete_Click;
             this.Guardar.Click += this.Guardar_Click;
 
+            this.Verificar.Click += TControl_Verificar_Click;
+
             if (this.Service.DataSource == null) {
                 this.waiting = new Waiting4Form(() => {
                     this.Service.GetAll();
@@ -43,6 +45,23 @@ namespace Tester {
             this.GridData.DataSource = this.Service.DataSource;
             if (this.Service.IsDefault) {
                 MessageBox.Show(this, "No se encontro archivo de control de origenes, se obtuvo la información por default.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+        }
+
+        private void TControl_Verificar_Click(object sender, EventArgs e) {
+            if (this.GridData.CurrentRow != null) {
+                var selected = this.GridData.CurrentRow.DataBoundItem as IOrigin;
+                if (selected != null) {
+                    var builder = ScrapingBuilder.Create().Origin(selected).Review();
+                    if (selected.Status == Jaeger.SAT.Catalogos.Scraping.ValueObjects.StatusEnum.NotUpdated) {
+                        if (MessageBox.Show(this, "Existe una actualización disponible", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes) {
+                            var download = builder.Upgrader();
+                            
+                        }
+                    }
+                } else {
+                    MessageBox.Show(this, "Origen no válido.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

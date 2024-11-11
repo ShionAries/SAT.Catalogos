@@ -174,7 +174,7 @@
             // 
             this.HeaderLabel.BackColor = System.Drawing.SystemColors.ControlDark;
             this.HeaderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HeaderLabel.Location = new System.Drawing.Point(50, 13);
+            this.HeaderLabel.Location = new System.Drawing.Point(50, 9);
             this.HeaderLabel.Name = "HeaderLabel";
             this.HeaderLabel.Size = new System.Drawing.Size(164, 54);
             this.HeaderLabel.TabIndex = 4;
@@ -183,7 +183,7 @@
             // BtnHome
             // 
             this.BtnHome.Image = global::Tester.Properties.Resources.sat30px;
-            this.BtnHome.Location = new System.Drawing.Point(12, 12);
+            this.BtnHome.Location = new System.Drawing.Point(12, 13);
             this.BtnHome.Name = "BtnHome";
             this.BtnHome.Size = new System.Drawing.Size(32, 32);
             this.BtnHome.TabIndex = 1;
@@ -209,7 +209,7 @@
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitleBar.Location = new System.Drawing.Point(225, 0);
             this.panelTitleBar.Name = "panelTitleBar";
-            this.panelTitleBar.Size = new System.Drawing.Size(789, 58);
+            this.panelTitleBar.Size = new System.Drawing.Size(789, 60);
             this.panelTitleBar.TabIndex = 1;
             this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
             // 
@@ -229,18 +229,18 @@
             // 
             this.panelShadow.BackColor = System.Drawing.SystemColors.ControlDark;
             this.panelShadow.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelShadow.Location = new System.Drawing.Point(225, 58);
+            this.panelShadow.Location = new System.Drawing.Point(225, 60);
             this.panelShadow.Name = "panelShadow";
-            this.panelShadow.Size = new System.Drawing.Size(789, 9);
+            this.panelShadow.Size = new System.Drawing.Size(789, 10);
             this.panelShadow.TabIndex = 2;
             // 
             // panelDesktop
             // 
             this.panelDesktop.BackColor = System.Drawing.SystemColors.Control;
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDesktop.Location = new System.Drawing.Point(225, 67);
+            this.panelDesktop.Location = new System.Drawing.Point(225, 70);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(789, 409);
+            this.panelDesktop.Size = new System.Drawing.Size(789, 406);
             this.panelDesktop.TabIndex = 3;
             // 
             // MainMenuForm

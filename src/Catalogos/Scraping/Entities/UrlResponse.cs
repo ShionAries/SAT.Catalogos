@@ -77,7 +77,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
         /// <param name="dateTime"></param>
         /// <returns>verdero si las fechas coinciden</returns>
         public bool DateMatch(DateTime? dateTime) {
-            return this.LastModified == dateTime;
+            return this.LastModified.Value.Date == dateTime.Value.Date;
         }
 
         /// <summary>

@@ -53,7 +53,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Builder\IUpdateRepositoryBuilder.cs" />
-    <Compile Include="Builder\ScrapingReviewsBuilder.cs" />
     <Compile Include="Builder\UpdateRepositoryBuilder.cs" />
     <Compile Include="IConfiguration.cs" />
     <Compile Include="Repository\Abstracts\ClaveBaseVigenciaSingle.cs" />
@@ -419,13 +418,9 @@
     <Compile Include="Scraping\Interfaces\IOriginService.cs" />
     <Compile Include="Scraping\Interfaces\IResourcesGateway.cs" />
     <Compile Include="Scraping\Interfaces\IReviewer.cs" />
-    <Compile Include="ScrapingService.cs" />
     <Compile Include="Scraping\ValueObjects\SourceIdentifierEnum.cs" />
     <Compile Include="Scraping\ValueObjects\StatusEnum.cs" />
     <Compile Include="ConfigurationService.cs" />
-    <Compile Include="UpdateDatabase.cs" />
-    <Compile Include="UpdateRepository.cs" />
-    <Compile Include="UpdateService.cs" />
     <Compile Include="Update\Abstracts\AbstractInjector.cs" />
     <Compile Include="Repository\Abstracts\Repository.cs" />
     <Compile Include="Repository\Abstracts\RepositoryContext.cs" />
