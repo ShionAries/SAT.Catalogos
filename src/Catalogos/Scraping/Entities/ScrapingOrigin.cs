@@ -22,7 +22,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
         /// <param name="downloadUrl">url de descarga</param>
         /// <param name="linkPosition"></param>
         /// <param name="allowUpdate">´permitir la descarga</param>
-        public ScrapingOrigin(string name, string toScrapUrl, string destinationFilename, string linkText, DateTime? lastVersion = null, string downloadUrl = "", bool allowUpdate = true) {
+        public ScrapingOrigin(string name, string toScrapUrl, string destinationFilename, string linkText, DateTime? lastVersion = null, string downloadUrl = "", bool allowUpdate = true, Type importer = null) {
             Name = name;
             Url = toScrapUrl;
             LinkText = linkText;
@@ -30,6 +30,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
             DestinationFilename = destinationFilename;
             DownloadUrl = downloadUrl;
             AllowUpdate = allowUpdate;
+            Importer = importer;
         }
 
         #region propiedades

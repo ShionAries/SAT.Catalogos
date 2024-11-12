@@ -11,8 +11,8 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
                 //new CartaPorte20Catalogos(this.GetFullName(source, "CatalogosCartaPorte20.xls")),
                 new CartaPorte30Catalogos(configuration),
                 new CartaPorte31Catalogos(configuration),
-                new Articulo69BCatalogos(configuration),
-                new Articulo69Catalogos(configuration),
+                new Articulo69BImporter(configuration),
+                new Articulo69Importer(configuration),
                 new RecepcionPago20Catalogos(configuration)
             };
 

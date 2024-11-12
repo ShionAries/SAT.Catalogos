@@ -50,6 +50,8 @@ namespace Jaeger.SAT.Catalogos.Scraping.Interfaces {
         [DisplayName("Permitir")]
         bool AllowUpdate { get; set; }
 
+        Type Importer { get; set; }
+
         /// <summary>
         /// obtener o establecer status del origen de recurso
         /// </summary>

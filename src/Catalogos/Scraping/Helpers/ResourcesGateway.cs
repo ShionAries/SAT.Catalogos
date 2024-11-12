@@ -92,6 +92,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             try {
                 using (FileStream fileStream = new FileStream(destinacion, FileMode.Create, FileAccess.Write))
                     response.GetResponseStream().CopyTo((Stream)fileStream);
+                Console.WriteLine($"Archivo descargado: {destinacion}");
             } catch (Exception ex) {
                 Console.WriteLine(ex.Message);
                 return false;

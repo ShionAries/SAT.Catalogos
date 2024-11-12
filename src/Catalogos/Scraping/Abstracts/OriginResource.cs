@@ -61,6 +61,9 @@ namespace Jaeger.SAT.Catalogos.Scraping.Abstracts {
         [DisplayName("Permitir")]
         public bool AllowUpdate { get; set; }
 
+        [DisplayName("Importador")]
+        public Type Importer { get; set; }
+
         /// <summary>
         /// obtener o establecer status del origen de recurso
         /// </summary>

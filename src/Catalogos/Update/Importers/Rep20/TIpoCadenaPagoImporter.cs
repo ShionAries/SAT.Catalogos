@@ -11,7 +11,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Rep20 {
     /// </summary>
     internal class TIpoCadenaPagoImporter : AbstractInjector, IInjector {
         public TIpoCadenaPagoImporter(DataTable dataTable) : base(dataTable) {
-            this._SkipRows = 3;
+            this.SkipRows = 3;
         }
 
         protected override void CheckHeaders() {

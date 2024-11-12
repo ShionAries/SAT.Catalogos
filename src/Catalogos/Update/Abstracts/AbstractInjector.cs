@@ -7,7 +7,6 @@ using Jaeger.SAT.Catalogos.Repository.Interfaces;
 namespace Jaeger.SAT.Catalogos.Update.Abstracts {
     public abstract class AbstractInjector : IInjector {
         #region declaraciones
-        protected int _SkipRows;
         protected DataTable _DataTable;
         protected Dictionary<string, string> _HeadersMapper;
         protected IGeneralRepository _Repository;
@@ -22,6 +21,10 @@ namespace Jaeger.SAT.Catalogos.Update.Abstracts {
             _DataTable = dataTable;
             _HeadersMapper = new Dictionary<string, string>();
         }
+
+        protected int SkipRows {  get; set; }
+
+        public Scraping.Interfaces.IOrigin Origin { get; set; }
 
         /// <summary>
         /// obtener o establecer fecha de ultima actualizacion del catalogo
@@ -96,7 +99,7 @@ namespace Jaeger.SAT.Catalogos.Update.Abstracts {
         /// realizar arreglos para obtener los encabezados 
         /// </summary>
         protected virtual void FixDataTable() {
-            for (int i = 0; i < _SkipRows; i++) {
+            for (int i = 0; i < SkipRows; i++) {
                 _DataTable.Rows.RemoveAt(0);
             }
             // obetener informacion de la fila donde estan los nombres de las columnas

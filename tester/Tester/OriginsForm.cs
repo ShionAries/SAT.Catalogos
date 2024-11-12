@@ -56,6 +56,8 @@ namespace Tester {
                     if (selected.Status == Jaeger.SAT.Catalogos.Scraping.ValueObjects.StatusEnum.NotUpdated) {
                         if (MessageBox.Show(this, "Existe una actualización disponible", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes) {
                             var download = builder.Upgrader();
+                            IUpdateRepositoryBuilder update = new UpdateRepositoryBuilder();
+                            update.Origin(selected).Import();
                             
                         }
                     }
