@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 using Jaeger.SAT.Catalogos.Scraping.Entities;
-using Jaeger.SAT.Catalogos.Scraping.ValueObjects;
 
 namespace Jaeger.SAT.Catalogos {
     /// <summary>
@@ -13,33 +12,36 @@ namespace Jaeger.SAT.Catalogos {
         /// constructor
         /// </summary>
         public DumpOrigins() {
-            Origins = new List<IOrigin>() {
+            this.Origins = this.Default();
+        }
+
+        public List<IOrigin> Origins { get; set; }
+
+        protected List<IOrigin> Default() {
+            return new List<IOrigin>() {
                 new ScrapingOrigin(
                         "CFDI 4.0",
                         "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/anexo_20.htm",
                         "cfdi_40.xls",
                         "Catálogos CFDI Versión 4.0", importer: typeof(Update.Importers.Cfdi40Importer)),
-                new ConstantOrigin("Nóminas", $"{common}/catNomina.xls"),
+                new ConstantOrigin("Nóminas", $"{common}/catNomina.xls", importer: typeof(Update.Importers.Nomina12Importer)),
                 new ConstantOrigin("Nóminas - Estados", $"{common}/C_Estado.xls", null, "nominas_estados.xls"),
                 new ConstantOrigin("CCE 2.0 - Claves de pedimento", $"{common}/c_ClavePedimento20.xls"),
                 new ConstantOrigin("CCE 2.0 - Colonias", $"{common}/c_Colonia20.xls"),
                 new ConstantOrigin("CCE 2.0 - Entidades o estados", $"{common}/C_Estado20.xls"),
-                new ConstantOrigin(
-                    "CCE 1.1 - Fracciones arancelarias 2020",
-                    $"{common}/c_FraccionArancelaria.xls",
-                    destinationFilename: "c_FraccionArancelaria_20170101.xls"),
-                //new ScrapingOrigin(
-                //    "CCE 1.1 - Fracciones arancelarias 20201228",
-                //    "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/catalogos_emision_cfdi_complemento_ce.htm",
-                //    "c_FraccionArancelaria_20201228.xls",
-                //    "Catálogo vigente del 28 de diciembre de 2020 al 11 de diciembre de 2022"
-                //    ),
-                //new ScrapingOrigin(
-                //    "CCE 1.1 - Fracciones arancelarias 20221212",
-                //    "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/catalogos_emision_cfdi_complemento_ce.htm",
-                //    "c_FraccionArancelaria_20221212.xls",
-                //    linkText: "Catálogo vigente a partir del 12 de diciembre de 2022"
-                //    ),
+                new ConstantOrigin("CCE 1.1 - Fracciones arancelarias 2020", $"{common}/c_FraccionArancelaria.xls", destinationFilename: "c_FraccionArancelaria_20170101.xls"),
+                new ScrapingOrigin(
+                    "CCE 1.1 - Fracciones arancelarias 20201228",
+                    "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/catalogos_emision_cfdi_complemento_ce.htm",
+                    "c_FraccionArancelaria_20201228.xls",
+                    "Catálogo vigente del 28 de diciembre de 2020 al 11 de diciembre de 2022"
+                    ),
+                new ScrapingOrigin(
+                    "CCE 1.1 - Fracciones arancelarias 20221212",
+                    "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/catalogos_emision_cfdi_complemento_ce.htm",
+                    "c_FraccionArancelaria_20221212.xls",
+                    linkText: "Catálogo vigente a partir del 12 de diciembre de 2022"
+                    ),
                 new ConstantOrigin("CCE 1.1 - Incoterms", $"{common}/c_INCOTERM.xls"),
                 new ConstantOrigin("CCE 1.1 - Localidades", $"{common}/c_Localidad.xls"),
                 new ConstantOrigin("CCE 1.1 - Motivo traslado", $"{common}/c_MotivoTraslado.xls"),
@@ -80,7 +82,75 @@ namespace Jaeger.SAT.Catalogos {
             };
         }
 
-        public List<IOrigin> Origins { get; set; }
+        protected List<IOrigin> Default1() {
+            return new List<IOrigin>() {
+                new ScrapingOrigin(
+                    "CFDI 3.3",
+                    "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/anexo_20.htm",
+                    "catCFDI33.xls",
+                    "Catálogos CFDI Versión 3.3", importer: typeof(Update.Importers.Cfdi33Importer)),
+                new ScrapingOrigin(
+                        "CFDI 4.0",
+                        "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/anexo_20.htm",
+                        "cfdi_40.xls",
+                        "Catálogos CFDI Versión 4.0", importer: typeof(Update.Importers.Cfdi40Importer)),
+                new ConstantOrigin("Nóminas", $"{common}/catNomina.xls"),
+                new ConstantOrigin("Nóminas - Estados", $"{common}/C_Estado.xls", null, "nominas_estados.xls"),
+                new ConstantOrigin("CCE 2.0 - Claves de pedimento", $"{common}/c_ClavePedimento20.xls"),
+                new ConstantOrigin("CCE 2.0 - Colonias", $"{common}/c_Colonia20.xls"),
+                new ConstantOrigin("CCE 2.0 - Entidades o estados", $"{common}/C_Estado20.xls"),
+                new ConstantOrigin("CCE 1.1 - Fracciones arancelarias 2020", $"{common}/c_FraccionArancelaria.xls", destinationFilename: "c_FraccionArancelaria_20170101.xls"),
+                new ScrapingOrigin(
+                    "CCE 1.1 - Fracciones arancelarias 20201228",
+                    "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/catalogos_emision_cfdi_complemento_ce.htm",
+                    "c_FraccionArancelaria_20201228.xls",
+                    "Catálogo vigente del 28 de diciembre de 2020 al 11 de diciembre de 2022"
+                    ),
+                new ScrapingOrigin(
+                    "CCE 1.1 - Fracciones arancelarias 20221212",
+                    "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/catalogos_emision_cfdi_complemento_ce.htm",
+                    "c_FraccionArancelaria_20221212.xls",
+                    linkText: "Catálogo vigente a partir del 12 de diciembre de 2022"
+                    ),
+                new ConstantOrigin("CCE 1.1 - Incoterms", $"{common}/c_INCOTERM.xls"),
+                new ConstantOrigin("CCE 1.1 - Localidades", $"{common}/c_Localidad.xls"),
+                new ConstantOrigin("CCE 1.1 - Motivo traslado", $"{common}/c_MotivoTraslado.xls"),
+                new ConstantOrigin("CCE 1.1 - Municipios", $"{common}/c_Municipio.xls"),
+                new ConstantOrigin("CCE 1.1 - Tipos de operaciones", $"{common}/c_TipoOperacion.xls"),
+                new ConstantOrigin("CCE 1.1 - Unidades de medida", $"{common}/c_UnidadAduana.xls"),
+                new ConstantOrigin("REP", $"{common}/catPagos.xls"),
+                new ConstantOrigin("CCP 2.0 - Carta Porte 2.0", $"{common}/CatalogosCartaPorte20.xls"),
+                new ConstantOrigin("CCP 3.0 - Carta Porte 3.0", $"{common}/CatalogosCartaPorte30.xls"),
+                new ConstantOrigin("CCP 3.0 - Carta Porte 3.1", $"{common}/CatalogosCartaPorte31.xls"),
+                new ConstantOrigin(
+                    "Artículo 69 No localizados",
+                    "http://omawww.sat.gob.mx/cifras_sat/Documents/No localizados.csv",
+                    importer:typeof(Update.Importers.Articulo69Importer)
+                    ),
+                new ConstantOrigin(
+                    "Artículo 69-B Listado Completo",
+                    "http://omawww.sat.gob.mx/cifras_sat/Documents/Listado_Completo_69-B.csv", importer:typeof(Update.Importers.Articulo69BImporter)
+                    ),
+                new ConstantOrigin("Manual de Usuario, sitio SAT descarga y recuperacion",
+                            "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1705376527662&ssbinary=true",
+                            destinationFilename: "ManualUsuario.pdf"),
+                new ConstantOrigin("Descarga y Recuperación de Comprobantes",
+                            "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1705376489587&ssbinary=true",
+                            destinationFilename: "DescargaYRecuperacionComprobantes.pdf"),
+                new ConstantOrigin("Web service: URL's",
+                            "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1705376489663&ssbinary=true",
+                            destinationFilename: "WebserviceURLs.pdf"),
+                new ConstantOrigin("Web service: servicio de solicitud de descargas para CFDI y retenciones",
+                            "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1705376527679&ssbinary=true",
+                            destinationFilename: "WebServiceSolicitudDescargaCFDIyRetenciones.pdf"),
+                new ConstantOrigin("Web service: servicio de descarga de solicitudes exitosas",
+                            "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1705376489610&ssbinary=true",
+                            destinationFilename: "WebServiceSolicitudDescargaCFDIyRetencionesExitosas.pdf"),
+                new ConstantOrigin("Web service: Servicio de verificación de descarga masiva",
+                            "https://www.sat.gob.mx/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1705376527697&ssbinary=true",
+                            destinationFilename: "WebServiceSolicitudDescargaCFDIyRetencionesVerificacion.pdf")
+            };
+        }
 
         //public static IOrigin GetOrigin(SourceIdentifierEnum source) {
         //    switch (source) {
