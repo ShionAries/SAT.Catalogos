@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using Jaeger.SAT.Catalogos.Scraping.Entities;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
@@ -8,8 +6,10 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
     /// clase para actualizacion
     /// </summary>
     internal class Upgrader {
+        #region declaraciones
         private readonly IResourcesGateway gateway;
         private readonly string destinationPath;
+        #endregion
 
         /// <summary>
         /// constructor
@@ -30,23 +30,18 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             return System.IO.Path.Combine(destinationPath, filename);
         }
 
-        public IOrigin UpgradeReview(Review review) {
-            var origin = review.Origin;
+        /// <summary>
+        /// revision de actualizacion
+        /// </summary>
+        /// <param name="origin">IOrigin</param>
+        public IOrigin UpgradeReview(IOrigin origin) {
             var destination = this.BuildPath(origin.DestinationFilename);
-            if (!(review.Status == ValueObjects.StatusEnum.NotUpdated)) {
+            if (!(origin.Status == ValueObjects.StatusEnum.NotUpdated)) {
                 return origin;
             }
             Console.WriteLine($"Actualizando {origin.Name} desde {origin.DownloadUrl} en {destination}");
             var urlResponse = this.gateway.Get(origin.DownloadUrl, destination);
             return origin.WithLastModified(urlResponse.LastModified);
-        }
-
-        public List<IOrigin> UpgradeReviews(List<Review> reviews) {
-            var origins = new List<IOrigin>();
-            foreach (Review review in reviews) {
-                origins.Add(this.UpgradeReview(review));
-            }
-            return origins;
         }
     }
 }

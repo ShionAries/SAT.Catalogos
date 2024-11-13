@@ -2,21 +2,21 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Jaeger.SAT.Catalogos.Scraping.Helpers;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
+using Jaeger.SAT.Catalogos.Builder;
 
 namespace Tester {
     public partial class OriginsForm : Form {
         #region declaraciones
         private int previousIndex;
         private bool sortDirection;
-        private OriginService service;
+        private IOriginService Service;
         private Waiting4Form waiting;
         #endregion
 
-        public OriginsForm(OriginService originService) {
+        public OriginsForm(IOriginService originService) {
             InitializeComponent();
-            this.service = originService;
+            this.Service = originService;
         }
 
         private void OriginsForm_Load(object sender, EventArgs e) {
@@ -27,33 +27,51 @@ namespace Tester {
             this.GridData.ColumnHeaderMouseClick += this.GridData_ColumnHeaderMouseClick;
 
             this.Agregar.Click += this.Agregar_Click;
-            this.Editar.Click += this.Editar_Click;
+            this.Recargar.Click += this.Editar_Click;
             this.Delete.Click += this.Delete_Click;
             this.Guardar.Click += this.Guardar_Click;
 
-            if (this.service.DataSource == null) {
-                this.waiting = new Waiting4Form(() => {
-                    this.service.GetAll();
-                }, "Cargando datos ...") {
-                    Text = ""
-                };
-                this.waiting.ShowDialog(this);
+            this.Verificar.Click += TControl_Verificar_Click;
+
+            this.Recargar.PerformClick();
+        }
+
+        private void TControl_Verificar_Click(object sender, EventArgs e) {
+            if (this.GridData.CurrentRow != null) {
+                var selected = this.GridData.CurrentRow.DataBoundItem as IOrigin;
+                if (selected != null) {
+                    var builder = ScrapingBuilder.Create().Origin(selected).Review();
+                    if (selected.Status == Jaeger.SAT.Catalogos.Scraping.ValueObjects.StatusEnum.NotUpdated) {
+                        if (MessageBox.Show(this, "Existe una actualización disponible", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes) {
+                            var download = builder.Upgrader();
+                            IUpdateRepositoryBuilder update = new UpdateRepositoryBuilder();
+                            update.Origin(selected).Import();
+
+                        }
+                    }
+                } else {
+                    MessageBox.Show(this, "Origen no válido.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            
-            this.GridData.DataSource = this.service.DataSource;
         }
 
         private void Agregar_Click(object sender, EventArgs e) {
-            
+
         }
 
         private void Editar_Click(object sender, EventArgs e) {
-            if (this.GridData.CurrentRow != null) {
-                var seleccionado = this.GridData.CurrentRow.DataBoundItem as IOrigin;
-                if (seleccionado != null) {
-                    var editar = new OriginForm(this.service, seleccionado);
-                    editar.ShowDialog(this);
-                }
+
+            this.waiting = new Waiting4Form(() => {
+                this.Service.GetAll();
+            }, "Cargando datos ...") {
+                Text = ""
+            };
+            this.waiting.ShowDialog(this);
+
+
+            this.GridData.DataSource = this.Service.DataSource;
+            if (this.Service.IsDefault) {
+                MessageBox.Show(this, "No se encontro archivo de control de origenes, se obtuvo la información por default.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
 
@@ -62,7 +80,7 @@ namespace Tester {
         }
 
         private void Guardar_Click(object sender, EventArgs e) {
-            this.service.SaveChanges();
+            this.Service.Save();
         }
 
         #region acciones del grid

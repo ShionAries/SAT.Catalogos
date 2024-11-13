@@ -5,10 +5,10 @@ using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Tester {
     public partial class OriginForm : Form {
-        private OriginService _ScrapService;
+        private IOriginService _ScrapService;
         private IOrigin origin;
 
-        public OriginForm(OriginService scrapService, IOrigin origin) {
+        public OriginForm(IOriginService scrapService, IOrigin origin) {
             InitializeComponent();
             this._ScrapService = scrapService;
             this.origin = origin;

@@ -8,7 +8,7 @@ using Jaeger.SAT.Catalogos.Update.Abstracts;
 namespace Jaeger.SAT.Catalogos.Update.Importers.Articulo69 {
     internal class NoLocalizados : AbstractInjector, IInjector {
         public NoLocalizados(DataTable dataTable) : base(dataTable) {
-            this._SkipRows = -1;
+            this.SkipRows = -1;
         }
 
         protected override void CheckHeaders() {

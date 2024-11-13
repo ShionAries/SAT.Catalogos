@@ -17,7 +17,5 @@
         /// obtener o establecer folder temporal de trabajo
         /// </summary>
         string WorkingFolder { get; set; }
-
-        string WorkingDirectory { get; set; }
     }
 }

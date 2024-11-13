@@ -23,7 +23,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             return origin is ScrapingOrigin;
         }
 
-        public override Review Review(IOrigin origin) {
+        public override IOrigin Review(IOrigin origin) {
             if (!(origin is ScrapingOrigin)) {
                 throw new Exception("This reviewer can only handle ScrapingOrigin objects");
             }
@@ -32,7 +32,8 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
                 try {
                     origin = this.ResolveOrigin(origin as ScrapingOrigin);
                 } catch (Exception) {
-                    return new Review(origin, StatusEnum.NotFound);
+                    origin.Status = StatusEnum.NotFound;
+                    return origin;
                 }
             }
 
@@ -40,16 +41,19 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
 
             // si no se pudo obtener el recurso
             if (!response.IsSuccess) {
-                return new Review(origin, StatusEnum.NotFound);
+                origin.Status = StatusEnum.NotFound;
+                return origin;
             }
 
             // si el recurso no coincide con la última versión
             if (!origin.HasLastVersion() || !response.DateMatch(origin.LastVersion)) {
-                return new Review(origin, StatusEnum.NotUpdated);
+               origin.Status = StatusEnum.NotUpdated;
+                return origin;
             }
 
             // entonces el recurso coincide
-            return new Review(origin, StatusEnum.UpToDate);
+            origin.Status = StatusEnum.UpToDate;
+            return origin;
         }
 
         protected IOrigin ResolveOrigin(ScrapingOrigin origin) {

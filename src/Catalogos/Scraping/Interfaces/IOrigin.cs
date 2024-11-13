@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using Jaeger.SAT.Catalogos.Scraping.ValueObjects;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Interfaces {
     /// <summary>
@@ -48,6 +49,15 @@ namespace Jaeger.SAT.Catalogos.Scraping.Interfaces {
         /// </summary>
         [DisplayName("Permitir")]
         bool AllowUpdate { get; set; }
+
+        [DisplayName("Importador")]
+        Type Importer { get; set; }
+
+        /// <summary>
+        /// obtener o establecer status del origen de recurso
+        /// </summary>
+        [DisplayName("Status")]
+        StatusEnum Status { get; set; }
         #endregion
 
         #region metodos publicos

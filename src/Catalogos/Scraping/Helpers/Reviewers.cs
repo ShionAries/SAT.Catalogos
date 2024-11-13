@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Jaeger.SAT.Catalogos.Scraping.Entities;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
@@ -37,13 +36,12 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             return this;
         }
 
-        public List<Review> Review(List<IOrigin> origins) {
-            var response = new List<Review>();
-            foreach (var item in origins) {
-                var reviewer = this.FindReviewerByOrigin(item);
-                response.Add(reviewer.Review(item));
+        public List<IOrigin> Review(List<IOrigin> origins) {
+            for (int i = 0; i < origins.Count; i++) {
+                var reviewer = this.FindReviewerByOrigin(origins[i]);
+                origins[i] = reviewer.Review(origins[i]);
             }
-            return response;
+            return origins;
         }
 
         private IReviewer FindReviewerByOrigin(IOrigin origin) {

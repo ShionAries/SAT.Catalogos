@@ -70,13 +70,14 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
         }
         #endregion
 
+        #region metodos publicos
         /// <summary>
         /// metodo para comprobar las fechas
         /// </summary>
         /// <param name="dateTime"></param>
         /// <returns>verdero si las fechas coinciden</returns>
         public bool DateMatch(DateTime? dateTime) {
-            return this.LastModified == dateTime;
+            return this.LastModified.Value.Date == dateTime.Value.Date;
         }
 
         /// <summary>
@@ -96,5 +97,6 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
             this._Body = DataReader.ReadToEnd();
             return this;
         }
+        #endregion
     }
 }

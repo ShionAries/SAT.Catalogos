@@ -2,11 +2,12 @@
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using Jaeger.SAT.Catalogos.Scraping.Helpers;
+using Jaeger.SAT.Catalogos;
+using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Tester {
     public partial class MainMenuForm : Form {
-        private OriginService _ScrapService;
+        private IOriginService Service;
         private Panel leftBorderBtn;
         private Button currentBtn;
         private Form currentChildForm;
@@ -34,8 +35,7 @@ namespace Tester {
         }
 
         private void MainMenuForm_Load(object sender, EventArgs e) {
-            this._ScrapService = new OriginService();
-            
+            this.Service = new OriginService();
             this.ControlBtn.PerformClick();
         }
 
@@ -101,17 +101,17 @@ namespace Tester {
 
         private void ControlBtn_Click(object sender, EventArgs e) {
             ActiveButton(sender, RGBColors.color1);
-            OpenChildForm(new OriginsForm(this._ScrapService));
+            OpenChildForm(new OriginsForm(this.Service));
         }
 
         private void UpdateBtn_Click(object sender, EventArgs e) {
             ActiveButton(sender, RGBColors.color2);
-            OpenChildForm(new UpdateForm(this._ScrapService));
+            OpenChildForm(new UpdateForm(this.Service));
         }
 
         private void TestingBtn_Click(object sender, EventArgs e) {
             ActiveButton(sender, RGBColors.color3);
-            OpenChildForm(new TestingForm(this._ScrapService));
+            OpenChildForm(new TestingForm(this.Service));
         }
 
         private void ConfiguracionBtn_Click(object sender, EventArgs e) {

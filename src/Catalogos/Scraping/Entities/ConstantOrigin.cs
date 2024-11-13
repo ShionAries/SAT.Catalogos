@@ -18,12 +18,12 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
         /// <param name="destinationFilename">nombre del archivo de destino</param>
         /// <param name="lastVersion">fecha de la ultima revisión</param>
         /// <param name="allowUpdate">´permitir la descarga</param>
-        public ConstantOrigin(string name, string url, DateTime? lastVersion = null, string destinationFilename = "", bool allowUpdate = true) : base() {
+        public ConstantOrigin(string name, string url, DateTime? lastVersion = null, string destinationFilename = "", bool allowUpdate = true, Type importer = null) : base() {
             Name = name;
             Url = url;
             LastVersion = lastVersion;
             AllowUpdate = allowUpdate;
-
+            Importer = importer;
             if (destinationFilename == "") {
                 destinationFilename = System.IO.Path.GetFileName(Url);
             }

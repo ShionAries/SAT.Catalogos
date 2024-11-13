@@ -7,11 +7,10 @@ namespace Jaeger.SAT.Catalogos.Builder {
     }
 
     public interface IUpdateRepositoryServiceSourceBuilder {
-        IUpdateRepositoryServiceImportBuilder Import();
     }
 
     public interface IUpdateRepositoryServiceOriginBuilder {
-        IUpdateRepositoryServiceSourceBuilder Update(SourceIdentifierEnum source);
+        IUpdateRepositoryServiceImportBuilder Import();
     }
 
     public interface IUpdateRepositoryServiceImportBuilder {

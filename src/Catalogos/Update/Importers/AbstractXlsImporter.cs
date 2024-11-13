@@ -11,14 +11,19 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
         /// </summary>
         public AbstractXlsImporter() { }
 
-        public AbstractXlsImporter(IConfiguration configuration) {
+        public AbstractXlsImporter(Scraping.Interfaces.IOrigin origin, IConfiguration configuration) {
+            this.Origin = origin;
             this.Configuration = configuration;
+            this.FileName = origin.DestinationFilename;
+            this.LastVersion = origin.LastVersion;
         }
 
         #region propiedades
         public System.DateTime? LastVersion { get; set; }
 
         public IConfiguration Configuration { get; set; }
+
+        public Scraping.Interfaces.IOrigin Origin { get; set; }
 
         /// <summary>
         /// obtener o establecer nombre del archivo del origen de los datos
@@ -36,7 +41,6 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
         public abstract Injectors CreateInjectors(DataSet dataSet);
 
         public void Import() {
-            //logger.Info($"Cargando archivo {FileSource}...");
             var converter = CreateConverter();
             converter.Convert(this.GetFullPath());
 
