@@ -39,7 +39,9 @@ namespace Jaeger.SAT.Catalogos {
         public IOriginService GetAll() {
             var control = OriginsFromString();
             if (control == null) {
-                control = new ControlLayout();
+                control = new ControlLayout {
+                    Configuration = (Configuration)this.Configuration
+                };
             }
             this.DataSource = OriginFromLayout(control.Origins);
             return this;

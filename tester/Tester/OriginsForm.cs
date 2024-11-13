@@ -27,25 +27,13 @@ namespace Tester {
             this.GridData.ColumnHeaderMouseClick += this.GridData_ColumnHeaderMouseClick;
 
             this.Agregar.Click += this.Agregar_Click;
-            this.Editar.Click += this.Editar_Click;
+            this.Recargar.Click += this.Editar_Click;
             this.Delete.Click += this.Delete_Click;
             this.Guardar.Click += this.Guardar_Click;
 
             this.Verificar.Click += TControl_Verificar_Click;
 
-            if (this.Service.DataSource == null) {
-                this.waiting = new Waiting4Form(() => {
-                    this.Service.GetAll();
-                }, "Cargando datos ...") {
-                    Text = ""
-                };
-                this.waiting.ShowDialog(this);
-            }
-            
-            this.GridData.DataSource = this.Service.DataSource;
-            if (this.Service.IsDefault) {
-                MessageBox.Show(this, "No se encontro archivo de control de origenes, se obtuvo la información por default.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            }
+            this.Recargar.PerformClick();
         }
 
         private void TControl_Verificar_Click(object sender, EventArgs e) {
@@ -58,7 +46,7 @@ namespace Tester {
                             var download = builder.Upgrader();
                             IUpdateRepositoryBuilder update = new UpdateRepositoryBuilder();
                             update.Origin(selected).Import();
-                            
+
                         }
                     }
                 } else {
@@ -68,16 +56,22 @@ namespace Tester {
         }
 
         private void Agregar_Click(object sender, EventArgs e) {
-            
+
         }
 
         private void Editar_Click(object sender, EventArgs e) {
-            if (this.GridData.CurrentRow != null) {
-                var seleccionado = this.GridData.CurrentRow.DataBoundItem as IOrigin;
-                if (seleccionado != null) {
-                    var editar = new OriginForm(this.Service, seleccionado);
-                    editar.ShowDialog(this);
-                }
+
+            this.waiting = new Waiting4Form(() => {
+                this.Service.GetAll();
+            }, "Cargando datos ...") {
+                Text = ""
+            };
+            this.waiting.ShowDialog(this);
+
+
+            this.GridData.DataSource = this.Service.DataSource;
+            if (this.Service.IsDefault) {
+                MessageBox.Show(this, "No se encontro archivo de control de origenes, se obtuvo la información por default.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
 

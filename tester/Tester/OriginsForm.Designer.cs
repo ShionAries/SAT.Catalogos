@@ -34,19 +34,19 @@
             this.DestinationFileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DownloadUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Permitir = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.TControl = new System.Windows.Forms.ToolStrip();
-            this.Agregar = new System.Windows.Forms.ToolStripButton();
-            this.Editar = new System.Windows.Forms.ToolStripButton();
-            this.Delete = new System.Windows.Forms.ToolStripButton();
-            this.Guardar = new System.Windows.Forms.ToolStripButton();
             this.Contextual = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Verificar = new System.Windows.Forms.ToolStripMenuItem();
             this.Descargar = new System.Windows.Forms.ToolStripMenuItem();
             this.Actualizar = new System.Windows.Forms.ToolStripMenuItem();
+            this.TControl = new System.Windows.Forms.ToolStrip();
+            this.Agregar = new System.Windows.Forms.ToolStripButton();
+            this.Delete = new System.Windows.Forms.ToolStripButton();
+            this.Guardar = new System.Windows.Forms.ToolStripButton();
+            this.Recargar = new System.Windows.Forms.ToolStripButton();
             this.OriginisGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridData)).BeginInit();
-            this.TControl.SuspendLayout();
             this.Contextual.SuspendLayout();
+            this.TControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // OriginisGroupBox
@@ -126,12 +126,39 @@
             this.Permitir.Name = "Permitir";
             this.Permitir.Width = 50;
             // 
+            // Contextual
+            // 
+            this.Contextual.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Verificar,
+            this.Descargar,
+            this.Actualizar});
+            this.Contextual.Name = "Contextual";
+            this.Contextual.Size = new System.Drawing.Size(127, 70);
+            // 
+            // Verificar
+            // 
+            this.Verificar.Name = "Verificar";
+            this.Verificar.Size = new System.Drawing.Size(126, 22);
+            this.Verificar.Text = "Verificar";
+            // 
+            // Descargar
+            // 
+            this.Descargar.Name = "Descargar";
+            this.Descargar.Size = new System.Drawing.Size(126, 22);
+            this.Descargar.Text = "Decargar";
+            // 
+            // Actualizar
+            // 
+            this.Actualizar.Name = "Actualizar";
+            this.Actualizar.Size = new System.Drawing.Size(126, 22);
+            this.Actualizar.Text = "Actualizar";
+            // 
             // TControl
             // 
             this.TControl.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Agregar,
-            this.Editar,
             this.Delete,
+            this.Recargar,
             this.Guardar});
             this.TControl.Location = new System.Drawing.Point(5, 18);
             this.TControl.Name = "TControl";
@@ -146,14 +173,6 @@
             this.Agregar.Name = "Agregar";
             this.Agregar.Size = new System.Drawing.Size(69, 22);
             this.Agregar.Text = "Agregar";
-            // 
-            // Editar
-            // 
-            this.Editar.Image = global::Tester.Properties.Resources.edit_16px;
-            this.Editar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Editar.Name = "Editar";
-            this.Editar.Size = new System.Drawing.Size(57, 22);
-            this.Editar.Text = "Editar";
             // 
             // Delete
             // 
@@ -171,32 +190,13 @@
             this.Guardar.Size = new System.Drawing.Size(69, 22);
             this.Guardar.Text = "Guardar";
             // 
-            // Contextual
+            // Recargar
             // 
-            this.Contextual.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Verificar,
-            this.Descargar,
-            this.Actualizar});
-            this.Contextual.Name = "Contextual";
-            this.Contextual.Size = new System.Drawing.Size(181, 92);
-            // 
-            // Verificar
-            // 
-            this.Verificar.Name = "Verificar";
-            this.Verificar.Size = new System.Drawing.Size(180, 22);
-            this.Verificar.Text = "Verificar";
-            // 
-            // Descargar
-            // 
-            this.Descargar.Name = "Descargar";
-            this.Descargar.Size = new System.Drawing.Size(180, 22);
-            this.Descargar.Text = "Decargar";
-            // 
-            // Actualizar
-            // 
-            this.Actualizar.Name = "Actualizar";
-            this.Actualizar.Size = new System.Drawing.Size(180, 22);
-            this.Actualizar.Text = "Actualizar";
+            this.Recargar.Image = global::Tester.Properties.Resources.refresh_16px;
+            this.Recargar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Recargar.Name = "Recargar";
+            this.Recargar.Size = new System.Drawing.Size(73, 22);
+            this.Recargar.Text = "Recargar";
             // 
             // OriginsForm
             // 
@@ -211,9 +211,9 @@
             this.OriginisGroupBox.ResumeLayout(false);
             this.OriginisGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridData)).EndInit();
+            this.Contextual.ResumeLayout(false);
             this.TControl.ResumeLayout(false);
             this.TControl.PerformLayout();
-            this.Contextual.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -226,7 +226,6 @@
         private System.Windows.Forms.ToolStripButton Agregar;
         private System.Windows.Forms.ToolStripButton Delete;
         private System.Windows.Forms.ToolStripButton Guardar;
-        private System.Windows.Forms.ToolStripButton Editar;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn Url;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastVersion;
@@ -237,5 +236,6 @@
         private System.Windows.Forms.ToolStripMenuItem Verificar;
         private System.Windows.Forms.ToolStripMenuItem Descargar;
         private System.Windows.Forms.ToolStripMenuItem Actualizar;
+        private System.Windows.Forms.ToolStripButton Recargar;
     }
 }
