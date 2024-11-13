@@ -15,16 +15,16 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
         public override Injectors CreateInjectors(DataSet dataSet) {
             return new Injectors() {
                 Items = new System.Collections.Generic.List<IInjector> {
-                    new ClaveRetencionesInjector(dataSet.Tables["c_CveRetenc"]),
-                    new ClavePeriodoInjector(dataSet.Tables["c_Periodo"]),
-                    new ClaveEjercicioInjector(dataSet.Tables["c_Ejercicio"]),
-                    new ClaveTipoPagoRetencionInjector(dataSet.Tables["c_TipoPagoRet"]),
-                    new ClaveEntidadFederativaInjector(dataSet.Tables["c_EntidadesFederativas"]),
-                    new ClavePaisInjector(dataSet.Tables["c_Pais"]),
-                    new ClavePeriodicidadInjector(dataSet.Tables["c_Periodicidad"]),
-                    new ClaveTipoContribuyenteSujetoRetencionInjector(dataSet.Tables["c_TipoContribuyenteSujetoRetenc"]),
-                    new ClaveTipoDividendoOUtilidadDistribuidaInjector(dataSet.Tables["c_TipoDividendoOUtilidadDistrib"]),
-                    new ClaveTipoImpuestoInjector(dataSet.Tables["c_TipoImpuesto"])
+                    new RetencionesInjector(dataSet.Tables["c_CveRetenc"]),
+                    new PeriodoInjector(dataSet.Tables["c_Periodo"]),
+                    new EjercicioInjector(dataSet.Tables["c_Ejercicio"]),
+                    new TipoPagoRetencionInjector(dataSet.Tables["c_TipoPagoRet"]),
+                    new EntidadFederativaInjector(dataSet.Tables["c_EntidadesFederativas"]),
+                    new PaisInjector(dataSet.Tables["c_Pais"]),
+                    new PeriodicidadInjector(dataSet.Tables["c_Periodicidad"]),
+                    new TipoContribuyenteSujetoRetencionInjector(dataSet.Tables["c_TipoContribuyenteSujetoRetenc"]),
+                    new TipoDividendoOUtilidadDistribuidaInjector(dataSet.Tables["c_TipoDividendoOUtilidadDistrib"]),
+                    new TipoImpuestoInjector(dataSet.Tables["c_TipoImpuesto"])
                 }
             };
         }
