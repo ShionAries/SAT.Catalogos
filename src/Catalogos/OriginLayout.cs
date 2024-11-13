@@ -1,12 +1,12 @@
-﻿namespace Jaeger.SAT.Catalogos.Scraping.Entities {
+﻿namespace Jaeger.SAT.Catalogos {
     /// <summary>
     /// layout de origen
     /// </summary>
-    public class LayoutOrigin : Abstracts.OriginResource {
+    public class OriginLayout : Scraping.Abstracts.OriginResource {
         /// <summary>
         /// constructor
         /// </summary>
-        public LayoutOrigin() { }
+        public OriginLayout() { }
 
         /// <summary>
         /// obtener o establecer link de descarga del recurso
@@ -18,13 +18,8 @@
         /// </summary>
         public string Type { get; set; }
 
-        /// <summary>
-        /// obtener o establecer nombre del importador
-        /// </summary>
-        public string Importer { get; set; }
-
-        public int GetHashCode {
-            get { return base.GetHashCode(); }
+        public int Hash {
+            get { return this.GetHashCode(); }
         }
     }
 }

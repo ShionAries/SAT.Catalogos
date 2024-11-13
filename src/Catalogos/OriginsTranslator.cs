@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 using Jaeger.SAT.Catalogos.Scraping.Entities;
+using System.Linq;
 
-namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
+namespace Jaeger.SAT.Catalogos {
     public class OriginsTranslator {
         private bool isDefault = false;
 
@@ -10,51 +11,57 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
         /// constructor
         /// </summary>
         public OriginsTranslator() {
-            this.isDefault = false;
+            isDefault = false;
         }
 
         /// <summary>
         /// obtener si la lista de origenes interna
         /// </summary>
-        public bool IsDefault { 
-            get { return this.isDefault; } 
+        public bool IsDefault {
+            get { return isDefault; }
         }
 
         #region metodos publicos
-        protected List<IOrigin> OriginFromLayout(List<LayoutOrigin> origins) {
-            if (origins == null) {
-                this.isDefault = true;
-                return new DumpOrigins().Origins;
+        protected List<IOrigin> OriginFromLayout(List<OriginLayout> layouts) {
+            var dump = new DumpOrigins().Origins;
+            if (layouts == null) {
+                isDefault = true;
+            } else {
+                for (int i = 0; i < dump.Count; i++) {
+                    var search = layouts.Where(it => it.Hash == dump[i].GetHashCode()).FirstOrDefault();
+                    if (search != null) {
+                        dump[i].AllowUpdate = search.AllowUpdate;
+                        if (search.LastVersion != null) {
+                            dump[i].LastVersion = search.LastVersion;
+                        }
+                    }
+                }
             }
 
-            var response = new List<IOrigin>();
-            foreach (var item in origins) {
-                response.Add(this.OriginFromLayout(item));
-            }
-            return response;
+            return dump;
         }
 
-        protected IOrigin OriginFromLayout(LayoutOrigin item) {
+        protected IOrigin OriginFromLayout(OriginLayout item) {
             if (item.Type.ToLower() == typeof(ConstantOrigin).Name.ToLower()) {
-                return this.ConstantOriginFromLayout(item);
+                return ConstantOriginFromLayout(item);
             } else if (item.Type.ToLower() == typeof(ScrapingOrigin).Name.ToLower()) {
-                return this.ScrapingOriginFromLayout(item);
+                return ScrapingOriginFromLayout(item);
             }
             return null;
         }
 
-        protected List<LayoutOrigin> OriginToLayout(List<IOrigin> origins) {
-            var layouts = new List<LayoutOrigin>();
+        protected List<OriginLayout> OriginToLayout(List<IOrigin> origins) {
+            var layouts = new List<OriginLayout>();
             foreach (var origin in origins) {
-                layouts.Add(this.OriginToLayout(origin));
+                layouts.Add(OriginToLayout(origin));
             }
             return layouts;
         }
         #endregion
 
         #region metodos privados
-        private LayoutOrigin OriginToLayout(IOrigin origin) {
-            return new LayoutOrigin {
+        private OriginLayout OriginToLayout(IOrigin origin) {
+            return new OriginLayout {
                 DestinationFilename = origin.DestinationFilename,
                 Url = origin.Url,
                 DownloadUrl = origin.DownloadUrl,
@@ -66,7 +73,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             };
         }
 
-        private IOrigin ConstantOriginFromLayout(LayoutOrigin item) {
+        private IOrigin ConstantOriginFromLayout(OriginLayout item) {
             return new ConstantOrigin() {
                 DestinationFilename = item.DestinationFilename,
                 Url = item.Url,
@@ -78,7 +85,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             };
         }
 
-        private IOrigin ScrapingOriginFromLayout(LayoutOrigin item) {
+        private IOrigin ScrapingOriginFromLayout(OriginLayout item) {
             return new ScrapingOrigin() {
                 DestinationFilename = item.DestinationFilename,
                 Url = item.Url,

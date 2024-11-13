@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Builder\IUpdateRepositoryBuilder.cs" />
     <Compile Include="Builder\UpdateRepositoryBuilder.cs" />
+    <Compile Include="ControlLayout.cs" />
     <Compile Include="IConfiguration.cs" />
     <Compile Include="Repository\Abstracts\ClaveBaseVigenciaSingle.cs" />
     <Compile Include="Repository\Abstracts\IRepositoryContext.cs" />
@@ -401,13 +402,13 @@
     <Compile Include="DumpOrigins.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="Scraping\Entities\ConstantOrigin.cs" />
-    <Compile Include="Scraping\Entities\LayoutOrigin.cs" />
+    <Compile Include="OriginLayout.cs" />
     <Compile Include="Scraping\Entities\ScrapingOrigin.cs" />
     <Compile Include="Scraping\Entities\UrlResponse.cs" />
     <Compile Include="Scraping\Helpers\ConstantReviewer.cs" />
     <Compile Include="Helpers\LogInfoService.cs" />
-    <Compile Include="Scraping\Helpers\OriginService.cs" />
-    <Compile Include="Scraping\Helpers\OriginsTranslator.cs" />
+    <Compile Include="OriginService.cs" />
+    <Compile Include="OriginsTranslator.cs" />
     <Compile Include="Scraping\Helpers\ResourcesGateway.cs" />
     <Compile Include="Scraping\Helpers\Reviewers.cs" />
     <Compile Include="Scraping\Helpers\ScrapingReviewer.cs" />

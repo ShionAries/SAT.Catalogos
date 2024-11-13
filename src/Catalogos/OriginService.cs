@@ -1,12 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
-using Jaeger.SAT.Catalogos.Scraping.Entities;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
-namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
+namespace Jaeger.SAT.Catalogos {
     /// <summary>
     /// clase para servicio de origenes
     /// </summary>
@@ -15,14 +13,14 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
         /// constructor
         /// </summary>
         public OriginService(IConfiguration configuration) : base() {
-            this.Configuration = configuration;
+            Configuration = configuration;
         }
 
         /// <summary>
         /// constructor
         /// </summary>
         public OriginService() : base() {
-            this.Configuration = new Configuration();
+            Configuration = new Configuration();
         }
 
         /// <summary>
@@ -39,7 +37,11 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
         /// obtener listado de origenes
         /// </summary>
         public IOriginService GetAll() {
-            this.DataSource = this.OriginFromLayout(this.OriginsFromString());
+            var control = OriginsFromString();
+            if (control == null) {
+                control = new ControlLayout();
+            }
+                DataSource = OriginFromLayout(control.Origins);
             return this;
         }
 
@@ -47,54 +49,34 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
         /// almacenar datos
         /// </summary>
         public IOriginService Save() {
-            this.WriteFile();
-            return this;
-        }
-
-        /// <summary>
-        /// eliminar archivo de datos
-        /// </summary>
-        public IOriginService Delete() {
-            return this;
-        }
-
-        /// <summary>
-        /// agregar origen
-        /// </summary>
-        /// <param name="origin">interface de origen</param>
-        /// <returns></returns>
-        public IOriginService Add(IOrigin origin) {
-            if (this.DataSource == null) {
-                this.DataSource = new List<IOrigin>();
-            }
-
-            if (this.DataSource.Where(it => it.Equals(origin)).Count() == 0) {
-                this.DataSource.Add(origin);
-            }
+            WriteFile();
             return this;
         }
 
         #region builder
         protected string BuildPath() {
-            return Path.Combine(this.Configuration.WorkingFolder, this.Configuration.FileName);
+            return Path.Combine(Configuration.WorkingFolder, Configuration.FileName);
         }
 
-        protected List<LayoutOrigin> ReadOrigin(string content) {
+        protected ControlLayout ReadOrigin(string content) {
             var configuration = new JsonSerializerSettings() { NullValueHandling = NullValueHandling.Ignore, DateFormatString = "dd/MM/yyyy" };
-            return JsonConvert.DeserializeObject<List<LayoutOrigin>>(content, configuration);
+            return JsonConvert.DeserializeObject<ControlLayout>(content, configuration);
         }
 
-        protected List<LayoutOrigin> OriginsFromString() {
-            if (!File.Exists(this.BuildPath())) { return null; }
+        protected ControlLayout OriginsFromString() {
+            if (!File.Exists(BuildPath())) { return null; }
             Encoding utf8WithoutBom = new UTF8Encoding(false);
-            return this.ReadOrigin(File.ReadAllText(this.BuildPath(), utf8WithoutBom));
+            return ReadOrigin(File.ReadAllText(BuildPath(), utf8WithoutBom));
         }
 
         protected void WriteFile() {
             var configuration = new JsonSerializerSettings() { NullValueHandling = NullValueHandling.Ignore, DateFormatString = "dd/MM/yyyy" };
-            var contenido = JsonConvert.SerializeObject(OriginToLayout(this.DataSource), Newtonsoft.Json.Formatting.None, configuration);
+            var control = new ControlLayout();
+            control.Configuration = (Configuration)this.Configuration;
+            control.Origins = OriginToLayout(DataSource);
+            var contenido = JsonConvert.SerializeObject(control, Formatting.Indented, configuration);
             Encoding utf8WithoutBom = new UTF8Encoding(false);
-            File.WriteAllText(this.BuildPath(), contenido, utf8WithoutBom);
+            File.WriteAllText(BuildPath(), contenido, utf8WithoutBom);
         }
         #endregion
     }

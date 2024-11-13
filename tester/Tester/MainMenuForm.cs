@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using Jaeger.SAT.Catalogos.Scraping.Helpers;
+using Jaeger.SAT.Catalogos;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Tester {

@@ -62,6 +62,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Abstracts {
         public bool AllowUpdate { get; set; }
 
         [DisplayName("Importador")]
+        [Newtonsoft.Json.JsonIgnore]
         public Type Importer { get; set; }
 
         /// <summary>
@@ -107,7 +108,8 @@ namespace Jaeger.SAT.Catalogos.Scraping.Abstracts {
         }
 
         public override int GetHashCode() {
-            return base.GetHashCode();
+            // Calcula un código hash basado en los campos de la clase
+            return Name.GetHashCode() ^ Url.GetHashCode() ^ this.DestinationFilename.GetHashCode();
         }
     }
 }
