@@ -22,5 +22,9 @@
         /// obtener o establecer nombre del importador
         /// </summary>
         public string Importer { get; set; }
+
+        public int GetHashCode {
+            get { return base.GetHashCode(); }
+        }
     }
 }

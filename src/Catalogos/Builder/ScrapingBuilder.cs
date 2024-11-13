@@ -9,7 +9,6 @@ namespace Jaeger.SAT.Catalogos.Builder {
         private ConstantReviewer constantReviewer;
         private Upgrader upgrader;
         private IOrigin origin;
-        
         #endregion
 
         #region constructor

@@ -50,11 +50,13 @@ namespace Jaeger.SAT.Catalogos.Scraping.Interfaces {
         [DisplayName("Permitir")]
         bool AllowUpdate { get; set; }
 
+        [DisplayName("Importador")]
         Type Importer { get; set; }
 
         /// <summary>
         /// obtener o establecer status del origen de recurso
         /// </summary>
+        [DisplayName("Status")]
         StatusEnum Status { get; set; }
         #endregion
 
