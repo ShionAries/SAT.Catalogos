@@ -41,7 +41,7 @@ namespace Jaeger.SAT.Catalogos {
             if (control == null) {
                 control = new ControlLayout();
             }
-                DataSource = OriginFromLayout(control.Origins);
+            this.DataSource = OriginFromLayout(control.Origins);
             return this;
         }
 
@@ -49,7 +49,7 @@ namespace Jaeger.SAT.Catalogos {
         /// almacenar datos
         /// </summary>
         public IOriginService Save() {
-            WriteFile();
+            this.WriteFile();
             return this;
         }
 
@@ -59,8 +59,17 @@ namespace Jaeger.SAT.Catalogos {
         }
 
         protected ControlLayout ReadOrigin(string content) {
-            var configuration = new JsonSerializerSettings() { NullValueHandling = NullValueHandling.Ignore, DateFormatString = "dd/MM/yyyy" };
-            return JsonConvert.DeserializeObject<ControlLayout>(content, configuration);
+            var configuration = new JsonSerializerSettings() {
+                NullValueHandling = NullValueHandling.Ignore,
+                DateFormatString = "dd/MM/yyyy"
+            };
+
+            try {
+                return JsonConvert.DeserializeObject<ControlLayout>(content, configuration);
+            } catch (System.Exception) {
+
+            }
+            return null;
         }
 
         protected ControlLayout OriginsFromString() {
@@ -70,10 +79,15 @@ namespace Jaeger.SAT.Catalogos {
         }
 
         protected void WriteFile() {
-            var configuration = new JsonSerializerSettings() { NullValueHandling = NullValueHandling.Ignore, DateFormatString = "dd/MM/yyyy" };
-            var control = new ControlLayout();
-            control.Configuration = (Configuration)this.Configuration;
-            control.Origins = OriginToLayout(DataSource);
+            var configuration = new JsonSerializerSettings() {
+                NullValueHandling = NullValueHandling.Ignore,
+                DateFormatString = "dd/MM/yyyy"
+            };
+
+            var control = new ControlLayout {
+                Configuration = (Configuration)this.Configuration,
+                Origins = OriginToLayout(DataSource)
+            };
             var contenido = JsonConvert.SerializeObject(control, Formatting.Indented, configuration);
             Encoding utf8WithoutBom = new UTF8Encoding(false);
             File.WriteAllText(BuildPath(), contenido, utf8WithoutBom);

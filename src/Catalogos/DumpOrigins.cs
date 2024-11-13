@@ -20,7 +20,7 @@ namespace Jaeger.SAT.Catalogos {
         protected List<IOrigin> Default() {
             return new List<IOrigin>() {
                 new ScrapingOrigin("CFDI 4.0", "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/anexo_20.htm", "cfdi_40.xls", "Catálogos CFDI Versión 4.0", importer: typeof(Update.Importers.Cfdi40Importer)),
-                new ConstantOrigin("Nóminas", $"{common}/catNomina.xls", importer: typeof(Update.Importers.Nomina12Importer)),
+                new ConstantOrigin("Nóminas 1.2", $"{common}/catNomina.xls", importer: typeof(Update.Importers.Nomina12Importer)),
                 new ConstantOrigin("Nóminas - Estados", $"{common}/C_Estado.xls", null, "nominas_estados.xls", importer: typeof(Update.Importers.NominaEstadoImporter)),
                 new ConstantOrigin("REP", $"{common}/catPagos.xls", importer: typeof(Update.Importers.RecepcionPago20Importer)),
                 new ScrapingOrigin("RET 2.0", "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/CFDI_retenciones.htm", "ret_20.xls", "Catálogos", importer: typeof(Update.Importers.Retencion20Importer)),
