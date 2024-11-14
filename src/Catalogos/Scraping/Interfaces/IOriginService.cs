@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Interfaces {
     public interface IOriginService {
+        ControlLayout Control { get; set; }
+
         /// <summary>
         /// obtener o establecer configuracion
         /// </summary>
