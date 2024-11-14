@@ -61,6 +61,12 @@ namespace Jaeger.SAT.Catalogos.Scraping.Abstracts {
         [DisplayName("Permitir")]
         public bool AllowUpdate { get; set; }
 
+        /// <summary>
+        /// obtener o establecer si es permitido la edicion
+        /// </summary>
+        [Newtonsoft.Json.JsonIgnore]
+        public bool AllowEdit { get; set; }
+
         [DisplayName("Importador")]
         [Newtonsoft.Json.JsonIgnore]
         public Type Importer { get; set; }

@@ -23,6 +23,8 @@ namespace Jaeger.SAT.Catalogos {
             Configuration = new Configuration();
         }
 
+        public ControlLayout Control { get; set; }
+
         /// <summary>
         /// obtener o establecer configuracion
         /// </summary>
@@ -37,13 +39,13 @@ namespace Jaeger.SAT.Catalogos {
         /// obtener listado de origenes
         /// </summary>
         public IOriginService GetAll() {
-            var control = OriginsFromString();
-            if (control == null) {
-                control = new ControlLayout {
+            this.Control = OriginsFromString();
+            if (this.Control == null) {
+                this.Control = new ControlLayout {
                     Configuration = (Configuration)this.Configuration
                 };
             }
-            this.DataSource = OriginFromLayout(control.Origins);
+            this.DataSource = OriginFromLayout(this.Control.Origins);
             return this;
         }
 
@@ -86,11 +88,11 @@ namespace Jaeger.SAT.Catalogos {
                 DateFormatString = "dd/MM/yyyy"
             };
 
-            var control = new ControlLayout {
+            this.Control = new ControlLayout {
                 Configuration = (Configuration)this.Configuration,
                 Origins = OriginToLayout(DataSource)
             };
-            var contenido = JsonConvert.SerializeObject(control, Formatting.Indented, configuration);
+            var contenido = JsonConvert.SerializeObject(this.Control, Formatting.Indented, configuration);
             Encoding utf8WithoutBom = new UTF8Encoding(false);
             File.WriteAllText(BuildPath(), contenido, utf8WithoutBom);
         }
