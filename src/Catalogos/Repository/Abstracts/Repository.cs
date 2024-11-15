@@ -10,9 +10,10 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
     /// <typeparam name="T">objeto clase T</typeparam>
     public class Repository<TObject> {
         #region variables
-        private DateTime? _Actualizacion;
+        private DateTime? _LastUpdate;
         private DateTime? _InicioVigencia;
         private DateTime? _FinVigencia;
+        private string _Builder;
         #endregion
 
         /// <summary>
@@ -20,9 +21,9 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
         /// </summary>
         public Repository() {
             Version = "1.0";
-            Titulo = "Catálogo";
+            Title = "Catálogo";
             Revision = "0";
-            Builder = Assembly.GetExecutingAssembly().GetName().ToString();
+            _Builder = Assembly.GetExecutingAssembly().GetName().ToString();
             LastUpdate = DateTime.Now;
             Items = new List<TObject>();
         }
@@ -38,7 +39,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
         /// obtener o establecer titulo del catalogo
         /// </summary>
         [JsonProperty("titulo", Order = 2)]
-        public string Titulo { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// obtener o establecer numero de revision del catalogo
@@ -46,8 +47,13 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
         [JsonProperty("rev", Order = 3)]
         public string Revision { get; set; }
 
+        /// <summary>
+        /// obtener o establecer
+        /// </summary>
         [JsonProperty("builder", Order = 4)]
-        public string Builder { get; set; }
+        public string Builder {
+            get { return this._Builder; }
+        }
 
         /// <summary>
         /// obtener o establecer fecha de inicio de vigencia del catalogo
@@ -87,13 +93,12 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
         [JsonProperty("act", Order = 7)]
         public DateTime? LastUpdate {
             get {
-                DateTime firstGoodDate = new DateTime(1900, 1, 1);
-                if (_Actualizacion >= firstGoodDate)
-                    return _Actualizacion;
+                if (_LastUpdate >= new DateTime(1900, 1, 1))
+                    return _LastUpdate;
                 return null;
             }
             set {
-                _Actualizacion = value;
+                _LastUpdate = value;
             }
         }
 
