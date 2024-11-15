@@ -23,7 +23,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Interfaces {
 
         System.DateTime? LastUpdate { get; set; }
 
-        string Builder { get; set; }
+        string Builder { get; }
 
         /// <summary>
         /// obtener o establecer la lista de objetos

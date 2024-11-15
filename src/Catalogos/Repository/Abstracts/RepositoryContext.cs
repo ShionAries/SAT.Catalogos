@@ -23,7 +23,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
         /// </summary>
         public RepositoryContext() {
             FileName = "miCatalogo.json";
-            StartPath = @"C:\Jaeger\Jaeger.Catalogos";
+            WorkingFolder = @"C:\Jaeger\Jaeger.Catalogos";
             _Repository = new Repository<T>();
         }
 
@@ -50,10 +50,10 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
         /// </summary>
         public string Title {
             get {
-                return _Repository.Titulo;
+                return _Repository.Title;
             }
             set {
-                _Repository.Titulo = value;
+                _Repository.Title = value;
             }
         }
 
@@ -86,13 +86,12 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
         /// </summary>
         public string Builder {
             get { return _Repository.Builder; }
-            set { _Repository.Builder = value; }
         }
 
         /// <summary>
         /// obtener o establecer ruta de inicial donde se encuentra el catalogo
         /// </summary>
-        public string StartPath { get; set; }
+        public string WorkingFolder { get; set; }
 
         /// <summary>
         /// obtener o establecer si el catalogo debe ser recuperado desde los recursos de la libreria
@@ -274,7 +273,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
         }
 
         private string ResolverName(string fileName) {
-            return Path.Combine(this.StartPath, fileName);
+            return Path.Combine(this.WorkingFolder, fileName);
         }
 
         private string ResolverName(string fileName, string fileDefault, bool resource = true) {
@@ -302,17 +301,6 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
             var configuration = new JsonSerializerSettings() { NullValueHandling = NullValueHandling.Ignore, DateFormatString = "dd/MM/yyyy" };
             this._Repository = JsonConvert.DeserializeObject<Repository<T>>(valor, configuration);
             this.Items = this._Repository.Items;
-        }
-
-        private string ReadAllText(string fileName) {
-            if (File.Exists(fileName)) {
-                try {
-                    return File.ReadAllText(fileName);
-                } catch (Exception ex) {
-                    Console.WriteLine(ex.Message);
-                }
-            }
-            return string.Empty;
         }
 
         #region archivo zip
