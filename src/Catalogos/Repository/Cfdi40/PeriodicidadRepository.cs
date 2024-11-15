@@ -26,7 +26,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
         //    };
         //}
 
-        public CvePeriodicidad Search(string findId) {
+        public override CvePeriodicidad Search(string findId) {
             string str = Regex.Replace(findId, "[^\\d]", "");
             try {
                 var _response = new CvePeriodicidad();

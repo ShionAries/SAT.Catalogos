@@ -14,7 +14,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
             this.Version = "1.0";
         }
 
-        public CveRegistroISTMO Search(string findId) {
+        public override CveRegistroISTMO Search(string findId) {
             try {
                 var search = new CveRegistroISTMO();
                 search = this.Items.SingleOrDefault((CveRegistroISTMO p) => p.Clave == findId.Trim());

@@ -16,10 +16,15 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             this.AddLastUpdate(lastUpdate);
         }
 
-        public CveProdServ Search(string findId) {
-            CveProdServ objeto = new CveProdServ();
-            objeto = Items.Find((p) => p.Clave == findId);
-            return objeto;
+        public override CveProdServ Search(string findId) {
+            try {
+            var search = Items.Find((p) => p.Clave == findId);
+                if (search == null) return new CveProdServ() { Clave = findId };
+            return search;
+            } catch (System.Exception) {
+
+            }
+            return new CveProdServ() { Clave = findId };
         }
 
         public List<CveProdServ> Productos(string find) {

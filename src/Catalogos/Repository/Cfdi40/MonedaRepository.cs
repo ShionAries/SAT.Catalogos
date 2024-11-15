@@ -13,7 +13,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             this.AddLastUpdate(lastUpdate);
         }
 
-        public CveMoneda Search(string findId) {
+        public override CveMoneda Search(string findId) {
             CveMoneda objeto = new CveMoneda();
             objeto = Items.SingleOrDefault((p) => p.Clave == findId);
             return objeto;

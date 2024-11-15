@@ -1,4 +1,5 @@
-﻿using Jaeger.SAT.Catalogos.Repository.Abstracts;
+﻿using System.Linq;
+using Jaeger.SAT.Catalogos.Repository.Abstracts;
 using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
@@ -10,6 +11,17 @@ namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
             Title = "Catálogo de tipos de nómina.";
             FileName = "CatNom12Tipos.json";
             this.AddLastUpdate(lastUpdate);
+        }
+
+        public override CveTipoNomina Search(string query) {
+            try {
+                var search = this.Items.SingleOrDefault(it => it.Clave == query);
+                if (search != null)
+                    return search;
+            } catch (System.Exception) {
+
+            }
+            return new CveTipoNomina { Clave = query };
         }
     }
 }

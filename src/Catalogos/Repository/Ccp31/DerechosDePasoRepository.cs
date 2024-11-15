@@ -15,7 +15,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
             this.AddLastUpdate(lastUpdate);
         }
 
-        public CveDerechosDePaso Search(string findId) {
+        public override CveDerechosDePaso Search(string findId) {
             try {
                 var search = new CveDerechosDePaso();
                 search = this.Items.SingleOrDefault((CveDerechosDePaso p) => p.Clave == findId.Trim());

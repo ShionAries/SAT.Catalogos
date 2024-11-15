@@ -15,7 +15,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
             this.AddLastUpdate(lastUpdate);
         }
 
-        public CveMaterialPeligroso Search(string findId) {
+        public override CveMaterialPeligroso Search(string findId) {
             try {
                 var search = new CveMaterialPeligroso();
                 search = Items.SingleOrDefault((p) => p.Clave == findId.Trim());

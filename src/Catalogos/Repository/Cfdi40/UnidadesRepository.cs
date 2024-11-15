@@ -12,7 +12,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             FileName = "UnidadesCFDI40.json";
             this.AddLastUpdate(lastUpdate);
         }
-        public CveUnidad Search(string findId) {
+        public override CveUnidad Search(string findId) {
             CveUnidad objeto = new CveUnidad();
             objeto = Items.Find((p) => p.Clave == findId);
             return objeto;

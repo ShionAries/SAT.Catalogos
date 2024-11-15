@@ -14,7 +14,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
             Version = "2.0";
         }
 
-        public CveTipoPermiso Search(string findId) {
+        public override CveTipoPermiso Search(string findId) {
             try {
                 var search = new CveTipoPermiso();
                 search = Items.SingleOrDefault((p) => p.Clave == findId.Trim());

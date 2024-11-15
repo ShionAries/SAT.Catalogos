@@ -1,4 +1,5 @@
-﻿using Jaeger.SAT.Catalogos.Repository.Abstracts;
+﻿using System.Linq;
+using Jaeger.SAT.Catalogos.Repository.Abstracts;
 using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
@@ -17,6 +18,19 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             //this.Items.Add(new ClaveTipoDeComprobante { Clave = "T", Descripcion = "Traslado", ValorMaximo = new decimal(0), VigenciaIni = new DateTime(2017 / 7 / 29) });
             //this.Items.Add(new ClaveTipoDeComprobante { Clave = "N", Descripcion = "Nómina", ValorMaximo = new decimal(999999999999999999.999999), VigenciaIni = new DateTime(2017 / 7 / 29) });
             //this.Items.Add(new ClaveTipoDeComprobante { Clave = "P", Descripcion = "Pago", ValorMaximo = new decimal(999999999999999999.999999), VigenciaIni = new DateTime(2017 / 7 / 29) });
+        }
+
+        public override CveTipoDeComprobante Search(string query) {
+            try {
+                var search = this.Items.SingleOrDefault(it => it.Clave == query);
+                if (search == null) {
+                    return new CveTipoDeComprobante() { Clave = query };
+                }
+                return search;
+            } catch (System.Exception) {
+
+            }
+            return new CveTipoDeComprobante() { Clave = query };
         }
     }
 }

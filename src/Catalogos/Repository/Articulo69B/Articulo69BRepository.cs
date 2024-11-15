@@ -20,9 +20,15 @@ namespace Jaeger.SAT.Catalogos.Repository.Articulo69B {
         /// <summary>
         /// retorna un objeto codigo agrupador del catalogo del sat
         /// </summary>
-        public Articulo69B Search(string findId) {
+        public Articulo69B Search1(string findId) {
             Articulo69B objeto = new Articulo69B();
             objeto = Items.Find((p) => p.RFC == findId);
+            return objeto;
+        }
+
+        public override Articulo69B Search(string query) {
+            Articulo69B objeto = new Articulo69B();
+            objeto = Items.Find((p) => p.RFC == query);
             return objeto;
         }
     }

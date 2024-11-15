@@ -42,6 +42,8 @@ namespace Jaeger.SAT.Catalogos.Repository.Interfaces {
         /// </summary>
         bool Delete(int index);
 
+        T Search(string query);
+
         /// <summary>
         /// cargar la informacion de un catalogo
         /// </summary>

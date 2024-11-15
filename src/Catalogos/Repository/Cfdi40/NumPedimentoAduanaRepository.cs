@@ -1,4 +1,5 @@
-﻿using Jaeger.SAT.Catalogos.Repository.Abstracts;
+﻿using System.Linq;
+using Jaeger.SAT.Catalogos.Repository.Abstracts;
 using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
@@ -12,6 +13,19 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             Version = "31.0";
             Revision = "0";
             this.AddLastUpdate(lastUpdate);
+        }
+
+        public override CveNumPedimentoAduana Search(string query) {
+            try {
+                var search = this.Items.SingleOrDefault(it => it.Clave == query);
+                if (search == null) {
+                    return new CveNumPedimentoAduana() { Clave = query };
+                }
+                return search;
+            } catch (System.Exception) {
+
+            }
+            return new CveNumPedimentoAduana() { Clave = query };
         }
     }
 }

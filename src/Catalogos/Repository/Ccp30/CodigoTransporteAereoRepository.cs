@@ -14,7 +14,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
             Version = "1.0";
         }
 
-        public CveCodigoTransporteAereo Search(string findId) {
+        public override CveCodigoTransporteAereo Search(string findId) {
             try {
                 var search = new CveCodigoTransporteAereo();
                 search = Items.SingleOrDefault((p) => p.Clave == findId.Trim());

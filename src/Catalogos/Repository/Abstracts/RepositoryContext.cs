@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using Newtonsoft.Json;
+using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
     /// <summary>
@@ -157,6 +158,13 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
                 return false;
             }
         }
+
+        /// <summary>
+        /// busqueda de elemento
+        /// </summary>
+        /// <param name="query">indice</param>
+        /// <returns>T</returns>
+        public abstract T Search(string query);
 
         /// <summary>
         /// cargar la informacion de un catalogo

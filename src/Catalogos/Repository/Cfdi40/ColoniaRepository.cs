@@ -15,7 +15,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             this.AddLastUpdate(lastUpdate);
         }
 
-        public CveColonia Search(string findId) {
+        public override CveColonia Search(string findId) {
             try {
                 var search = new CveColonia();
                 search = Items.SingleOrDefault((p) => p.Clave == findId.Trim());

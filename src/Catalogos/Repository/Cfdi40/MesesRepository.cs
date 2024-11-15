@@ -16,6 +16,20 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             this.AddLastUpdate(lastUpdate);
         }
 
+        public override CveMeses Search(string findId) {
+            string str = Regex.Replace(findId, "[^\\d]", "");
+            try {
+                var search = Items.SingleOrDefault((p) => p.Clave == str);
+                if (search == null) {
+                    return new CveMeses { Clave = str };
+                }
+                return search;
+            } catch (Exception ex) {
+                Console.WriteLine(ex.Message);
+            }
+            return new CveMeses { Clave = findId };
+        }
+
         //public override void Load() {
         //    this.Items = new System.Collections.Generic.List<ClaveMeses> {
         //        new ClaveMeses { Clave = "01", Descripcion = "Enero", VigenciaIni = new DateTime(2022, 1, 1) },
@@ -38,17 +52,5 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
         //        new ClaveMeses { Clave = "18", Descripcion = "Noviembre-Diciembre", VigenciaIni = new DateTime(2022, 1, 1) }
         //    };
         //}
-
-        public CveMeses Search(string findId) {
-            string str = Regex.Replace(findId, "[^\\d]", "");
-            try {
-                var _response = new CveMeses();
-                _response = Items.SingleOrDefault((p) => p.Clave == str);
-                return _response;
-            } catch (Exception ex) {
-                Console.WriteLine(ex.Message);
-            }
-            return new CveMeses { Clave = findId };
-        }
     }
 }

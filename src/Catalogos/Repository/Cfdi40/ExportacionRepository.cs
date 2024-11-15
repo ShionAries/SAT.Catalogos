@@ -1,4 +1,5 @@
-﻿using Jaeger.SAT.Catalogos.Repository.Abstracts;
+﻿using System.Linq;
+using Jaeger.SAT.Catalogos.Repository.Abstracts;
 using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
@@ -14,6 +15,18 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             this.AddLastUpdate(lastUpdate);
         }
 
+        public override CveExportacion Search(string query) {
+            try {
+                var search = this.Items.SingleOrDefault(it => it.Clave == query);
+                if (search == null) {
+                    return new CveExportacion() { Clave = query };
+                }
+                return search;
+            } catch (System.Exception) {
+
+            }
+            return new CveExportacion() { Clave = query };
+        }
         //public override void Load() {
         //    this.Items = new System.Collections.Generic.List<ClaveExportacion> {
         //        new ClaveExportacion{ Clave = "01", Descripcion = "No Aplica", VigenciaIni = new System.DateTime(2022, 1, 1) },

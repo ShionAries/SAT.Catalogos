@@ -14,7 +14,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             this.AddLastUpdate(lastUpdate);
         }
 
-        public CveCodigoPostal Search(string find) {
+        public override CveCodigoPostal Search(string find) {
             CveCodigoPostal objeto = new CveCodigoPostal();
             objeto = Items.SingleOrDefault((p) => p.Clave == find);
             return objeto;

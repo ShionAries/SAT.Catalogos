@@ -16,7 +16,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
             this.Version = "1.0";
         }
 
-        public CveDocumentoAduanero Search(string findId) {
+        public override CveDocumentoAduanero Search(string findId) {
             try {
                 var search = new CveDocumentoAduanero();
                 search = this.Items.SingleOrDefault((CveDocumentoAduanero p) => p.Clave == findId.Trim());

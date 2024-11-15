@@ -13,7 +13,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
             Version = "2.0";
         }
 
-        public CveTransporte Search(string findId) {
+        public override CveTransporte Search(string findId) {
             try {
                 var search = new CveTransporte();
                 search = Items.SingleOrDefault((p) => p.Clave == findId.Trim());

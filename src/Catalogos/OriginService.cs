@@ -70,8 +70,8 @@ namespace Jaeger.SAT.Catalogos {
 
             try {
                 return JsonConvert.DeserializeObject<ControlLayout>(content, configuration);
-            } catch (System.Exception) {
-
+            } catch (System.Exception ex) {
+                System.Console.WriteLine(ex.Message);
             }
             return null;
         }

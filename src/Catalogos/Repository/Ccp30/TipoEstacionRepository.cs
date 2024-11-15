@@ -14,7 +14,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
             Version = "1.0";
         }
 
-        public CveTipoEstacion Search(string findId) {
+        public override CveTipoEstacion Search(string findId) {
             try {
                 var search = new CveTipoEstacion();
                 search = Items.SingleOrDefault((p) => p.Clave == findId.Trim());

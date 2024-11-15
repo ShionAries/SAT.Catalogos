@@ -15,7 +15,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             this.AddLastUpdate(lastUpdate);
         }
 
-        public CveRegimenFiscal Search(string findId) {
+        public override CveRegimenFiscal Search(string findId) {
             if (findId != null) {
                 string str = Regex.Replace(findId, "[^\\d]", "");
                 try {

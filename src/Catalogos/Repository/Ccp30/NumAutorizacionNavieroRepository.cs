@@ -14,7 +14,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
             this.Version = "2.0";
         }
 
-        public CveNumAutorizacionNaviero Search(string findId) {
+        public override CveNumAutorizacionNaviero Search(string findId) {
             try {
                 var search = new CveNumAutorizacionNaviero();
                 search = this.Items.SingleOrDefault((CveNumAutorizacionNaviero p) => p.NumAutorizacion == findId.Trim());

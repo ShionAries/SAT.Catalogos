@@ -5,7 +5,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     /// Catálogo de unidades de medida y embalaje.
     /// </summary>
     public interface IUnidadPesoRepository : IRepositoryContext<CveUnidadPeso> {
-        CveUnidadPeso Seach(string findId);
+        CveUnidadPeso Search(string findId);
 
         System.Collections.Generic.IEnumerable<CveUnidadPeso> GetSearch(string findId);
     }

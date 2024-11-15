@@ -14,7 +14,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
             this.Version = "1.0";
         }
 
-        public CveTipoSectorCofepris Search(string findId) {
+        public override CveTipoSectorCofepris Search(string findId) {
             try {
                 var search = new CveTipoSectorCofepris();
                 search = this.Items.SingleOrDefault((CveTipoSectorCofepris p) => p.Clave == findId.Trim());

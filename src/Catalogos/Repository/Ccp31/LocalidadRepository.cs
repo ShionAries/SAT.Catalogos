@@ -8,14 +8,14 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     /// catalogo de localidades. 
     /// </summary>
     public class LocalidadRepository : RepositoryContext<CveLocalidad>, ILocalidadRepository, IGeneralRepository {
-        public LocalidadRepository(System.DateTime? lastUpdate = null) {
+        public LocalidadRepository(DateTime? lastUpdate = null) {
             Title = "Catálogo de localidades.";
             FileName = "CatCcp31Localidad.json";
             Version = "1.0";
             this.AddLastUpdate(lastUpdate);
         }
 
-        public CveLocalidad Search(string findId) {
+        public override CveLocalidad Search(string findId) {
             try {
                 var search = new CveLocalidad();
                 search = Items.SingleOrDefault((p) => p.Clave == findId.Trim());

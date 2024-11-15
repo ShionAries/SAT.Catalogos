@@ -15,7 +15,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             this.AddLastUpdate(lastUpdate);
         }
 
-        public CveTipoRelacionCFDI Search(string findId) {
+        public override CveTipoRelacionCFDI Search(string findId) {
             var _search = Regex.Replace(findId, "[^\\d]", "");
             try {
                 var _response = new CveTipoRelacionCFDI();

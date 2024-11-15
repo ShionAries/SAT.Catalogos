@@ -15,7 +15,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             this.AddLastUpdate(lastUpdate);
         }
 
-        public CveMunicipio Search(string findId) {
+        public override CveMunicipio Search(string findId) {
             try {
                 var search = new CveMunicipio();
                 search = Items.SingleOrDefault((p) => p.Clave == findId.Trim());

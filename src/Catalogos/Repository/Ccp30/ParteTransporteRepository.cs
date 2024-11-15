@@ -14,14 +14,13 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
             this.Version = "1.0";
         }
 
-        public CveParteTransporte Search(string findId) {
+        public override CveParteTransporte Search(string findId) {
             try {
                 var search = new CveParteTransporte();
                 search = this.Items.SingleOrDefault((CveParteTransporte p) => p.Clave == findId.Trim());
                 if (search == null)
                     return new CveParteTransporte { Clave = findId };
                 return search;
-
             } catch (Exception ex) {
                 Console.WriteLine(ex.Message);
             }

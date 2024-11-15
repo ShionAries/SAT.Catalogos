@@ -15,14 +15,13 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
             this.Version = "1.0";
         }
 
-        public CveSubTipoRemolque Search(string findId) {
+        public override CveSubTipoRemolque Search(string findId) {
             try {
                 var search = new CveSubTipoRemolque();
                 search = this.Items.SingleOrDefault((CveSubTipoRemolque p) => p.Clave == findId.Trim());
                 if (search == null)
                     return new CveSubTipoRemolque { Clave = findId };
                 return search;
-
             } catch (Exception ex) {
                 Console.WriteLine(ex.Message);
             }

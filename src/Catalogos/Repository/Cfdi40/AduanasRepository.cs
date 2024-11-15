@@ -15,7 +15,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             this.AddLastUpdate(lastUpdate);
         }
 
-        public CveAduana Search(string clave) {
+        public override CveAduana Search(string clave) {
             return Items.SingleOrDefault((b) => b.Clave == clave);
         }
     }

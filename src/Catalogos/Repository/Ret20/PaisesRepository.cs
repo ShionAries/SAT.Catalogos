@@ -13,10 +13,14 @@ namespace Jaeger.SAT.Catalogos.Repository.Ret20 {
             Version = "1.0";
         }
 
-        public CveRetencionPais Search(string findId) {
-            var objeto = new CveRetencionPais();
-            objeto = Items.Find((p) => p.Clave == findId);
-            return objeto;
+        public override CveRetencionPais Search(string findId) {
+            try {
+                var search = this.Items.Find((p) => p.Clave == findId);
+                return search;
+            } catch (System.Exception) {
+
+            }
+            return new CveRetencionPais { Clave = findId };
         }
     }
 }
