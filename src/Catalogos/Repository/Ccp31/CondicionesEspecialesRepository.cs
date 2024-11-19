@@ -15,7 +15,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
             this.AddLastUpdate(lastUpdate);
         }
 
-        public CveCondicionesEspeciales Search(string findId) {
+        public override CveCondicionesEspeciales Search(string findId) {
             try {
                 var search = new CveCondicionesEspeciales();
                 search = this.Items.SingleOrDefault((CveCondicionesEspeciales p) => p.Clave == findId.Trim());

@@ -13,10 +13,15 @@ namespace Jaeger.SAT.Catalogos.Repository.Ret20 {
             Revision = "0";
         }
 
-        public CveRetencionEntidadFederativa Search(string findId) {
-            CveRetencionEntidadFederativa objeto = new CveRetencionEntidadFederativa();
-            objeto = Items.Find((p) => p.Clave == findId);
-            return objeto;
+        public override CveRetencionEntidadFederativa Search(string findId) {
+            try {
+                var search = Items.Find((p) => p.Clave == findId);
+                if (search != null)
+                    return search;
+            } catch (System.Exception) {
+
+            }
+            return new CveRetencionEntidadFederativa { Clave = findId };
         }
     }
 }

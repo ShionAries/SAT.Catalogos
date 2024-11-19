@@ -111,7 +111,7 @@ namespace Tester {
 
         private void TestingBtn_Click(object sender, EventArgs e) {
             ActiveButton(sender, RGBColors.color3);
-            OpenChildForm(new TestingForm(this.Service));
+            OpenChildForm(new RepositoryTestForm());
         }
 
         private void ConfiguracionBtn_Click(object sender, EventArgs e) {

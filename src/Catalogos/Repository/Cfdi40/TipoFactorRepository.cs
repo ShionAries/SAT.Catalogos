@@ -14,7 +14,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             this.AddLastUpdate(lastUpdate);
         }
 
-        public CveTipoFactor Search(string findId) {
+        public override CveTipoFactor Search(string findId) {
             throw new System.NotImplementedException();
         }
     }

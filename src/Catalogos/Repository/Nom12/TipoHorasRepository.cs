@@ -1,4 +1,5 @@
-﻿using Jaeger.SAT.Catalogos.Repository.Abstracts;
+﻿using System.Linq;
+using Jaeger.SAT.Catalogos.Repository.Abstracts;
 using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
@@ -11,6 +12,16 @@ namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
             this.FileName = "CatNom12TipoHoras.json";
             this.Version = "1.0";
             this.AddLastUpdate(lastUpdate);
+        }
+
+        public override CveTipoHoras Search(string query) {
+            try {
+                var search = this.Items.SingleOrDefault(it => it.Clave == query);
+                if (search != null) return search;
+            } catch (System.Exception) {
+
+            }
+            return new CveTipoHoras() { Clave = query };
         }
     }
 }

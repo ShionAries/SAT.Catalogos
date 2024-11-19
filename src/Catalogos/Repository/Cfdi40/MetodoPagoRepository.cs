@@ -13,7 +13,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             this.AddLastUpdate(lastUpdate);
         }
 
-        public CveMetodoPago Search(string findId) {
+        public override CveMetodoPago Search(string findId) {
             CveMetodoPago objeto = new CveMetodoPago();
             objeto = Items.SingleOrDefault((p) => p.Clave == findId);
             return objeto;

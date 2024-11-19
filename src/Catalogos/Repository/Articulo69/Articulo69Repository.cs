@@ -20,7 +20,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Articulo69 {
         /// <summary>
         /// retorna un objeto codigo agrupador del catalogo del sat
         /// </summary>
-        public NoLocalizados Search(string findId) {
+        public override NoLocalizados Search(string findId) {
             NoLocalizados objeto = new NoLocalizados();
             objeto = Items.Find((p) => p.RFC == findId);
             return objeto;

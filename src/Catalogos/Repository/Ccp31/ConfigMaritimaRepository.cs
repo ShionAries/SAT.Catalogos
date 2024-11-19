@@ -15,7 +15,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
             this.AddLastUpdate(lastUpdate);
         }
 
-        public CveConfigMaritima Search(string findId) {
+        public override CveConfigMaritima Search(string findId) {
             try {
                 var search = new CveConfigMaritima();
                 search = this.Items.SingleOrDefault((CveConfigMaritima p) => p.Clave == findId.Trim());

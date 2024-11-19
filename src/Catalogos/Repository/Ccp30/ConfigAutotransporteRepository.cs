@@ -14,7 +14,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
             Version = "2.0";
         }
 
-        public CveConfigAutotransporte Search(string findId) {
+        public override CveConfigAutotransporte Search(string findId) {
             try {
                 var search = new CveConfigAutotransporte();
                 search = Items.SingleOrDefault((p) => p.Clave == findId.Trim());

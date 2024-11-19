@@ -1,5 +1,6 @@
 ﻿using Jaeger.SAT.Catalogos.Repository.Abstracts;
 using Jaeger.SAT.Catalogos.Repository.Interfaces;
+using System.Linq;
 
 namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
     /// <summary>
@@ -12,6 +13,16 @@ namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
             this.Version = "2.0";
             this.Revision = "0";
             this.AddLastUpdate(lastUpdate);
+        }
+
+        public override CveTipoRegimen Search(string query) {
+            try {
+                var search = this.Items.SingleOrDefault(it => it.Clave == query);
+                return search;
+            } catch (System.Exception) {
+
+            }
+            return new CveTipoRegimen { Clave = query };
         }
     }
 }

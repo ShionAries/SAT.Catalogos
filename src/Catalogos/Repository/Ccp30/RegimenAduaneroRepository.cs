@@ -14,7 +14,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
             Version = "1.0";
         }
 
-        public CveRegimenAduanero Search(string findId) {
+        public override CveRegimenAduanero Search(string findId) {
             try {
                 var search = new CveRegimenAduanero();
                 search = this.Items.SingleOrDefault((CveRegimenAduanero p) => p.Clave == findId.Trim());

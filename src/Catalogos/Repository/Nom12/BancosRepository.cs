@@ -10,10 +10,17 @@ namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
             this.AddLastUpdate(lastUpdate);
         }
 
-        public CveBanco Search(string findId) {
-            var objeto = new CveBanco();
-            objeto = Items.SingleOrDefault((p) => p.Clave == findId);
-            return objeto;
+        public override CveBanco Search(string findId) {
+            try {
+                var search = this.Items.SingleOrDefault((p) => p.Clave == findId);
+                if (search == null) {
+                    return new CveBanco() { Clave = findId };
+                }
+                return search;
+            } catch (System.Exception) {
+
+            }
+            return new CveBanco() { Clave = findId };
         }
     }
 }

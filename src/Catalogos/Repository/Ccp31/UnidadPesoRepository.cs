@@ -14,7 +14,8 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
             Version = "1.0";
             this.AddLastUpdate(lastUpdate);
         }
-        public CveUnidadPeso Seach(string findId) {
+
+        public override CveUnidadPeso Search(string findId) {
             try {
                 var search = new CveUnidadPeso();
                 search = Items.SingleOrDefault((p) => p.Clave == findId.Trim());

@@ -16,6 +16,19 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
             this.AddLastUpdate(lastUpdate);
         }
 
+        public override CveProdServCP Search(string query) {
+            try {
+                var search = this.Items.SingleOrDefault(it => it.Clave == query);
+                if (search == null) {
+                    search = new CveProdServCP() { Clave = query };
+                }
+                return search;
+            } catch (System.Exception) {
+
+            }
+            return new CveProdServCP() { Clave = query };
+        }
+
         public List<CveProdServCP> Productos(string find) {
             var response = new List<CveProdServCP>();
             response = Items.Where(p => p.Descripcion.ToLower().Contains(find.ToLower()) | p.PalabrasSimilares.ToLower().Contains(find.ToLower())).ToList();

@@ -13,5 +13,9 @@ namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
             this.Revision = "0";
             this.AddLastUpdate(lastUpdate);
         }
+
+        public override CveOrigenRecurso Search(string query) {
+            throw new System.NotImplementedException();
+        }
     }
 }

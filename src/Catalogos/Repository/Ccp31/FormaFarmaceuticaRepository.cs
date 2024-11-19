@@ -17,7 +17,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
             this.AddLastUpdate(lastUpdate);
         }
 
-        public CveFormaFarmaceutica Search(string findId) {
+        public override CveFormaFarmaceutica Search(string findId) {
             try {
                 var search = new CveFormaFarmaceutica();
                 search = Items.SingleOrDefault((p) => p.Clave == findId.Trim());

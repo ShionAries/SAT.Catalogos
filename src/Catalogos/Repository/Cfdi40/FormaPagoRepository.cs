@@ -14,7 +14,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             this.AddLastUpdate(lastUpdate);
         }
 
-        public CveFormaPago Search(string findId) {
+        public override CveFormaPago Search(string findId) {
             if (findId != null) {
                 string str = Regex.Replace(findId, @"/[^\d]/g", "");
                 CveFormaPago objeto = new CveFormaPago();

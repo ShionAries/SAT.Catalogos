@@ -15,6 +15,19 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
             Revision = "A";
         }
 
+        public override CveProdServCP Search(string query) {
+            try {
+                var search = this.Items.SingleOrDefault((p) => p.Clave == query.Trim());
+                if (search == null) {
+                    return new CveProdServCP { Clave = query };
+                }
+                return search;
+            } catch (System.Exception ex) {
+                System.Console.WriteLine(ex.Message);
+                return new CveProdServCP() { Clave = query };
+            }
+        }
+
         public List<CveProdServCP> Productos(string find) {
             var response = new List<CveProdServCP>();
             response = Items.Where(p => p.Descripcion.ToLower().Contains(find.ToLower()) | p.PalabrasSimilares.ToLower().Contains(find.ToLower())).ToList();

@@ -159,6 +159,13 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
         }
 
         /// <summary>
+        /// busqueda de elemento
+        /// </summary>
+        /// <param name="query">indice</param>
+        /// <returns>T</returns>
+        public abstract T Search(string query);
+
+        /// <summary>
         /// cargar la informacion de un catalogo
         /// </summary>
         public virtual void Load() {

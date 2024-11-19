@@ -1,4 +1,5 @@
-﻿using Jaeger.SAT.Catalogos.Repository.Abstracts;
+﻿using System.Linq;
+using Jaeger.SAT.Catalogos.Repository.Abstracts;
 using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
@@ -12,6 +13,18 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
             Title = "Catálogo de figura transporte.";
             FileName = "CatCcp30FiguraTransporte.json";
             Version = "2.0";
+        }
+
+        public override CveFiguraTransporte Search(string query) {
+            try {
+                var search = this.Items.SingleOrDefault((p) => p.Clave == query);
+                if (search == null) {
+                    return new CveFiguraTransporte() { Clave = query };
+                }
+                return search;
+            } catch (System.Exception) {
+                return new CveFiguraTransporte() { Clave = query };
+            }
         }
 
         //public override void Load() {

@@ -16,7 +16,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
             this.AddLastUpdate(lastUpdate);
         }
 
-        public CvePeriodicidadPago Search(string findId) {
+        public override CvePeriodicidadPago Search(string findId) {
             string str = Regex.Replace(findId, "[^\\d]", "");
             try {
                 var _response = new CvePeriodicidadPago();

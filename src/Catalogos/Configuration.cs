@@ -6,13 +6,15 @@ namespace Jaeger.SAT.Catalogos {
     /// </summary>
     public class Configuration : IConfiguration {
         private string workingFolder;
+        private string temporaryFolder;
 
         /// <summary>
         /// constructor
         /// </summary>
         public Configuration() {
             FileName = "origins.json";
-            WorkingFolder = @"C:\Jaeger\Jaeger.Temporal";
+            this.WorkingFolder = @"C:\Jaeger\Jaeger.Temporal";
+            this.TemporaryFolder = @"C:\Jaeger\Jaeger.Temporal";
         }
 
         public Configuration(string fileName = "origins.json", string workingFolder = @"C:\Jaeger\Jaeger.Temporal") {
@@ -24,6 +26,11 @@ namespace Jaeger.SAT.Catalogos {
         /// obtener o establecer nombre del archivo del control de origenes
         /// </summary>
         public string FileName { get; set; }
+
+        /// <summary>
+        /// obtener o establecer ruta completa de archivo log
+        /// </summary>
+        public string LogFileName { get; set; }
 
         /// <summary>
         /// obtener o establecer folder temporal de trabajo
@@ -43,8 +50,20 @@ namespace Jaeger.SAT.Catalogos {
         }
 
         /// <summary>
-        /// obtener o establecer ruta completa de archivo log
+        /// obtener o establecer folder para temporales
         /// </summary>
-        public string LogFileName { get; set; }
+        public string TemporaryFolder {
+            get { return temporaryFolder; }
+            set {
+                if (string.IsNullOrEmpty(value)) {
+                    throw new ArgumentNullException("Invalid source catalog: empty string received");
+                }
+
+                if (!Helpers.DirectoryService.IsDirectory(value)) {
+                    throw new ArgumentException("Invalid source catalog: is not a directory");
+                }
+                temporaryFolder = value;
+            }
+        }
     }
 }

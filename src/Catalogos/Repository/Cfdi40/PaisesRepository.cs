@@ -14,10 +14,17 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             this.AddLastUpdate(lastUpdate);
         }
 
-        public CvePais Search(string findId) {
-            CvePais objeto = new CvePais();
-            objeto = Items.SingleOrDefault((p) => p.Clave == findId);
-            return objeto;
+        public override CvePais Search(string findId) {
+            try {
+                var search = this.Items.SingleOrDefault((p) => p.Clave == findId);
+                if (search == null) {
+                    return new CvePais { Clave = findId };
+                }
+                return search;
+            } catch (System.Exception) {
+
+            }
+            return new CvePais { Clave = findId };
         }
     }
 }

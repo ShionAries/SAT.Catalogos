@@ -1,4 +1,5 @@
-﻿using Jaeger.SAT.Catalogos.Repository.Abstracts;
+﻿using System.Linq;
+using Jaeger.SAT.Catalogos.Repository.Abstracts;
 using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
@@ -11,6 +12,19 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             FileName = "ObjetoImpCFDI40.json";
             Version = "1.0";
             this.AddLastUpdate(lastUpdate);
+        }
+
+        public override CveObjetoImp Search(string query) {
+            try {
+                var search = this.Items.SingleOrDefault(it => it.Clave == query);
+                if (search == null) {
+                    return new CveObjetoImp() { Clave = query };
+                }
+                return search;
+            } catch (System.Exception) {
+
+            }
+            return new CveObjetoImp { Clave = query };
         }
 
         //public override void Load() {

@@ -13,7 +13,8 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
             FileName = "CatCcp30UnidadPeso.json";
             Version = "1.0";
         }
-        public CveUnidadPeso Seach(string findId) {
+
+        public override CveUnidadPeso Search(string findId) {
             try {
                 var search = new CveUnidadPeso();
                 search = Items.SingleOrDefault((p) => p.Clave == findId.Trim());
