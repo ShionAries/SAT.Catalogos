@@ -6,7 +6,6 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using Newtonsoft.Json;
-using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
     /// <summary>
