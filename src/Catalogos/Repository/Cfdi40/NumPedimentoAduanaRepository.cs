@@ -6,7 +6,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// <summary>
     /// catalogo de numeros de pedimento operados por aduana y ejercicio.
     /// </summary>
-    public class NumPedimentoAduanaRepository : RepositoryContext<CveNumPedimentoAduana>, INumPedimentoAduanaRepository, IGeneralRepository {
+    public class NumPedimentoAduanaRepository : RepositoryContext<CveNumPedimentoAduana>, INumPedimentoAduanaRepository, IRepositoryGeneric {
         public NumPedimentoAduanaRepository(System.DateTime? lastUpdate = null) {
             Title = "Catálogo de números de pedimento operados por aduana y ejercicio.";
             FileName = "NumPedimentoAduanaCFDI40.json";

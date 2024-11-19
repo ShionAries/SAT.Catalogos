@@ -2,7 +2,7 @@
     /// <summary>
     /// interface generica para repositorio
     /// </summary>
-    public interface IGeneralRepository {
+    public interface IRepositoryGeneric {
         /// <summary>
         /// obtener o establecer la version del catalogo
         /// </summary>

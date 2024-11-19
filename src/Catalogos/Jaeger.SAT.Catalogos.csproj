@@ -57,7 +57,6 @@
     <Compile Include="ControlLayout.cs" />
     <Compile Include="IConfiguration.cs" />
     <Compile Include="Repository\Abstracts\ClaveBaseVigenciaSingle.cs" />
-    <Compile Include="Repository\Abstracts\IRepositoryContext.cs" />
     <Compile Include="Repository\Ccp31\CodigoTransporteAereoRepository.cs" />
     <Compile Include="Repository\Ccp31\ColoniaRepository.cs" />
     <Compile Include="Repository\Ccp31\CondicionesEspecialesRepository.cs" />
@@ -306,7 +305,7 @@
     <Compile Include="Repository\Ccp30\ITipoEstacionRepository.cs" />
     <Compile Include="Repository\Cfdi40\IEstadoRepository.cs" />
     <Compile Include="Repository\Cfdi40\IExportacionRepository.cs" />
-    <Compile Include="Repository\Interfaces\IGeneralRepository.cs" />
+    <Compile Include="Repository\Interfaces\IRepositoryGeneric.cs" />
     <Compile Include="Repository\Cfdi40\IImpuestosRepository.cs" />
     <Compile Include="Repository\Cfdi40\IMesesRepository.cs" />
     <Compile Include="Repository\Cfdi40\IMetodoPagoRepository.cs" />

@@ -5,7 +5,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Articulo69 {
     /// <summary>
     /// Artículo 69, primer y segundo párrafo del CFF
     /// </summary>
-    public class Articulo69Repository : RepositoryContext<NoLocalizados>, IArticulo69Repository, IGeneralRepository {
+    public class Articulo69Repository : RepositoryContext<NoLocalizados>, IArticulo69Repository, IRepositoryGeneric {
         public Articulo69Repository() {
             Title = "Artículo 69, primer y segundo párrafo del CFF";
             FileName = "Articulo69_NoLocalizados.json";

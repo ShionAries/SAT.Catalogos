@@ -6,7 +6,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// <summary>
     /// Catalogo de objeto de impuestos para comprobante fiscal 4.0
     /// </summary>
-    public class ObjetoImpRepository : RepositoryContext<CveObjetoImp>, IObjetoImpRepository, IGeneralRepository {
+    public class ObjetoImpRepository : RepositoryContext<CveObjetoImp>, IObjetoImpRepository, IRepositoryGeneric {
         public ObjetoImpRepository(System.DateTime? lastUpdate = null) {
             Title = "Catálogo Objeto de Impuestos";
             FileName = "ObjetoImpCFDI40.json";

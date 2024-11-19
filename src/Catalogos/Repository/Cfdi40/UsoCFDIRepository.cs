@@ -7,7 +7,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// <summary>
     /// catalogo de uso de comprobantes
     /// </summary>
-    public class UsoCFDIRepository : RepositoryContext<CveUsoCFDI>, IUsoCFDIRepository, IGeneralRepository {
+    public class UsoCFDIRepository : RepositoryContext<CveUsoCFDI>, IUsoCFDIRepository, IRepositoryGeneric {
         public UsoCFDIRepository(DateTime? lastUpdate = null) {
             Title = "Catálogo de Uso de CFDI";
             FileName = "UsoCFDI40.json";

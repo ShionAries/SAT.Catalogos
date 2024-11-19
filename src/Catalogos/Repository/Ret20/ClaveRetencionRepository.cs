@@ -6,7 +6,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ret20 {
     /// <summary>
     /// Retenciones 2.0, Catalogo de Retenciones
     /// </summary>
-    public class ClaveRetencionRepository : RepositoryContext<CveRetencion>, IClaveRetencionRepository, IGeneralRepository {
+    public class ClaveRetencionRepository : RepositoryContext<CveRetencion>, IClaveRetencionRepository, IRepositoryGeneric {
         public ClaveRetencionRepository() {
             Title = "Catálogo de Retenciones";
             FileName = "CarRet20CveRetenciones.json";

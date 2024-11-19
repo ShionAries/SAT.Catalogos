@@ -9,7 +9,7 @@ namespace Jaeger.SAT.Catalogos.Update.Abstracts {
         #region declaraciones
         protected DataTable _DataTable;
         protected Dictionary<string, string> _HeadersMapper;
-        protected IGeneralRepository _Repository;
+        protected IRepositoryGeneric _Repository;
         protected DateTime? _LastVersion;
         #endregion
 

@@ -8,7 +8,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     /// a través de los distintos medios de transporte dentro del territorio nacional, cuando el dueño de dicho medio sea diferente del emisor del 
     /// comprobante con el complemento Carta Porte.
     /// </summary>
-    public class FiguraTransporteRepository : RepositoryContext<CveFiguraTransporte>, IFiguraTransporteRepository, IGeneralRepository {
+    public class FiguraTransporteRepository : RepositoryContext<CveFiguraTransporte>, IFiguraTransporteRepository, IRepositoryGeneric {
         public FiguraTransporteRepository(System.DateTime? lastUpdate = null) {
             Title = "Catálogo de figura transporte.";
             FileName = "CatCcp31FiguraTransporte.json";

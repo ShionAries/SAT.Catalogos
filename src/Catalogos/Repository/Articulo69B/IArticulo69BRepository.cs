@@ -4,7 +4,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Articulo69B {
     /// <summary>
     /// Artículo 69-B, primer y segundo párrafo del CFF
     /// </summary>
-    public interface IArticulo69BRepository : IRepositoryContext<Articulo69B>, IGeneralRepository {
+    public interface IArticulo69BRepository : IRepositoryContext<Articulo69B>, IRepositoryGeneric {
         
     }
 }
