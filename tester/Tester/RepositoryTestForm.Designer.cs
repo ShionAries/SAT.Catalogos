@@ -27,10 +27,10 @@
             this.cboRepositorio = new System.Windows.Forms.ComboBox();
             this.Originlabel = new System.Windows.Forms.Label();
             this.Cargar = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.InformacionBox = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.GridData = new System.Windows.Forms.DataGridView();
-            this.groupBox1.SuspendLayout();
+            this.InformacionBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -38,7 +38,7 @@
             // 
             this.cboRepositorio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboRepositorio.FormattingEnabled = true;
-            this.cboRepositorio.Location = new System.Drawing.Point(87, 22);
+            this.cboRepositorio.Location = new System.Drawing.Point(78, 17);
             this.cboRepositorio.Name = "cboRepositorio";
             this.cboRepositorio.Size = new System.Drawing.Size(253, 21);
             this.cboRepositorio.TabIndex = 4;
@@ -46,7 +46,7 @@
             // Originlabel
             // 
             this.Originlabel.AutoSize = true;
-            this.Originlabel.Location = new System.Drawing.Point(18, 26);
+            this.Originlabel.Location = new System.Drawing.Point(9, 21);
             this.Originlabel.Name = "Originlabel";
             this.Originlabel.Size = new System.Drawing.Size(63, 13);
             this.Originlabel.TabIndex = 3;
@@ -54,7 +54,7 @@
             // 
             // Cargar
             // 
-            this.Cargar.Location = new System.Drawing.Point(346, 21);
+            this.Cargar.Location = new System.Drawing.Point(337, 16);
             this.Cargar.Name = "Cargar";
             this.Cargar.Size = new System.Drawing.Size(75, 23);
             this.Cargar.TabIndex = 5;
@@ -62,24 +62,24 @@
             this.Cargar.UseVisualStyleBackColor = true;
             this.Cargar.Click += new System.EventHandler(this.Cargar_Click);
             // 
-            // groupBox1
+            // InformacionBox
             // 
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.cboRepositorio);
-            this.groupBox1.Controls.Add(this.Cargar);
-            this.groupBox1.Controls.Add(this.Originlabel);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(800, 70);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.InformacionBox.Controls.Add(this.label1);
+            this.InformacionBox.Controls.Add(this.cboRepositorio);
+            this.InformacionBox.Controls.Add(this.Cargar);
+            this.InformacionBox.Controls.Add(this.Originlabel);
+            this.InformacionBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.InformacionBox.Location = new System.Drawing.Point(5, 5);
+            this.InformacionBox.Name = "InformacionBox";
+            this.InformacionBox.Size = new System.Drawing.Size(790, 70);
+            this.InformacionBox.TabIndex = 7;
+            this.InformacionBox.TabStop = false;
+            this.InformacionBox.Text = "Información";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(474, 16);
+            this.label1.Location = new System.Drawing.Point(9, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 0;
@@ -87,18 +87,15 @@
             // 
             // GridData
             // 
-            this.GridData.AllowUserToAddRows = false;
-            this.GridData.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
             this.GridData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.GridData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GridData.Location = new System.Drawing.Point(0, 70);
+            this.GridData.Location = new System.Drawing.Point(5, 75);
             this.GridData.Name = "GridData";
-            this.GridData.ReadOnly = true;
             this.GridData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.GridData.RowHeadersVisible = false;
-            this.GridData.Size = new System.Drawing.Size(800, 380);
+            this.GridData.Size = new System.Drawing.Size(790, 370);
             this.GridData.TabIndex = 8;
             // 
             // RepositoryTestForm
@@ -107,12 +104,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.GridData);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.InformacionBox);
             this.Name = "RepositoryTestForm";
+            this.Padding = new System.Windows.Forms.Padding(5);
             this.Text = "RepositoryTestForm";
             this.Load += new System.EventHandler(this.RepositoryTestForm_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.InformacionBox.ResumeLayout(false);
+            this.InformacionBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridData)).EndInit();
             this.ResumeLayout(false);
 
@@ -123,7 +121,7 @@
         private System.Windows.Forms.ComboBox cboRepositorio;
         private System.Windows.Forms.Label Originlabel;
         private System.Windows.Forms.Button Cargar;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox InformacionBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView GridData;
     }

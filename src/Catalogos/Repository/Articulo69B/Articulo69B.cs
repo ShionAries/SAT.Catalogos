@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.ComponentModel;
 using Jaeger.SAT.Catalogos.Helpers.Mapping;
 
 namespace Jaeger.SAT.Catalogos.Repository.Articulo69B {
@@ -31,6 +32,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Articulo69B {
         /// </summary>
         [JsonProperty("situacion")]
         [DataNames("Situacion")]
+        [DisplayName("Situación")]
         public string Situacion { get; set; }
 
         /// <summary>
@@ -38,6 +40,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Articulo69B {
         /// </summary>
         [JsonProperty("OficioGlobalPresuncionSAT")]
         [DataNames("OficioGlobalPresuncionSAT")]
+        [DisplayName("Oficio Global Presunción SAT")]
         public string OficioGlobalPresuncionSAT { get; set; }
 
         /// <summary>

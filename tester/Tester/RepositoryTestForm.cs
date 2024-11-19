@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Reflection;
@@ -16,14 +15,10 @@ namespace Tester {
 
         private void RepositoryTestForm_Load(object sender, EventArgs e) {
             CheckForIllegalCrossThreadCalls = false;
-            var clases = assembly.GetTypes().Where(it => it.IsClass).Where(it => it.Namespace != null).Where(it => it.Namespace.Contains("Jaeger.SAT.Catalogos.Repository")).OrderBy(it => it.Name).ToList();
-            var repositorios = new List<Type>();
-            // Obtener el tipo de la interfaz
+            this.GridData.ScrollBars = ScrollBars.Both;
+            this.GridData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             Type interfaceType = typeof(IGeneralRepository);
-            foreach (Type type in clases) {
-                if (type.GetInterfaces().Contains(interfaceType))
-                    repositorios.Add(type);
-            }
+            var repositorios = assembly.GetTypes().Where(it => it.IsClass).Where(it => it.Namespace != null).Where(it => it.Namespace.Contains("Jaeger.SAT.Catalogos.Repository")).Where(it=> it.GetInterfaces().Contains(interfaceType)).OrderBy(it => it.Name).ToList();
             this.cboRepositorio.DataSource = repositorios;
             this.cboRepositorio.DisplayMember = "Name";
             this.cboRepositorio.ValueMember = "FullName";
@@ -42,7 +37,7 @@ namespace Tester {
                 }
                 var espera = new Waiting4Form(() => {
                     this.RepositorioLoad();
-                }, "Cargando repositorio.", false);
+                }, "Cargando repositorio.", true);
                 espera.ShowDialog(this);
             } else {
                 MessageBox.Show(this, "Repositorio no válido", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -51,12 +46,13 @@ namespace Tester {
 
         private void RepositorioLoad() {
             this.GridData.Columns.Clear();
+            this.GridData.AutoGenerateColumns = true;
             
             if (this.GeneralRepository != null) {
                 this.GeneralRepository.Load();
                 this.GridData.DataSource = this.GeneralRepository;
                 this.GridData.DataMember = "Items";
-                this.label1.Text = "Versión:" + this.GeneralRepository.Version + "\r\n" + this.GeneralRepository.Title;
+                this.label1.Text = "Versión: " + this.GeneralRepository.Title;
             }
         }
     }

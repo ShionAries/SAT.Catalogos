@@ -1,4 +1,7 @@
 ﻿namespace Jaeger.SAT.Catalogos.Repository.Interfaces {
+    /// <summary>
+    /// interface generica para repositorio
+    /// </summary>
     public interface IGeneralRepository {
         /// <summary>
         /// obtener o establecer la version del catalogo
@@ -23,7 +26,9 @@
         /// cargar la informacion de un catalogo
         /// </summary>
         void Load();
+
         int Import(System.Data.DataTable dataTable);
+
         bool Save();
     }
 }
