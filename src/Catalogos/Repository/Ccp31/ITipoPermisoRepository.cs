@@ -4,7 +4,5 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     /// <summary>
     /// Catálogo tipo permiso.
     /// </summary>
-    public interface ITipoPermisoRepository : IRepositoryContext<CveTipoPermiso>, IRepositoryGeneric {
-        CveTipoPermiso Search(string findId);
-    }
+    public interface ITipoPermisoRepository : IRepositoryContext<CveTipoPermiso>, IRepositoryGeneric { }
 }

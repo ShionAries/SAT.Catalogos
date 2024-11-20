@@ -11,7 +11,6 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
         List<CveProdServ> Grupo(string clave);
         List<CveProdServ> Productos();
         List<CveProdServ> Productos(string find);
-        CveProdServ Search(string findId);
         List<CveProdServ> Servicios();
     }
 }

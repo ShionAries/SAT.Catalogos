@@ -4,8 +4,5 @@ namespace Jaeger.SAT.Catalogos.Repository.Ret20 {
     /// <summary>
     /// Retenciones 2.0, Catalogo de Pais
     /// </summary>
-    public interface IPaisesRepository : IRepositoryContext<CveRetencionPais> {
-
-        CveRetencionPais Search(string findId);
-    }
+    public interface IPaisesRepository : IRepositoryContext<CveRetencionPais> { }
 }

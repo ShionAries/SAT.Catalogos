@@ -4,7 +4,5 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     /// <summary>
     /// Catálogo de contenedores marítimos.
     /// </summary>
-    public interface IContenedorMaritimoRepository : IRepositoryContext<CveContenedorMaritimo> {
-        CveContenedorMaritimo Search(string findId);
-    }
+    public interface IContenedorMaritimoRepository : IRepositoryContext<CveContenedorMaritimo> { }
 }

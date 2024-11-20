@@ -4,7 +4,5 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
     /// <summary>
     /// Catálogo de partes del transporte rentadas o prestadas.
     /// </summary>
-    public interface IParteTransporteRepository : IRepositoryContext<CveParteTransporte> {
-        CveParteTransporte Search(string findId);
-    }
+    public interface IParteTransporteRepository : IRepositoryContext<CveParteTransporte> { }
 }

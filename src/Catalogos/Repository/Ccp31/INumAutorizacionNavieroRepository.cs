@@ -4,7 +4,5 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     /// <summary>
     /// Catálogo de número autorización agente naviero consignatario. 
     /// </summary>
-    public interface INumAutorizacionNavieroRepository : IRepositoryContext<CveNumAutorizacionNaviero> {
-        CveNumAutorizacionNaviero Search(string findId);
-    }
+    public interface INumAutorizacionNavieroRepository : IRepositoryContext<CveNumAutorizacionNaviero> { }
 }

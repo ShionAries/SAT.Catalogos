@@ -5,6 +5,6 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
     /// Catálogo código transporte aéreo.
     /// </summary>
     public interface ICodigoTransporteAereoRepository : IRepositoryContext<CveCodigoTransporteAereo> {
-        CveCodigoTransporteAereo Search(string findId);
+        
     }
 }

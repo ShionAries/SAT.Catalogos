@@ -4,7 +4,5 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     /// <summary>
     /// Catálogo de tipo de tráfico ferroviario.
     /// </summary>
-    public interface ITipoDeTraficoRepository : IRepositoryContext<CveTipoDeTrafico> {
-        CveTipoDeTrafico Search(string findId);
-    }
+    public interface ITipoDeTraficoRepository : IRepositoryContext<CveTipoDeTrafico> { }
 }

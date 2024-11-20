@@ -6,8 +6,6 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
     /// Catálogo de tipo de remolque.
     /// </summary>
     public interface ISubTipoRemCatalogo : IRepositoryContext<CveSubTipoRemolque> {
-        CveSubTipoRemolque Search(string findId);
-
         /// <summary>
         /// buscar descripcion
         /// </summary>

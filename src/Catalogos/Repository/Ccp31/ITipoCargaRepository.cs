@@ -4,7 +4,5 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     /// <summary>
     /// Catálogo del tipo de carga.
     /// </summary>
-    public interface ITipoCargaRepository : IRepositoryContext<CveTipoCarga> {
-        CveTipoCarga Search(string findId);
-    }
+    public interface ITipoCargaRepository : IRepositoryContext<CveTipoCarga> { }
 }

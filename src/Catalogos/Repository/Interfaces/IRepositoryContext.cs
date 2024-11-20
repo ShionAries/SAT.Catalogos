@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using Jaeger.SAT.Catalogos.Repository.Builder;
 
 namespace Jaeger.SAT.Catalogos.Repository.Interfaces {
     /// <summary>
     /// clase contexto para el manejo de catalogos diversos
     /// </summary>
     /// <typeparam name="T">The type of the T.</typeparam>
-    public interface IRepositoryContext<T> : IRepositoryGeneric where T : class, new() {
+    public interface IRepositoryContext<T> : IRepositoryBuilder, IRepositoryLoadBuilder, IRepositoryGeneric where T : class, new() {
         /// <summary>
         /// obtener o establecer la version del catalogo
         /// </summary>
@@ -21,6 +22,9 @@ namespace Jaeger.SAT.Catalogos.Repository.Interfaces {
         /// </summary>
         new string Revision { get; set; }
 
+        /// <summary>
+        /// obtener o establecer ultima fecha de actualizacion
+        /// </summary>
         new System.DateTime? LastUpdate { get; set; }
 
         new string Builder { get; }
