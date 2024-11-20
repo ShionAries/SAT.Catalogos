@@ -8,7 +8,7 @@ using Jaeger.SAT.Catalogos.Repository.Interfaces;
 namespace Tester {
     public partial class RepositoryTestForm : Form {
         private Assembly assembly = Assembly.Load("Jaeger.SAT.Catalogos");
-        private IGeneralRepository GeneralRepository;
+        private IRepositoryGeneric GeneralRepository;
         public RepositoryTestForm() {
             InitializeComponent();
         }
@@ -17,8 +17,15 @@ namespace Tester {
             CheckForIllegalCrossThreadCalls = false;
             this.GridData.ScrollBars = ScrollBars.Both;
             this.GridData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            Type interfaceType = typeof(IGeneralRepository);
-            var repositorios = assembly.GetTypes().Where(it => it.IsClass).Where(it => it.Namespace != null).Where(it => it.Namespace.Contains("Jaeger.SAT.Catalogos.Repository")).Where(it=> it.GetInterfaces().Contains(interfaceType)).OrderBy(it => it.Name).ToList();
+            
+            Type interfaceType = typeof(IRepositoryGeneric);
+            var repositorios = assembly.GetTypes()
+                .Where(it => it.IsClass)
+                .Where(it => it.Namespace != null)
+                .Where(it => it.Namespace.Contains("Jaeger.SAT.Catalogos.Repository"))
+                .Where(it=> it.GetInterfaces().Contains(interfaceType))
+                .OrderBy(it => it.Name).ToList();
+
             this.cboRepositorio.DataSource = repositorios;
             this.cboRepositorio.DisplayMember = "Name";
             this.cboRepositorio.ValueMember = "FullName";
@@ -30,7 +37,7 @@ namespace Tester {
                 this.GeneralRepository = null;
                 this.GridData.DataSource = null;
                 try {
-                    this.GeneralRepository = Activator.CreateInstance(seleccionado) as IGeneralRepository;
+                    this.GeneralRepository = Activator.CreateInstance(seleccionado) as IRepositoryGeneric;
                 } catch (Exception ex) {
                     MessageBox.Show(this, "Repositorio no válido\r\n" + ex.Message, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;

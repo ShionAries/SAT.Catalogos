@@ -9,6 +9,8 @@ Estructura del proyecto
         └── Catálogos
             ├── Helpers
             ├── Repository
+            │   ├── Abstracts
+            │   └── Interfaces
             ├── Update
             │   ├── Converts
             │   └── Importers
@@ -18,15 +20,29 @@ Estructura del proyecto
                 ├── Helpers
                 └── Interfaces
 
-https://tree.nathanfriend.io/?s=(%27options!(%27fancy!true~fullPath0~trailingSlash0~rootDot0)~3(%273%27Jaeg2.SAT.-CFDI*API6sulta%20de%20Estado*Read2.-Cat%C3%A1logo45Repository*Update6v2t4-Import24Scraping*-Abstract4-Entitie4-5-Int2faces%27)~v2sion!%271%27)*.---%20%20.%5Cn-0!false2er3source!4s*5Help246*-Con%01654320.-*
 
-Repository {
-   string Version { get; set; }
-   string FileName { get; set; }
-   string Title { get; set; }
-   string Revision { get; set; } 
-   DateTime? LastUpdate { get; set; }
-   string Builder { get; }
-   string WorkingFolder { get; set; }
-   bool Recover { get; set; }
+
+
+IRepositoryGeneric {
+    Version:string
+    Title:string
+    Lastupdate:date
+    Builder:string
+    Load();
+    Save();
+    Import(DataTable);
+}
+
+IRepositoryContext<T> : IReposityGeneric {
+    FileName:string
+    Revision:string
+    WorkingFolder:string
+    Items:List<T>
+    T Search(string query);
+    Restore();
+    ZIP();
+}
+
+RepositoryContext : IRepositoryContext<T> : IReposityGeneric  where T : class, new() {
+
 }
