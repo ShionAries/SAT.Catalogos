@@ -106,7 +106,7 @@ namespace Tester {
 
         private void UpdateBtn_Click(object sender, EventArgs e) {
             ActiveButton(sender, RGBColors.color2);
-            OpenChildForm(new UpdateForm(this.Service));
+            //OpenChildForm(new UpdateForm(this.Service));
         }
 
         private void TestingBtn_Click(object sender, EventArgs e) {

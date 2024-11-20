@@ -261,7 +261,6 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
         private void Serializer(string valor) {
             var configuration = new JsonSerializerSettings() { NullValueHandling = NullValueHandling.Ignore, DateFormatString = "dd/MM/yyyy" };
             this._Repository = JsonConvert.DeserializeObject<Repository<T>>(valor, configuration);
-            this.Items = this._Repository.Items;
         }
 
         #region archivo zip
