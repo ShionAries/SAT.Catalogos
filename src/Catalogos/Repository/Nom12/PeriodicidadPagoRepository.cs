@@ -10,7 +10,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
     /// </summary>
     public class PeriodicidadPagoRepository : RepositoryContext<CvePeriodicidadPago>, IPeriodicidadPagoRepository, IRepositoryGeneric{
         public PeriodicidadPagoRepository(System.DateTime? lastUpdate = null) {
-            this.Title = "Catalogo Exportación";
+            this.Description = "Catalogo Exportación";
             this.FileName = "CatNom12PeriodicidadPago.json";
             this.Version = "1.0";
             this.AddLastUpdate(lastUpdate);

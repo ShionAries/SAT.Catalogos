@@ -8,7 +8,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// </summary>
     public class CodigoPostalRepository : RepositoryContext<CveCodigoPostal>, ICodigosPostalesRepository, IRepositoryGeneric {
         public CodigoPostalRepository(System.DateTime? lastUpdate = null) {
-            Title = "Catálogo de códigos postales.";
+            Description = "Catálogo de códigos postales.";
             FileName = "CodigoPostalCFDi40.json";
             Version = "2.0";
             this.AddLastUpdate(lastUpdate);

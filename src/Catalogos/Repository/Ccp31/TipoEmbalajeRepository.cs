@@ -9,7 +9,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     /// </summary>
     public class TipoEmbalajeRepository : RepositoryContext<CveTipoEmbalaje>, ITipoEmbalajeRepository, IRepositoryGeneric {
         public TipoEmbalajeRepository(System.DateTime? lastUpdate = null) {
-            Title = "Catálogo de tipo de embalaje.";
+            Description = "Catálogo de tipo de embalaje.";
             FileName = "CatCcp31TipoEmbalaje.json";
             Version = "1.0";
             this.AddLastUpdate(lastUpdate);

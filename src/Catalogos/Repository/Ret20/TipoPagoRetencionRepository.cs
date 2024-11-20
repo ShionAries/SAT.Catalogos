@@ -8,7 +8,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ret20 {
     /// </summary>
     public class TipoPagoRetencionRepository : RepositoryContext<CveTipoDividendoUtilidadDistrib>, ITipoPagoRepository, IRepositoryGeneric {
         public TipoPagoRetencionRepository() {
-            Title = "Retenciones: Catálogo tipo pago de la retención.";
+            Description = "Retenciones: Catálogo tipo pago de la retención.";
             FileName = "CatRet20TipoPagoRet.json";
             Version = "1.0";
             Revision = "1";

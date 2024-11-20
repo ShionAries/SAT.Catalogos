@@ -8,7 +8,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
     /// </summary>
     public class TipoContratoRepository : RepositoryContext<CveTipoContrato>, ITipoContratoRepository, IRepositoryGeneric {
         public TipoContratoRepository(System.DateTime? lastUpdate = null) {
-            this.Title = "Catálogo de tipos de contrato";
+            this.Description = "Catálogo de tipos de contrato";
             this.FileName = "CatNom12TipoContrato.json";
             this.Version = "1.0";
             this.Revision = "0";

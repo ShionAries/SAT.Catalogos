@@ -9,7 +9,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// </summary>
     public class FormaPagoRepository : RepositoryContext<CveFormaPago>, IFormaPagoRepository, IRepositoryGeneric {
         public FormaPagoRepository(System.DateTime? lastUpdate = null) {
-            Title = "Catálogo Forma de Pago";
+            Description = "Catálogo Forma de Pago";
             FileName = "FormaPagoCFDi40.json";
             this.AddLastUpdate(lastUpdate);
         }

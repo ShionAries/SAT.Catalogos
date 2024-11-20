@@ -8,7 +8,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// </summary>
     public class ObjetoImpRepository : RepositoryContext<CveObjetoImp>, IObjetoImpRepository, IRepositoryGeneric {
         public ObjetoImpRepository(System.DateTime? lastUpdate = null) {
-            Title = "Catálogo Objeto de Impuestos";
+            Description = "Catálogo Objeto de Impuestos";
             FileName = "ObjetoImpCFDI40.json";
             Version = "1.0";
             this.AddLastUpdate(lastUpdate);

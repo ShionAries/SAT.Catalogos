@@ -8,7 +8,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ret20 {
     /// </summary>
     public class TipoImpuestoRepository : RepositoryContext<CveRetencionTipoImpuesto>, ITipoImpuestoRepository, IRepositoryGeneric {
         public TipoImpuestoRepository() {
-            Title = "Catálogo de tipo impuesto.";
+            Description = "Catálogo de tipo impuesto.";
             FileName = "CatRet20TipoImpuesto.json";
             Version = "1.0";
             Revision = "0";

@@ -10,7 +10,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// </summary>
     public class RegimenesFiscalesRepository : RepositoryContext<CveRegimenFiscal>, IRegimenesFiscalesRepository, IRepositoryGeneric {
         public RegimenesFiscalesRepository(System.DateTime? lastUpdate = null) {
-            Title = "Catálogo Remimenes Fiscales";
+            Description = "Catálogo Remimenes Fiscales";
             FileName = "RegimenesFiscalesCFDI40.json";
             this.AddLastUpdate(lastUpdate);
         }

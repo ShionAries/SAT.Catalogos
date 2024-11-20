@@ -8,7 +8,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
     /// </summary>
     public class TipoRegimenContratacionRepository : RepositoryContext<CveTipoRegimen>, ITipoRegimenContratacionRepository, IRepositoryGeneric {
         public TipoRegimenContratacionRepository(System.DateTime? lastUpdate = null) {
-            this.Title = "Catálogo de tipos de régimen de contratación.";
+            this.Description = "Catálogo de tipos de régimen de contratación.";
             this.FileName = "CatNom12TipoRegimenContratacion.json";
             this.Version = "2.0";
             this.Revision = "0";

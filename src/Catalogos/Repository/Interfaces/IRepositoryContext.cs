@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
-using Jaeger.SAT.Catalogos.Repository.Builder;
 
 namespace Jaeger.SAT.Catalogos.Repository.Interfaces {
     /// <summary>
     /// clase contexto para el manejo de catalogos diversos
     /// </summary>
     /// <typeparam name="T">The type of the T.</typeparam>
-    public interface IRepositoryContext<T> : IRepositoryBuilder, IRepositoryLoadBuilder, IRepositoryGeneric where T : class, new() {
+    public interface IRepositoryContext<T> : IRepositoryGeneric where T : class, new() {
         /// <summary>
         /// obtener o establecer la version del catalogo
         /// </summary>
@@ -15,7 +14,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Interfaces {
         /// <summary>
         /// obtener o establecer titulo del catalogo
         /// </summary>
-        new string Title { get; set; }
+        new string Description { get; set; }
 
         /// <summary>
         /// obtener o establecer la fecha de revision
@@ -34,18 +33,11 @@ namespace Jaeger.SAT.Catalogos.Repository.Interfaces {
         /// </summary>
         List<T> Items { get; set; }
 
-        void Add(T item);
-
         /// <summary>
-        /// eliminar un objeto de la coleccion por la referencia de un objeto
+        /// busqueda de elmento por su clave
         /// </summary>
-        bool Delete(T deleteItem);
-
-        /// <summary>
-        /// eliminar un objeto de la coleccion por referencia del indice
-        /// </summary>
-        bool Delete(int index);
-
+        /// <param name="query">clave</param>
+        /// <returns>TObject</returns>
         T Search(string query);
 
         /// <summary>
@@ -64,12 +56,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Interfaces {
         new bool Save();
 
         bool SaveZIP();
-
-        /// <summary>
-        /// restaurar el catalogo desde el proyecto
-        /// </summary>
-        bool Restore();
-
+        
         int Import(List<T> items);
 
         new int Import(System.Data.DataTable dataTable);

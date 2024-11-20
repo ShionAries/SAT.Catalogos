@@ -9,7 +9,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     /// </summary>
     public class LocalidadRepository : RepositoryContext<CveLocalidad>, ILocalidadRepository, IRepositoryGeneric {
         public LocalidadRepository(DateTime? lastUpdate = null) {
-            Title = "Catálogo de localidades.";
+            Description = "Catálogo de localidades.";
             FileName = "CatCcp31Localidad.json";
             Version = "1.0";
             this.AddLastUpdate(lastUpdate);

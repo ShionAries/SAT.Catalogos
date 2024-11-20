@@ -8,7 +8,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
     /// </summary>
     public class TipoJornadaRepository : RepositoryContext<CveTipoJornada>, ITipoJornadaRepository, IRepositoryGeneric {
         public TipoJornadaRepository(System.DateTime? lastUpdate = null) {
-            this.Title = "Catálogo de tipos de jornada laboral.";
+            this.Description = "Catálogo de tipos de jornada laboral.";
             this.FileName = "CatNom12TipoJornada.json";
             this.Version = "1.0";
             this.Revision = "A";

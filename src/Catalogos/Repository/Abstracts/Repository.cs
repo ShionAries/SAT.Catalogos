@@ -13,7 +13,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
         private DateTime? _LastUpdate;
         private DateTime? _InicioVigencia;
         private DateTime? _FinVigencia;
-        private string _Builder;
+        private readonly string _Builder;
         #endregion
 
         /// <summary>

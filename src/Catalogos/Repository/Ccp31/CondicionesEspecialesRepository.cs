@@ -9,7 +9,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     /// </summary>
     public class CondicionesEspecialesRepository : RepositoryContext<CveCondicionesEspeciales>, ICondicionesEspeciales, IRepositoryGeneric {
         public CondicionesEspecialesRepository(System.DateTime? lastUpdate = null) : base() {
-            this.Title = "Catálogo de Condiciones especiales del Transporte";
+            this.Description = "Catálogo de Condiciones especiales del Transporte";
             this.FileName = "CatCcp31CondicionesEspeciales.json";
             this.Version = "1.0";
             this.AddLastUpdate(lastUpdate);

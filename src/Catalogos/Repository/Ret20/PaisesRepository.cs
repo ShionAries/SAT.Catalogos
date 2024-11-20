@@ -7,7 +7,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ret20 {
     /// </summary>
     public class PaisesRepository : RepositoryContext<CveRetencionPais>, IPaisesRepository, IRepositoryGeneric {
         public PaisesRepository() {
-            Title = "Catálogo de Países (retencion)";
+            Description = "Catálogo de Países (retencion)";
             FileName = "CatRet20Pais.json";
             Revision = "1";
             Version = "1.0";

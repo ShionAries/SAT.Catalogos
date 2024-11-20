@@ -9,7 +9,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
     /// </summary>
     public class ProdServCPRepository : RepositoryContext<CveProdServCP>, IProdServCPRepository, IRepositoryGeneric {
         public ProdServCPRepository() {
-            Title = "Catálogo de productos y servicios carta porte.";
+            Description = "Catálogo de productos y servicios carta porte.";
             FileName = "CatCcp30ProdServCP.json";
             Version = "2.0";
             Revision = "A";

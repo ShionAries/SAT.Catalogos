@@ -8,7 +8,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// </summary>
     public class TipoComprobanteRepository : RepositoryContext<CveTipoDeComprobante>, ITipoComprobanteRepository, IRepositoryGeneric {
         public TipoComprobanteRepository(System.DateTime? lastUpdate = null) {
-            Title = "Catálogo de tipos de Comprobante";
+            Description = "Catálogo de tipos de Comprobante";
             FileName = "TipoComprobantes40.json";
             Version = "1.0";
             Revision = "2";

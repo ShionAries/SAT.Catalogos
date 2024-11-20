@@ -8,7 +8,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// </summary>
     public class TasaOCuotaRepository : RepositoryContext<CveTasaOCuota>, ITasaOCuotaRepository, IRepositoryGeneric {
         public TasaOCuotaRepository(System.DateTime? lastUpdate = null) {
-            Title = "Catálogo de tasas o cuotas de impuestos.";
+            Description = "Catálogo de tasas o cuotas de impuestos.";
             FileName = "TasaOCuotaCFDI40.json";
             Version = "2.0";
             Revision = "0";
