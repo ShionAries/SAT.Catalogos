@@ -7,7 +7,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// </summary>
     public class TipoFactorRepository : RepositoryContext<CveTipoFactor>, ITipoFactorRepository, IRepositoryGeneric {
         public TipoFactorRepository(System.DateTime? lastUpdate = null) {
-            Title = "Catálogo tipo factor";
+            Description = "Catálogo tipo factor";
             FileName = "TipoFactorCFD40.json";
             Version = "1.0";
             Revision = "0";

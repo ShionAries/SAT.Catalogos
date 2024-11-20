@@ -48,7 +48,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
         /// <summary>
         /// obtener o establecer titulo del catalogo
         /// </summary>
-        public string Title {
+        public string Description {
             get {
                 return _Repository.Title;
             }
@@ -119,45 +119,6 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
         #endregion
 
         #region metodos publicos
-        public void Add(T newItem) {
-            try {
-                if (Items == null) {
-                    Items = new List<T>();
-                }
-                T e = Items.FirstOrDefault((t) => t == newItem);
-                if (e == null)
-                    Items.Add(newItem);
-            } catch (Exception ex) {
-                Console.WriteLine(ex.Message);
-            }
-        }
-
-        /// <summary>
-        /// eliminar un objeto de la coleccion por la referencia de un objeto
-        /// </summary>
-        public bool Delete(T deleteItem) {
-            try {
-                Items.Remove(deleteItem);
-                return true;
-            } catch (Exception ex) {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
-        }
-
-        /// <summary>
-        /// eliminar un objeto de la coleccion por referencia del indice
-        /// </summary>
-        public bool Delete(int index) {
-            try {
-                Items.RemoveAt(index);
-                return true;
-            } catch (Exception ex) {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
-        }
-
         /// <summary>
         /// busqueda de elemento
         /// </summary>
@@ -236,13 +197,6 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
             return false;
         }
 
-        /// <summary>
-        /// restaurar el catalogo desde el proyecto
-        /// </summary>
-        public bool Restore() {
-            return false;
-        }
-
         public int Import(List<T> items) {
             Items = items;
             return Items.Count;
@@ -307,7 +261,6 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
         private void Serializer(string valor) {
             var configuration = new JsonSerializerSettings() { NullValueHandling = NullValueHandling.Ignore, DateFormatString = "dd/MM/yyyy" };
             this._Repository = JsonConvert.DeserializeObject<Repository<T>>(valor, configuration);
-            this.Items = this._Repository.Items;
         }
 
         #region archivo zip

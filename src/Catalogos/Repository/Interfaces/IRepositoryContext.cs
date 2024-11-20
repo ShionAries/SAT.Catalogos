@@ -14,13 +14,16 @@ namespace Jaeger.SAT.Catalogos.Repository.Interfaces {
         /// <summary>
         /// obtener o establecer titulo del catalogo
         /// </summary>
-        new string Title { get; set; }
+        new string Description { get; set; }
 
         /// <summary>
         /// obtener o establecer la fecha de revision
         /// </summary>
         new string Revision { get; set; }
 
+        /// <summary>
+        /// obtener o establecer ultima fecha de actualizacion
+        /// </summary>
         new System.DateTime? LastUpdate { get; set; }
 
         new string Builder { get; }
@@ -30,18 +33,11 @@ namespace Jaeger.SAT.Catalogos.Repository.Interfaces {
         /// </summary>
         List<T> Items { get; set; }
 
-        void Add(T item);
-
         /// <summary>
-        /// eliminar un objeto de la coleccion por la referencia de un objeto
+        /// busqueda de elmento por su clave
         /// </summary>
-        bool Delete(T deleteItem);
-
-        /// <summary>
-        /// eliminar un objeto de la coleccion por referencia del indice
-        /// </summary>
-        bool Delete(int index);
-
+        /// <param name="query">clave</param>
+        /// <returns>TObject</returns>
         T Search(string query);
 
         /// <summary>
@@ -60,12 +56,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Interfaces {
         new bool Save();
 
         bool SaveZIP();
-
-        /// <summary>
-        /// restaurar el catalogo desde el proyecto
-        /// </summary>
-        bool Restore();
-
+        
         int Import(List<T> items);
 
         new int Import(System.Data.DataTable dataTable);

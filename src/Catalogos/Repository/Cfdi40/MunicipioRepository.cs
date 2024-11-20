@@ -9,7 +9,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// </summary>
     public class MunicipioRepository : RepositoryContext<CveMunicipio>, IMunicipioRepository, IRepositoryGeneric {
         public MunicipioRepository(System.DateTime? lastUpdate = null) {
-            Title = "Catálogo de municipios.";
+            Description = "Catálogo de municipios.";
             FileName = "MunicipioCFDI40.json";
             Version = "1.0";
             this.AddLastUpdate(lastUpdate);

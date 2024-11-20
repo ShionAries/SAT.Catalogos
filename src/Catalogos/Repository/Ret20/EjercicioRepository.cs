@@ -8,7 +8,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ret20 {
     /// </summary>
     public class EjercicioRepository : RepositoryContext<CveRetencionEjercicio>, IEjercicioRepository, IRepositoryGeneric {
         public EjercicioRepository() {
-            Title = "Retenciones: Catálogo Ejercicio";
+            Description = "Retenciones: Catálogo Ejercicio";
             FileName = "CatRet20Ejercicio.json";
             Version = "1.0";
             Revision = "0";

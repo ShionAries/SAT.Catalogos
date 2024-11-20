@@ -7,7 +7,7 @@ using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Tester {
     public partial class RepositoryTestForm : Form {
-        private Assembly assembly = Assembly.Load("Jaeger.SAT.Catalogos");
+        private readonly Assembly assembly = Assembly.Load("Jaeger.SAT.Catalogos");
         private IRepositoryGeneric GeneralRepository;
         public RepositoryTestForm() {
             InitializeComponent();
@@ -59,7 +59,8 @@ namespace Tester {
                 this.GeneralRepository.Load();
                 this.GridData.DataSource = this.GeneralRepository;
                 this.GridData.DataMember = "Items";
-                this.label1.Text = "Versión: " + this.GeneralRepository.Title;
+                this.DescripcionLabel.Text = "Descripción: " + this.GeneralRepository.Description;
+                this.label1.Text = "Fecha Actulización: " + this.GeneralRepository.LastUpdate.Value.ToString("dd MMMM yyyy");
             }
         }
     }

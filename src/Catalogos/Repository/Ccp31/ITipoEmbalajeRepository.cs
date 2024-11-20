@@ -2,8 +2,6 @@
 
 namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     public interface ITipoEmbalajeRepository : IRepositoryContext<CveTipoEmbalaje> {
-        CveTipoEmbalaje Search(string findId);
-
         System.Collections.Generic.IEnumerable<CveTipoEmbalaje> GetSearch(string findId);
     }
 }

@@ -4,7 +4,5 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
     /// <summary>
     /// Catálogo de configuración marítima.
     /// </summary>
-    public interface IConfigMaritimaRepository : IRepositoryContext<CveConfigMaritima> {
-        CveConfigMaritima Search(string findId);
-    }
+    public interface IConfigMaritimaRepository : IRepositoryContext<CveConfigMaritima> { }
 }

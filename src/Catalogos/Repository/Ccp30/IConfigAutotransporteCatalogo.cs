@@ -5,6 +5,6 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
     /// Catálogo de configuración autotransporte federal.
     /// </summary>
     public interface IConfigAutotransporteCatalogo : IRepositoryContext<CveConfigAutotransporte> {
-        CveConfigAutotransporte Search(string findId);
+        
     }
 }

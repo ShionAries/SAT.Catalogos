@@ -11,7 +11,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
         public ProdServsRepository(System.DateTime? lastUpdate = null) {
             Version = "3.0";
             Revision = "2";
-            Title = "Catálogo de Productos y Servicios";
+            Description = "Catálogo de Productos y Servicios";
             FileName = "ProdServsCFDI40.json";
             this.AddLastUpdate(lastUpdate);
         }

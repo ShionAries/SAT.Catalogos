@@ -7,12 +7,12 @@ namespace Jaeger.SAT.Catalogos.Repository.Articulo69B {
     /// </summary>
     public class Articulo69BRepository : RepositoryContext<Articulo69B>, IArticulo69BRepository, IRepositoryGeneric {
         public Articulo69BRepository() {
-            Title = "Artículo 69-B, primer y segundo párrafo del CFF";
+            Description = "Artículo 69-B, primer y segundo párrafo del CFF";
             FileName = "Articulo69B_Completo.json";
         }
 
         public Articulo69BRepository(System.DateTime? lastUpdate = null) {
-            Title = "Artículo 69-B, primer y segundo párrafo del CFF";
+            Description = "Artículo 69-B, primer y segundo párrafo del CFF";
             FileName = "Articulo69B_Completo.json";
             this.AddLastUpdate(lastUpdate);
         }

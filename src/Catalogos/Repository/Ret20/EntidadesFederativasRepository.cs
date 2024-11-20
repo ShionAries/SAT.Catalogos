@@ -7,7 +7,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ret20 {
     /// </summary>
     public class EntidadesFederativasRepository : RepositoryContext<CveRetencionEntidadFederativa>, IEntidadesFederativasRepository, IRepositoryGeneric {
         public EntidadesFederativasRepository() {
-            Title = "Catálogo de Entidades Federativas";
+            Description = "Catálogo de Entidades Federativas";
             FileName = "CatRet20EntidadesFederativas.json";
             Version = "1.0";
             Revision = "0";

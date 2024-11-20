@@ -28,8 +28,9 @@
             this.Originlabel = new System.Windows.Forms.Label();
             this.Cargar = new System.Windows.Forms.Button();
             this.InformacionBox = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.DescripcionLabel = new System.Windows.Forms.Label();
             this.GridData = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             this.InformacionBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridData)).BeginInit();
             this.SuspendLayout();
@@ -65,6 +66,7 @@
             // InformacionBox
             // 
             this.InformacionBox.Controls.Add(this.label1);
+            this.InformacionBox.Controls.Add(this.DescripcionLabel);
             this.InformacionBox.Controls.Add(this.cboRepositorio);
             this.InformacionBox.Controls.Add(this.Cargar);
             this.InformacionBox.Controls.Add(this.Originlabel);
@@ -76,14 +78,14 @@
             this.InformacionBox.TabStop = false;
             this.InformacionBox.Text = "Información";
             // 
-            // label1
+            // DescripcionLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 46);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.DescripcionLabel.AutoSize = true;
+            this.DescripcionLabel.Location = new System.Drawing.Point(9, 46);
+            this.DescripcionLabel.Name = "DescripcionLabel";
+            this.DescripcionLabel.Size = new System.Drawing.Size(63, 13);
+            this.DescripcionLabel.TabIndex = 0;
+            this.DescripcionLabel.Text = "Descripción";
             // 
             // GridData
             // 
@@ -97,6 +99,15 @@
             this.GridData.RowHeadersVisible = false;
             this.GridData.Size = new System.Drawing.Size(790, 370);
             this.GridData.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(515, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Descripción";
             // 
             // RepositoryTestForm
             // 
@@ -122,7 +133,8 @@
         private System.Windows.Forms.Label Originlabel;
         private System.Windows.Forms.Button Cargar;
         private System.Windows.Forms.GroupBox InformacionBox;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label DescripcionLabel;
         private System.Windows.Forms.DataGridView GridData;
+        private System.Windows.Forms.Label label1;
     }
 }

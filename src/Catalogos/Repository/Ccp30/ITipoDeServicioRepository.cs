@@ -4,7 +4,5 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
     /// <summary>
     /// Catálogo de tipo servicio.
     /// </summary>
-    public interface ITipoDeServicioRepository : IRepositoryContext<CveTipoDeServicio> {
-        CveTipoDeServicio Search(string findId);
-    }
+    public interface ITipoDeServicioRepository : IRepositoryContext<CveTipoDeServicio> { }
 }

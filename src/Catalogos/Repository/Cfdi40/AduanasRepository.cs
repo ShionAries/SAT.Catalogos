@@ -9,14 +9,14 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     public class AduanasRepository : RepositoryContext<CveAduana>, IAduanasRepository, IRepositoryGeneric {
         public AduanasRepository() {
             FileName = "AduanasCFDi40.json";
-            Title = "Catálogo de aduanas (tomado del anexo 22, apéndice I de la RGCE 2017).";
+            Description = "Catálogo de aduanas (tomado del anexo 22, apéndice I de la RGCE 2017).";
             Version = "1.0";
             Revision = "1";
         }
 
         public AduanasRepository(System.DateTime? lastUpdate = null) {
             FileName = "AduanasCFDi40.json";
-            Title = "Catálogo de aduanas (tomado del anexo 22, apéndice I de la RGCE 2017).";
+            Description = "Catálogo de aduanas (tomado del anexo 22, apéndice I de la RGCE 2017).";
             Version = "1.0";
             Revision = "1";
             this.AddLastUpdate(lastUpdate);

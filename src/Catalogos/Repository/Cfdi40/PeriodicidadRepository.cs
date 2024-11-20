@@ -10,7 +10,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// </summary>
     public class PeriodicidadRepository : RepositoryContext<CvePeriodicidad>, IPeriodicidadRepository, IRepositoryGeneric {
         public PeriodicidadRepository(System.DateTime? lastUpdate = null) {
-            Title = "Catalogo Exportación";
+            Description = "Catalogo Exportación";
             FileName = "PeriodicidadCFDI40.json";
             Version = "1.0";
             this.AddLastUpdate(lastUpdate);

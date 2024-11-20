@@ -9,7 +9,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
     /// </summary>
     public class DerechosDePasoRepository : RepositoryContext<CveDerechosDePaso>, IDerechosDePasoRepository, IRepositoryGeneric {
         public DerechosDePasoRepository() {
-            this.Title = "Catálogo derechos de paso.";
+            this.Description = "Catálogo derechos de paso.";
             this.FileName = "CatCcp30DerechosDePaso.json";
             this.Version = "1.0";
         }

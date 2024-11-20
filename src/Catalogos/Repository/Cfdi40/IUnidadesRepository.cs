@@ -5,8 +5,6 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// Catálogo de unidades de medida para los conceptos en el CFDI.
     /// </summary>
     public interface IUnidadesRepository : IRepositoryContext<CveUnidad> {
-        CveUnidad Search(string findId);
-
         System.Collections.Generic.IEnumerable<CveUnidad> GetSearch(string findId);
     }
 }

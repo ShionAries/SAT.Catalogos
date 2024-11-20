@@ -22,7 +22,7 @@ Estructura del proyecto
 
 
 
-
+-- interface genérica para el repositorio
 IRepositoryGeneric {
     Version:string
     Title:string
@@ -33,6 +33,7 @@ IRepositoryGeneric {
     Import(DataTable);
 }
 
+-- interface para el repositorio
 IRepositoryContext<T> : IReposityGeneric {
     FileName:string
     Revision:string
@@ -43,6 +44,15 @@ IRepositoryContext<T> : IReposityGeneric {
     ZIP();
 }
 
+-- implementación de interfaces
 RepositoryContext : IRepositoryContext<T> : IReposityGeneric  where T : class, new() {
 
 }
+
+Repositorio : RepositoryContext<TObject> {
+}
+
+Repositorio.Load();
+Repositorio.Load(string fileName);
+Repositorio.AddWorkingFolder(string path);
+Repositorio.Save().ZIP();

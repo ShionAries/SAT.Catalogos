@@ -8,7 +8,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ret20 {
     /// </summary>
     public class TipoDividendoOUtilidadDistribRepository : RepositoryContext<CveTipoDividendoUtilidadDistrib>, ITipoDividendoOUtilidadDistribRepository, IRepositoryGeneric {
         public TipoDividendoOUtilidadDistribRepository() : base() {
-            Title = "Catálogo de Tipo de Dividendo o utilidad distribuida";
+            Description = "Catálogo de Tipo de Dividendo o utilidad distribuida";
             FileName = "CatRet20TipoDividendoOUtilidadDistrib.json";
             Version = "1.0";
             Revision = "0";

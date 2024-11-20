@@ -9,7 +9,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// </summary>
     public class UsoCFDIRepository : RepositoryContext<CveUsoCFDI>, IUsoCFDIRepository, IRepositoryGeneric {
         public UsoCFDIRepository(DateTime? lastUpdate = null) {
-            Title = "Catálogo de Uso de CFDI";
+            Description = "Catálogo de Uso de CFDI";
             FileName = "UsoCFDI40.json";
             this.AddLastUpdate(lastUpdate);
         }

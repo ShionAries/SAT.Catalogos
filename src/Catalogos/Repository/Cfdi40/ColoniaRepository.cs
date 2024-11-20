@@ -9,7 +9,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// </summary>
     public class ColoniaRepository : RepositoryContext<CveColonia>, IColoniaRepository, IRepositoryGeneric {
         public ColoniaRepository(System.DateTime? lastUpdate = null) {
-            Title = "Catálogo de colonias.";
+            Description = "Catálogo de colonias.";
             FileName = "ColoniaCFDi40.json";
             Version = "2.0";
             this.AddLastUpdate(lastUpdate);

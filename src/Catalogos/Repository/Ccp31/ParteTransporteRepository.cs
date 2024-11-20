@@ -9,7 +9,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     /// </summary>
     public class ParteTransporteRepository : RepositoryContext<CveParteTransporte>, IParteTransporteRepository, IRepositoryGeneric {
         public ParteTransporteRepository(System.DateTime? lastUpdate = null) {
-            this.Title = "Catálogo de partes del transporte rentadas o prestadas.";
+            this.Description = "Catálogo de partes del transporte rentadas o prestadas.";
             this.FileName = "CatCcp31ParteTransporte.json";
             this.Version = "1.0";
             this.AddLastUpdate(lastUpdate);

@@ -9,7 +9,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
     /// </summary>
     public class TipoDeServicioRepository : RepositoryContext<CveTipoDeServicio>, ITipoDeServicioRepository, IRepositoryGeneric {
         public TipoDeServicioRepository() {
-            this.Title = "Catálogo de tipo servicio.";
+            this.Description = "Catálogo de tipo servicio.";
             this.FileName = "CatCcp30TipoDeServicio.json";
             this.Version = "1.0";
         }

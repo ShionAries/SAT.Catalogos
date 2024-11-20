@@ -4,7 +4,5 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// <summary>
     /// catalogo de monedas
     /// </summary>
-    public interface IMonedaRepository : IRepositoryContext<CveMoneda> {
-        CveMoneda Search(string findId);
-    }
+    public interface IMonedaRepository : IRepositoryContext<CveMoneda> { }
 }

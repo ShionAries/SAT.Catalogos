@@ -11,7 +11,7 @@
         /// <summary>
         /// obtener o establecer titulo del catalogo
         /// </summary>
-        string Title { get; set; }
+        string Description { get; set; }
 
         /// <summary>
         /// obtener o establecer la fecha de revision

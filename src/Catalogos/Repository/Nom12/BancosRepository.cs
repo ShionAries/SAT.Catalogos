@@ -5,7 +5,7 @@ using Jaeger.SAT.Catalogos.Repository.Interfaces;
 namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
     public class BancosRepository : RepositoryContext<CveBanco>, IBancosRepository, IRepositoryGeneric {
         public BancosRepository(System.DateTime? lastUpdate = null) {
-            Title = "Catálogo de Bancos SAT";
+            Description = "Catálogo de Bancos SAT";
             FileName = "CatNom12Bancos.json";
             this.AddLastUpdate(lastUpdate);
         }

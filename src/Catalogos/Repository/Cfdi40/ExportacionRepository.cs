@@ -8,7 +8,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// </summary>
     public class ExportacionRepository : RepositoryContext<CveExportacion>, IExportacionRepository, IRepositoryGeneric {
         public ExportacionRepository(System.DateTime? lastUpdate = null) {
-            Title = "Catálogo Exportación";
+            Description = "Catálogo Exportación";
             FileName = "ExportacionCFDi40.json";
             Version = "2.0";
             Revision = "1";

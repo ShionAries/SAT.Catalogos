@@ -7,7 +7,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
     /// </summary>
     public class OrigenRecursoRepository : RepositoryContext<CveOrigenRecurso>, IOrigenRecursoRepository, IRepositoryGeneric {
         public OrigenRecursoRepository(System.DateTime? lastUpdate = null) {
-            this.Title = "Catálogo del tipo de origen recurso.";
+            this.Description = "Catálogo del tipo de origen recurso.";
             this.FileName = "CatNom12OrigenRecurso.json";
             this.Version = "1.0";
             this.Revision = "0";

@@ -4,7 +4,5 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     /// <summary>
     /// catalogo de municipios.
     /// </summary>
-    public interface IMunicipioRepository : IRepositoryContext<CveMunicipio> {
-        CveMunicipio Search(string findId);
-    }
+    public interface IMunicipioRepository : IRepositoryContext<CveMunicipio> { }
 }

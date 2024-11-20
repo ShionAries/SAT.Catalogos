@@ -9,7 +9,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     /// </summary>
     public class RegistroISTMORepository : RepositoryContext<CveRegistroISTMO>, IRegistroISTMORepository, IRepositoryGeneric {
         public RegistroISTMORepository(DateTime? lastUpdate = null) : base() {
-            this.Title = "Catálogo de Ubicaciones Polos ISTMO";
+            this.Description = "Catálogo de Ubicaciones Polos ISTMO";
             this.FileName = "CatCcp31RegistroISTMO.json";
             this.Version = "1.0";
             this.AddLastUpdate(lastUpdate);

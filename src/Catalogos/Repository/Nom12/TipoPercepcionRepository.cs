@@ -8,7 +8,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
     /// </summary>
     public class TipoPercepcionRepository : RepositoryContext<CveTipoPercepcion>, ITipoPercepcionRepository, IRepositoryGeneric {
         public TipoPercepcionRepository(System.DateTime? lastUpdate = null) {
-            this.Title = "Catálogo de tipos de percepciones.";
+            this.Description = "Catálogo de tipos de percepciones.";
             this.FileName = "CatNom12TipoPercepcion.json";
             this.Version = "2.0";
             this.Revision = "0";

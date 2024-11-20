@@ -11,7 +11,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     [JsonObject("item")]
     public class FormaFarmaceuticaRepository : RepositoryContext<CveFormaFarmaceutica>, IFormaFarmaceuticaRepository, IRepositoryGeneric {
         public FormaFarmaceuticaRepository(System.DateTime? lastUpdate = null) {
-            Title = "Catálogo de Forma Farmacéutica.";
+            Description = "Catálogo de Forma Farmacéutica.";
             FileName = "CatCcp31FormaFarmaceutica.json";
             Version = "1.0";
             this.AddLastUpdate(lastUpdate);
