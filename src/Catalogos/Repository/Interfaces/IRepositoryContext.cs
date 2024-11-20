@@ -5,25 +5,25 @@ namespace Jaeger.SAT.Catalogos.Repository.Interfaces {
     /// clase contexto para el manejo de catalogos diversos
     /// </summary>
     /// <typeparam name="T">The type of the T.</typeparam>
-    public interface IRepositoryContext<T> where T : class, new() {
+    public interface IRepositoryContext<T> : IRepositoryGeneric where T : class, new() {
         /// <summary>
         /// obtener o establecer la version del catalogo
         /// </summary>
-        string Version { get; set; }
+        new string Version { get; set; }
 
         /// <summary>
         /// obtener o establecer titulo del catalogo
         /// </summary>
-        string Title { get; set; }
+        new string Title { get; set; }
 
         /// <summary>
         /// obtener o establecer la fecha de revision
         /// </summary>
-        string Revision { get; set; }
+        new string Revision { get; set; }
 
-        System.DateTime? LastUpdate { get; set; }
+        new System.DateTime? LastUpdate { get; set; }
 
-        string Builder { get; }
+        new string Builder { get; }
 
         /// <summary>
         /// obtener o establecer la lista de objetos
@@ -47,7 +47,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Interfaces {
         /// <summary>
         /// cargar la informacion de un catalogo
         /// </summary>
-        void Load();
+        new void Load();
 
         /// <summary>
         /// cargar la informacion de un catalogo
@@ -57,7 +57,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Interfaces {
         /// <summary>
         /// guardar los cambios del catalogo
         /// </summary>
-        bool Save();
+        new bool Save();
 
         bool SaveZIP();
 
@@ -68,6 +68,6 @@ namespace Jaeger.SAT.Catalogos.Repository.Interfaces {
 
         int Import(List<T> items);
 
-        int Import(System.Data.DataTable dataTable);
+        new int Import(System.Data.DataTable dataTable);
     }
 }

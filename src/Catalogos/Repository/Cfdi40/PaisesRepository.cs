@@ -6,7 +6,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// <summary>
     /// catalogo de paises
     /// </summary>
-    public class PaisesRepository : RepositoryContext<CvePais>, IPaisesRepository, IGeneralRepository {
+    public class PaisesRepository : RepositoryContext<CvePais>, IPaisesRepository, IRepositoryGeneric {
         public PaisesRepository(System.DateTime? lastUpdate = null) {
             Title = "Catálogo de Paises";
             FileName = "PaisesCFDI40.json";

@@ -8,7 +8,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Rep20 {
     /// <summary>
     /// Catalogo del tipo de la cadena de pago.
     /// </summary>
-    public class TipoCadenaPagoRepository : RepositoryContext<CveTipoCadenaPago>, ITipoCadenaPagoRepository, IGeneralRepository {
+    public class TipoCadenaPagoRepository : RepositoryContext<CveTipoCadenaPago>, ITipoCadenaPagoRepository, IRepositoryGeneric {
         public TipoCadenaPagoRepository() {
             this.Title = "Catálogo de tipo de la cadena de pago.";
             this.FileName = "CatRep20TipoCadenaPago.json";

@@ -6,7 +6,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ret20 {
     /// <summary>
     /// Retenciones 2.0, Catalogo de Periodos
     /// </summary>
-    public class PeriodoRepository : RepositoryContext<CveRetencionPeriodo>, IPeriodoRepository, IGeneralRepository {
+    public class PeriodoRepository : RepositoryContext<CveRetencionPeriodo>, IPeriodoRepository, IRepositoryGeneric {
         public PeriodoRepository() {
             Title = "Catálogo de periodicidad Retenciones";
             FileName = "CatRet20Periodo.json";

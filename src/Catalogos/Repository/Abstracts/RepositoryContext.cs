@@ -12,7 +12,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
     /// clase contexto para el manejo de catalogos diversos
     /// </summary>
     /// <typeparam name="T">The type of the T.</typeparam>
-    public abstract class RepositoryContext<T> : IRepositoryContext<T> where T : class, new() {
+    public abstract class RepositoryContext<T> : Interfaces.IRepositoryContext<T> where T : class, new() {
         #region declaraciones
         protected internal bool _Recuperar = true;
         protected internal Repository<T> _Repository;

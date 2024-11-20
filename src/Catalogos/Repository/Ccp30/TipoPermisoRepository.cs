@@ -7,7 +7,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
     /// <summary>
     /// Catálogo tipo permiso.
     /// </summary>
-    public class TipoPermisoRepository : RepositoryContext<CveTipoPermiso>, ITipoPermisoRepository, IGeneralRepository {
+    public class TipoPermisoRepository : RepositoryContext<CveTipoPermiso>, ITipoPermisoRepository, IRepositoryGeneric {
         public TipoPermisoRepository() {
             Title = "Catálogo tipo permiso.";
             FileName = "CatCcp30TipoPermiso.json";

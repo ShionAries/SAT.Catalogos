@@ -4,6 +4,6 @@ namespace Jaeger.SAT.Catalogos.Repository.Ret20 {
     /// <summary>
     /// Retenciones 2.0, Catalogo de Tipo de Dividendo o utilidad distribuida
     /// </summary>
-    public interface ITipoDividendoOUtilidadDistribRepository : IRepositoryContext<CveTipoDividendoUtilidadDistrib>, IGeneralRepository {
+    public interface ITipoDividendoOUtilidadDistribRepository : IRepositoryContext<CveTipoDividendoUtilidadDistrib>, IRepositoryGeneric {
     }
 }

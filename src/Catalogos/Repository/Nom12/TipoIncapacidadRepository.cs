@@ -6,7 +6,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
     /// <summary>
     /// catalogo del tipo de incapacidad
     /// </summary>
-    public class TipoIncapacidadRepository : RepositoryContext<CveTipoIncapacidad>, ITipoIncapacidadRepository, IGeneralRepository {
+    public class TipoIncapacidadRepository : RepositoryContext<CveTipoIncapacidad>, ITipoIncapacidadRepository, IRepositoryGeneric {
         public TipoIncapacidadRepository(System.DateTime? lastUpdate = null) {
             this.Title = "Catálogo del tipo de incapacidad.";
             this.FileName = "CatNom12TipoIncapacidad.json";

@@ -9,7 +9,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
     /// catalogo de documentos aduaneros
     /// </summary>
     [JsonObject("item")]
-    public class DocumentoAduaneroRepository : RepositoryContext<CveDocumentoAduanero>, IDocuemntoAduaneroRepository, IGeneralRepository { 
+    public class DocumentoAduaneroRepository : RepositoryContext<CveDocumentoAduanero>, IDocuemntoAduaneroRepository, IRepositoryGeneric { 
         public DocumentoAduaneroRepository() {
             this.Title = "Catálogo de Documentos Aduaneros";
             this.FileName = "CatCcp30DocumentosAduaneros.json";

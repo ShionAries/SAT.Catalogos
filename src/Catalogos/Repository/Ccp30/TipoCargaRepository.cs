@@ -7,7 +7,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
     /// <summary>
     /// Catálogo del tipo de carga.
     /// </summary>
-    public class TipoCargaRepository : RepositoryContext<CveTipoCarga>, ITipoCargaRepository, IGeneralRepository {
+    public class TipoCargaRepository : RepositoryContext<CveTipoCarga>, ITipoCargaRepository, IRepositoryGeneric {
         public TipoCargaRepository() {
             Title = "Catálogo del tipo de carga.";
             FileName = "CatCcp30TipoCarga.json";

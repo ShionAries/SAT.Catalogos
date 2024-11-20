@@ -7,7 +7,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     /// <summary>
     /// Catálogo de tipo de tráfico ferroviario.
     /// </summary>
-    public class TipoDeTraficoRepository : RepositoryContext<CveTipoDeTrafico>, ITipoDeTraficoRepository, IGeneralRepository {
+    public class TipoDeTraficoRepository : RepositoryContext<CveTipoDeTrafico>, ITipoDeTraficoRepository, IRepositoryGeneric {
         public TipoDeTraficoRepository(System.DateTime? lastUpdate = null) {
             Title = "Catálogo de tipo de tráfico ferroviario";
             FileName = "CatCcp31TipoDeTrafico.json";

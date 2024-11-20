@@ -7,7 +7,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     /// <summary>
     /// Catálogo de número autorización agente naviero consignatario. 
     /// </summary>
-    public class NumAutorizacionNavieroRepository : RepositoryContext<CveNumAutorizacionNaviero>, INumAutorizacionNavieroRepository, IGeneralRepository {
+    public class NumAutorizacionNavieroRepository : RepositoryContext<CveNumAutorizacionNaviero>, INumAutorizacionNavieroRepository, IRepositoryGeneric {
         public NumAutorizacionNavieroRepository(System.DateTime? lastUpdate = null) {
             this.Title = "Catálogo de número autorización agente naviero consignatario. ";
             this.FileName = "CatCcp31NumAutorizacionNaviero.json";

@@ -7,7 +7,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// <summary>
     /// catalogo de Claves de Productos y Servicios.
     /// </summary>
-    public class ProdServsRepository : RepositoryContext<CveProdServ>, IProdServsRepository, IGeneralRepository {
+    public class ProdServsRepository : RepositoryContext<CveProdServ>, IProdServsRepository, IRepositoryGeneric {
         public ProdServsRepository(System.DateTime? lastUpdate = null) {
             Version = "3.0";
             Revision = "2";

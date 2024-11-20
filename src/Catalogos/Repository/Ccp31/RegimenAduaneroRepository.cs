@@ -7,7 +7,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     /// <summary>
     /// Catalogo de Regimen Aduanero
     /// </summary>
-    public class RegimenAduaneroRepository : RepositoryContext<CveRegimenAduanero>, IRegimenAduaneroRepository, IGeneralRepository {
+    public class RegimenAduaneroRepository : RepositoryContext<CveRegimenAduanero>, IRegimenAduaneroRepository, IRepositoryGeneric {
         public RegimenAduaneroRepository(DateTime? lastUpdate = null) {
             Title = "Catálogo de Régimen Aduanero";
             FileName = "CatCcp31RegimenAduanero.json";

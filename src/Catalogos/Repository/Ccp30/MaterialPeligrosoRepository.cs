@@ -7,7 +7,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
     /// <summary>
     /// Catálogo de materiales peligrosos.
     /// </summary>
-    public class MaterialPeligrosoRepository : RepositoryContext<CveMaterialPeligroso>, IMaterialPeligrosoRepository, IGeneralRepository {
+    public class MaterialPeligrosoRepository : RepositoryContext<CveMaterialPeligroso>, IMaterialPeligrosoRepository, IRepositoryGeneric {
         public MaterialPeligrosoRepository() {
             Title = "Catálogo de materiales peligrosos.";
             FileName = "CatCcp30MaterialPeligroso.json";

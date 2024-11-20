@@ -6,7 +6,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
     /// <summary>
     /// catalogo de tipos de horas extra (nomina)
     /// </summary>
-    public class TipoHorasRepository : RepositoryContext<CveTipoHoras>, ITipoHorasRepository, IGeneralRepository {
+    public class TipoHorasRepository : RepositoryContext<CveTipoHoras>, ITipoHorasRepository, IRepositoryGeneric {
         public TipoHorasRepository(System.DateTime? lastUpdate = null) {
             this.Title = "Catálogo de tipos de Hora Extra.";
             this.FileName = "CatNom12TipoHoras.json";

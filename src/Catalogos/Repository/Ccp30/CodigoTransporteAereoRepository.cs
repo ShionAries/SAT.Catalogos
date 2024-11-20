@@ -7,7 +7,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp30 {
     /// <summary>
     /// Catálogo código transporte aéreo.
     /// </summary>
-    public class CodigoTransporteAereoRepository : RepositoryContext<CveCodigoTransporteAereo>, ICodigoTransporteAereoRepository, IGeneralRepository {
+    public class CodigoTransporteAereoRepository : RepositoryContext<CveCodigoTransporteAereo>, ICodigoTransporteAereoRepository, IRepositoryGeneric {
         public CodigoTransporteAereoRepository() {
             Title = "Catálogo código transporte aéreo.";
             FileName = "CatCcp30CodigoTransporteAereo.json";

@@ -4,7 +4,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Articulo69 {
     /// <summary>
     /// Artículo 69, primer y segundo párrafo del CFF
     /// </summary>
-    public interface IArticulo69Repository : IRepositoryContext<NoLocalizados>, IGeneralRepository {
+    public interface IArticulo69Repository : IRepositoryContext<NoLocalizados>, IRepositoryGeneric {
         NoLocalizados Search(string findId);
     }
 }
