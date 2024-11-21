@@ -14,14 +14,6 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             Revision = "1";
         }
 
-        public AduanasRepository(System.DateTime? lastUpdate = null) {
-            FileName = "AduanasCFDi40.json";
-            Description = "Catálogo de aduanas (tomado del anexo 22, apéndice I de la RGCE 2017).";
-            Version = "1.0";
-            Revision = "1";
-            this.AddLastUpdate(lastUpdate);
-        }
-
         public override CveAduana Search(string clave) {
             return Items.SingleOrDefault((b) => b.Clave == clave);
         }

@@ -7,11 +7,10 @@ namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
     /// Catalogo de clases en que deben inscribirse los patrones.
     /// </summary>
     public class RiesgoPuestoRepository : RepositoryContext<CveRiesgoPuesto>, IRiesgoPuestoRepository, IRepositoryGeneric {
-        public RiesgoPuestoRepository(System.DateTime? lastUpdate = null) {
+        public RiesgoPuestoRepository() {
             Description = "Catálogo de clases en que deben inscribirse los patrones.";
             FileName = "CatNom12RiesgoPuesto.json";
             Version = "2.0";
-            this.AddLastUpdate(lastUpdate);
         }
 
         public override CveRiesgoPuesto Search(string query) {

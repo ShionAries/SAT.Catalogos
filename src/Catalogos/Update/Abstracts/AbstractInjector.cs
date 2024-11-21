@@ -10,7 +10,7 @@ namespace Jaeger.SAT.Catalogos.Update.Abstracts {
         protected DataTable _DataTable;
         protected Dictionary<string, string> _HeadersMapper;
         protected IRepositoryGeneric _Repository;
-        protected DateTime? _LastVersion;
+        protected DateTime? _Lastupdate;
         #endregion
 
         /// <summary>
@@ -29,13 +29,13 @@ namespace Jaeger.SAT.Catalogos.Update.Abstracts {
         /// <summary>
         /// obtener o establecer fecha de ultima actualizacion del catalogo
         /// </summary>
-        public DateTime? LastVersion {
+        public DateTime? LastUpdate {
             get {
-                if (_LastVersion >= new DateTime(1900, 1, 1))
-                    return _LastVersion;
-                return _LastVersion;
+                if (_Lastupdate >= new DateTime(1900, 1, 1))
+                    return _Lastupdate;
+                return _Lastupdate;
             }
-            set { _LastVersion = value; }
+            set { _Lastupdate = value; }
         }
 
         /// <summary>

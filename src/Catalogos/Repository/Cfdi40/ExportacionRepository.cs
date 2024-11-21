@@ -7,12 +7,11 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// catalogo de exportacion para comprobante fiscal 4.0
     /// </summary>
     public class ExportacionRepository : RepositoryContext<CveExportacion>, IExportacionRepository, IRepositoryGeneric {
-        public ExportacionRepository(System.DateTime? lastUpdate = null) {
+        public ExportacionRepository() {
             Description = "Catálogo Exportación";
             FileName = "ExportacionCFDi40.json";
             Version = "2.0";
             Revision = "1";
-            this.AddLastUpdate(lastUpdate);
         }
 
         public override CveExportacion Search(string query) {

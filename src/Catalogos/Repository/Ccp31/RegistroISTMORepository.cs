@@ -8,11 +8,10 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     /// Catalogo de Ubicaciones Polos ISTMO
     /// </summary>
     public class RegistroISTMORepository : RepositoryContext<CveRegistroISTMO>, IRegistroISTMORepository, IRepositoryGeneric {
-        public RegistroISTMORepository(DateTime? lastUpdate = null) : base() {
+        public RegistroISTMORepository() : base() {
             this.Description = "Catálogo de Ubicaciones Polos ISTMO";
             this.FileName = "CatCcp31RegistroISTMO.json";
             this.Version = "1.0";
-            this.AddLastUpdate(lastUpdate);
         }
 
         public override CveRegistroISTMO Search(string findId) {

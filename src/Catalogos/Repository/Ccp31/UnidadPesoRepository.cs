@@ -8,11 +8,10 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     /// Catálogo de unidades de medida y embalaje.
     /// </summary>
     public class UnidadPesoRepository : RepositoryContext<CveUnidadPeso>, IUnidadPesoRepository, IRepositoryGeneric {
-        public UnidadPesoRepository(System.DateTime? lastUpdate = null) {
+        public UnidadPesoRepository() {
             Description = "Catálogo de unidades de medida y embalaje.";
             FileName = "CatCcp31UnidadPeso.json";
             Version = "1.0";
-            this.AddLastUpdate(lastUpdate);
         }
 
         public override CveUnidadPeso Search(string findId) {

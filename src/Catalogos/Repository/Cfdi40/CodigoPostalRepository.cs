@@ -7,11 +7,10 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// catalogo SAT de codigos postales
     /// </summary>
     public class CodigoPostalRepository : RepositoryContext<CveCodigoPostal>, ICodigosPostalesRepository, IRepositoryGeneric {
-        public CodigoPostalRepository(System.DateTime? lastUpdate = null) {
+        public CodigoPostalRepository() {
             Description = "Catálogo de códigos postales.";
             FileName = "CodigoPostalCFDi40.json";
             Version = "2.0";
-            this.AddLastUpdate(lastUpdate);
         }
 
         public override CveCodigoPostal Search(string find) {

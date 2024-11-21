@@ -29,7 +29,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp31 {
         }
 
         protected override void CreateRepository() {
-            _Repository = new RegistroISTMORepository(this.LastVersion);
+            _Repository = new RegistroISTMORepository() { LastUpdate = this.LastUpdate };
         }
     }
 }

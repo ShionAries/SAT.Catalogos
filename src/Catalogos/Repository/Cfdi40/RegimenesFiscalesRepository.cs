@@ -9,10 +9,9 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// catalogo de regimen fiscal.
     /// </summary>
     public class RegimenesFiscalesRepository : RepositoryContext<CveRegimenFiscal>, IRegimenesFiscalesRepository, IRepositoryGeneric {
-        public RegimenesFiscalesRepository(System.DateTime? lastUpdate = null) {
+        public RegimenesFiscalesRepository() {
             Description = "Catálogo Remimenes Fiscales";
             FileName = "RegimenesFiscalesCFDI40.json";
-            this.AddLastUpdate(lastUpdate);
         }
 
         public override CveRegimenFiscal Search(string findId) {

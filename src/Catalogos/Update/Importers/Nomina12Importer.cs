@@ -15,19 +15,19 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
         public override Injectors CreateInjectors(DataSet dataSet) {
             return new Injectors() {
                 Items = new System.Collections.Generic.List<IInjector> {
-                    new BancoInjector(dataSet.Tables["c_Banco"]) { LastVersion = this.LastVersion },
-                    new OrigenRecursoInjector(dataSet.Tables["c_OrigenRecurso"]) { LastVersion = this.LastVersion },
-                    new PeriodicidadPagoInjector(dataSet.Tables["c_PeriodicidadPago"]) { LastVersion = this.LastVersion },
-                    new TipoContratoInjector(dataSet.Tables["c_TipoContrato"]) { LastVersion = this.LastVersion },
-                    new TipoDeduccionInjector(dataSet.Tables["c_TipoDeduccion"]) { LastVersion = this.LastVersion },
-                    new TipoHorasInjector(dataSet.Tables["c_TipoHoras"]) { LastVersion = this.LastVersion },
-                    new TipoIncapacidadInjector(dataSet.Tables["c_TipoIncapacidad"]) { LastVersion = this.LastVersion },
-                    new TipoJornadaInjector(dataSet.Tables["c_TipoJornada"]) { LastVersion = this.LastVersion },
-                    new TipoNominaInjector(dataSet.Tables["c_TipoNomina"]) { LastVersion = this.LastVersion },
-                    new TipoOtroPagoInjector(dataSet.Tables["c_TipoOtroPago"]) { LastVersion = this.LastVersion },
-                    new TipoPercepcionInjector(dataSet.Tables["c_TipoPercepcion"]) { LastVersion = this.LastVersion },
-                    new TipoRegimenContratacionInjector(dataSet.Tables["c_TipoRegimen"]) { LastVersion = this.LastVersion },
-                    new RiesgoPuestoInjector(dataSet.Tables["c_RiesgoPuesto"]) { LastVersion = this.LastVersion }
+                    new BancoInjector(dataSet.Tables["c_Banco"]) { LastUpdate = this.LastVersion },
+                    new OrigenRecursoInjector(dataSet.Tables["c_OrigenRecurso"]) { LastUpdate = this.LastVersion },
+                    new PeriodicidadPagoInjector(dataSet.Tables["c_PeriodicidadPago"]) { LastUpdate = this.LastVersion },
+                    new TipoContratoInjector(dataSet.Tables["c_TipoContrato"]) { LastUpdate = this.LastVersion },
+                    new TipoDeduccionInjector(dataSet.Tables["c_TipoDeduccion"]) { LastUpdate = this.LastVersion },
+                    new TipoHorasInjector(dataSet.Tables["c_TipoHoras"]) { LastUpdate = this.LastVersion },
+                    new TipoIncapacidadInjector(dataSet.Tables["c_TipoIncapacidad"]) { LastUpdate = this.LastVersion },
+                    new TipoJornadaInjector(dataSet.Tables["c_TipoJornada"]) { LastUpdate = this.LastVersion },
+                    new TipoNominaInjector(dataSet.Tables["c_TipoNomina"]) { LastUpdate = this.LastVersion },
+                    new TipoOtroPagoInjector(dataSet.Tables["c_TipoOtroPago"]) { LastUpdate = this.LastVersion },
+                    new TipoPercepcionInjector(dataSet.Tables["c_TipoPercepcion"]) { LastUpdate = this.LastVersion },
+                    new TipoRegimenContratacionInjector(dataSet.Tables["c_TipoRegimen"]) { LastUpdate = this.LastVersion },
+                    new RiesgoPuestoInjector(dataSet.Tables["c_RiesgoPuesto"]) { LastUpdate = this.LastVersion }
                 }
             };
         }

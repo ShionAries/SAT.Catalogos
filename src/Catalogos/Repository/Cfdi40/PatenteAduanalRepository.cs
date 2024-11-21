@@ -7,12 +7,11 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// catalogo de patentes aduanales
     /// </summary>
     public class PatenteAduanalRepository : RepositoryContext<CvePatenteAduanal>, IPatenteAduanalRepository, IRepositoryGeneric {
-        public PatenteAduanalRepository(System.DateTime? lastUpdate = null) {
+        public PatenteAduanalRepository() {
             Description = "Catálogo de patentes aduanales";
             FileName = "PatentesAduanalesCFDI40.json";
             Revision = "0";
             Version = "25.0";
-            this.AddLastUpdate(lastUpdate);
         }
 
         public override CvePatenteAduanal Search(string query) {

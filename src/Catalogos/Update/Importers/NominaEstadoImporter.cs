@@ -15,7 +15,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
         public override Injectors CreateInjectors(DataSet dataSet) {
             return new Injectors() {
                 Items = new System.Collections.Generic.List<IInjector> {
-                    new EstadosInjector(dataSet.Tables["c_Estado"]) { LastVersion = this.LastVersion },
+                    new EstadosInjector(dataSet.Tables["c_Estado"]) { LastUpdate = this.LastVersion },
                 }
             };
         }
