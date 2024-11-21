@@ -33,8 +33,9 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Nom12 {
             var resultado = mapper.Map(_DataTable).ToList();
             if (resultado != null) {
                 if (resultado.Count() > 0) {
-                    _Repository = new PeriodicidadPagoRepository(this.LastVersion) {
-                        Items = resultado.ToList()
+                    _Repository = new PeriodicidadPagoRepository() {
+                        Items = resultado.ToList(),
+                        LastUpdate = this.LastUpdate
                     };
                 }
             }

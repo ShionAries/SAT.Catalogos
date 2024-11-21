@@ -7,10 +7,9 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// catalogo de metodo de pago
     /// </summary>
     public class MetodoPagoRepository : RepositoryContext<CveMetodoPago>, IMetodoPagoRepository, IRepositoryGeneric {
-        public MetodoPagoRepository(System.DateTime? lastUpdate = null) {
+        public MetodoPagoRepository() {
             Description = "Catálogo Metodo de Pago cfdi 4.0";
             FileName = "MetodoPagoCFDI40.json";
-            this.AddLastUpdate(lastUpdate);
         }
 
         public override CveMetodoPago Search(string findId) {

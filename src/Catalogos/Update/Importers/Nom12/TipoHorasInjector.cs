@@ -31,8 +31,9 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Nom12 {
             var resultado = mapper.Map(_DataTable).ToList();
             if (resultado != null) {
                 if (resultado.Count() > 0) {
-                    _Repository = new TipoHorasRepository(this.LastVersion) {
-                        Items = resultado.ToList()
+                    _Repository = new TipoHorasRepository() {
+                        Items = resultado.ToList(),
+                        LastUpdate = this.LastUpdate
                     };
                 }
             }

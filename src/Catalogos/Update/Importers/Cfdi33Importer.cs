@@ -15,23 +15,23 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
         public override Injectors CreateInjectors(DataSet dataSet) {
             return new Injectors() {
                 Items = new System.Collections.Generic.List<IInjector>() {
-                    new FormaDePagoInjector(dataSet.Tables["c_FormaPago"]) { LastVersion = this.LastVersion },
-                    new MonedaInjector(dataSet.Tables["c_Moneda"])  { LastVersion = this.LastVersion },
-                    new TipoComprobanteInjector(dataSet.Tables["c_TipoDeComprobante"]) { LastVersion = this.LastVersion },
-                    new MetodoPagoInjector(dataSet.Tables["c_MetodoPago"]) { LastVersion = this.LastVersion },
-                    new CodigoPostalInjector(dataSet.Tables["c_CodigoPostal_Parte"]) { LastVersion = this.LastVersion },
-                    new TipoRelacionInjector(dataSet.Tables["c_TipoRelacion"]) { LastVersion = this.LastVersion },
-                    new RegimenesFiscalesInjector(dataSet.Tables["c_RegimenFiscal"]) { LastVersion = this.LastVersion },
-                    new PaisInjector(dataSet.Tables["c_Pais"]) { LastVersion = this.LastVersion },
-                    new ClaveUsoCFDIInjector(dataSet.Tables["c_UsoCFDI"]) { LastVersion = this.LastVersion },
-                    new ProdServInjector(dataSet.Tables["c_ClaveProdServ"]) { LastVersion = this.LastVersion },
-                    new UnidadInjector(dataSet.Tables["c_ClaveUnidad"]) { LastVersion = this.LastVersion },
-                    new ImpuestoInjector(dataSet.Tables["c_Impuesto"]) { LastVersion = this.LastVersion },
-                    new TipoFactorInjector(dataSet.Tables["c_TipoFactor"]) { LastVersion = this.LastVersion },
-                    new TasaOCuotaInjector(dataSet.Tables["c_TasaOCuota"]) { LastVersion = this.LastVersion },
-                    new AduanaInjector(dataSet.Tables["c_Aduana"]) { LastVersion = this.LastVersion },
-                    new NumeroPedimentoAduanalInjector(dataSet.Tables["c_NumPedimentoAduana"]) { LastVersion = this.LastVersion },
-                    new PatenteAduanalInjector(dataSet.Tables["c_PatenteAduanal"]) { LastVersion = this.LastVersion }
+                    new FormaDePagoInjector(dataSet.Tables["c_FormaPago"]) { LastUpdate = this.LastVersion },
+                    new MonedaInjector(dataSet.Tables["c_Moneda"])  { LastUpdate = this.LastVersion },
+                    new TipoComprobanteInjector(dataSet.Tables["c_TipoDeComprobante"]) { LastUpdate = this.LastVersion },
+                    new MetodoPagoInjector(dataSet.Tables["c_MetodoPago"]) { LastUpdate = this.LastVersion },
+                    new CodigoPostalInjector(dataSet.Tables["c_CodigoPostal_Parte"]) { LastUpdate = this.LastVersion },
+                    new TipoRelacionInjector(dataSet.Tables["c_TipoRelacion"]) { LastUpdate = this.LastVersion },
+                    new RegimenesFiscalesInjector(dataSet.Tables["c_RegimenFiscal"]) { LastUpdate = this.LastVersion },
+                    new PaisInjector(dataSet.Tables["c_Pais"]) { LastUpdate = this.LastVersion },
+                    new ClaveUsoCFDIInjector(dataSet.Tables["c_UsoCFDI"]) { LastUpdate = this.LastVersion },
+                    new ProdServInjector(dataSet.Tables["c_ClaveProdServ"]) { LastUpdate = this.LastVersion },
+                    new UnidadInjector(dataSet.Tables["c_ClaveUnidad"]) { LastUpdate = this.LastVersion },
+                    new ImpuestoInjector(dataSet.Tables["c_Impuesto"]) { LastUpdate = this.LastVersion },
+                    new TipoFactorInjector(dataSet.Tables["c_TipoFactor"]) { LastUpdate = this.LastVersion },
+                    new TasaOCuotaInjector(dataSet.Tables["c_TasaOCuota"]) { LastUpdate = this.LastVersion },
+                    new AduanaInjector(dataSet.Tables["c_Aduana"]) { LastUpdate = this.LastVersion },
+                    new NumeroPedimentoAduanalInjector(dataSet.Tables["c_NumPedimentoAduana"]) { LastUpdate = this.LastVersion },
+                    new PatenteAduanalInjector(dataSet.Tables["c_PatenteAduanal"]) { LastUpdate = this.LastVersion }
                 }
             };
         }

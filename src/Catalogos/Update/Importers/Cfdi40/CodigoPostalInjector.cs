@@ -41,7 +41,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi40 {
         }
 
         protected override void CreateRepository() {
-            this._Repository = new CodigoPostalRepository(this.LastVersion);
+            this._Repository = new CodigoPostalRepository() { LastUpdate = this.LastUpdate };
         }
     }
 }

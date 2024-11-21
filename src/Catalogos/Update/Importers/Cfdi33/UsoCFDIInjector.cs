@@ -32,7 +32,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Cfdi33 {
         }
 
         protected override void CreateRepository() {
-            _Repository = new UsoCFDIRepository(this.LastVersion);
+            _Repository = new UsoCFDIRepository() { LastUpdate = this.LastUpdate };
         }
     }
 }

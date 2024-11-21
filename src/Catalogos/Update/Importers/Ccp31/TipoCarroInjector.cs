@@ -30,7 +30,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp31 {
         }
 
         protected override void CreateRepository() {
-            this._Repository = new TipoCarroRepository(this.LastVersion);
+            this._Repository = new TipoCarroRepository() { LastUpdate = this.LastUpdate };
         }
     }
 }

@@ -7,12 +7,11 @@ namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
     /// Catalogo de tipos de jornada laboral.
     /// </summary>
     public class TipoJornadaRepository : RepositoryContext<CveTipoJornada>, ITipoJornadaRepository, IRepositoryGeneric {
-        public TipoJornadaRepository(System.DateTime? lastUpdate = null) {
+        public TipoJornadaRepository() {
             this.Description = "Catálogo de tipos de jornada laboral.";
             this.FileName = "CatNom12TipoJornada.json";
             this.Version = "1.0";
             this.Revision = "A";
-            this.AddLastUpdate(lastUpdate);
         }
 
         public override CveTipoJornada Search(string query) {

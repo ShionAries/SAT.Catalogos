@@ -7,10 +7,9 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// catalogo de unidades de medida para los conceptos en el CFDI.
     /// </summary>
     public class UnidadesRepository : RepositoryContext<CveUnidad>, IUnidadesRepository, IRepositoryGeneric {
-        public UnidadesRepository(System.DateTime? lastUpdate = null) {
+        public UnidadesRepository() {
             Description = "Catálogo de unidades de medida para los conceptos en el CFDI.";
             FileName = "UnidadesCFDI40.json";
-            this.AddLastUpdate(lastUpdate);
         }
         public override CveUnidad Search(string findId) {
             CveUnidad objeto = new CveUnidad();

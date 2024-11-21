@@ -8,11 +8,10 @@ namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     /// Catálogo de materiales peligrosos.
     /// </summary>
     public class MaterialPeligrosoRepository : RepositoryContext<CveMaterialPeligroso>, IMaterialPeligrosoRepository, IRepositoryGeneric {
-        public MaterialPeligrosoRepository(System.DateTime? lastUpdate = null) {
+        public MaterialPeligrosoRepository() {
             Description = "Catálogo de materiales peligrosos.";
             FileName = "CatCcp31MaterialPeligroso.json";
             Version = "1.0";
-            this.AddLastUpdate(lastUpdate);
         }
 
         public override CveMaterialPeligroso Search(string findId) {

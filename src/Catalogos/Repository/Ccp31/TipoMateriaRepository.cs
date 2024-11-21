@@ -6,11 +6,10 @@ using System.Linq;
 namespace Jaeger.SAT.Catalogos.Repository.Ccp31 {
     [JsonObject("item")]
     public class TipoMateriaRepository : RepositoryContext<CveTipoMateria>, ITipoMateriaRepository, IRepositoryGeneric {
-        public TipoMateriaRepository(System.DateTime? lastUpdate = null) {
+        public TipoMateriaRepository() {
             Description = "Catálogo de Tipo Materia.";
             FileName = "CatCcp31TipoMateria.json";
             Version = "2.0";
-            this.AddLastUpdate(lastUpdate);
         }
 
         public override CveTipoMateria Search(string query) {

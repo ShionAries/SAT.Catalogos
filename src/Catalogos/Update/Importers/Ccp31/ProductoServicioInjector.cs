@@ -31,7 +31,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp31 {
         }
 
         protected override void CreateRepository() {
-            _Repository = new ProdServCPRepository(this.LastVersion);
+            _Repository = new ProdServCPRepository() { LastUpdate = this.LastUpdate };
         }
     }
 }

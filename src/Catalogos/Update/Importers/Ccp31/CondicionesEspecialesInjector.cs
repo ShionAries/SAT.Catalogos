@@ -28,7 +28,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Ccp31 {
         }
 
         protected override void CreateRepository() {
-            this._Repository = new SAT.Catalogos.Repository.Ccp31.CondicionesEspecialesRepository(this.LastVersion);
+            this._Repository = new SAT.Catalogos.Repository.Ccp31.CondicionesEspecialesRepository() { LastUpdate = this.LastUpdate };
         }
     }
 }

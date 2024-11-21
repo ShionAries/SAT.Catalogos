@@ -34,8 +34,9 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Nom12 {
             var resultado = mapper.Map(_DataTable).ToList();
             if (resultado != null) {
                 if (resultado.Count() > 0) {
-                    _Repository = new BancosRepository(this.LastVersion) {
-                        Items = resultado.ToList()
+                    _Repository = new BancosRepository {
+                        Items = resultado.ToList(),
+                        LastUpdate = this.LastUpdate
                     };
                 }
             }
