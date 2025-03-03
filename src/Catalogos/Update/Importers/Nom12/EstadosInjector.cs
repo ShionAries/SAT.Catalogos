@@ -20,7 +20,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Nom12 {
                 { "c_Pais", "Pais" },
                 { "Nombre del estado", "Nombre" },
                 { "Fecha inicio de vigencia", "VigenciaIni" },
-                { "Fecha fin de vigencia", "VigenciaFin" },
+                { "Fecha fin vigencia", "VigenciaFin" },
             };
 
             var headers = GetHeaders().ToArray();
