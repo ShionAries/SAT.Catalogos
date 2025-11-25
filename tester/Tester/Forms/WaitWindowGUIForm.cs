@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Tester {
+namespace Tester.Forms {
     public partial class WaitWindowGUIForm : Form {
         public WaitWindowGUIForm(WaitWindow parent) {
             //

@@ -19,7 +19,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Nom12 {
                 { "c_Estado", "Estado" },
                 { "c_Pais", "Pais" },
                 { "Nombre del estado", "Nombre" },
-                { "Fecha inicio de vigencia", "VigenciaIni" },
+                { "Fecha inicio vigencia", "VigenciaIni" },
                 { "Fecha fin vigencia", "VigenciaFin" },
             };
 

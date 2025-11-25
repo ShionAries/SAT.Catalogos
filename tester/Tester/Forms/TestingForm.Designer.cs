@@ -1,4 +1,4 @@
-﻿namespace Tester {
+﻿namespace Tester.Forms {
     partial class TestingForm {
         /// <summary>
         /// Required designer variable.

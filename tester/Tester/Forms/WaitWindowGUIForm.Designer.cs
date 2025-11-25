@@ -1,4 +1,4 @@
-﻿namespace Tester {
+﻿namespace Tester.Forms {
     partial class WaitWindowGUIForm {
         /// <summary>
         /// Designer variable used to keep track of non-visual components.

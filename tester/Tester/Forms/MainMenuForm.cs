@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using Jaeger.SAT.Catalogos;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
-namespace Tester {
+namespace Tester.Forms {
     public partial class MainMenuForm : Form {
         private IOriginService Service;
         private Panel leftBorderBtn;
@@ -120,7 +120,8 @@ namespace Tester {
         }
 
         private void ExitBtn_Click(object sender, EventArgs e) {
-            this.Close();
+            if (MessageBox.Show("¿Desea salir de la aplicación?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                this.Close();
         }
 
         private void panelTitleBar_MouseDown(object sender, MouseEventArgs e) {
@@ -131,6 +132,6 @@ namespace Tester {
         [DllImport("user32.DLL")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL")]
-        private extern static void SendMessage(System.IntPtr hWnd,int Msg,int wParam,int lParam);
+        private extern static void SendMessage(System.IntPtr hWnd, int Msg, int wParam, int lParam);
     }
 }

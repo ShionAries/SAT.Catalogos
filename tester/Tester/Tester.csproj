@@ -46,77 +46,77 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfiguracionForm.cs">
+    <Compile Include="Forms\ConfiguracionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConfiguracionForm.Designer.cs">
+    <Compile Include="Forms\ConfiguracionForm.Designer.cs">
       <DependentUpon>ConfiguracionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainMenuForm.cs">
+    <Compile Include="Forms\MainMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainMenuForm.Designer.cs">
+    <Compile Include="Forms\MainMenuForm.Designer.cs">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="OriginForm.cs">
+    <Compile Include="Forms\OriginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OriginForm.Designer.cs">
+    <Compile Include="Forms\OriginForm.Designer.cs">
       <DependentUpon>OriginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="OriginsForm.cs">
+    <Compile Include="Forms\OriginsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OriginsForm.Designer.cs">
+    <Compile Include="Forms\OriginsForm.Designer.cs">
       <DependentUpon>OriginsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="RepositoryTestForm.cs">
+    <Compile Include="Forms\RepositoryTestForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RepositoryTestForm.Designer.cs">
+    <Compile Include="Forms\RepositoryTestForm.Designer.cs">
       <DependentUpon>RepositoryTestForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TestingForm.cs">
+    <Compile Include="Forms\TestingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TestingForm.Designer.cs">
+    <Compile Include="Forms\TestingForm.Designer.cs">
       <DependentUpon>TestingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Waiting4Form.cs">
+    <Compile Include="Forms\Waiting4Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Waiting4Form.Designer.cs">
+    <Compile Include="Forms\Waiting4Form.Designer.cs">
       <DependentUpon>Waiting4Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WaitWindow.cs" />
-    <Compile Include="WaitWindowEventArgs.cs" />
-    <Compile Include="WaitWindowGUIForm.cs">
+    <Compile Include="Forms\WaitWindow.cs" />
+    <Compile Include="Forms\WaitWindowEventArgs.cs" />
+    <Compile Include="Forms\WaitWindowGUIForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WaitWindowGUIForm.Designer.cs">
+    <Compile Include="Forms\WaitWindowGUIForm.Designer.cs">
       <DependentUpon>WaitWindowGUIForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ConfiguracionForm.resx">
+    <EmbeddedResource Include="Forms\ConfiguracionForm.resx">
       <DependentUpon>ConfiguracionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainMenuForm.resx">
+    <EmbeddedResource Include="Forms\MainMenuForm.resx">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OriginForm.resx">
+    <EmbeddedResource Include="Forms\OriginForm.resx">
       <DependentUpon>OriginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OriginsForm.resx">
+    <EmbeddedResource Include="Forms\OriginsForm.resx">
       <DependentUpon>OriginsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RepositoryTestForm.resx">
+    <EmbeddedResource Include="Forms\RepositoryTestForm.resx">
       <DependentUpon>RepositoryTestForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TestingForm.resx">
+    <EmbeddedResource Include="Forms\TestingForm.resx">
       <DependentUpon>TestingForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Waiting4Form.resx">
+    <EmbeddedResource Include="Forms\Waiting4Form.resx">
       <DependentUpon>Waiting4Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -129,7 +129,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="WaitWindowGUIForm.resx">
+    <EmbeddedResource Include="Forms\WaitWindowGUIForm.resx">
       <DependentUpon>WaitWindowGUIForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

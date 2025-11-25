@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using Jaeger.SAT.Catalogos.Scraping.Helpers;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
-namespace Tester {
+namespace Tester.Forms {
     public partial class TestingForm : Form {
         private IOriginService _ScrapService;
 

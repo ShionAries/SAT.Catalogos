@@ -1,4 +1,4 @@
-﻿namespace Tester {
+﻿namespace Tester.Forms {
     partial class MainMenuForm {
         /// <summary>
         /// Required designer variable.
@@ -62,6 +62,7 @@
             // 
             // SalirBtn
             // 
+            this.SalirBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.SalirBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.SalirBtn.FlatAppearance.BorderSize = 0;
             this.SalirBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -247,6 +248,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.SalirBtn;
             this.ClientSize = new System.Drawing.Size(1019, 481);
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelShadow);

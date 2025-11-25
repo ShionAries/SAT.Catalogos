@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 using Jaeger.SAT.Catalogos.Builder;
 
-namespace Tester {
+namespace Tester.Forms {
     public partial class OriginsForm : Form {
         #region declaraciones
         private int previousIndex;

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Tester {
+namespace Tester.Forms {
     public partial class Waiting4Form : Form {
         private int _WaitTime;
         private IAsyncResult _AsyncResult;

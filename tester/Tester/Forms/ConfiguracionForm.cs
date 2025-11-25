@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Tester {
+namespace Tester.Forms {
     public partial class ConfiguracionForm : Form {
         public ConfiguracionForm() {
             InitializeComponent();
