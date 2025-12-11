@@ -448,6 +448,7 @@
     <Compile Include="Helpers\Mapping\DataNamesMapper.cs" />
     <Compile Include="Helpers\Mapping\PropertyMapHelper.cs" />
     <Compile Include="Update\IInjector.cs" />
+    <Compile Include="Update\Importers\AbstractImporter.cs" />
     <Compile Include="Update\Importers\AbstractXlsImporter.cs" />
     <Compile Include="Update\Importers\Articulo69BImporter.cs" />
     <Compile Include="Update\Importers\Articulo69B\ListadoCompletoInjector.cs" />

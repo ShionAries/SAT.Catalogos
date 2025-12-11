@@ -1,7 +1,7 @@
 ﻿using System.Data;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers {
-    public class StandarImporter : IImporter {
+    public class StandarImporter : AbstractImporter, IImporter {
 
         public StandarImporter() : base() {
             this.FileName = "captchas.xml";
@@ -14,27 +14,37 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
         }
 
         #region propiedades
-        public System.DateTime? LastVersion { get; set; }
-
+        /// <summary>
+        /// obtener o establecer objeto de configuracion
+        /// </summary>
         public IConfiguration Configuration { get; set; }
 
-        public Scraping.Interfaces.IOrigin Origin { get; set; }
-
         /// <summary>
-        /// obtener o establecer nombre del archivo del origen de los datos
+        /// obtener o establecer objeto de origen
         /// </summary>
-        public string FileName { get; set; }
+        public Scraping.Interfaces.IOrigin Origin { get; set; }
         #endregion
 
+        /// <summary>
+        /// obtener si el archivo existe
+        /// </summary>
         public bool CheckFile() {
             return Helpers.FileService.Exists(GetFullPath());
         }
 
+        /// <summary>
+        /// crear inyectores a partir del dataset
+        /// </summary>
+        /// <param name="dataSet"></param>
+        /// <returns></returns>
         public Injectors CreateInjectors(DataSet dataSet) {
             var injectors = new Injectors();
             return injectors;
         }
 
+        /// <summary>
+        /// operacion de importacion
+        /// </summary>
         public void Import() {
             if (this.CheckFile()) {
 

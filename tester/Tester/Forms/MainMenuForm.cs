@@ -37,6 +37,7 @@ namespace Tester.Forms {
         private void MainMenuForm_Load(object sender, EventArgs e) {
             this.Service = new OriginService();
             this.ControlBtn.PerformClick();
+            this.VersionLabel.Text = $"Version {Application.ProductVersion}";
         }
 
         private void ActiveButton(object sender, Color color) {
@@ -120,7 +121,7 @@ namespace Tester.Forms {
         }
 
         private void ExitBtn_Click(object sender, EventArgs e) {
-            if (MessageBox.Show("¿Desea salir de la aplicación?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            if (MessageBox.Show("¿Desea salir de la aplicación?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 this.Close();
         }
 

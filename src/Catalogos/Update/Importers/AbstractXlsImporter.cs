@@ -5,7 +5,7 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
     /// <summary>
     /// clase abstracta para importador
     /// </summary>
-    public abstract class AbstractXlsImporter : IImporter {
+    public abstract class AbstractXlsImporter : AbstractImporter, IImporter {
         /// <summary>
         /// constructor
         /// </summary>
@@ -19,16 +19,9 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
         }
 
         #region propiedades
-        public System.DateTime? LastVersion { get; set; }
-
         public IConfiguration Configuration { get; set; }
 
         public Scraping.Interfaces.IOrigin Origin { get; set; }
-
-        /// <summary>
-        /// obtener o establecer nombre del archivo del origen de los datos
-        /// </summary>
-        public string FileName { get; set; }
         #endregion
 
         /// <summary>
