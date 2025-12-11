@@ -29,6 +29,7 @@ namespace Jaeger.SAT.Catalogos {
                 new ConstantOrigin("CCP 3.1 - Carta Porte 3.1", $"{common}/CatalogosCartaPorte31.xls", importer: typeof(Update.Importers.CartaPorte31Importer)) { AllowUpdate = false },
                 new ConstantOrigin("Artículo 69 No localizados", "http://omawww.sat.gob.mx/cifras_sat/Documents/No localizados.csv", importer:typeof(Update.Importers.Articulo69Importer)){ AllowUpdate = true },
                 new ConstantOrigin("Artículo 69-B Listado Completo", "http://omawww.sat.gob.mx/cifras_sat/Documents/Listado_Completo_69-B.csv", importer:typeof(Update.Importers.Articulo69BImporter)) { AllowUpdate = true },
+                new ConstantOrigin("Verificación CAPTCHAS", "https://xaxx010101000.s3.dualstack.us-east-1.amazonaws.com/SAT/verificacion/captcha.xml", destinationFilename:@"C:\Jaeger\Jaeger.Catalogos\Captcha.xml", importer: typeof(Update.Importers.StandarImporter)) { AllowUpdate = true },
 
                 //new ConstantOrigin("CCE 2.0 - Claves de pedimento", $"{common}/c_ClavePedimento20.xls"),
                 //new ConstantOrigin("CCE 2.0 - Colonias", $"{common}/c_Colonia20.xls"),

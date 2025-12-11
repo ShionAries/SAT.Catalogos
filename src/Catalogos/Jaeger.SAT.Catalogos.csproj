@@ -593,6 +593,7 @@
     <Compile Include="Update\Importers\Ret20\TipoDividendoOUtilidadDistribuidaInjector.cs" />
     <Compile Include="Update\Importers\Ret20\TipoImpuestoInjector.cs" />
     <Compile Include="Update\Importers\Ret20\TipoPagoRetencionInjector.cs" />
+    <Compile Include="Update\Importers\StandarImporter.cs" />
     <Compile Include="Update\Injectors.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
