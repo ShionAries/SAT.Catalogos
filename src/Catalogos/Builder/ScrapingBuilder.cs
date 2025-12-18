@@ -3,6 +3,9 @@ using Jaeger.SAT.Catalogos.Scraping.Helpers;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Builder {
+    /// <summary>
+    /// clase para constructor de servicios de scraping
+    /// </summary>
     public class ScrapingBuilder : ConfigurationService, IScrapingBuilder, IScrapingOriginServiceBuilder, IScrapingReviewServiceBuilder, IScrapingServiceUpgraderBuilder {
         #region declaraciones
         private ScrapingReviewer scrapingReviewer;
@@ -12,6 +15,9 @@ namespace Jaeger.SAT.Catalogos.Builder {
         #endregion
 
         #region constructor
+        /// <summary>
+        /// constructor
+        /// </summary>
         public ScrapingBuilder() : base() {
             this.Configuration = ConfigurationService.ConfigurationDefault();
             this.Gateway = new ResourcesGateway();
@@ -36,6 +42,9 @@ namespace Jaeger.SAT.Catalogos.Builder {
         #endregion
 
         #region propiedades
+        /// <summary>
+        /// obtener o establecer gateway de recursos
+        /// </summary>
         public IResourcesGateway Gateway { get; set; }
         #endregion
 

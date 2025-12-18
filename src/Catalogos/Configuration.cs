@@ -17,6 +17,11 @@ namespace Jaeger.SAT.Catalogos {
             this.TemporaryFolder = @"C:\Jaeger\Jaeger.Temporal";
         }
 
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <param name="workingFolder"></param>
         public Configuration(string fileName = "origins.json", string workingFolder = @"C:\Jaeger\Jaeger.Temporal") {
             FileName = fileName;
             WorkingFolder = workingFolder;

@@ -15,6 +15,9 @@ namespace Jaeger.SAT.Catalogos {
             this.Origins = this.Default();
         }
 
+        /// <summary>
+        /// obtener o establecer lista de origenes de datos
+        /// </summary>
         public List<IOrigin> Origins { get; set; }
 
         protected List<IOrigin> Default() {
