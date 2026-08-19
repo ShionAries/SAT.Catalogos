@@ -61,6 +61,9 @@
     <Compile Include="ControlLayout.cs" />
     <Compile Include="IConfiguration.cs" />
     <Compile Include="Repository\Abstracts\ClaveBaseVigenciaSingle.cs" />
+    <Compile Include="Repository\CApocrifo\CorreoApocrifo.cs" />
+    <Compile Include="Repository\CApocrifo\CorreoApocrifoRepository.cs" />
+    <Compile Include="Repository\CApocrifo\ICorreoApocrifoRepository.cs" />
     <Compile Include="Repository\Ccp31\CodigoTransporteAereoRepository.cs" />
     <Compile Include="Repository\Ccp31\ColoniaRepository.cs" />
     <Compile Include="Repository\Ccp31\CondicionesEspecialesRepository.cs" />
@@ -455,6 +458,7 @@
     <Compile Include="Update\Importers\Articulo69Importer.cs" />
     <Compile Include="Update\Importers\Articulo69\Firmes.cs" />
     <Compile Include="Update\Importers\Articulo69\NoLocalizados.cs" />
+    <Compile Include="Update\Importers\CApocrifo\CorreoApocrifoInjector.cs" />
     <Compile Include="Update\Importers\CartaPorte31Importer.cs" />
     <Compile Include="Update\Importers\CartaPorte30Importer.cs" />
     <Compile Include="Update\Importers\Ccp31\ClaveColoniaInjector.cs" />
@@ -564,6 +568,7 @@
     <Compile Include="Update\Importers\Cfdi40\UsoCFDIInjector.cs" />
     <Compile Include="Update\Importers\Cfdi40\TipoComprobanteInjector.cs" />
     <Compile Include="Update\Importers\Cfdi40\FormaDePagoInjector.cs" />
+    <Compile Include="Update\Importers\CorreoApocrifoImporter.cs" />
     <Compile Include="Update\Importers\IImporter.cs" />
     <Compile Include="Update\Importers\Nom12\EstadosInjector.cs" />
     <Compile Include="Update\Importers\Nomina12Importer.cs" />
