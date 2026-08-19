@@ -2,24 +2,33 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Jaeger.SAT.Catalogos.Repository.CApocrifo;
 using Jaeger.SAT.Catalogos.Update.Abstracts;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers.CApocrifo {
-    internal class CorreoApocrifoInjector : AbstractInjector, IInjector {
-        public CorreoApocrifoInjector(DataTable dataTable) : base(dataTable) {
-            this.SkipRows = 0;
+    internal class CorreoApocrifoInjector : IInjector {
+        protected internal ICorreoApocrifoRepository _Repository;
+        protected internal List<CorreoApocrifo> _DataTable;
+
+        public CorreoApocrifoInjector(List<CorreoApocrifo> dataTable) : base() {
+            this._DataTable = dataTable;
         }
 
-        protected override void CheckHeaders() {
-            this._HeadersMapper = new Dictionary<string, string>();
-            this._HeadersMapper["correo"] = "Correo";
+        public int Inject() {
+            this.CreateRepository();
+            return 0;
         }
 
-        protected override void CreateRepository() {
-            this._Repository = new CorreoApocrifoRepository() { LastUpdate = this.LastUpdate };
+        protected virtual void CreateRepository() {
+            this._Repository = new CorreoApocrifoRepository {
+                LastUpdate = DateTime.Now,
+                Items = this._DataTable
+            };
+            this._Repository.Save();
+            Console.WriteLine($"Se inyectaron {this._Repository.Items.Count()} registros en {this._DataTable}");
         }
     }
 }

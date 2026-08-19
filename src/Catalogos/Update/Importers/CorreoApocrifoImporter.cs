@@ -12,10 +12,12 @@ using System.Xml.Linq;
 using Jaeger.SAT.Catalogos.Helpers;
 using Jaeger.SAT.Catalogos.Repository.CApocrifo;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
+using Jaeger.SAT.Catalogos.Update.Importers.CApocrifo;
 
 namespace Jaeger.SAT.Catalogos.Update.Importers {
     public class CorreoApocrifoImporter : StandarImporter, IImporter {
-        private string _FileName = "lista_correos_apocrifos.aspx";
+        private string _FileName = "scripts_correos2.js";
+
         private static readonly Regex ObjectBlockRegex = new Regex(
             @"\{[^{}]*\}",
             RegexOptions.Compiled | RegexOptions.Singleline);
@@ -51,13 +53,16 @@ namespace Jaeger.SAT.Catalogos.Update.Importers {
         }
 
         public new void Import() {
+            var d2 = new List<CorreoApocrifo>();
             if (this.CheckFile()) {
                 var stream = FileService.ReadFileStrem(this.GetFullPath());
                 using (StreamReader reader = new StreamReader(stream, Encoding.UTF8)) {
                     var d0 = reader.ReadToEnd();
-                    var d1 = ParseJsObjects(d0);
+                    d2 = ParseJsObjects(d0).ToList();
                 }
             }
+            var injector = new CorreoApocrifoInjector(d2);
+            injector.Inject();
         }
 
         private IEnumerable<CorreoApocrifo> ParseJsObjects(string jsContent) {

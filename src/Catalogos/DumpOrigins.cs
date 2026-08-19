@@ -33,7 +33,7 @@ namespace Jaeger.SAT.Catalogos {
                 new ConstantOrigin("Artículo 69 No localizados", "https://wu1agsprosta001.blob.core.windows.net/agsc-publicaciones/Datos_abiertos/Documents_AGR/No_localizados.csv", importer:typeof(Update.Importers.Articulo69Importer)){ AllowUpdate = true },
                 new ConstantOrigin("Artículo 69-B Listado Completo", "https://wu1agsprosta001.blob.core.windows.net/agsc-publicaciones/Datos_abiertos/Documents_AGAFF/Listado_completo_69-B.csv", importer:typeof(Update.Importers.Articulo69BImporter)) { AllowUpdate = true },
                 new ConstantOrigin("Verificación CAPTCHAS", "https://xaxx010101000.s3.dualstack.us-east-1.amazonaws.com/SAT/verificacion/captcha.xml", destinationFilename:@"C:\Jaeger\Jaeger.Catalogos\Captcha.xml", importer: typeof(Update.Importers.StandarImporter)) { AllowUpdate = true },
-                new ConstantOrigin("Correos apócrifos identificados", "https://www.sat.gob.mx/minisitio/BuscadorCorreosFalsos/scripts_correos2.js",destinationFilename:@"C:\Jaeger\Jaeger.Catalogos\correos_apocrifos.aspx", importer: typeof(Update.Importers.CorreoApocrifoImporter)) { AllowUpdate = true },
+                new ConstantOrigin("Correos apócrifos identificados", "https://www.sat.gob.mx/minisitio/BuscadorCorreosFalsos/scripts_correos2.js", importer: typeof(Update.Importers.CorreoApocrifoImporter)) { AllowUpdate = true },
                 //new ConstantOrigin("CCE 2.0 - Claves de pedimento", $"{common}/c_ClavePedimento20.xls"),
                 //new ConstantOrigin("CCE 2.0 - Colonias", $"{common}/c_Colonia20.xls"),
                 //new ConstantOrigin("CCE 2.0 - Entidades o estados", $"{common}/C_Estado20.xls"),
