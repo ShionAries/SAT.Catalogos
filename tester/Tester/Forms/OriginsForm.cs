@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 using Jaeger.SAT.Catalogos.Builder;
 
-namespace Tester {
+namespace Tester.Forms {
     public partial class OriginsForm : Form {
         #region declaraciones
         private int previousIndex;
@@ -30,8 +30,12 @@ namespace Tester {
             this.Recargar.Click += this.Editar_Click;
             this.Delete.Click += this.Delete_Click;
             this.Guardar.Click += this.Guardar_Click;
-
             this.Verificar.Click += TControl_Verificar_Click;
+            this.Copiar.Click += (s, ev) => {
+                if (this.GridData.CurrentRow != null) {
+                    Clipboard.SetText(this.GridData.CurrentRow.Cells[this.GridData.CurrentCell.ColumnIndex].Value.ToString());
+                }
+            };
 
             this.Recargar.PerformClick();
         }
@@ -42,15 +46,23 @@ namespace Tester {
                 if (selected != null) {
                     var builder = ScrapingBuilder.Create().Origin(selected).Review();
                     if (selected.Status == Jaeger.SAT.Catalogos.Scraping.ValueObjects.StatusEnum.NotUpdated) {
-                        if (MessageBox.Show(this, "Existe una actualización disponible", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes) {
-                            var download = builder.Upgrader();
-                            IUpdateRepositoryBuilder update = new UpdateRepositoryBuilder();
-                            update.Origin(selected).Import();
-
+                        if (MessageBox.Show(this, "Existe una actualización disponible, ¿Quieres actualizar todos los catálogos?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes) {
+                            this.waiting = new Waiting4Form(() => {
+                                var download = builder.Upgrader();
+                                IUpdateRepositoryBuilder update = new UpdateRepositoryBuilder();
+                                update.Origin(selected).Import();
+                            }, "Cargando datos ...") {
+                                Text = ""
+                            };
+                            this.waiting.ShowDialog(this);
                         }
+                    } else if (selected.Status == Jaeger.SAT.Catalogos.Scraping.ValueObjects.StatusEnum.UpToDate) {
+                        MessageBox.Show(this, "El origen está actualizado.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    } else if (selected.Status == Jaeger.SAT.Catalogos.Scraping.ValueObjects.StatusEnum.NotFound) {
+                        MessageBox.Show(this, "No se pudo localizar el origen.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    } else {
+                        MessageBox.Show(this, "Origen no válido.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                } else {
-                    MessageBox.Show(this, "Origen no válido.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

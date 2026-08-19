@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Jaeger.SAT.Catalogos</RootNamespace>
     <AssemblyName>Jaeger.SAT.Catalogos</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -29,6 +30,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>api.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
@@ -57,6 +61,9 @@
     <Compile Include="ControlLayout.cs" />
     <Compile Include="IConfiguration.cs" />
     <Compile Include="Repository\Abstracts\ClaveBaseVigenciaSingle.cs" />
+    <Compile Include="Repository\CApocrifo\CorreoApocrifo.cs" />
+    <Compile Include="Repository\CApocrifo\CorreoApocrifoRepository.cs" />
+    <Compile Include="Repository\CApocrifo\ICorreoApocrifoRepository.cs" />
     <Compile Include="Repository\Ccp31\CodigoTransporteAereoRepository.cs" />
     <Compile Include="Repository\Ccp31\ColoniaRepository.cs" />
     <Compile Include="Repository\Ccp31\CondicionesEspecialesRepository.cs" />
@@ -444,12 +451,14 @@
     <Compile Include="Helpers\Mapping\DataNamesMapper.cs" />
     <Compile Include="Helpers\Mapping\PropertyMapHelper.cs" />
     <Compile Include="Update\IInjector.cs" />
+    <Compile Include="Update\Importers\AbstractImporter.cs" />
     <Compile Include="Update\Importers\AbstractXlsImporter.cs" />
     <Compile Include="Update\Importers\Articulo69BImporter.cs" />
     <Compile Include="Update\Importers\Articulo69B\ListadoCompletoInjector.cs" />
     <Compile Include="Update\Importers\Articulo69Importer.cs" />
     <Compile Include="Update\Importers\Articulo69\Firmes.cs" />
     <Compile Include="Update\Importers\Articulo69\NoLocalizados.cs" />
+    <Compile Include="Update\Importers\CApocrifo\CorreoApocrifoInjector.cs" />
     <Compile Include="Update\Importers\CartaPorte31Importer.cs" />
     <Compile Include="Update\Importers\CartaPorte30Importer.cs" />
     <Compile Include="Update\Importers\Ccp31\ClaveColoniaInjector.cs" />
@@ -559,6 +568,7 @@
     <Compile Include="Update\Importers\Cfdi40\UsoCFDIInjector.cs" />
     <Compile Include="Update\Importers\Cfdi40\TipoComprobanteInjector.cs" />
     <Compile Include="Update\Importers\Cfdi40\FormaDePagoInjector.cs" />
+    <Compile Include="Update\Importers\CorreoApocrifoImporter.cs" />
     <Compile Include="Update\Importers\IImporter.cs" />
     <Compile Include="Update\Importers\Nom12\EstadosInjector.cs" />
     <Compile Include="Update\Importers\Nomina12Importer.cs" />
@@ -589,11 +599,15 @@
     <Compile Include="Update\Importers\Ret20\TipoDividendoOUtilidadDistribuidaInjector.cs" />
     <Compile Include="Update\Importers\Ret20\TipoImpuestoInjector.cs" />
     <Compile Include="Update\Importers\Ret20\TipoPagoRetencionInjector.cs" />
+    <Compile Include="Update\Importers\StandarImporter.cs" />
     <Compile Include="Update\Injectors.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="api.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace Tester {
+namespace Tester.Forms {
     /// <summary>
     /// Displays a window telling the user to wait while a process is executing.
     /// </summary>

@@ -23,6 +23,9 @@ namespace Jaeger.SAT.Catalogos {
             Configuration = new Configuration();
         }
 
+        /// <summary>
+        /// obtener o establecer control de layout
+        /// </summary>
         public ControlLayout Control { get; set; }
 
         /// <summary>
@@ -58,6 +61,10 @@ namespace Jaeger.SAT.Catalogos {
         }
 
         #region builder
+        /// <summary>
+        /// obtener ruta completa del archivo de control
+        /// </summary>
+        /// <returns></returns>
         protected string BuildPath() {
             return Path.Combine(Configuration.WorkingFolder, Configuration.FileName);
         }
@@ -99,3 +106,4 @@ namespace Jaeger.SAT.Catalogos {
         #endregion
     }
 }
+    

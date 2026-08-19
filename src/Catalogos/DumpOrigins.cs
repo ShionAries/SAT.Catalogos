@@ -15,21 +15,25 @@ namespace Jaeger.SAT.Catalogos {
             this.Origins = this.Default();
         }
 
+        /// <summary>
+        /// obtener o establecer lista de origenes de datos
+        /// </summary>
         public List<IOrigin> Origins { get; set; }
 
         protected List<IOrigin> Default() {
             return new List<IOrigin>() {
-                new ScrapingOrigin("CFDI 4.0", "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/anexo_20.htm", "cfdi_40.xls", "Catálogos CFDI Versión 4.0", importer: typeof(Update.Importers.Cfdi40Importer)) { AllowUpdate = false },
-                new ConstantOrigin("Nóminas 1.2", $"{common}/catNomina.xls", importer: typeof(Update.Importers.Nomina12Importer)){ AllowUpdate = false },
-                new ConstantOrigin("Nóminas - Estados", $"{common}/C_Estado.xls", null, "nominas_estados.xls", importer: typeof(Update.Importers.NominaEstadoImporter)){ AllowUpdate = false },
-                new ConstantOrigin("REP", $"{common}/catPagos.xls", importer: typeof(Update.Importers.RecepcionPago20Importer)) { AllowUpdate = false },
-                new ScrapingOrigin("RET 2.0", "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/CFDI_retenciones.htm", "ret_20.xls", "Catálogos", importer: typeof(Update.Importers.Retencion20Importer)){ AllowUpdate = false },
-                //new ConstantOrigin("CCP 2.0 - Carta Porte 2.0", $"{common}/CatalogosCartaPorte20.xls", importer : typeof(Update.Importers.CartaPorte20Importer)),
-                new ConstantOrigin("CCP 3.0 - Carta Porte 3.0", $"{common}/CatalogosCartaPorte30.xls", importer: typeof(Update.Importers.CartaPorte30Importer)) { AllowUpdate = false },
-                new ConstantOrigin("CCP 3.1 - Carta Porte 3.1", $"{common}/CatalogosCartaPorte31.xls", importer: typeof(Update.Importers.CartaPorte31Importer)) { AllowUpdate = false },
-                new ConstantOrigin("Artículo 69 No localizados", "http://omawww.sat.gob.mx/cifras_sat/Documents/No localizados.csv", importer:typeof(Update.Importers.Articulo69Importer)){ AllowUpdate = true },
-                new ConstantOrigin("Artículo 69-B Listado Completo", "http://omawww.sat.gob.mx/cifras_sat/Documents/Listado_Completo_69-B.csv", importer:typeof(Update.Importers.Articulo69BImporter)) { AllowUpdate = true },
-
+                //new ScrapingOrigin("CFDI 4.0", "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/anexo_20.htm", "cfdi_40.xls", "Catálogos CFDI Versión 4.0", importer: typeof(Update.Importers.Cfdi40Importer)) { AllowUpdate = false },
+                //new ConstantOrigin("Nóminas 1.2", $"{common}/catNomina.xls", importer: typeof(Update.Importers.Nomina12Importer)){ AllowUpdate = false },
+                //new ConstantOrigin("Nóminas - Estados", $"{common}/C_Estado.xls", null, "nominas_estados.xls", importer: typeof(Update.Importers.NominaEstadoImporter)){ AllowUpdate = false },
+                //new ConstantOrigin("REP", $"{common}/catPagos.xls", importer: typeof(Update.Importers.RecepcionPago20Importer)) { AllowUpdate = false },
+                //new ScrapingOrigin("RET 2.0", "http://omawww.sat.gob.mx/tramitesyservicios/Paginas/CFDI_retenciones.htm", "ret_20.xls", "Catálogos", importer: typeof(Update.Importers.Retencion20Importer)){ AllowUpdate = false },
+                ////new ConstantOrigin("CCP 2.0 - Carta Porte 2.0", $"{common}/CatalogosCartaPorte20.xls", importer : typeof(Update.Importers.CartaPorte20Importer)),
+                //new ConstantOrigin("CCP 3.0 - Carta Porte 3.0", $"{common}/CatalogosCartaPorte30.xls", importer: typeof(Update.Importers.CartaPorte30Importer)) { AllowUpdate = false },
+                //new ConstantOrigin("CCP 3.1 - Carta Porte 3.1", $"{common}/CatalogosCartaPorte31.xls", importer: typeof(Update.Importers.CartaPorte31Importer)) { AllowUpdate = false },
+                new ConstantOrigin("Artículo 69 No localizados", "https://wu1agsprosta001.blob.core.windows.net/agsc-publicaciones/Datos_abiertos/Documents_AGR/No_localizados.csv", importer:typeof(Update.Importers.Articulo69Importer)){ AllowUpdate = true },
+                new ConstantOrigin("Artículo 69-B Listado Completo", "https://wu1agsprosta001.blob.core.windows.net/agsc-publicaciones/Datos_abiertos/Documents_AGAFF/Listado_completo_69-B.csv", importer:typeof(Update.Importers.Articulo69BImporter)) { AllowUpdate = true },
+                new ConstantOrigin("Verificación CAPTCHAS", "https://xaxx010101000.s3.dualstack.us-east-1.amazonaws.com/SAT/verificacion/captcha.xml", destinationFilename:@"C:\Jaeger\Jaeger.Catalogos\Captcha.xml", importer: typeof(Update.Importers.StandarImporter)) { AllowUpdate = true },
+                new ConstantOrigin("Correos apócrifos identificados", "https://www.sat.gob.mx/minisitio/BuscadorCorreosFalsos/scripts_correos2.js", importer: typeof(Update.Importers.CorreoApocrifoImporter)) { AllowUpdate = true },
                 //new ConstantOrigin("CCE 2.0 - Claves de pedimento", $"{common}/c_ClavePedimento20.xls"),
                 //new ConstantOrigin("CCE 2.0 - Colonias", $"{common}/c_Colonia20.xls"),
                 //new ConstantOrigin("CCE 2.0 - Entidades o estados", $"{common}/C_Estado20.xls"),

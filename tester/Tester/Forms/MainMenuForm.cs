@@ -5,11 +5,11 @@ using System.Windows.Forms;
 using Jaeger.SAT.Catalogos;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
-namespace Tester {
+namespace Tester.Forms {
     public partial class MainMenuForm : Form {
         private IOriginService Service;
         private Panel leftBorderBtn;
-        private Button currentBtn;
+        private Button currentButton;
         private Form currentChildForm;
 
         private struct RGBColors {
@@ -37,35 +37,36 @@ namespace Tester {
         private void MainMenuForm_Load(object sender, EventArgs e) {
             this.Service = new OriginService();
             this.ControlBtn.PerformClick();
+            this.VersionLabel.Text = $"Version {Application.ProductVersion}";
         }
 
         private void ActiveButton(object sender, Color color) {
             if (sender != null) {
                 DisableButton();
-                currentBtn = sender as Button;
-                currentBtn.BackColor = SystemColors.Control;
-                currentBtn.ForeColor = color;
-                currentBtn.TextAlign = ContentAlignment.MiddleCenter;
-                currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
-                currentBtn.ImageAlign = ContentAlignment.MiddleCenter;
+                currentButton = sender as Button;
+                currentButton.BackColor = SystemColors.Control;
+                currentButton.ForeColor = color;
+                currentButton.TextAlign = ContentAlignment.MiddleCenter;
+                currentButton.TextImageRelation = TextImageRelation.TextBeforeImage;
+                currentButton.ImageAlign = ContentAlignment.MiddleCenter;
 
                 this.leftBorderBtn.BackColor = color;
-                this.leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
+                this.leftBorderBtn.Location = new Point(0, currentButton.Location.Y);
                 this.leftBorderBtn.Visible = true;
                 this.leftBorderBtn.BringToFront();
 
-                this.iconCurrentChildForm.Image = currentBtn.Image;
+                this.iconCurrentChildForm.Image = currentButton.Image;
                 this.iconCurrentChildForm.ForeColor = color;
             }
         }
 
         private void DisableButton() {
-            if (currentBtn != null) {
-                currentBtn.BackColor = SystemColors.ControlDark;
-                currentBtn.ForeColor = SystemColors.ControlText;
-                currentBtn.TextAlign = ContentAlignment.MiddleLeft;
-                currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
-                currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            if (currentButton != null) {
+                currentButton.BackColor = SystemColors.ControlDark;
+                currentButton.ForeColor = SystemColors.ControlText;
+                currentButton.TextAlign = ContentAlignment.MiddleLeft;
+                currentButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+                currentButton.ImageAlign = ContentAlignment.MiddleLeft;
             }
         }
 
@@ -116,11 +117,12 @@ namespace Tester {
 
         private void ConfiguracionBtn_Click(object sender, EventArgs e) {
             ActiveButton(sender, RGBColors.color4);
-            OpenChildForm(new ConfiguracionForm());
+            OpenChildForm(new ConfiguracionForm(this.Service));
         }
 
         private void ExitBtn_Click(object sender, EventArgs e) {
-            this.Close();
+            if (MessageBox.Show("¿Desea salir de la aplicación?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                this.Close();
         }
 
         private void panelTitleBar_MouseDown(object sender, MouseEventArgs e) {
@@ -131,6 +133,6 @@ namespace Tester {
         [DllImport("user32.DLL")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL")]
-        private extern static void SendMessage(System.IntPtr hWnd,int Msg,int wParam,int lParam);
+        private extern static void SendMessage(System.IntPtr hWnd, int Msg, int wParam, int lParam);
     }
 }

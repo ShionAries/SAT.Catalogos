@@ -1,4 +1,4 @@
-﻿namespace Tester {
+﻿namespace Tester.Forms {
     partial class MainMenuForm {
         /// <summary>
         /// Required designer variable.
@@ -38,11 +38,14 @@
             this.iconCurrentChildForm = new System.Windows.Forms.PictureBox();
             this.panelShadow = new System.Windows.Forms.Panel();
             this.panelDesktop = new System.Windows.Forms.Panel();
+            this.statusBar = new System.Windows.Forms.StatusStrip();
+            this.VersionLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BtnHome)).BeginInit();
             this.panelTitleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).BeginInit();
+            this.statusBar.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -62,6 +65,7 @@
             // 
             // SalirBtn
             // 
+            this.SalirBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.SalirBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.SalirBtn.FlatAppearance.BorderSize = 0;
             this.SalirBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -240,15 +244,33 @@
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(225, 70);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(789, 406);
+            this.panelDesktop.Size = new System.Drawing.Size(789, 384);
             this.panelDesktop.TabIndex = 3;
+            // 
+            // statusBar
+            // 
+            this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.VersionLabel});
+            this.statusBar.Location = new System.Drawing.Point(225, 454);
+            this.statusBar.Name = "statusBar";
+            this.statusBar.Size = new System.Drawing.Size(789, 22);
+            this.statusBar.TabIndex = 0;
+            this.statusBar.Text = "statusStrip1";
+            // 
+            // VersionLabel
+            // 
+            this.VersionLabel.Name = "VersionLabel";
+            this.VersionLabel.Size = new System.Drawing.Size(29, 17);
+            this.VersionLabel.Text = "Ver.:";
             // 
             // MainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.SalirBtn;
             this.ClientSize = new System.Drawing.Size(1019, 481);
             this.Controls.Add(this.panelDesktop);
+            this.Controls.Add(this.statusBar);
             this.Controls.Add(this.panelShadow);
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelMenu);
@@ -263,7 +285,10 @@
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).EndInit();
+            this.statusBar.ResumeLayout(false);
+            this.statusBar.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -283,5 +308,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label HeaderLabel;
         private System.Windows.Forms.Button SalirBtn;
+        private System.Windows.Forms.StatusStrip statusBar;
+        private System.Windows.Forms.ToolStripStatusLabel VersionLabel;
     }
 }

@@ -225,9 +225,11 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
             }
 
             using (Stream oStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(string.Concat("Jaeger.SAT.Catalogos.Resources.", nameResource + ".zip"))) {
-                var d = Unzip(ReadFully(oStream));
-                Encoding utf8WithoutBom = new UTF8Encoding(false);
-                File.WriteAllText(fileName, d, utf8WithoutBom);
+                if (oStream != null) {
+                    var data = Unzip(ReadFully(oStream));
+                    Encoding utf8WithoutBom = new UTF8Encoding(false);
+                    File.WriteAllText(fileName, data, utf8WithoutBom);
+                }
             }
 
             return File.Exists(fileName);

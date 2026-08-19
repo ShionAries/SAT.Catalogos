@@ -1,4 +1,4 @@
-﻿namespace Tester {
+﻿namespace Tester.Forms {
     partial class OriginsForm {
         /// <summary>
         /// Required designer variable.
@@ -41,8 +41,9 @@
             this.TControl = new System.Windows.Forms.ToolStrip();
             this.Agregar = new System.Windows.Forms.ToolStripButton();
             this.Delete = new System.Windows.Forms.ToolStripButton();
-            this.Guardar = new System.Windows.Forms.ToolStripButton();
             this.Recargar = new System.Windows.Forms.ToolStripButton();
+            this.Guardar = new System.Windows.Forms.ToolStripButton();
+            this.Copiar = new System.Windows.Forms.ToolStripMenuItem();
             this.OriginisGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridData)).BeginInit();
             this.Contextual.SuspendLayout();
@@ -129,11 +130,12 @@
             // Contextual
             // 
             this.Contextual.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Copiar,
             this.Verificar,
             this.Descargar,
             this.Actualizar});
             this.Contextual.Name = "Contextual";
-            this.Contextual.Size = new System.Drawing.Size(127, 70);
+            this.Contextual.Size = new System.Drawing.Size(127, 92);
             // 
             // Verificar
             // 
@@ -182,6 +184,14 @@
             this.Delete.Size = new System.Drawing.Size(74, 22);
             this.Delete.Text = "Remover";
             // 
+            // Recargar
+            // 
+            this.Recargar.Image = global::Tester.Properties.Resources.refresh_16px;
+            this.Recargar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Recargar.Name = "Recargar";
+            this.Recargar.Size = new System.Drawing.Size(73, 22);
+            this.Recargar.Text = "Recargar";
+            // 
             // Guardar
             // 
             this.Guardar.Image = global::Tester.Properties.Resources.save_16px;
@@ -190,13 +200,11 @@
             this.Guardar.Size = new System.Drawing.Size(69, 22);
             this.Guardar.Text = "Guardar";
             // 
-            // Recargar
+            // Copiar
             // 
-            this.Recargar.Image = global::Tester.Properties.Resources.refresh_16px;
-            this.Recargar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Recargar.Name = "Recargar";
-            this.Recargar.Size = new System.Drawing.Size(73, 22);
-            this.Recargar.Text = "Recargar";
+            this.Copiar.Name = "Copiar";
+            this.Copiar.Size = new System.Drawing.Size(126, 22);
+            this.Copiar.Text = "Copiar";
             // 
             // OriginsForm
             // 
@@ -237,5 +245,6 @@
         private System.Windows.Forms.ToolStripMenuItem Descargar;
         private System.Windows.Forms.ToolStripMenuItem Actualizar;
         private System.Windows.Forms.ToolStripButton Recargar;
+        private System.Windows.Forms.ToolStripMenuItem Copiar;
     }
 }

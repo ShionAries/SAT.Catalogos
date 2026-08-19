@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.8.34525.116
+# Visual Studio Version 18
+VisualStudioVersion = 18.9.12023.133 insiders
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tester", "Tester\Tester.csproj", "{E4E3D1F9-BC74-4111-84CC-C2997C41D648}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jaeger.SAT.Catalogos", "..\src\Catalogos\Jaeger.SAT.Catalogos.csproj", "{994F8861-7561-4751-A647-6DBA45DE2676}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jaeger.SAT.Catalogos.Prueba", "Jaeger.SAT.Catalogos.Prueba\Jaeger.SAT.Catalogos.Prueba.csproj", "{31CC4CDB-C8A2-4D68-9211-18AD7649FCB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{994F8861-7561-4751-A647-6DBA45DE2676}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{994F8861-7561-4751-A647-6DBA45DE2676}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{994F8861-7561-4751-A647-6DBA45DE2676}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31CC4CDB-C8A2-4D68-9211-18AD7649FCB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31CC4CDB-C8A2-4D68-9211-18AD7649FCB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31CC4CDB-C8A2-4D68-9211-18AD7649FCB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31CC4CDB-C8A2-4D68-9211-18AD7649FCB9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

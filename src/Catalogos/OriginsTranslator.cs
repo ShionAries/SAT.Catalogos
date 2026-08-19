@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
+using System.Collections.Generic;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 using Jaeger.SAT.Catalogos.Scraping.Entities;
-using System.Linq;
 
 namespace Jaeger.SAT.Catalogos {
+    /// <summary>
+    /// clase para traduccion de origenes
+    /// </summary>
     public class OriginsTranslator {
         private bool isDefault = false;
 
@@ -22,6 +25,11 @@ namespace Jaeger.SAT.Catalogos {
         }
 
         #region metodos publicos
+        /// <summary>
+        /// metodo para obtener origenes desde layouts
+        /// </summary>
+        /// <param name="layouts"></param>
+        /// <returns></returns>
         protected List<IOrigin> OriginFromLayout(List<OriginLayout> layouts) {
             var dump = new DumpOrigins().Origins;
             if (layouts == null) {
@@ -41,6 +49,11 @@ namespace Jaeger.SAT.Catalogos {
             return dump;
         }
 
+        /// <summary>
+        /// metodo para obtener layout desde origen
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         protected IOrigin OriginFromLayout(OriginLayout item) {
             if (item.Type.ToLower() == typeof(ConstantOrigin).Name.ToLower()) {
                 return ConstantOriginFromLayout(item);
@@ -50,6 +63,11 @@ namespace Jaeger.SAT.Catalogos {
             return null;
         }
 
+        /// <summary>
+        /// metodo para obtener layouts desde origenes
+        /// </summary>
+        /// <param name="origins"></param>
+        /// <returns></returns>
         protected List<OriginLayout> OriginToLayout(List<IOrigin> origins) {
             var layouts = new List<OriginLayout>();
             foreach (var origin in origins) {
@@ -60,6 +78,11 @@ namespace Jaeger.SAT.Catalogos {
         #endregion
 
         #region metodos privados
+        /// <summary>
+        /// metodo para obtener layout desde origen
+        /// </summary>
+        /// <param name="origin"></param>
+        /// <returns></returns>
         private OriginLayout OriginToLayout(IOrigin origin) {
             return new OriginLayout {
                 DestinationFilename = origin.DestinationFilename,
@@ -73,6 +96,11 @@ namespace Jaeger.SAT.Catalogos {
             };
         }
 
+        /// <summary>
+        /// metodo para obtener origen constante desde layout
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         private IOrigin ConstantOriginFromLayout(OriginLayout item) {
             return new ConstantOrigin() {
                 DestinationFilename = item.DestinationFilename,
@@ -85,6 +113,11 @@ namespace Jaeger.SAT.Catalogos {
             };
         }
 
+        /// <summary>
+        /// metodo para obtener origen scraping desde layout
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         private IOrigin ScrapingOriginFromLayout(OriginLayout item) {
             return new ScrapingOrigin() {
                 DestinationFilename = item.DestinationFilename,

@@ -5,10 +5,11 @@ using System.Reflection;
 using System.Windows.Forms;
 using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
-namespace Tester {
+namespace Tester.Forms {
     public partial class RepositoryTestForm : Form {
         private readonly Assembly assembly = Assembly.Load("Jaeger.SAT.Catalogos");
         private IRepositoryGeneric GeneralRepository;
+
         public RepositoryTestForm() {
             InitializeComponent();
         }
@@ -24,10 +25,10 @@ namespace Tester {
                 .Where(it => it.Namespace != null)
                 .Where(it => it.Namespace.Contains("Jaeger.SAT.Catalogos.Repository"))
                 .Where(it=> it.GetInterfaces().Contains(interfaceType))
-                .OrderBy(it => it.Name).ToList();
+                .OrderBy(it => it.FullName).ToList();
 
             this.cboRepositorio.DataSource = repositorios;
-            this.cboRepositorio.DisplayMember = "Name";
+            this.cboRepositorio.DisplayMember = "FullName";
             this.cboRepositorio.ValueMember = "FullName";
         }
 

@@ -61,3 +61,5 @@ dkms.conf
 /tester/Tester/bin
 /tester/Tester/obj
 /src/.vs
+/tester/Jaeger.SAT.Catalogos.Prueba/obj
+/tester/Jaeger.SAT.Catalogos.Prueba/bin

@@ -1,4 +1,4 @@
-﻿namespace Tester {
+﻿namespace Tester.Forms {
     partial class RepositoryTestForm {
         /// <summary>
         /// Required designer variable.
@@ -37,17 +37,19 @@
             // 
             // cboRepositorio
             // 
+            this.cboRepositorio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboRepositorio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboRepositorio.FormattingEnabled = true;
-            this.cboRepositorio.Location = new System.Drawing.Point(78, 17);
+            this.cboRepositorio.Location = new System.Drawing.Point(78, 12);
             this.cboRepositorio.Name = "cboRepositorio";
-            this.cboRepositorio.Size = new System.Drawing.Size(253, 21);
+            this.cboRepositorio.Size = new System.Drawing.Size(625, 21);
             this.cboRepositorio.TabIndex = 4;
             // 
             // Originlabel
             // 
             this.Originlabel.AutoSize = true;
-            this.Originlabel.Location = new System.Drawing.Point(9, 21);
+            this.Originlabel.Location = new System.Drawing.Point(9, 16);
             this.Originlabel.Name = "Originlabel";
             this.Originlabel.Size = new System.Drawing.Size(63, 13);
             this.Originlabel.TabIndex = 3;
@@ -55,7 +57,8 @@
             // 
             // Cargar
             // 
-            this.Cargar.Location = new System.Drawing.Point(337, 16);
+            this.Cargar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Cargar.Location = new System.Drawing.Point(709, 11);
             this.Cargar.Name = "Cargar";
             this.Cargar.Size = new System.Drawing.Size(75, 23);
             this.Cargar.TabIndex = 5;
@@ -102,8 +105,10 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(515, 16);
+            this.label1.Location = new System.Drawing.Point(550, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 13);
             this.label1.TabIndex = 0;

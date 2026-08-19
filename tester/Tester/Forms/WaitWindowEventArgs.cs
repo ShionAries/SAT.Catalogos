@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Tester {
+namespace Tester.Forms {
     /// <summary>
     /// Provides data for the WaitWindow events.
     /// </summary>

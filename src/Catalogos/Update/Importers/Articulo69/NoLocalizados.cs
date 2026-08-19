@@ -14,10 +14,10 @@ namespace Jaeger.SAT.Catalogos.Update.Importers.Articulo69 {
         protected override void CheckHeaders() {
             this._HeadersMapper = new Dictionary<string, string>() {
                 { "RFC", "RFC" },
-                { "RAZÓN SOCIAL", "RazonSocial" },
+                { "RAZON SOCIAL", "RazonSocial" },
                 { "TIPO PERSONA", "TipoPersona" },
                 { "SUPUESTO", "Supuesto" },
-                { "FECHAS DE PRIMERA PUBLICACION", "FechaPrimeraPublicacion" },
+                { "FECHA DE PRIMERA PUBLICACION", "FechaPrimeraPublicacion" },
                 { "ENTIDAD FEDERATIVA", "EntidadFederativa" }
             };
 

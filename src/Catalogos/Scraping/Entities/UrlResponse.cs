@@ -92,11 +92,44 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
             this.LastModified = response.LastModified;
             var DataStream = new MemoryStream();
             response.GetResponseStream().CopyTo((Stream)DataStream);
-            var DataReader = new StreamReader((Stream)DataStream, Encoding.Default);
-            DataStream.Position = 0;
-            this._Body = DataReader.ReadToEnd();
+            var enconder = DetectEncodingWithBOM(DataStream as MemoryStream);
+            // para el caso de que no venga especificado el charset
+            if (enconder == null) {
+                var DataReader = new StreamReader((Stream)DataStream, Encoding.UTF8);
+                DataStream.Position = 0;
+                this._Body = DataReader.ReadToEnd();
+            } else {
+                var DataReader = new StreamReader((Stream)DataStream, enconder);
+                DataStream.Position = 0;
+                this._Body = DataReader.ReadToEnd();
+            }
             return this;
         }
         #endregion
+
+        private Encoding DetectEncodingWithBOM(MemoryStream ms) {
+            // Reset stream position to the beginning
+            ms.Seek(0, SeekOrigin.Begin);
+
+            byte[] bom = new byte[4]; // Max BOM length for common encodings
+            int bytesRead = ms.Read(bom, 0, bom.Length);
+
+            if (bytesRead >= 3 && bom[0] == 0xEF && bom[1] == 0xBB && bom[2] == 0xBF) {
+                return Encoding.UTF8; // UTF-8 BOM
+            } else if (bytesRead >= 2 && bom[0] == 0xFF && bom[1] == 0xFE) {
+                return Encoding.Unicode; // UTF-16 Little Endian BOM
+            } else if (bytesRead >= 2 && bom[0] == 0xFE && bom[1] == 0xFF) {
+                return Encoding.BigEndianUnicode; // UTF-16 Big Endian BOM
+            } else if (bytesRead >= 4 && bom[0] == 0x00 && bom[1] == 0x00 && bom[2] == 0xFE && bom[3] == 0xFF) {
+                return Encoding.UTF32; // UTF-32 Little Endian BOM
+            } else if (bytesRead >= 4 && bom[0] == 0xFF && bom[1] == 0xFE && bom[2] == 0x00 && bom[3] == 0x00) {
+                return Encoding.GetEncoding(12001); // UTF-32 Big Endian BOM (codepage 12001)
+            } else if (bytesRead == 4) {
+                return Encoding.UTF8;
+            }
+
+            // No BOM found, further analysis or default encoding needed
+            return null;
+        }
     }
 }
