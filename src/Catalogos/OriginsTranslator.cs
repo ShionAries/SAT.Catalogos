@@ -38,7 +38,7 @@ namespace Jaeger.SAT.Catalogos {
                 for (int i = 0; i < dump.Count; i++) {
                     var search = layouts.Where(it => it.Hash == dump[i].GetHashCode()).FirstOrDefault();
                     if (search != null) {
-                        dump[i].AllowUpdate = search.AllowUpdate;
+                        dump[i].AllowUpdate = true;
                         if (search.LastVersion != null) {
                             dump[i].LastVersion = search.LastVersion;
                         }

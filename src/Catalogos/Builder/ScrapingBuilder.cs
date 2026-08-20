@@ -20,7 +20,7 @@ namespace Jaeger.SAT.Catalogos.Builder {
         /// </summary>
         public ScrapingBuilder() : base() {
             this.Configuration = ConfigurationService.ConfigurationDefault();
-            this.Gateway = new ResourcesGateway();
+            this.Gateway = new Resources2Gateway();
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Jaeger.SAT.Catalogos.Builder {
         /// </summary>
         /// <param name="configuration">objeto IConfiguration</param>
         public ScrapingBuilder(IConfiguration configuration) : base(configuration) {
-            this.Gateway = new ResourcesGateway();
+            this.Gateway = new Resources2Gateway();
         }
 
         /// <summary>

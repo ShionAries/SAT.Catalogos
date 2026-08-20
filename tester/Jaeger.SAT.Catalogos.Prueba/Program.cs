@@ -17,18 +17,18 @@ namespace SatScrapingTool {
             using (HttpClient client = new HttpClient()) {
                 client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64)");
 
-                ISatEmailParserService parserService = new SatJsEmailParserService(client);
+                ICorreoApocrifoParserService parserService = new CorreoApocrifoParserService(client);
 
                 try {
                     Console.WriteLine("Procesando scripts JS para mapear objetos completos...");
 
-                    IEnumerable<SatSpoofedEmailInfo> results = await parserService.GetSpoofedEmailsInfoAsync(targetUrls);
-                    List<SatSpoofedEmailInfo> resultList = results.ToList();
+                    IEnumerable<CorreoApocrifoInfo> results = await parserService.GetSpoofedEmailsInfoAsync(targetUrls);
+                    List<CorreoApocrifoInfo> resultList = results.ToList();
 
                     Console.WriteLine($"\nSe mapearon con éxito {resultList.Count} registros completos.\n");
 
                     // Mostrar los primeros 3 registros
-                    foreach (SatSpoofedEmailInfo item in resultList.Take(13)) {
+                    foreach (CorreoApocrifoInfo item in resultList.Take(13)) {
                         Console.WriteLine($"Acronym:     {item.Acronym}");
                         Console.WriteLine($"StandsFor:   {item.StandsFor}");
                         Console.WriteLine($"Description: {item.Description}");

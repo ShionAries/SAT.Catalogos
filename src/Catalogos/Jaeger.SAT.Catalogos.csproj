@@ -415,6 +415,7 @@
     <Compile Include="Helpers\LogInfoService.cs" />
     <Compile Include="OriginService.cs" />
     <Compile Include="OriginsTranslator.cs" />
+    <Compile Include="Scraping\Helpers\Resources2Gateway.cs" />
     <Compile Include="Scraping\Helpers\ResourcesGateway.cs" />
     <Compile Include="Scraping\Helpers\Reviewers.cs" />
     <Compile Include="Scraping\Helpers\ScrapingReviewer.cs" />

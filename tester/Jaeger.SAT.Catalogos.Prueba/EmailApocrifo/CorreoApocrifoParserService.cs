@@ -3,7 +3,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Jaeger.SAT.Catalogos.Prueba.EmailApocrifo {
-    public class SatJsEmailParserService : ISatEmailParserService {
+    public class CorreoApocrifoParserService : ICorreoApocrifoParserService {
         private readonly HttpClient _httpClient;
 
         private static readonly Regex ObjectBlockRegex = new Regex(
@@ -30,11 +30,11 @@ namespace Jaeger.SAT.Catalogos.Prueba.EmailApocrifo {
             @"\s+",
             RegexOptions.Compiled);
 
-        public SatJsEmailParserService(HttpClient httpClient) {
+        public CorreoApocrifoParserService(HttpClient httpClient) {
             _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
         }
 
-        public async Task<IEnumerable<SatSpoofedEmailInfo>> GetSpoofedEmailsInfoAsync(IEnumerable<string> fileUrls) {
+        public async Task<IEnumerable<CorreoApocrifoInfo>> GetSpoofedEmailsInfoAsync(IEnumerable<string> fileUrls) {
             if (fileUrls == null || !fileUrls.Any())
                 throw new ArgumentException("La colección de URLs no puede estar vacía.", nameof(fileUrls));
 
@@ -68,9 +68,9 @@ namespace Jaeger.SAT.Catalogos.Prueba.EmailApocrifo {
             }
         }
 
-        private IEnumerable<SatSpoofedEmailInfo> ParseJsObjects(string jsContent) {
+        private IEnumerable<CorreoApocrifoInfo> ParseJsObjects(string jsContent) {
             // HashSet configurado con el comparador personalizado para prevenir duplicados automáticamente
-            HashSet<SatSpoofedEmailInfo> uniqueItems = new HashSet<SatSpoofedEmailInfo>(new SatSpoofedEmailInfoComparer());
+            HashSet<CorreoApocrifoInfo> uniqueItems = new HashSet<CorreoApocrifoInfo>(new CorreoApocrifoInfoComparer());
 
             MatchCollection blockMatches = ObjectBlockRegex.Matches(jsContent);
 
@@ -82,7 +82,7 @@ namespace Jaeger.SAT.Catalogos.Prueba.EmailApocrifo {
                 string description = ExtractPropertyValue(DescriptionRegex, blockText);
 
                 if (!string.IsNullOrWhiteSpace(standsFor)) {
-                    SatSpoofedEmailInfo item = new SatSpoofedEmailInfo {
+                    CorreoApocrifoInfo item = new CorreoApocrifoInfo {
                         Acronym = acronym,
                         StandsFor = standsFor.ToLowerInvariant(),
                         Description = description

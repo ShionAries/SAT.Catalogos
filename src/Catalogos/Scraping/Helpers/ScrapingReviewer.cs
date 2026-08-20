@@ -1,4 +1,5 @@
 ﻿using System;
+using Jaeger.SAT.Catalogos.Helpers;
 using Jaeger.SAT.Catalogos.Scraping.Entities;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 using Jaeger.SAT.Catalogos.Scraping.ValueObjects;
@@ -31,7 +32,8 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
             if (!origin.HasDownloadUrl()) {
                 try {
                     origin = this.ResolveOrigin(origin as ScrapingOrigin);
-                } catch (Exception) {
+                } catch (Exception ex) {
+                    LogInfoService.Log("Review", ex.StackTrace);
                     origin.Status = StatusEnum.NotFound;
                     return origin;
                 }
@@ -47,7 +49,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Helpers {
 
             // si el recurso no coincide con la última versión
             if (!origin.HasLastVersion() || !response.DateMatch(origin.LastVersion)) {
-               origin.Status = StatusEnum.NotUpdated;
+                origin.Status = StatusEnum.NotUpdated;
                 return origin;
             }
 

@@ -1,6 +1,6 @@
 ﻿namespace Jaeger.SAT.Catalogos.Prueba.EmailApocrifo {
-    public class SatSpoofedEmailInfoComparer : IEqualityComparer<SatSpoofedEmailInfo> {
-        public bool Equals(SatSpoofedEmailInfo x, SatSpoofedEmailInfo y) {
+    public class CorreoApocrifoInfoComparer : IEqualityComparer<CorreoApocrifoInfo> {
+        public bool Equals(CorreoApocrifoInfo x, CorreoApocrifoInfo y) {
             if (ReferenceEquals(x, y))
                 return true;
             if (x is null || y is null)
@@ -10,7 +10,7 @@
             return string.Equals(x.StandsFor, y.StandsFor, StringComparison.OrdinalIgnoreCase);
         }
 
-        public int GetHashCode(SatSpoofedEmailInfo obj) {
+        public int GetHashCode(CorreoApocrifoInfo obj) {
             if (obj is null || obj.StandsFor is null)
                 return 0;
             return obj.StandsFor.ToLowerInvariant().GetHashCode();
