@@ -67,6 +67,7 @@ namespace Jaeger.SAT.Catalogos.Scraping.Entities {
         /// </summary>
         public string Body {
             get { return this._Body; }
+            set { this._Body = value; }
         }
         #endregion
 
