@@ -61,6 +61,8 @@
     <Compile Include="ControlLayout.cs" />
     <Compile Include="IConfiguration.cs" />
     <Compile Include="Repository\Abstracts\ClaveBaseVigenciaSingle.cs" />
+    <Compile Include="Repository\Abstracts\RepositoryContext.cs" />
+    <Compile Include="Repository\Abstracts\RepositoryBase.cs" />
     <Compile Include="Repository\CApocrifo\CorreoApocrifo.cs" />
     <Compile Include="Repository\CApocrifo\CorreoApocrifoRepository.cs" />
     <Compile Include="Repository\CApocrifo\ICorreoApocrifoRepository.cs" />
@@ -431,7 +433,6 @@
     <Compile Include="ConfigurationService.cs" />
     <Compile Include="Update\Abstracts\AbstractInjector.cs" />
     <Compile Include="Repository\Abstracts\Repository.cs" />
-    <Compile Include="Repository\Abstracts\RepositoryContext.cs" />
     <Compile Include="Repository\Abstracts\ClaveBase.cs" />
     <Compile Include="Repository\Abstracts\ClaveBaseVigencia.cs" />
     <Compile Include="Repository\Interfaces\IRepositoryContext.cs" />

@@ -5,113 +5,103 @@ using Newtonsoft.Json;
 
 namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
     /// <summary>
-    /// clase de catálogo base para contener información 
+    /// Clase de catálogo base para contener metadatos y colección de objetos.
     /// </summary>
-    /// <typeparam name="T">objeto clase T</typeparam>
-    public class Repository<TObject> {
-        #region variables
-        private DateTime? _LastUpdate;
-        private DateTime? _InicioVigencia;
-        private DateTime? _FinVigencia;
-        private readonly string _Builder;
+    /// <typeparam name="TObject">Tipo de objeto que contiene el catálogo.</typeparam>
+    public class Repository<TObject> : RepositoryBase {
+        #region Campos Privados
+
+        private DateTime? _inicioVigencia;
+        private DateTime? _finVigencia;
+        private DateTime? _lastUpdate;
+
         #endregion
 
-        /// <summary>
-        /// constructor
-        /// </summary>
+        #region Constructor
+
         public Repository() {
             Version = "1.0";
             Title = "Catálogo";
             Revision = "0";
-            _Builder = Assembly.GetExecutingAssembly().GetName().ToString();
+            Builder = Assembly.GetExecutingAssembly().GetName().Name;
             LastUpdate = DateTime.Now;
             Items = new List<TObject>();
         }
 
-        #region propiedades
+        #endregion
+
+        #region Propiedades
+
         /// <summary>
-        /// obtener o establecer version del catalogo
+        /// Obtiene o establece la versión del catálogo.
         /// </summary>
         [JsonProperty("ver", Order = 1)]
         public string Version { get; set; }
 
         /// <summary>
-        /// obtener o establecer titulo del catalogo
+        /// Obtiene o establece el título del catálogo.
         /// </summary>
         [JsonProperty("titulo", Order = 2)]
         public string Title { get; set; }
 
         /// <summary>
-        /// obtener o establecer numero de revision del catalogo
+        /// Obtiene o establece el número de revisión del catálogo.
         /// </summary>
         [JsonProperty("rev", Order = 3)]
         public string Revision { get; set; }
 
         /// <summary>
-        /// obtener o establecer
+        /// Obtiene o establece el ensamblado/generador del catálogo.
         /// </summary>
         [JsonProperty("builder", Order = 4)]
-        public string Builder {
-            get { return this._Builder; }
-        }
+        public string Builder { get; set; }
 
         /// <summary>
-        /// obtener o establecer fecha de inicio de vigencia del catalogo
+        /// Obtiene o establece la fecha de inicio de vigencia del catálogo.
         /// </summary>
         [JsonProperty("vigi", Order = 5)]
         public DateTime? VigenciaIni {
-            get {
-                DateTime firstGoodDate = new DateTime(1900, 1, 1);
-                if (_InicioVigencia >= firstGoodDate)
-                    return _InicioVigencia;
-                return null;
-            }
-            set {
-                _InicioVigencia = value;
-            }
+            get { return NormalizeDate(_inicioVigencia); }
+            set { _inicioVigencia = value; }
         }
 
         /// <summary>
-        /// obtener o establecer fecha de fin de vigencia
+        /// Obtiene o establece la fecha de fin de vigencia del catálogo.
         /// </summary>
         [JsonProperty("vigf", Order = 6)]
         public DateTime? VigenciaFin {
-            get {
-                DateTime firstGoodDate = new DateTime(1900, 1, 1);
-                if (_FinVigencia >= firstGoodDate)
-                    return _FinVigencia;
-                return null;
-            }
-            set {
-                _FinVigencia = value;
-            }
+            get { return NormalizeDate(_finVigencia); }
+            set { _finVigencia = value; }
         }
 
         /// <summary>
-        /// obtener o establecer fecha de actualización del catalogo
+        /// Obtiene o establece la fecha de última actualización del catálogo.
         /// </summary>
         [JsonProperty("act", Order = 7)]
         public DateTime? LastUpdate {
-            get {
-                if (_LastUpdate >= new DateTime(1900, 1, 1))
-                    return _LastUpdate;
-                return null;
-            }
-            set {
-                _LastUpdate = value;
-            }
+            get { return NormalizeDate(_lastUpdate); }
+            set { _lastUpdate = value; }
         }
 
+        /// <summary>
+        /// Colección de elementos contenidos en el catálogo.
+        /// </summary>
         [JsonProperty("items", Order = 99)]
         public List<TObject> Items { get; set; }
+
         #endregion
 
-        #region metodos publicos
-        public string ToJson(Formatting formatting = 0) {
-            // configuracion json para la serializacion
-            var conf = new JsonSerializerSettings() { NullValueHandling = NullValueHandling.Ignore, DateFormatString = "dd/MM/yyyy" };
-            return JsonConvert.SerializeObject(this, formatting, conf);
+        #region Métodos Públicos
+
+        /// <summary>
+        /// Serializa el catálogo actual a formato JSON.
+        /// </summary>
+        /// <param name="formatting">Formato de salida (Indented o None).</param>
+        /// <returns>Cadena formateada en JSON.</returns>
+        public string ToJson(Formatting formatting = Formatting.None) {
+            return JsonConvert.SerializeObject(this, formatting, _jsonSettings);
         }
+
         #endregion
     }
 }

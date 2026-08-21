@@ -1,296 +1,270 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO.Compression;
+using System.Data;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using Newtonsoft.Json;
+using Jaeger.SAT.Catalogos.Helpers.Mapping;
+using Jaeger.SAT.Catalogos.Repository.Abstracts;
+using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
-namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
+namespace Jaeger.SAT.Catalogos {
     /// <summary>
-    /// clase contexto para el manejo de catalogos diversos
+    /// Clase contexto abstracta para la gestión y persistencia de catálogos diversos.
     /// </summary>
-    /// <typeparam name="T">The type of the T.</typeparam>
-    public abstract class RepositoryContext<T> : Interfaces.IRepositoryContext<T> where T : class, new() {
-        #region declaraciones
+    /// <typeparam name="T">Tipo de entidad del catálogo.</typeparam>
+    public abstract class RepositoryContext<T> : RepositoryBase, IRepositoryContext<T> where T : class, new() {
+        #region Declaraciones
+
         protected internal bool _Recuperar = true;
         protected internal Repository<T> _Repository;
+
         #endregion
 
-        /// <summary>
-        /// constructor
-        /// </summary>
+        #region Constructor
+
         public RepositoryContext() {
             FileName = "miCatalogo.json";
             WorkingFolder = @"C:\Jaeger\Jaeger.Catalogos";
             _Repository = new Repository<T>();
         }
 
-        #region propiedades
-        /// <summary>
-        /// obtener o establecer el nombre del archivo
-        /// </summary>
-        public string FileName { get; set; }
-
-        /// <summary>
-        /// obtener o establecer la version del catalogo
-        /// </summary>
-        public string Version {
-            get {
-                return _Repository.Version;
-            }
-            set {
-                _Repository.Version = value;
-            }
-        }
-
-        /// <summary>
-        /// obtener o establecer titulo del catalogo
-        /// </summary>
-        public string Description {
-            get {
-                return _Repository.Title;
-            }
-            set {
-                _Repository.Title = value;
-            }
-        }
-
-        /// <summary>
-        /// obtener o establecer la fecha de revision
-        /// </summary>
-        public string Revision {
-            get {
-                return _Repository.Revision;
-            }
-            set {
-                _Repository.Revision = value;
-            }
-        }
-
-        /// <summary>
-        /// obtener o establecer ultima fecha de actualizacion
-        /// </summary>
-        public DateTime? LastUpdate {
-            get {
-                if (_Repository.LastUpdate >= new DateTime(1900, 1, 1))
-                    return _Repository.LastUpdate;
-                return null;
-            }
-            set { _Repository.LastUpdate = value; }
-        }
-
-        /// <summary>
-        /// obtener o establecer nombre del editor
-        /// </summary>
-        public string Builder {
-            get { return _Repository.Builder; }
-        }
-
-        /// <summary>
-        /// obtener o establecer ruta de inicial donde se encuentra el catalogo
-        /// </summary>
-        public string WorkingFolder { get; set; }
-
-        /// <summary>
-        /// obtener o establecer si el catalogo debe ser recuperado desde los recursos de la libreria
-        /// </summary>
-        public bool Recuperar {
-            get {
-                return _Recuperar;
-            }
-            set {
-                _Recuperar = value;
-            }
-        }
-
-        /// <summary>
-        /// obtener o establecer la lista de objetos
-        /// </summary>
-        public List<T> Items {
-            get {
-                return _Repository.Items;
-            }
-            set {
-                _Repository.Items = value;
-            }
-        }
         #endregion
 
-        #region metodos publicos
-        /// <summary>
-        /// busqueda de elemento
-        /// </summary>
-        /// <param name="query">indice</param>
-        /// <returns>T</returns>
+        #region Propiedades
+
+        public string FileName { get; set; }
+
+        public string Version {
+            get { return _Repository.Version; }
+            set { _Repository.Version = value; }
+        }
+
+        public string Description {
+            get { return _Repository.Title; }
+            set { _Repository.Title = value; }
+        }
+
+        public string Revision {
+            get { return _Repository.Revision; }
+            set { _Repository.Revision = value; }
+        }
+
+        public DateTime? LastUpdate {
+            get { return NormalizeDate(_Repository.LastUpdate); }
+            set { _Repository.LastUpdate = value ?? DateTime.MinValue; }
+        }
+
+        public string Builder => _Repository.Builder;
+
+        public string WorkingFolder { get; set; }
+
+        public bool Recuperar {
+            get { return _Recuperar; }
+            set { _Recuperar = value; }
+        }
+
+        public List<T> Items {
+            get { return _Repository.Items; }
+            set { _Repository.Items = value; }
+        }
+
+        #endregion
+
+        #region Métodos Públicos
+
         public abstract T Search(string query);
 
         /// <summary>
-        /// cargar la informacion de un catalogo
+        /// Carga la información del catálogo desde el archivo local o recurso embebido predeterminado.
         /// </summary>
         public virtual void Load() {
             string localName = ResolverName(FileName, FileName, true);
+
             if (File.Exists(localName)) {
-                StreamReader oStreamReader = new StreamReader(localName);
-                string valor = oStreamReader.ReadToEnd();
-                oStreamReader.Close();
-                if (valor.Length > 0) {
-                    Serializer(valor);
+                using (StreamReader reader = new StreamReader(localName, Encoding.UTF8)) {
+                    string valor = reader.ReadToEnd();
+                    if (!string.IsNullOrWhiteSpace(valor)) {
+                        Serializer(valor);
+                    }
                 }
-                if (Items == null)
-                    Items = new List<T>();
-            } else {
-                Items = new List<T>();
+            }
+
+            if (this.Items == null) {
+                this.Items = new List<T>();
             }
         }
 
+        /// <summary>
+        /// Carga la información del catálogo especificando una ruta exacta (soporta .json y .zip).
+        /// </summary>
         public virtual void Load(string fileName) {
-            var fileInfo = new FileInfo(fileName);
-            if (fileInfo.Exists) {
-                if (fileInfo.Extension.ToLower() == ".zip") {
-                    var valor = Unzip(File.ReadAllBytes(fileName));
-                    if (!string.IsNullOrEmpty(valor)) {
-                        Serializer(valor);
-                    }
-                } else if (fileInfo.Extension.ToLower() == ".json") {
-                    var valor = File.ReadAllText(fileName);
-                    if (!string.IsNullOrEmpty(valor)) {
-                        Serializer(valor);
-                    }
-                }
-            }
-        }
+            if (string.IsNullOrWhiteSpace(fileName))
+                return;
 
-        /// <summary>
-        /// cargar la informacion de un catalogo
-        /// </summary>
-        public void LoadZIP() {
-            string localName = ResolverName(FileName, FileName, true);
-            if (File.Exists(localName)) {
-                StreamReader oStreamReader = new StreamReader(localName);
-                string valor = oStreamReader.ReadToEnd();
-                oStreamReader.Close();
-                if (valor.Length > 0) {
+            FileInfo fileInfo = new FileInfo(fileName);
+            if (!fileInfo.Exists)
+                return;
+
+            string extension = fileInfo.Extension.ToLowerInvariant();
+
+            if (extension == ".zip") {
+                byte[] fileBytes = File.ReadAllBytes(fileName);
+                string valor = Unzip(fileBytes);
+                if (!string.IsNullOrEmpty(valor)) {
                     Serializer(valor);
                 }
-                if (Items == null)
-                    Items = new List<T>();
-            } else {
-                Items = new List<T>();
+            } else if (extension == ".json") {
+                string valor = File.ReadAllText(fileName, Encoding.UTF8);
+                if (!string.IsNullOrEmpty(valor)) {
+                    Serializer(valor);
+                }
+            }
+
+            if (this.Items == null) {
+                this.Items = new List<T>();
             }
         }
 
         /// <summary>
-        /// guardar los cambios del catalogo
+        /// Guarda los cambios del catálogo en formato JSON plano sin BOM.
         /// </summary>
-        public bool Save() {
-            Encoding utf8WithoutBom = new UTF8Encoding(false);
-            File.WriteAllText(ResolverName(FileName), _Repository.ToJson(), utf8WithoutBom);
-            return false;
+        public virtual bool Save() {
+            try {
+                EnsureWorkingFolderExists();
+                string destinationPath = ResolverName(FileName);
+                Encoding utf8WithoutBom = new UTF8Encoding(false);
+
+                File.WriteAllText(destinationPath, _Repository.ToJson(), utf8WithoutBom);
+                return File.Exists(destinationPath);
+            } catch {
+                return false;
+            }
         }
 
-        public bool SaveZIP() {
-            var contenido = Zip(_Repository.ToJson());
-            var nombre = Path.ChangeExtension(ResolverName(FileName), "zip");
-            File.WriteAllBytes(nombre, contenido);
-            return false;
+        /// <summary>
+        /// Guarda los cambios del catálogo comprimidos en formato ZIP.
+        /// </summary>
+        public virtual bool SaveZIP() {
+            try {
+                EnsureWorkingFolderExists();
+                byte[] contenido = Zip(_Repository.ToJson());
+                string destinationPath = Path.ChangeExtension(ResolverName(FileName), "zip");
+
+                File.WriteAllBytes(destinationPath, contenido);
+                return File.Exists(destinationPath);
+            } catch {
+                return false;
+            }
         }
 
         public int Import(List<T> items) {
-            Items = items;
+            Items = items ?? new List<T>();
             return Items.Count;
         }
 
-        public int Import(System.Data.DataTable dataTable) {
-            var mapper = new Helpers.Mapping.DataNamesMapper<T>();
+        public int Import(DataTable dataTable) {
+            if (dataTable == null) {
+                Items = new List<T>();
+                return 0;
+            }
+
+            DataNamesMapper<T> mapper = new DataNamesMapper<T>();
             Items = mapper.Map(dataTable).ToList();
             return Items.Count;
         }
+
+        public void AddLastUpdate(DateTime? lastUpdate = null) {
+            LastUpdate = lastUpdate;
+        }
+
         #endregion
 
-        #region metodos privados
-        public void AddLastUpdate(DateTime? lastUpdate = null) {
-            if (lastUpdate != null) {
-                this.LastUpdate = lastUpdate;
-            } else {
-                this.LastUpdate = null;
+        #region Métodos de Apoyo Protegidos
+
+        protected void EnsureWorkingFolderExists() {
+            if (!Directory.Exists(WorkingFolder)) {
+                Directory.CreateDirectory(WorkingFolder);
             }
         }
 
-        private bool GetResource(string nameResource, string fileName) {
-            // sino existe la carpeta la creamos
-            if (!Directory.Exists(Path.GetDirectoryName(fileName))) {
-                Directory.CreateDirectory(Path.GetDirectoryName(fileName));
+        protected virtual string ResolverName(string fileName) {
+            if (Path.IsPathRooted(fileName))
+                return fileName;
+
+            return Path.Combine(WorkingFolder, fileName);
+        }
+
+        protected virtual string ResolverName(string fileName, string fileDefault, bool resource = true) {
+            string resolvedPath = ResolverName(fileName);
+
+            if (!File.Exists(resolvedPath)) {
+                if (resource) {
+                    string defaultPath = ResolverName(fileDefault);
+                    if (!File.Exists(defaultPath)) {
+                        if (Recuperar) {
+                            if (GetResource(fileDefault, defaultPath)) {
+                                return defaultPath;
+                            }
+                        } else {
+                            Save();
+                            return defaultPath;
+                        }
+                    } else {
+                        return defaultPath;
+                    }
+                }
             }
 
-            using (Stream oStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(string.Concat("Jaeger.SAT.Catalogos.Resources.", nameResource + ".zip"))) {
+            return resolvedPath;
+        }
+
+        protected virtual bool GetResource(string nameResource, string fileName) {
+            EnsureWorkingFolderExists();
+
+            string resourcePath = $"Jaeger.SAT.Catalogos.Resources.{nameResource}.zip";
+
+            using (Stream oStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourcePath)) {
                 if (oStream != null) {
-                    var data = Unzip(ReadFully(oStream));
-                    Encoding utf8WithoutBom = new UTF8Encoding(false);
-                    File.WriteAllText(fileName, data, utf8WithoutBom);
+                    byte[] resourceData = ReadFully(oStream);
+                    string data = Unzip(resourceData);
+
+                    if (!string.IsNullOrEmpty(data)) {
+                        Encoding utf8WithoutBom = new UTF8Encoding(false);
+                        File.WriteAllText(fileName, data, utf8WithoutBom);
+                    }
                 }
             }
 
             return File.Exists(fileName);
         }
 
-        private string ResolverName(string fileName) {
-            return Path.Combine(this.WorkingFolder, fileName);
+        protected virtual void Serializer(string valor) {
+            _Repository = JsonConvert.DeserializeObject<Repository<T>>(valor, _jsonSettings) ?? new Repository<T>();
         }
 
-        private string ResolverName(string fileName, string fileDefault, bool resource = true) {
-            string localName = fileName;
-            if (File.Exists(fileName) == false) {
-                if (resource) {
-                    if (File.Exists(ResolverName(fileDefault)) == false) {
-                        if (Recuperar == true) {
-                            if (GetResource(fileDefault, ResolverName(fileDefault))) {
-                                localName = ResolverName(fileDefault);
-                            }
-                        } else {
-                            localName = ResolverName(fileDefault);
-                            Save();
-                        }
-                    } else {
-                        localName = ResolverName(fileDefault);
-                    }
-                }
-            }
-            return localName;
-        }
+        #endregion
 
-        private void Serializer(string valor) {
-            var configuration = new JsonSerializerSettings() { NullValueHandling = NullValueHandling.Ignore, DateFormatString = "dd/MM/yyyy" };
-            this._Repository = JsonConvert.DeserializeObject<Repository<T>>(valor, configuration);
-        }
+        #region Gestión de Compresión (ZIP)
 
-        #region archivo zip
-        private byte[] ReadFully(Stream input) {
-            byte[] buffer = new byte[16 * 1024];
+        protected byte[] ReadFully(Stream input) {
             using (MemoryStream ms = new MemoryStream()) {
-                int read;
-                while ((read = input.Read(buffer, 0, buffer.Length)) > 0) {
-                    ms.Write(buffer, 0, read);
-                }
+                input.CopyTo(ms);
                 return ms.ToArray();
             }
         }
 
-        /// <summary>
-        /// Zips a string into a zipped byte array.
-        /// </summary>
-        /// <param name="textToZip">The text to be zipped.</param>
-        /// <returns>byte[] representing a zipped stream</returns>
-        private byte[] Zip(string textToZip) {
-            using (var memoryStream = new MemoryStream()) {
-                using (var zipArchive = new ZipArchive(memoryStream, ZipArchiveMode.Create, true)) {
-                    var demoFile = zipArchive.CreateEntry(FileName);
+        protected byte[] Zip(string textToZip) {
+            using (MemoryStream memoryStream = new MemoryStream()) {
+                using (ZipArchive zipArchive = new ZipArchive(memoryStream, ZipArchiveMode.Create, true)) {
+                    ZipArchiveEntry entry = zipArchive.CreateEntry(FileName);
 
-                    using (var entryStream = demoFile.Open()) {
-                        using (var streamWriter = new StreamWriter(entryStream)) {
-                            streamWriter.Write(textToZip);
-                        }
+                    using (Stream entryStream = entry.Open())
+                    using (StreamWriter streamWriter = new StreamWriter(entryStream, new UTF8Encoding(false))) {
+                        streamWriter.Write(textToZip);
                     }
                 }
 
@@ -298,32 +272,25 @@ namespace Jaeger.SAT.Catalogos.Repository.Abstracts {
             }
         }
 
-        /// <summary>
-        /// Unzip a zipped byte array into a string.
-        /// </summary>
-        /// <param name="zippedBuffer">The byte array to be unzipped</param>
-        /// <returns>string representing the original stream</returns>
-        private string Unzip(byte[] zippedBuffer) {
-            using (var zippedStream = new MemoryStream(zippedBuffer)) {
-                using (var archive = new ZipArchive(zippedStream)) {
-                    var entry = archive.Entries.FirstOrDefault();
+        protected string Unzip(byte[] zippedBuffer) {
+            if (zippedBuffer == null || zippedBuffer.Length == 0)
+                return null;
 
-                    if (entry != null) {
-                        using (var unzippedEntryStream = entry.Open()) {
-                            using (var ms = new MemoryStream()) {
-                                unzippedEntryStream.CopyTo(ms);
-                                var unzippedArray = ms.ToArray();
-
-                                return Encoding.UTF8.GetString(unzippedArray);
-                            }
-                        }
+            using (MemoryStream zippedStream = new MemoryStream(zippedBuffer))
+            using (ZipArchive archive = new ZipArchive(zippedStream, ZipArchiveMode.Read)) {
+                ZipArchiveEntry entry = archive.Entries.FirstOrDefault();
+                if (entry != null) {
+                    using (Stream unzippedEntryStream = entry.Open())
+                    using (MemoryStream ms = new MemoryStream()) {
+                        unzippedEntryStream.CopyTo(ms);
+                        return Encoding.UTF8.GetString(ms.ToArray());
                     }
-
-                    return null;
                 }
             }
+
+            return null;
         }
-        #endregion
+
         #endregion
     }
 }

@@ -48,7 +48,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Interfaces {
         /// <summary>
         /// cargar la informacion de un catalogo
         /// </summary>
-        void LoadZIP();
+        //void LoadZIP();
 
         /// <summary>
         /// guardar los cambios del catalogo
