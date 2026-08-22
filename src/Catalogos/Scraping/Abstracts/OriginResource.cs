@@ -1,121 +1,140 @@
 ﻿using System;
 using System.ComponentModel;
+using Newtonsoft.Json;
 using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 using Jaeger.SAT.Catalogos.Scraping.ValueObjects;
 
 namespace Jaeger.SAT.Catalogos.Scraping.Abstracts {
     /// <summary>
-    /// clase abstracta de origen del recurso
+    /// Clase abstracta base para los orígenes de recursos.
     /// </summary>
     public abstract class OriginResource : IOrigin {
-        #region declaraciones
-        private DateTime? _LastVersion;
+        #region Constantes y Campos Privados
+
+        private static readonly DateTime MinValidDate = new DateTime(1989, 1, 1);
+        private DateTime? _lastVersion;
+
         #endregion
 
-        #region propiedades
+        #region Propiedades
+
         /// <summary>
-        /// obtener o establecer nombre del origen
+        /// Obtiene o establece el nombre del recurso de origen.
         /// </summary>
         [DisplayName("Recurso")]
         public string Name { get; set; }
 
         /// <summary>
-        /// obtener o establecer URL de consulta de la pagina
+        /// Obtiene o establece la URL de consulta de la página.
         /// </summary>
         [DisplayName("URL")]
         public string Url { get; set; }
 
         /// <summary>
-        /// obtener o establecer fecha de la ultima actualizacion del catalogo
+        /// Obtiene o establece la fecha de la última actualización del catálogo.
         /// </summary>
         [DisplayName("Actualizado")]
         public DateTime? LastVersion {
-            get {
-                if (_LastVersion > new DateTime(1989, 1, 1))
-                    return _LastVersion;
-                return null;
-            }
-            set { _LastVersion = value; }
+            get => (_lastVersion.HasValue && _lastVersion.Value > MinValidDate) ? _lastVersion : null;
+            set => _lastVersion = value;
         }
 
         /// <summary>
-        /// obtener o establecer URL de descarga del archivo
+        /// Obtiene o establece la URL de descarga del archivo.
         /// </summary>
         [DisplayName("URL de Descarga")]
         public abstract string DownloadUrl { get; set; }
 
         /// <summary>
-        /// obtener o establecer nombre del archivo de descarga
+        /// Obtiene o establece el nombre del archivo de descarga de destino.
         /// </summary>
         public string DestinationFilename { get; set; }
 
         /// <summary>
-        /// obtener o establecer texto de referencia para la busqueda del link de descarga
+        /// Obtiene o establece el texto de referencia para la búsqueda del enlace de descarga.
         /// </summary>
         [DisplayName("Búsqueda por")]
         public string LinkText { get; set; }
 
         /// <summary>
-        /// obtener o establecer si es permitida la actualizacion
+        /// Obtiene o establece un valor que indica si se permite la actualización.
         /// </summary>
         [DisplayName("Permitir")]
         public bool AllowUpdate { get; set; }
 
         /// <summary>
-        /// obtener o establecer si es permitido la edicion
+        /// Obtiene o establece un valor que indica si se permite la edición.
         /// </summary>
-        [Newtonsoft.Json.JsonIgnore]
+        [JsonIgnore]
         public bool AllowEdit { get; set; }
 
+        /// <summary>
+        /// Obtiene o establece el tipo de importador asociado al recurso.
+        /// </summary>
         [DisplayName("Importador")]
-        [Newtonsoft.Json.JsonIgnore]
+        [JsonIgnore]
         public Type Importer { get; set; }
 
         /// <summary>
-        /// obtener o establecer status del origen de recurso
+        /// Obtiene o establece el estado actual del origen.
         /// </summary>
-        [Newtonsoft.Json.JsonIgnore]
+        [JsonIgnore]
         [Browsable(false)]
         public StatusEnum Status { get; set; }
+
         #endregion
 
-        #region metodos publicos
+        #region Métodos Públicos
+
         public virtual bool HasLastVersion() {
-            return this.LastVersion != null;
+            return LastVersion.HasValue;
         }
 
         public virtual bool HasDownloadUrl() {
-            return this.DownloadUrl != "";
+            return !string.IsNullOrWhiteSpace(DownloadUrl);
         }
+
         #endregion
 
-        #region builder
+        #region Patrón Builder
+
         public virtual IOrigin WithDownloadUrl(string downloadUrl) {
-            this.DownloadUrl = downloadUrl;
+            DownloadUrl = downloadUrl;
             return this;
         }
 
         public virtual IOrigin WithLastModified(DateTime? lastModified) {
-            this.LastVersion = lastModified;
+            LastVersion = lastModified;
             return this;
         }
+
         #endregion
 
+        #region Sobrescritura de Igualdad
+
         public override bool Equals(object obj) {
-            if (obj != null) {
-                try {
-                    return this.Name == (obj as IOrigin).Name;
-                } catch (Exception ex) {
-                    Console.WriteLine(ex.Message);
-                    return false;
-                }
+            if (obj is IOrigin other) {
+                return string.Equals(Name, other.Name, StringComparison.Ordinal);
             }
+
             return false;
         }
 
         public override int GetHashCode() {
-            // Calcula un código hash basado en los campos de la clase
-            return Name.GetHashCode() ^ Url.GetHashCode() ^ this.DestinationFilename.GetHashCode();
+            // Evita NullReferenceException cuando las propiedades son nulas
+            int hashName = Name != null ? StringComparer.Ordinal.GetHashCode(Name) : 0;
+            int hashUrl = Url != null ? StringComparer.Ordinal.GetHashCode(Url) : 0;
+            int hashFile = DestinationFilename != null ? StringComparer.Ordinal.GetHashCode(DestinationFilename) : 0;
+
+            unchecked {
+                int hash = 17;
+                hash = hash * 31 + hashName;
+                hash = hash * 31 + hashUrl;
+                hash = hash * 31 + hashFile;
+                return hash;
+            }
         }
+
+        #endregion
     }
 }

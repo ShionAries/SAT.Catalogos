@@ -18,6 +18,11 @@
         /// </summary>
         string Revision { get; set; }
 
+        /// <summary>
+        /// obtener o establecer el nombre del archivo de origen
+        /// </summary>
+        string FileName { get; set; }
+
         System.DateTime? LastUpdate { get; set; }
 
         string Builder { get; }

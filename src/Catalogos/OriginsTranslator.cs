@@ -1,47 +1,51 @@
-﻿using System.Linq;
+﻿using System;
 using System.Collections.Generic;
-using Jaeger.SAT.Catalogos.Scraping.Interfaces;
+using System.Linq;
 using Jaeger.SAT.Catalogos.Scraping.Entities;
+using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos {
     /// <summary>
-    /// clase para traduccion de origenes
+    /// Clase para traducción de orígenes.
     /// </summary>
     public class OriginsTranslator {
-        private bool isDefault = false;
+        #region Propiedades
 
         /// <summary>
-        /// constructor
+        /// Obtiene un valor que indica si se utilizó la lista de orígenes interna/predeterminada.
         /// </summary>
-        public OriginsTranslator() {
-            isDefault = false;
-        }
+        public bool IsDefault { get; protected set; }
+
+        #endregion
+
+        #region Métodos Protegidos
 
         /// <summary>
-        /// obtener si la lista de origenes interna
+        /// Método para obtener orígenes desde una lista de layouts.
         /// </summary>
-        public bool IsDefault {
-            get { return isDefault; }
-        }
-
-        #region metodos publicos
-        /// <summary>
-        /// metodo para obtener origenes desde layouts
-        /// </summary>
-        /// <param name="layouts"></param>
-        /// <returns></returns>
+        /// <param name="layouts">Colección de layouts de origen.</param>
+        /// <returns>Lista de objetos que implementan <see cref="IOrigin"/>.</returns>
         protected List<IOrigin> OriginFromLayout(List<OriginLayout> layouts) {
             var dump = new DumpOrigins().Origins;
+
             if (layouts == null) {
-                isDefault = true;
-            } else {
-                for (int i = 0; i < dump.Count; i++) {
-                    var search = layouts.Where(it => it.Hash == dump[i].GetHashCode()).FirstOrDefault();
-                    if (search != null) {
-                        dump[i].AllowUpdate = true;
-                        if (search.LastVersion != null) {
-                            dump[i].LastVersion = search.LastVersion;
-                        }
+                IsDefault = true;
+                return dump;
+            }
+
+            // O(N): Creamos un diccionario con el Hash para búsquedas O(1)
+            var layoutsByHash = layouts
+                .Where(l => l != null)
+                .GroupBy(l => l.Hash)
+                .ToDictionary(g => g.Key, g => g.First());
+
+            foreach (var origin in dump) {
+                int originHash = origin.GetHashCode();
+
+                if (layoutsByHash.TryGetValue(originHash, out var search)) {
+                    origin.AllowUpdate = true;
+                    if (search.LastVersion != null) {
+                        origin.LastVersion = search.LastVersion;
                     }
                 }
             }
@@ -50,40 +54,48 @@ namespace Jaeger.SAT.Catalogos {
         }
 
         /// <summary>
-        /// metodo para obtener layout desde origen
+        /// Método para obtener un origen individual desde un layout.
         /// </summary>
-        /// <param name="item"></param>
-        /// <returns></returns>
+        /// <param name="item">Instancia del layout.</param>
+        /// <returns>Instancia de <see cref="IOrigin"/> o null si no coincide el tipo.</returns>
         protected IOrigin OriginFromLayout(OriginLayout item) {
-            if (item.Type.ToLower() == typeof(ConstantOrigin).Name.ToLower()) {
+            if (item == null || string.IsNullOrEmpty(item.Type))
+                return null;
+
+            if (string.Equals(item.Type, nameof(ConstantOrigin), StringComparison.OrdinalIgnoreCase)) {
                 return ConstantOriginFromLayout(item);
-            } else if (item.Type.ToLower() == typeof(ScrapingOrigin).Name.ToLower()) {
+            }
+
+            if (string.Equals(item.Type, nameof(ScrapingOrigin), StringComparison.OrdinalIgnoreCase)) {
                 return ScrapingOriginFromLayout(item);
             }
+
             return null;
         }
 
         /// <summary>
-        /// metodo para obtener layouts desde origenes
+        /// Método para obtener layouts desde una lista de orígenes.
         /// </summary>
-        /// <param name="origins"></param>
-        /// <returns></returns>
+        /// <param name="origins">Colección de orígenes.</param>
+        /// <returns>Lista de <see cref="OriginLayout"/>.</returns>
         protected List<OriginLayout> OriginToLayout(List<IOrigin> origins) {
-            var layouts = new List<OriginLayout>();
-            foreach (var origin in origins) {
-                layouts.Add(OriginToLayout(origin));
-            }
-            return layouts;
+            if (origins == null)
+                return new List<OriginLayout>();
+
+            return origins.Select(OriginToLayout).ToList();
         }
+
         #endregion
 
-        #region metodos privados
+        #region Métodos Privados
+
         /// <summary>
-        /// metodo para obtener layout desde origen
+        /// Mapea un objeto <see cref="IOrigin"/> a <see cref="OriginLayout"/>.
         /// </summary>
-        /// <param name="origin"></param>
-        /// <returns></returns>
         private OriginLayout OriginToLayout(IOrigin origin) {
+            if (origin == null)
+                return null;
+
             return new OriginLayout {
                 DestinationFilename = origin.DestinationFilename,
                 Url = origin.Url,
@@ -92,43 +104,39 @@ namespace Jaeger.SAT.Catalogos {
                 LinkText = origin.LinkText,
                 Name = origin.Name,
                 Type = origin.GetType().Name,
-                AllowUpdate = origin.AllowUpdate,
+                AllowUpdate = origin.AllowUpdate
             };
         }
 
         /// <summary>
-        /// metodo para obtener origen constante desde layout
+        /// Mapea un layout a una instancia de <see cref="ConstantOrigin"/>.
         /// </summary>
-        /// <param name="item"></param>
-        /// <returns></returns>
         private IOrigin ConstantOriginFromLayout(OriginLayout item) {
-            return new ConstantOrigin() {
-                DestinationFilename = item.DestinationFilename,
-                Url = item.Url,
-                DownloadUrl = item.DownloadUrl,
-                LastVersion = item.LastVersion,
-                LinkText = item.LinkText,
-                Name = item.Name,
-                AllowUpdate = item.AllowUpdate,
-            };
+            return PopulateOrigin(new ConstantOrigin(), item);
         }
 
         /// <summary>
-        /// metodo para obtener origen scraping desde layout
+        /// Mapea un layout a una instancia de <see cref="ScrapingOrigin"/>.
         /// </summary>
-        /// <param name="item"></param>
-        /// <returns></returns>
         private IOrigin ScrapingOriginFromLayout(OriginLayout item) {
-            return new ScrapingOrigin() {
-                DestinationFilename = item.DestinationFilename,
-                Url = item.Url,
-                DownloadUrl = item.DownloadUrl,
-                LastVersion = item.LastVersion,
-                LinkText = item.LinkText,
-                Name = item.Name,
-                AllowUpdate = item.AllowUpdate,
-            };
+            return PopulateOrigin(new ScrapingOrigin(), item);
         }
+
+        /// <summary>
+        /// Método auxiliar para copiar las propiedades comunes desde un <see cref="OriginLayout"/> a una instancia de <see cref="IOrigin"/>.
+        /// </summary>
+        private T PopulateOrigin<T>(T target, OriginLayout source) where T : IOrigin {
+            target.DestinationFilename = source.DestinationFilename;
+            target.Url = source.Url;
+            target.DownloadUrl = source.DownloadUrl;
+            target.LastVersion = source.LastVersion;
+            target.LinkText = source.LinkText;
+            target.Name = source.Name;
+            target.AllowUpdate = source.AllowUpdate;
+
+            return target;
+        }
+
         #endregion
     }
 }

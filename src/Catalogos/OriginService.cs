@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using Newtonsoft.Json;
@@ -6,104 +7,147 @@ using Jaeger.SAT.Catalogos.Scraping.Interfaces;
 
 namespace Jaeger.SAT.Catalogos {
     /// <summary>
-    /// clase para servicio de origenes
+    /// Clase para el servicio de gestión y persistencia de orígenes.
     /// </summary>
     public class OriginService : OriginsTranslator, IOriginService {
+        #region Campos Privados y Estáticos
+
+        private static readonly Encoding Utf8WithoutBom = new UTF8Encoding(false);
+
+        private static readonly JsonSerializerSettings JsonSettings = new JsonSerializerSettings {
+            NullValueHandling = NullValueHandling.Ignore,
+            DateFormatString = "dd/MM/yyyy"
+        };
+
+        #endregion
+
+        #region Constructores
+
         /// <summary>
-        /// constructor
+        /// Inicializa una nueva instancia de la clase <see cref="OriginService"/> con la configuración especificada.
         /// </summary>
-        public OriginService(IConfiguration configuration) : base() {
-            Configuration = configuration;
+        /// <param name="configuration">Configuración del servicio.</param>
+        public OriginService(IConfiguration configuration) {
+            Configuration = configuration ?? new Configuration();
         }
 
         /// <summary>
-        /// constructor
+        /// Inicializa una nueva instancia de la clase <see cref="OriginService"/> con la configuración por defecto.
         /// </summary>
-        public OriginService() : base() {
-            Configuration = new Configuration();
+        public OriginService() : this(new Configuration()) {
         }
 
+        #endregion
+
+        #region Propiedades
+
         /// <summary>
-        /// obtener o establecer control de layout
+        /// Obtiene o establece el control de layout actual.
         /// </summary>
         public ControlLayout Control { get; set; }
 
         /// <summary>
-        /// obtener o establecer configuracion
+        /// Obtiene o establece la configuración del servicio.
         /// </summary>
         public IConfiguration Configuration { get; set; }
 
         /// <summary>
-        /// obtener o establecer lista de origines de datos
+        /// Obtiene o establece la lista de orígenes de datos actuales.
         /// </summary>
         public List<IOrigin> DataSource { get; set; }
 
+        #endregion
+
+        #region Métodos Públicos
+
         /// <summary>
-        /// obtener listado de origenes
+        /// Carga la configuración del archivo local y obtiene la lista de orígenes.
         /// </summary>
         public IOriginService GetAll() {
-            this.Control = OriginsFromString();
-            if (this.Control == null) {
-                this.Control = new ControlLayout {
-                    Configuration = (Configuration)this.Configuration
+            Control = OriginsFromString();
+
+            if (Control == null) {
+                Control = new ControlLayout {
+                    Configuration = (Configuration)Configuration
                 };
             }
-            this.DataSource = OriginFromLayout(this.Control.Origins);
+
+            DataSource = OriginFromLayout(Control.Origins);
             return this;
         }
 
         /// <summary>
-        /// almacenar datos
+        /// Almacena los datos del catálogo en el archivo de persistencia local.
         /// </summary>
         public IOriginService Save() {
-            this.WriteFile();
+            WriteFile();
             return this;
         }
 
-        #region builder
+        #endregion
+
+        #region Métodos Protegidos (Builder / I/O)
+
         /// <summary>
-        /// obtener ruta completa del archivo de control
+        /// Construye la ruta completa del archivo de control basándose en la configuración.
         /// </summary>
-        /// <returns></returns>
         protected string BuildPath() {
-            return Path.Combine(Configuration.WorkingFolder, Configuration.FileName);
+            if (Configuration == null)
+                throw new InvalidOperationException("La configuración no se encuentra inicializada.");
+
+            return Path.Combine(Configuration.WorkingFolder ?? string.Empty, Configuration.FileName ?? string.Empty);
         }
 
+        /// <summary>
+        /// Deserializa una cadena JSON al objeto <see cref="ControlLayout"/>.
+        /// </summary>
         protected ControlLayout ReadOrigin(string content) {
-            var configuration = new JsonSerializerSettings() {
-                NullValueHandling = NullValueHandling.Ignore,
-                DateFormatString = "dd/MM/yyyy"
-            };
+            if (string.IsNullOrWhiteSpace(content))
+                return null;
 
             try {
-                return JsonConvert.DeserializeObject<ControlLayout>(content, configuration);
-            } catch (System.Exception ex) {
-                System.Console.WriteLine(ex.Message);
+                return JsonConvert.DeserializeObject<ControlLayout>(content, JsonSettings);
+            } catch (Exception ex) {
+                // NOTA: Se recomienda reemplazar Console.WriteLine por un sistema de Logging (p. ej. ILogger)
+                Console.WriteLine($"Error al deserializar el archivo de control: {ex.Message}");
+                return null;
             }
-            return null;
         }
 
+        /// <summary>
+        /// Lee y deserializa el archivo de origen desde la ruta configurada.
+        /// </summary>
         protected ControlLayout OriginsFromString() {
-            if (!File.Exists(BuildPath())) { return null; }
-            Encoding utf8WithoutBom = new UTF8Encoding(false);
-            return ReadOrigin(File.ReadAllText(BuildPath(), utf8WithoutBom));
+            string path = BuildPath();
+
+            if (!File.Exists(path))
+                return null;
+
+            string content = File.ReadAllText(path, Utf8WithoutBom);
+            return ReadOrigin(content);
         }
 
+        /// <summary>
+        /// Serializa y escribe el estado actual en el archivo de control.
+        /// </summary>
         protected void WriteFile() {
-            var configuration = new JsonSerializerSettings() {
-                NullValueHandling = NullValueHandling.Ignore,
-                DateFormatString = "dd/MM/yyyy"
-            };
+            string path = BuildPath();
 
-            this.Control = new ControlLayout {
-                Configuration = (Configuration)this.Configuration,
+            // Garantizar que la carpeta de destino exista antes de intentar escribir
+            string folder = Path.GetDirectoryName(path);
+            if (!string.IsNullOrEmpty(folder) && !Directory.Exists(folder)) {
+                Directory.CreateDirectory(folder);
+            }
+
+            Control = new ControlLayout {
+                Configuration = (Configuration)Configuration,
                 Origins = OriginToLayout(DataSource)
             };
-            var contenido = JsonConvert.SerializeObject(this.Control, Formatting.Indented, configuration);
-            Encoding utf8WithoutBom = new UTF8Encoding(false);
-            File.WriteAllText(BuildPath(), contenido, utf8WithoutBom);
+
+            string jsonContent = JsonConvert.SerializeObject(Control, Formatting.Indented, JsonSettings);
+            File.WriteAllText(path, jsonContent, Utf8WithoutBom);
         }
+
         #endregion
     }
 }
-    
