@@ -21,7 +21,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
         private int estimuloField;
         #endregion
 
-        public CveProdServ() { }
+        public CveProdServ() { this.PalabrasSimilares = string.Empty; }
 
         [JsonProperty("iva")]
         [DataNames("IncluirIvaTrasladado")]

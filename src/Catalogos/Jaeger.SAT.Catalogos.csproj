@@ -63,6 +63,9 @@
     <Compile Include="Repository\Abstracts\ClaveBaseVigenciaSingle.cs" />
     <Compile Include="Repository\Abstracts\RepositoryContext.cs" />
     <Compile Include="Repository\Abstracts\RepositoryBase.cs" />
+    <Compile Include="Repository\Bancos\BancosRepository.cs" />
+    <Compile Include="Repository\Bancos\ClaveBanco.cs" />
+    <Compile Include="Repository\Bancos\IBancosRepository.cs" />
     <Compile Include="Repository\CApocrifo\CorreoApocrifo.cs" />
     <Compile Include="Repository\CApocrifo\CorreoApocrifoRepository.cs" />
     <Compile Include="Repository\CApocrifo\ICorreoApocrifoRepository.cs" />
@@ -164,6 +167,9 @@
     <Compile Include="Repository\Ccp31\UnidadPesoRepository.cs" />
     <Compile Include="Repository\Ccp30\CondicionesEspecialesRepository.cs" />
     <Compile Include="Repository\Ccp30\ICondicionesEspeciales.cs" />
+    <Compile Include="Repository\Cert\CertificadosRepository.cs" />
+    <Compile Include="Repository\Cert\Certificate.cs" />
+    <Compile Include="Repository\Cert\ICertificadosRepository.cs" />
     <Compile Include="Repository\Cfdi40\AduanasRepository.cs" />
     <Compile Include="Repository\Articulo69\Articulo69Repository.cs" />
     <Compile Include="Repository\Articulo69B\Articulo69BRepository.cs" />
@@ -612,5 +618,6 @@
   <ItemGroup>
     <Content Include="api.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

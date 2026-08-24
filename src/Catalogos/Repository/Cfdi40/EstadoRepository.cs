@@ -1,6 +1,5 @@
-﻿using Jaeger.SAT.Catalogos.Repository.Abstracts;
+﻿using System.Linq;
 using Jaeger.SAT.Catalogos.Repository.Interfaces;
-using System.Linq;
 
 namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// <summary>

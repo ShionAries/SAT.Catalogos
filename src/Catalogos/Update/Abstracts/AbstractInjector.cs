@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Update.Abstracts {
-    public abstract class AbstractInjector : IInjector {
+    public abstract class  AbstractInjector : IInjector {
         #region declaraciones
         protected DataTable _DataTable;
         protected Dictionary<string, string> _HeadersMapper;
