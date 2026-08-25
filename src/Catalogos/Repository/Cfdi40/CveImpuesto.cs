@@ -64,6 +64,9 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
             }
         }
 
+        /// <summary>
+        /// Clave del impuesto, con formato de 3 dígitos
+        /// </summary>
         [DisplayName("Clave")]
         [JsonProperty("clv", Order = 0)]
         [DataNames("Clave")]

@@ -1,13 +1,11 @@
 ﻿using System.Linq;
-using Jaeger.SAT.Catalogos.Repository.Abstracts;
-using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
     /// <summary>
     /// catalogo de tipos de contrato (nomina)
     /// </summary>
-    public class TipoContratoRepository : RepositoryContext<CveTipoContrato>, ITipoContratoRepository, IRepositoryGeneric {
-        public TipoContratoRepository() {
+    public class TipoContratoRepository : RepositoryContext<CveTipoContrato>, ITipoContratoRepository, Interfaces.IRepositoryGeneric {
+        public TipoContratoRepository() : base() {
             this.Description = "Catálogo de tipos de contrato";
             this.FileName = "CatNom12TipoContrato.json";
             this.Version = "1.0";

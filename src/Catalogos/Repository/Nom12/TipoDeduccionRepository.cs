@@ -1,17 +1,15 @@
 ﻿using System.Linq;
-using Jaeger.SAT.Catalogos.Repository.Abstracts;
-using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
     /// <summary>
     /// Nomina Catalogo de tipos de deducciones
     /// </summary>
-    public class TipoDeduccionRepository : RepositoryContext<CveTipoDeduccion>, ITipoDeduccionRepository, IRepositoryGeneric {
-        public TipoDeduccionRepository() {
-            Description = "Catálogo de tipos de deducciones.";
-            FileName = "CatNom12TipoDeduccion.json";
-            Version = "3.0";
-            Revision = "0";
+    public class TipoDeduccionRepository : RepositoryContext<CveTipoDeduccion>, ITipoDeduccionRepository, Interfaces.IRepositoryGeneric {
+        public TipoDeduccionRepository() : base() {
+            this.Description = "Catálogo de tipos de deducciones.";
+            this.FileName = "CatNom12TipoDeduccion.json";
+            this.Version = "3.0";
+            this.Revision = "0";
         }
 
         public override CveTipoDeduccion Search(string query) {

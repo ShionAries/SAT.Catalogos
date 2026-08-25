@@ -1,13 +1,11 @@
 ﻿using System.Linq;
-using Jaeger.SAT.Catalogos.Repository.Abstracts;
-using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
     /// <summary>
     /// catalogo de tipos de percepciones
     /// </summary>
-    public class TipoPercepcionRepository : RepositoryContext<CveTipoPercepcion>, ITipoPercepcionRepository, IRepositoryGeneric {
-        public TipoPercepcionRepository() {
+    public class TipoPercepcionRepository : RepositoryContext<CveTipoPercepcion>, ITipoPercepcionRepository, Interfaces.IRepositoryGeneric {
+        public TipoPercepcionRepository() : base() {
             this.Description = "Catálogo de tipos de percepciones.";
             this.FileName = "CatNom12TipoPercepcion.json";
             this.Version = "2.0";

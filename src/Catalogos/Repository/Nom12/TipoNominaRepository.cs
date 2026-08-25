@@ -1,15 +1,13 @@
 ﻿using System.Linq;
-using Jaeger.SAT.Catalogos.Repository.Abstracts;
-using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
     /// <summary>
     /// catalogo de tipos de nomina
     /// </summary>
-    public class TipoNominaRepository : RepositoryContext<CveTipoNomina>, ITipoNominaRepository, IRepositoryGeneric {
-        public TipoNominaRepository() {
-            Description = "Catálogo de tipos de nómina.";
-            FileName = "CatNom12Tipos.json";
+    public class TipoNominaRepository : RepositoryContext<CveTipoNomina>, ITipoNominaRepository, Interfaces.IRepositoryGeneric {
+        public TipoNominaRepository() : base() {
+            this.Description = "Catálogo de tipos de nómina.";
+            this.FileName = "CatNom12Tipos.json";
         }
 
         public override CveTipoNomina Search(string query) {

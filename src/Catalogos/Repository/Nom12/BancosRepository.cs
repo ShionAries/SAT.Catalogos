@@ -1,9 +1,10 @@
 ﻿using System.Linq;
-using Jaeger.SAT.Catalogos.Repository.Abstracts;
-using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Nom12 {
-    public class BancosRepository : RepositoryContext<CveBanco>, IBancosRepository, IRepositoryGeneric {
+    /// <summary>
+    /// Nom12: catalogo de bancos SAT
+    /// </summary>
+    public class BancosRepository : RepositoryContext<CveBanco>, IBancosRepository, Interfaces.IRepositoryGeneric {
         public BancosRepository() {
             Description = "Catálogo de Bancos SAT";
             FileName = "CatNom12Bancos.json";
