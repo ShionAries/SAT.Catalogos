@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using System.ComponentModel;
-using Jaeger.SAT.Catalogos.Repository.Abstracts;
 using Jaeger.SAT.Catalogos.Helpers.Mapping;
 
 namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
@@ -8,7 +7,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// CFDI 4.0, Catalogo de codigos postales
     /// </summary>
     [JsonObject]
-    public class CveCodigoPostal : ClaveBaseVigenciaSingle {
+    public class CveCodigoPostal : Abstracts.ClaveBaseVigenciaSingle {
 
         public CveCodigoPostal() {
             Clave = string.Empty;

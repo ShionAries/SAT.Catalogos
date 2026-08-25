@@ -1,14 +1,16 @@
 ﻿using System.ComponentModel;
 using Newtonsoft.Json;
 using Jaeger.SAT.Catalogos.Helpers.Mapping;
-using Jaeger.SAT.Catalogos.Repository.Abstracts;
 
 namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// <summary>
     /// CFDI 4.0, Catalogo de Formas de Pago
     /// </summary>
     [JsonObject("item")]
-    public class CveFormaPago : ClaveBaseVigencia {
+    public class CveFormaPago : Abstracts.ClaveBaseVigencia {
+
+        public CveFormaPago() : base() { }
+
         [Description("Bancarizado")]
         [DisplayName("Bancarizado")]
         [JsonProperty("bancarizado")]
@@ -72,6 +74,9 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
         [DataNames("NombreBancoEmisorCtaOrdenante")]
         public string NombreBancoEmisorCtaOrdenante { get; set; }
 
+        /// <summary>
+        /// clave en formato de dos digitos, para que sea compatible con la version 3.3 del CFDI
+        /// </summary>
         [DisplayName("Clave")]
         [JsonProperty("clv", Order = 0)]
         [DataNames("Clave")]

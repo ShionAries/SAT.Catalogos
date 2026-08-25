@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel;
 using Newtonsoft.Json;
-using Jaeger.SAT.Catalogos.Helpers.Mapping;
 
 namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// <summary>
@@ -12,7 +11,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
 
         [DisplayName("Clave")]
         [JsonProperty("clv", Order = 0)]
-        [DataNames("Clave")]
+        [Helpers.Mapping.DataNames("Clave")]
         public new string Clave {
             get {
                 var numero = int.Parse(base.Clave);

@@ -1,7 +1,4 @@
 ﻿using System.ComponentModel;
-using Jaeger.SAT.Catalogos.Helpers.Mapping;
-using Jaeger.SAT.Catalogos.Repository.Abstracts;
-using Jaeger.SAT.Catalogos.Repository.Interfaces;
 using Newtonsoft.Json;
 
 namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
@@ -9,12 +6,15 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// CFDI 4.0, Catálogo de aduanas (tomado del anexo 22, apéndice I de la RGCE 2017).
     /// </summary>
     [JsonObject("item")]
-    public class CveAduana : ClaveBaseVigencia, IClaveBaseItem {
-        public CveAduana() { }
+    public class CveAduana : Abstracts.ClaveBaseVigencia, Interfaces.IClaveBaseItem {
+        public CveAduana() : base() { }
 
+        /// <summary>
+        /// clave de dos dígitos que identifica a la aduana de entrada o salida de mercancías.
+        /// </summary>
         [DisplayName("Clave")]
         [JsonProperty("clv", Order = 0)]
-        [DataNames("Clave")]
+        [Helpers.Mapping.DataNames("Clave")]
         public new string Clave {
             get {
                 var numero = int.Parse(base.Clave);

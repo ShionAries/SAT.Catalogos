@@ -1,14 +1,12 @@
 ﻿using System.ComponentModel;
 using Jaeger.SAT.Catalogos.Helpers.Mapping;
-using Jaeger.SAT.Catalogos.Repository.Abstracts;
-using Jaeger.SAT.Catalogos.Repository.Interfaces;
 using Newtonsoft.Json;
 
 namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// <summary>
     /// CFDI 4.0, Catálogo de localidades. 
     /// </summary>
-    public class CveLocalidad : ClaveBaseVigencia, IClaveBase {
+    public class CveLocalidad : Abstracts.ClaveBaseVigencia, Interfaces.IClaveBase {
 
         public CveLocalidad() : base() { }
 

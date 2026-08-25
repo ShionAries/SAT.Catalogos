@@ -1,12 +1,10 @@
 ﻿using System.Linq;
-using Jaeger.SAT.Catalogos.Repository.Abstracts;
-using Jaeger.SAT.Catalogos.Repository.Interfaces;
 
 namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// <summary>
     /// Catálogo de aduanas (tomado del anexo 22, apéndice I de la RGCE 2017).
     /// </summary>
-    public class AduanasRepository : RepositoryContext<CveAduana>, IAduanasRepository, IRepositoryGeneric {
+    public class AduanasRepository : RepositoryContext<CveAduana>, IAduanasRepository, Interfaces.IRepositoryGeneric {
         public AduanasRepository() {
             FileName = "AduanasCFDi40.json";
             Description = "Catálogo de aduanas (tomado del anexo 22, apéndice I de la RGCE 2017).";

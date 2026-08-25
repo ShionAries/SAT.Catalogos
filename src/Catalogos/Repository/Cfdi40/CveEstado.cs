@@ -1,16 +1,15 @@
 ﻿using System.ComponentModel;
 using Newtonsoft.Json;
 using Jaeger.SAT.Catalogos.Helpers.Mapping;
-using Jaeger.SAT.Catalogos.Repository.Abstracts;
 
 namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// <summary>
     /// CFDI 4.0, Catalogo de Nomina: Estados
     /// </summary>
     [JsonObject("item")]
-    public class CveEstado : ClaveBaseVigenciaSingle {
+    public class CveEstado : Abstracts.ClaveBaseVigenciaSingle {
 
-        public CveEstado() { }
+        public CveEstado() : base() { }
 
         /// <summary>
         /// codigo del banco

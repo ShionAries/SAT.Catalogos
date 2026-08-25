@@ -1,14 +1,13 @@
 ﻿using System.ComponentModel;
 using Newtonsoft.Json;
 using Jaeger.SAT.Catalogos.Helpers.Mapping;
-using Jaeger.SAT.Catalogos.Repository.Abstracts;
 
 namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// <summary>
     /// CFDI 4.0: Catálogo de unidades de medida para los conceptos en el CFDI.
     /// </summary>
     [JsonObject("item")]
-    public class CveUnidad : ClaveBaseVigencia {
+    public class CveUnidad : Abstracts.ClaveBaseVigencia {
         private string nombreField;
         private string notasField;
         private string simboloField;

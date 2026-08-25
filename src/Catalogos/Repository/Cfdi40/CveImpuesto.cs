@@ -1,7 +1,5 @@
 ﻿using System.ComponentModel;
 using Newtonsoft.Json;
-using Jaeger.SAT.Catalogos.Repository.Abstracts;
-using Jaeger.SAT.Catalogos.Repository.Interfaces;
 using Jaeger.SAT.Catalogos.Helpers.Mapping;
 
 namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
@@ -9,7 +7,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// CFDI 4.0, Catalogo de Impuestos
     /// </summary>
     [JsonObject("item")]
-    public class CveImpuesto : ClaveBase, IClaveBase {
+    public class CveImpuesto : Abstracts.ClaveBase, Interfaces.IClaveBase {
         private string retencionField;
         private string trasladoField;
         private string localFederalField;
