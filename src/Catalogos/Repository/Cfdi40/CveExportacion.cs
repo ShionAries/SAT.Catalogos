@@ -10,7 +10,7 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     public class CveExportacion : Abstracts.ClaveBaseVigencia, Interfaces.IClaveBaseItem {
         public CveExportacion() : base() { }
 
-        [[DisplayName("Clave")]
+        [DisplayName("Clave")]
         [JsonProperty("clv", Order = 0)]
         [DataNames("Clave")]
         public new string Clave {
