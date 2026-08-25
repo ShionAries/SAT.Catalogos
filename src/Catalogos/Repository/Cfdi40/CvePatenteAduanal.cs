@@ -10,12 +10,21 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
     /// </summary>
     [JsonObject("item")]
     public class CvePatenteAduanal : ClaveBaseVigenciaSingle, IClaveBaseVigencia {
+        private string _clave;
+
         public CvePatenteAduanal() { }
 
-        [Description("Clave")]
         [DisplayName("Clave")]
-        [JsonProperty("clv")]
+        [JsonProperty("clv", Order = 0)]
         [DataNames("Clave")]
-        public string Clave { get; set; }
+        public string Clave {
+            get {
+                var numero = int.Parse(_clave);
+                return numero.ToString("0000");
+            }
+            set {
+                this._clave = int.Parse(value).ToString("0000");
+            }
+        }
     }
 }

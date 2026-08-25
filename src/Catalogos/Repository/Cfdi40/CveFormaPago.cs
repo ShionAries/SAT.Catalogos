@@ -71,5 +71,18 @@ namespace Jaeger.SAT.Catalogos.Repository.Cfdi40 {
         [JsonProperty("nombreBancoEmisorCtaOrdenante")]
         [DataNames("NombreBancoEmisorCtaOrdenante")]
         public string NombreBancoEmisorCtaOrdenante { get; set; }
+
+        [DisplayName("Clave")]
+        [JsonProperty("clv", Order = 0)]
+        [DataNames("Clave")]
+        public new string Clave {
+            get {
+                var numero = int.Parse(base.Clave);
+                return numero.ToString("00");
+            }
+            set { 
+                base.Clave = int.Parse(value).ToString("00");
+            }
+        }
     }
 }
